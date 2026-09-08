@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-06",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 packaged Development Win64, D3D11 1280x720, actual native options UI",
+  "package_log": "m1-options-write-package.log",
+  "cases": [
+    {
+      "case": "readonly_a",
+      "passed": true,
+      "files_unchanged": true,
+      "log": "m1-options-write-readonly_a.log",
+      "fixture_sha256": [
+        "0746cf838420d179525d56bd81877d3091b6abd8a2fbecd63296c6e0a95b8440",
+        "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f"
+      ]
+    },
+    {
+      "case": "readonly_b",
+      "passed": true,
+      "files_unchanged": true,
+      "log": "m1-options-write-readonly_b.log",
+      "fixture_sha256": [
+        "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f",
+        "0746cf838420d179525d56bd81877d3091b6abd8a2fbecd63296c6e0a95b8440"
+      ]
+    }
+  ],
+  "verified": [
+    "Real UI save against read-only A and B destinations leaves previous ten live fields and camera FOV unchanged",
+    "Both fixture files byte-identical after refusal and session-only defaults",
+    "Actual painted Save button disabled after failed write; notice reports unverified write",
+    "Session-only defaults apply while disk writing stays disabled",
+    "Original preference contents and attributes restored; fresh-process custom settings reload passes",
+    "All 58 campaign-save files remain unchanged"
+  ],
+  "restored_reload_log": "m1-options-write-restored-reload.log",
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "limitations": [
+    "Read-only refusal is not disk-full or partial-write coverage",
+    "Native widget command invocation does not prove physical-device or manual visual operation",
+    "Audio consumer readiness is not acoustic verification",
+    "Remaining competing-writer, compatibility and campaign-transition cases remain open"
+  ]
+}

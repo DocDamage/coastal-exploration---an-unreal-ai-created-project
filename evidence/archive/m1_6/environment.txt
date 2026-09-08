@@ -1,0 +1,18 @@
+Recorded UTC: 2026-09-06T02:52:56.396645+00:00
+Scope: this container only; not the user Windows host or an exhaustive installation scan.
+PATH=/opt/apply_patch/bin:/opt/imagemagick/bin:/opt/pyvenv/bin:/usr/local/swift/usr/bin:/usr/local/go/bin:/opt/nvm/versions/node/v22.16.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.sdkman/candidates/kotlin/current/bin
+g++: /usr/bin/g++
+g++ (Debian 14.2.0-19) 14.2.0
+clang++: /usr/local/swift/usr/bin/clang++
+clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)
+python3: /opt/pyvenv/bin/python3
+Python 3.13.5
+UnrealEditor: not found in PATH
+UnrealBuildTool: not found in PATH
+RunUAT.sh: not found in PATH
+pwsh: not found in PATH
+/opt: apply_patch, entrypoint, imagemagick, novnc, nvm, pdf_reader_service, python-hooks, python-tool, pyvenv, pyvenv-python-tool, scripts, terminal-server
+/usr/local: bin, chromium, etc, extensions, games, go, include, init_scripts, lib, libexec, man, mouse_pointer_icon.png, sbin, scripts, share, slides_js, src, swift
+/mnt/data: Coastal_Exploration_Foundation(1).md, Coastal_Exploration_M1_2_Implementation(1).md, Coastal_Exploration_M1_2_Source_Package(1).zip, Coastal_Exploration_M1_2_UI_Wiring(1).md, Coastal_Exploration_M1_2_Validation_Report(1).md, Coastal_Exploration_M1_3_Implementation(1).md, Coastal_Exploration_M1_3_Source_Package(1).zip, Coastal_Exploration_M1_3_Startup_Wiring(1).md, Coastal_Exploration_M1_3_Validation_Report(1).md, Coastal_Exploration_M1_4_Delivery_Check(1).json, Coastal_Exploration_M1_4_Implementation(1).md, Coastal_Exploration_M1_4_Interaction_Wiring(1).md, Coastal_Exploration_M1_4_Source_Package(1).zip, Coastal_Exploration_M1_5_Delivery_Check(1).json, Coastal_Exploration_M1_5_Implementation(1).md, Coastal_Exploration_M1_5_Recovery_Wiring(1).md, Coastal_Exploration_M1_5_Source_Package(1).zip, Coastal_Exploration_M1_5_Validation_Report(1).md, Coastal_Exploration_M1_Next_Section(1).md, Coastal_Exploration_M1_Source_Package(1).zip, Coastal_Exploration_M1_Validation_Report(1).md, Coastal_Exploration_Starter(1).zip, coastal_m1_6_work
+No supplied .uproject, purchased AGIS/Hyper API source or Unreal runtime was found in the listed inspection locations.
+No UHT/UBT, Windows compiler, native automation, rendering, controller gameplay, cooking or packaging was run.

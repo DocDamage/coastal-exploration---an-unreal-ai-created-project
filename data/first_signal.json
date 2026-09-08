@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "quest.first_signal",
+  "name": "First Signal",
+  "status": "original_design",
+  "duration_target_minutes": [
+    15,
+    25
+  ],
+  "required_items": {
+    "item.radio_battery": 1,
+    "item.marine_fuse": 1
+  },
+  "transaction_id": "first_signal.radio_repair.v1",
+  "states": [
+    "InspectRadio",
+    "FindEquipment",
+    "ReturnToRadio",
+    "ListenToRadio",
+    "Complete"
+  ],
+  "optional_facts": [
+    "cabinVisited",
+    "dockDiscovered",
+    "maintenanceNoteRead"
+  ],
+  "invariants": [
+    "messageHeard implies radioRepaired",
+    "radioRepaired implies radioInspected",
+    "inventory and objective facts share a unified save generation"
+  ],
+  "objective_copy": {
+    "InspectRadio": "Inspect the radio at the cabin.",
+    "FindEquipment": "Search the old dock for a radio battery and marine fuse.",
+    "ReturnToRadio": "Return to the cabin and repair the radio.",
+    "ListenToRadio": "Listen to the restored radio.",
+    "Complete": "First Signal complete. A new location has been recorded in your journal."
+  },
+  "failure_copy": {
+    "MissingItems": "You need a radio battery and a marine fuse in your backpack.",
+    "NotConfigured": "Development error: inventory adapter is not connected.",
+    "Failed": "The repair could not be completed. Your items should be unchanged; check the inventory transaction log."
+  },
+  "radio_message": "Coast watch, this is North Reach maintenance. The outer platform's signal lamp is still active. The service walkway is damaged—approach from the marked landing. I've left the inspection log at the harbour office. Check there before setting out.",
+  "radio_message_context": "Original fictional draft. This is a future journal lead, not a claim that a harbour mission, platform level, or boat-travel system has been implemented.",
+  "ending": "Record North Reach in the journal, save the whole campaign, leave the player free to explore."
+}

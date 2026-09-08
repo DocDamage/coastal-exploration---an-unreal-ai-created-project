@@ -1,0 +1,72 @@
+{
+  "date": "2026-09-06",
+  "engine": "5.7.4",
+  "configuration": "Development Win64, D3D11, 1280x720, offscreen, NoSound",
+  "full_m1_gate_passed": false,
+  "automated_packaged_core_loop_passed": true,
+  "physical_traversal_tested": false,
+  "sound_output_tested": false,
+  "runs": [
+    {
+      "run": "editor-campaign-new-2",
+      "status": "passed",
+      "mode": "new",
+      "verified_generation": 14,
+      "receipts": 5,
+      "clean_exit": true,
+      "log_sha256": "12c16652a7787367482f9a6b93690d8eeecdda6254b02c7c7f980ec8bbf7847b"
+    },
+    {
+      "run": "editor-campaign-continue-3",
+      "status": "passed",
+      "mode": "continue",
+      "verified_generation": 15,
+      "receipts": 5,
+      "clean_exit": true,
+      "log_sha256": "20c406a4203f594cf03cdaa1e595b8c350bcf4e4e1daf55feedae60a51b8d521"
+    },
+    {
+      "run": "packaged-campaign-new",
+      "status": "passed",
+      "mode": "new",
+      "verified_generation": 14,
+      "receipts": 5,
+      "clean_exit": true,
+      "log_sha256": "d1d67b4176416f456e4a00f753d40fcb691f3982089876311f7b128e50a5c0d6"
+    },
+    {
+      "run": "packaged-campaign-continue",
+      "status": "passed",
+      "mode": "continue",
+      "verified_generation": 15,
+      "receipts": 5,
+      "clean_exit": true,
+      "log_sha256": "cbbf2e75f708c3fa9e687a51f59df8cbae0cb954f38c62de0c993158b579a836"
+    },
+    {
+      "run": "packaged-reviewed-new",
+      "status": "passed",
+      "mode": "new",
+      "verified_generation": 14,
+      "receipts": 5,
+      "clean_exit": true,
+      "log_sha256": "52b0a4304e739af25f8dafa3eae76e4bb243ed47e6b405f5cc3219eb82a54504"
+    },
+    {
+      "run": "packaged-reviewed-continue",
+      "status": "passed",
+      "mode": "continue",
+      "verified_generation": 15,
+      "receipts": 5,
+      "clean_exit": true,
+      "log_sha256": "0c2d62287551fc503e7178723f16aabe5a79cbf2ba600c24c09062679d7607a2"
+    }
+  ],
+  "same_campaign_across_relaunch": true,
+  "final_package": {
+    "configuration": "Development Win64",
+    "build_status": "passed",
+    "archive_location": "../LocalPackageIntegratedFinal/Windows",
+    "build_log_sha256": "968d904a2f8014afef28daa95376a5d41a9121646807c59b5c6f159ec852207b"
+  }
+}

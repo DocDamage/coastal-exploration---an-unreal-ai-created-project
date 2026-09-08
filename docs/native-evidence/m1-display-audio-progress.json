@@ -1,0 +1,50 @@
+{
+  "date": "2026-09-06",
+  "milestone": "M1",
+  "complete": false,
+  "engine": "Unreal 5.7.4",
+  "configuration": "Development Win64, D3D11, actual packaged integrated room",
+  "regression": {
+    "native_automation": "39/39: 38 clean, one actual AGIS test with vendor warnings; zero failed/unrun",
+    "native_log": "m1-host-policy-unreal-tests.log",
+    "python": "52/52 passed in m1-host-policy-python-tests.log",
+    "latest_controls": "m1-controls-packaged-latest.log passes mouse/stick, WASD/gamepad movement, Hold/Toggle sprint, modal rearm and session preferences using injected input and real enhanced-input consumers",
+    "campaign_relaunch": "m1-radio-fresh-continue-2.log restores the same completed campaign with five receipts and clean quit. The expected-ID file was recovered from the prior audio-pass artifact after the new audio mode omitted that separate file; source now writes it for both New and audio modes."
+  },
+  "display": {
+    "host_change": "CoastalHostGameEngine replaces its inherited automatic preference-confirming resize callback with runtime-only resize bookkeeping.",
+    "passed": [
+      "draft does not alter viewport/settings",
+      "Revert restores observed prior viewport",
+      "session Keep leaves saved fields unchanged",
+      "real-time timeout restores prior viewport while paused",
+      "explicit Keep/save survives fresh process without window/size launch overrides"
+    ],
+    "reloaded_mode": "1280x960 Windowed",
+    "logs": [
+      "m1-display-host-policy.log",
+      "m1-display-host-reload.log"
+    ],
+    "limitations": [
+      "UI commands invoked through enabled painted widget delegates",
+      "physical-controller acceptance not established",
+      "Current setup subsequently passes borderless mode cycle and fresh-process persistence; see m1-display-mode-cycle-progress.json. Earlier failure preserved without isolated root cause.",
+      "remaining focus/fault cases not run"
+    ]
+  },
+  "audio": {
+    "sources": "Actual independent local sound classes; licensed-derived ambience/action and original transcript synthesized locally as temporary radio recording",
+    "nonzero_captures": [
+      "m1-audio-diagnostic-run.log",
+      "m1-audio-verbose-run.log"
+    ],
+    "peak_pcm16": 10324,
+    "full_clip_observation": "m1-radio-recorded-acceptance.log passes the wait/conservation, still-unacknowledged transcript, explicit acknowledgement, safety return and verified save/quit sequence. The 36.0107-second pre-acknowledgement capture has radio signal in approximately seconds 14-32 and exact silence after second 31.7512 through the end; peak PCM16 is 11,356. Campaign generation and actual AGIS payload stayed unchanged during the 21-second wait. The paused-world component still reports IsPlaying; the test uses actual output rather than this getter for acoustic completion.",
+    "limitations": [
+      "earlier all-zero captures preserved and unexplained",
+      "independent volume/mute and persistence acceptance pending",
+      "completion requires waveform evidence and explicit acknowledgement checks, not component IsPlaying"
+    ]
+  },
+  "evidence_boundary": "Raw audio, screenshots, binaries, private logs and host/vendor assets remain outside the public repository. Original historical evidence is unchanged."
+}

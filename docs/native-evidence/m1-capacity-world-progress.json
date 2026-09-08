@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-06",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 Development Win64, D3D11, 1280x720, sound disabled",
+  "map": "/Game/Coastal/Maps/L_SystemsTest_Capacity",
+  "logical_map": "level.systems_test.capacity",
+  "manifest": "Exactly 79 pristine persistent objects: the original seven plus 72 distinct postcard pickups. The default map still requires exactly its original seven.",
+  "package_log": "m1-capacity-camera-offset-package.log",
+  "passed_runs": [
+    {"log": "m1-capacity-packaged-new.log", "mode": "capacity_new", "campaign": "1EC585FD4B9347871341DA917F85D4DA", "generation": 40, "postcards": 24, "receipts": 24, "exit_code": 0},
+    {"log": "m1-capacity-packaged-continue.log", "mode": "capacity_continue", "campaign": "1EC585FD4B9347871341DA917F85D4DA", "generation": 50, "postcards": 24, "receipts": 30, "exit_code": 0},
+    {"log": "m1-capacity-base-regression.log", "mode": "new on normal integrated map", "campaign": "13EBD4D94916D71C3229E1BA63153AB7", "receipts": 5, "exit_code": 0}
+  ],
+  "verified": [
+    "24 actual Hyper-selected world pickups fill the normal 6x4 backpack through E input.",
+    "Battery pickup refuses with the native No-space notice, unchanged generation/payload/receipts, and unchanged world active/hidden/collision state.",
+    "Explicit save and clean UI quit precede a fresh executable process. Actual Continue restores the same campaign and byte-identical full provider payload.",
+    "The full-backpack refusal still works after relaunch.",
+    "Slate gamepad navigation/confirmation transfers three postcards to storage; subsequent real battery/fuse pickups succeed.",
+    "Repair, explicit transcript acknowledgement and Save complete while preserving all 24 postcards. The final ledger has 30 receipts.",
+    "Both capacity runs reach exit_without_save and clean process completion. The normal seven-object campaign also passes after map recovery and the camera-offset fix."
+  ],
+  "visually_inspected": [
+    "coastal_test_capacity_packaged-no-space.png: fresh-process refusal HUD and available battery prompt; this shared filename contains the Continue capture.",
+    "coastal_test_capacity_packaged-gamepad-focus-6.png: scrolled long inventory list with a visible focused transfer button."
+  ],
+  "native_tests": {"report": "m1-hyper-offset-native-report/index.json", "succeeded": 40, "succeeded_with_warnings": 1, "failed": 0, "not_run": 0},
+  "python_tests": {"log": "m1-capacity-profile-python-tests.log", "passed": 52},
+  "integration_fix": "Inspection of Hyper's real Trace From Active Camera graph showed it adds requested TargetArmLength to the trace start. Camera collision retracts the camera without changing that value. The host compensates its exposed front offset using actual camera position before calling the same Hyper trace. Direct diagnostic traces are development-only observations and never provide focus or interaction authority.",
+  "preserved_failures": [
+    "Initial script launch failed from backslash escape interpretation; forward-slash paths resolved it.",
+    "SaveMap created the new file but retained the source world as active. The generator caught a source change. Both files were backed up externally; the pristine seven-object copy restored the source, then the capacity copy was explicitly loaded and populated. Both strict manifests were rechecked, and the normal packaged campaign subsequently passed. Byte identity with the original source map is not claimed.",
+    "An audit-result tuple assumption failed after the native report had passed; a separate read-only audit verified both saved maps.",
+    "The first capacity runtime timed out at the near-wall pickup. Collision inspection disproved a response mismatch; camera trace inspection identified the spring-arm offset cause. Failed logs and screenshots remain external."
+  ],
+  "remaining": [
+    "Packaged full-cabin refusal and recovery; native full-cabin coverage is recorded separately.",
+    "Physical-controller/manual traversal, other display/camera configurations and remaining UI audit. This fixture has dense development labels and is not final presentation.",
+    "Other M1 audio/settings/save-fault/hardware acceptance requirements remain open."
+  ],
+  "evidence_boundary": "Raw vendor graph dumps, maps, backups, logs, saves, screenshots and packages remain outside the public repository. Original historical evidence is unchanged."
+}

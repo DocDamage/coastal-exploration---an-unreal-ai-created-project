@@ -1,0 +1,88 @@
+{
+  "date": "2026-09-06",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 packaged Development Win64 D3D11 1280x720, audio enabled",
+  "package_log": "m1-options-fault-package.log",
+  "cases": [
+    {
+      "case": "corrupt_a",
+      "passed": true,
+      "files_unchanged": true,
+      "log": "m1-options-fault-corrupt_a.log",
+      "fixture_sha256": [
+        "38c1adfe9348412f82a53d20d062bc5211837fb48476144a8019ba7b930b296c",
+        "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f"
+      ]
+    },
+    {
+      "case": "corrupt_b",
+      "passed": true,
+      "files_unchanged": true,
+      "log": "m1-options-fault-corrupt_b.log",
+      "fixture_sha256": [
+        "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f",
+        "38c1adfe9348412f82a53d20d062bc5211837fb48476144a8019ba7b930b296c"
+      ]
+    },
+    {
+      "case": "both_corrupt",
+      "passed": true,
+      "files_unchanged": true,
+      "log": "m1-options-fault-both_corrupt.log",
+      "fixture_sha256": [
+        "38c1adfe9348412f82a53d20d062bc5211837fb48476144a8019ba7b930b296c",
+        "38c1adfe9348412f82a53d20d062bc5211837fb48476144a8019ba7b930b296c"
+      ]
+    },
+    {
+      "case": "future_a",
+      "passed": true,
+      "files_unchanged": true,
+      "log": "m1-options-fault-future_a.log",
+      "fixture_sha256": [
+        "52eeb17078f200042c522d3bd537481761ab545d8730a8c30a609ecd0971f87b",
+        "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f"
+      ]
+    },
+    {
+      "case": "future_b",
+      "passed": true,
+      "files_unchanged": true,
+      "log": "m1-options-fault-future_b.log",
+      "fixture_sha256": [
+        "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f",
+        "52eeb17078f200042c522d3bd537481761ab545d8730a8c30a609ecd0971f87b"
+      ]
+    },
+    {
+      "case": "equal_generation",
+      "passed": true,
+      "files_unchanged": true,
+      "log": "m1-options-fault-equal_generation.log",
+      "fixture_sha256": [
+        "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f",
+        "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f"
+      ]
+    }
+  ],
+  "verified": [
+    "Actual preference owner values and camera FOV match recovery or blocked defaults",
+    "Presented native options Save button enabled for recovered pair and disabled for blocked pair",
+    "Owner notice reports recovery or blocked disk writes",
+    "Each fresh process completes UI quit and leaves both fixture files byte-identical",
+    "Original preferences restored exactly after tests; all 58 campaign files unchanged"
+  ],
+  "limitations": [
+    "Commands invoke enabled painted widget delegates; physical input and visual review separate",
+    "Future envelope versions tested; future inner schemas and legacy upgrades remain separate",
+    "Read-only write refusal, partial writes, disk-full and competing-writer preference cases remain open",
+    "No acoustic volume or mute claim; raw logs and backups external"
+  ],
+  "native_regression": {
+    "report": "m1-options-fault-native-report/index.json",
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  }
+}

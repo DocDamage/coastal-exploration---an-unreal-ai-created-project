@@ -1,0 +1,27 @@
+{
+  "recorded_utc": "2026-09-06T14:30:08.154937+00:00",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "python": "3.13.5",
+  "executables": {
+    "g++": "/usr/bin/g++",
+    "clang++": "/usr/local/swift/usr/bin/clang++",
+    "python3": "/opt/pyvenv/bin/python3",
+    "UnrealEditor": null,
+    "UnrealEditor-Cmd": null,
+    "UnrealBuildTool": null,
+    "RunUAT.sh": null,
+    "cl.exe": null,
+    "pwsh": null
+  },
+  "inspected_paths": {
+    "/opt/UnrealEngine": false,
+    "/opt/unreal-engine": false,
+    "/opt/Unreal": false,
+    "/usr/local/UnrealEngine": false,
+    "/mnt/data/UnrealEngine": false
+  },
+  "host_project_files_in_supplied_data": [],
+  "claim": "These observations concern this runtime and named paths only, not a scan of the user computer.",
+  "g++_version": "g++ (Debian 14.2.0-19) 14.2.0",
+  "clang++_version": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)"
+}

@@ -1,0 +1,10 @@
+Command: {} ['python3', 'tools/verify_package.py']
+Started UTC: 2026-09-06T02:52:56.985062+00:00
+Finished UTC: 2026-09-06T02:52:57.593642+00:00
+Return code: 0
+
+STDOUT
+894 structural checks; 0 failures
+Scope: JSON/source/document consistency only; no Unreal, AGIS, platform-save, or gameplay execution.
+
+STDERR

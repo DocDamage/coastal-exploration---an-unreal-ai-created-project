@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "status": "compiled_in_isolated_ue58_host_paused_before_live_acceptance",
+  "vendor": {
+    "app_name": "Advanced22548e075794V1",
+    "plugin": "AdvancedShooterSystem",
+    "plugin_version": "1.0.0",
+    "engine_version": "5.8.0",
+    "module_type": "Runtime",
+    "module_dependencies": {
+      "public": [
+        "Core",
+        "Engine",
+        "CoreUObject",
+        "EnhancedInput",
+        "NetCore",
+        "Niagara"
+      ],
+      "private": [
+        "Slate",
+        "SlateCore",
+        "UMG"
+      ]
+    },
+    "verified_payload": {
+      "files": 123,
+      "chunks": 179,
+      "installed_bytes": 187311088,
+      "download_bytes": 39619470,
+      "source_files": 13,
+      "stage": "F:/coastline/LocalVendor/AdvancedShooterSystem/Staged/Advanced22548e075794V1",
+      "report": "F:/coastline/LocalVendor/AdvancedShooterSystem/Evidence/acquisition-report.json"
+    },
+    "content_assets": [
+      "/AdvancedShooterSystem/AdvancedShooterSystem/BP_Weapons/BP_Pistol",
+      "/AdvancedShooterSystem/AdvancedShooterSystem/BP_Weapons/DA_Pistol",
+      "/AdvancedShooterSystem/AdvancedShooterSystem/Widgets/WBP_AmmoDisplay",
+      "/AdvancedShooterSystem/AdvancedShooterSystem/Widgets/WBP_AdvancedCrosshair"
+    ]
+  },
+  "public_api": {
+    "UAdvancedShooterComponent": {
+      "blueprint_callable": [
+        "EquipWeapon(AWeaponBase*)",
+        "LocalFirePressed()",
+        "LocalReloadPressed()",
+        "GetCurrentSpreadRatio() const"
+      ],
+      "blueprint_events": [
+        "OnSpreadChanged(float)",
+        "OnAmmoChanged(int32 current_clip, int32 carried)"
+      ],
+      "authority": "EquipWeapon is server-only. Fire and reload require a locally controlled pawn, then use reliable server RPCs. Damage and ammo mutation occur on authority.",
+      "limitations": [
+        "There is no Blueprint getter for CurrentWeapon and no unequip API.",
+        "LocalFirePressed is a single-shot request; the plugin provides no input mapping or automatic-fire lifecycle.",
+        "The component has no coastal menu, campaign, recovery, camping, or swimming guards.",
+        "Fire and reload montages play directly on the owning character AnimInstance.",
+        "The hitscan uses ECC_Visibility with a fixed 50000 cm range and applies standard point damage."
+      ]
+    },
+    "AWeaponBase": {
+      "cpp_api": [
+        "GetWeaponConfig() const",
+        "GetCurrentAmmo() const",
+        "GetTotalCarriedAmmo() const",
+        "GetMuzzleSocketLocation() const",
+        "ConsumeAmmo()",
+        "UpdateAmmoValues(int32, int32)"
+      ],
+      "asset_contract": [
+        "The character skeleton needs a RightHandSocket.",
+        "The weapon skeletal mesh needs a Muzzle socket.",
+        "UWeaponDataAsset supplies damage, fire interval, spread, recoil, clip, and carried-ammo defaults."
+      ],
+      "authority": "Weapon actor, movement, clip ammo, and carried ammo replicate. ConsumeAmmo and UpdateAmmoValues mutate only on authority."
+    },
+    "ULagCompensationComponent": {
+      "behavior": "On authority, records 0.5 seconds of owning-actor position history every tick for server rewind.",
+      "coastal_use": "Omit from the single-player character; it is unnecessary overhead for the current product scope."
+    },
+    "widgets": {
+      "behavior": "Vendor ammo and crosshair widgets discover UAdvancedShooterComponent on the owning pawn and subscribe to its delegates.",
+      "coastal_use": "Use project-owned presentation through the existing UI owner so menus and interaction prompts retain authority; the delegates can feed that presentation."
+    }
+  },
+  "proposed_integration": {
+    "module": "Implemented as the UE5.8-only project plugin CoastalExpansion58, disabled by default. Enable it only in LocalHost58 with AdvancedShooterSystem and CoastalFoundation.",
+    "runtime_owner": "Add one project-owned combat coordinator to the existing player character/bootstrap. It owns weapon spawn/equip/destruction, routes existing host input to the vendor component, and prevents duplicate input ownership.",
+    "input_gates": [
+      "Require the existing interaction bridge to allow world input.",
+      "Reject fire/reload while paused, returning/recovering, camping, resting, swimming, or while a foreign montage owns presentation.",
+      "Clear held-fire state whenever any gate closes; call LocalFirePressed once per accepted semi-auto input edge or from a project-owned cadence for automatic weapons."
+    ],
+    "weapon_flow": [
+      "On authority, spawn the configured AWeaponBase subclass and call EquipWeapon.",
+      "Validate RightHandSocket and Muzzle before enabling fire.",
+      "Destroy the owned weapon and clear project UI on campaign teardown or player replacement."
+    ],
+    "damage_flow": "Receive the plugin's standard point damage in a project-owned coastal health/damage component. The staged Fab payload contains no HealthSystem source, health actor component, death flow, or recovery policy.",
+    "inventory_constraint": "Do not expose the vendor carried-ammo field as a second inventory authority. The API has no accepted-shot result and internally consumes ammo before broadcasting, so an atomic AGIS cartridge transaction cannot be safely wrapped around LocalFirePressed without a vendor-source extension. First integration must either treat clip/carried values as transient weapon state outside item inventory and document that save limitation, or add a narrow reviewed vendor patch that separates accepted-shot execution from AGIS ammo commit. Weapon possession and collectible ammunition must remain AGIS-owned.",
+    "presentation": "Feed project-owned HUD/crosshair state from the vendor delegates. Do not add the vendor widgets as a second UI session owner.",
+    "first_acceptance": [
+      "UE5.8.1 compiles the source plugin and CoastalExpansion58 dependency without using the packaged 5.8.0 editor binary.",
+      "One configured pistol equips on the active character with both required sockets verified.",
+      "Fire is denied without world-input authority and during menu, recovery, swimming, and authored action montages.",
+      "One accepted shot consumes exactly one authoritative round and applies one point-damage event to a valid target; rejected shots mutate neither ammo nor health.",
+      "Campaign switch/player replacement destroys the owned weapon and removes delegate bindings without changing existing save records.",
+      "Dry traversal, First Signal interaction, AGIS inventory, Hyper prompts, swimming, recovery, and campaign gates retain their existing owners."
+    ]
+  },
+  "known_vendor_risks": [
+    "Server_ProcessShot_Validate and Server_ExecuteReload_Validate accept every RPC payload; implementation checks provide the actual rejection logic.",
+    "The client timestamp uses process real time rather than a synchronized server clock; this is acceptable in standalone but needs correction before multiplayer use.",
+    "Server_ProcessShot temporarily teleports rewind targets and has early returns after teleport that can skip restoration if the owner pawn or player controller disappears during the RPC.",
+    "EquipWeapon does not detach or destroy a previously equipped weapon.",
+    "Ammo OnRep functions are empty; UI synchronization relies primarily on component delegates.",
+    "In standalone execution, the post-RPC predicted ammo broadcast may observe already-consumed ammo and display one extra round of depletion until another authoritative refresh."
+  ]
+}

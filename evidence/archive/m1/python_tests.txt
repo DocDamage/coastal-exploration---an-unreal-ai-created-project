@@ -1,0 +1,18 @@
+$ /opt/pyvenv/bin/python -m unittest discover -s tests -p test_*.py -v
+test_all_truncations (test_save_inspector.SaveInspectorTests.test_all_truncations) ... ok
+test_copy_keeps_original (test_save_inspector.SaveInspectorTests.test_copy_keeps_original) ... ok
+test_empty_payload (test_save_inspector.SaveInspectorTests.test_empty_payload) ... ok
+test_future_version (test_save_inspector.SaveInspectorTests.test_future_version) ... ok
+test_known_crc (test_save_inspector.SaveInspectorTests.test_known_crc) ... ok
+test_payload_corruption (test_save_inspector.SaveInspectorTests.test_payload_corruption) ... ok
+test_refuses_bad_source (test_save_inspector.SaveInspectorTests.test_refuses_bad_source) ... ok
+test_refuses_existing_destination (test_save_inspector.SaveInspectorTests.test_refuses_existing_destination) ... ok
+test_refuses_same_path (test_save_inspector.SaveInspectorTests.test_refuses_same_path) ... ok
+test_trailing_data (test_save_inspector.SaveInspectorTests.test_trailing_data) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.003s
+
+OK
+
+Exit code: 0

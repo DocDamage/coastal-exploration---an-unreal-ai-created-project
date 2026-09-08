@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python3",
+    "tools/verify_package.py"
+  ],
+  "environment_overrides": {},
+  "started_utc": "2026-09-06T17:20:56.607798+00:00",
+  "completed_utc": "2026-09-06T17:20:57.637940+00:00",
+  "returncode": 0,
+  "stdout": "1409 structural checks; 0 failures\nScope: JSON/source/document consistency only; no Unreal, AGIS, platform-save, or gameplay execution.\n",
+  "stderr": "",
+  "scope": "Standalone/source tooling only; not Unreal or vendor execution."
+}

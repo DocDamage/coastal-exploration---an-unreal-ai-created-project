@@ -1,0 +1,21 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0-m3-combat-source",
+  "FriendlyName": "Coastal Expansion 5.8",
+  "Description": "UE5.8-only coastal combat integration over the verified Advanced Shooter System.",
+  "Category": "Gameplay",
+  "CreatedBy": "Coastal Exploration Project",
+  "EngineVersion": "5.8.0",
+  "CanContainContent": false,
+  "EnabledByDefault": false,
+  "Installed": false,
+  "Modules": [
+    { "Name": "CoastalExpansion58", "Type": "Runtime", "LoadingPhase": "Default" }
+  ],
+  "Plugins": [
+    { "Name": "AdvancedShooterSystem", "Enabled": true },
+    { "Name": "CoastalFoundation", "Enabled": true },
+    { "Name": "EnhancedInput", "Enabled": true }
+  ]
+}

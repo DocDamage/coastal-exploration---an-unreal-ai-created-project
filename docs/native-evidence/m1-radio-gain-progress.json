@@ -1,0 +1,125 @@
+{
+  "date": "2026-09-06",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 packaged Development Win64 D3D11, 1280x720, actual mixer recording at 48kHz stereo PCM16",
+  "method": "Disposable valid schema-3 preference fixtures set ambience/effects to zero and vary Master/Radio. Each fresh process executes the existing real Hyper/AGIS campaign audio probe; no production code or audio source changed. Full pre-acknowledgement recordings are compared by square root of integrated signal-energy ratio.",
+  "runs": [
+    {
+      "case": "full",
+      "master": 100,
+      "radio": 100,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-radio-gain-full.log"
+    },
+    {
+      "case": "master_half",
+      "master": 50,
+      "radio": 100,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-radio-gain-master_half.log"
+    },
+    {
+      "case": "radio_half",
+      "master": 100,
+      "radio": 50,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-radio-gain-radio_half.log"
+    },
+    {
+      "case": "master_mute",
+      "master": 0,
+      "radio": 100,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-radio-gain-master_mute.log"
+    },
+    {
+      "case": "radio_mute",
+      "master": 100,
+      "radio": 0,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-radio-gain-radio_mute.log"
+    }
+  ],
+  "measurements": [
+    {
+      "case": "full",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 35.84,
+      "peak": 11356,
+      "energy": 21843091.8758125,
+      "first_signal_seconds": 14.150645833333334,
+      "last_signal_seconds": 31.644541666666665,
+      "sha256": "61a10a0f8981552fbc458a8a77289e4384fe38f2de854d4ea7b97099a957be06",
+      "amplitude_ratio_from_energy": 1.0
+    },
+    {
+      "case": "master_half",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 35.733333333333334,
+      "peak": 5678,
+      "energy": 5458610.982583334,
+      "first_signal_seconds": 14.0023125,
+      "last_signal_seconds": 31.4590625,
+      "sha256": "eed5fdcc885d1f480f56fee034d4d19a6c8291080a9146b483ec9befe5afe834",
+      "amplitude_ratio_from_energy": 0.4999010121637713
+    },
+    {
+      "case": "radio_half",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 35.84,
+      "peak": 5678,
+      "energy": 5458610.982583334,
+      "first_signal_seconds": 14.108979166666666,
+      "last_signal_seconds": 31.565729166666667,
+      "sha256": "b6d6c79abbe8496e1de19cefb52762c0694cca06954f84810b5b28c59c943fac",
+      "amplitude_ratio_from_energy": 0.4999010121637713
+    },
+    {
+      "case": "master_mute",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 35.904,
+      "peak": 0,
+      "energy": 0.0,
+      "first_signal_seconds": null,
+      "last_signal_seconds": null,
+      "sha256": "f91960ddcfabb1de17a3f22f843218bb8fd38b5cbd0952a6d944c8981566d673",
+      "amplitude_ratio_from_energy": 0.0
+    },
+    {
+      "case": "radio_mute",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 35.968,
+      "peak": 0,
+      "energy": 0.0,
+      "first_signal_seconds": null,
+      "last_signal_seconds": null,
+      "sha256": "743c84f633c1f892c82b5abbd050883917880c35b094a896622898ac02589db7",
+      "amplitude_ratio_from_energy": 0.0
+    }
+  ],
+  "verified": [
+    "Master 50/Radio 100 and Master 100/Radio 50 each yield amplitude ratio 0.499901 versus full volume",
+    "Master 0 and Radio 0 each produce exact zero PCM samples throughout their recorded intervals",
+    "All five runs preserve campaign generation and actual AGIS payload during the 21-second radio wait",
+    "Transcript remains unacknowledged during wait; explicit acknowledgement then mission completion/save/UI quit pass",
+    "Preferences unchanged within each run; original preferences restored afterward; all 58 earlier campaign files unchanged"
+  ],
+  "limitations": [
+    "Mixer recording proves rendered digital output, not physical speaker audibility",
+    "Fixtures are loaded before playback; live UI adjustment, fade, mute/unmute and combined Master/category multiplication require further coverage",
+    "Ambience and Effects gain/category independence remain unverified by this isolated-radio matrix",
+    "Recording starts after host initialization; this is not a complete startup-transient audit",
+    "Earlier unexplained silent captures remain preserved; this matrix does not isolate their cause",
+    "Audio bytes, source assets, logs, and test campaign files remain external"
+  ]
+}

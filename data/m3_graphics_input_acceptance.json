@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "milestone": "M3",
+  "scope": "Graphics draft controls and native menu/HUD input hints",
+  "native_execution": "deferred_to_integrated_checkpoint",
+  "cases": [
+    {"id": "M3-G01", "scenario": "Open graphics, change each draft, then Back and reopen; engine settings and disk remain unchanged.", "status": "not_run"},
+    {"id": "M3-G02", "scenario": "Apply VSync or frame cap with custom quality and render scale; preserve every original scalability field.", "status": "not_run"},
+    {"id": "M3-G03", "scenario": "Choose each quality preset and Apply; inspect actual rendering, including changed render scale, without a window-mode change.", "status": "not_run"},
+    {"id": "M3-G04", "scenario": "Cycle 30, 60, 90, 120, 144, 165, 240 and Unlimited; custom limits remain until edited. Measure effective VSync/frame pacing separately.", "status": "not_run"},
+    {"id": "M3-G05", "scenario": "Change the engine settings object while a draft is open; Apply refuses until Refresh. Runtime console/driver overrides are not settings-object edits and require separate observation.", "status": "not_run"},
+    {"id": "M3-G06", "scenario": "During a display trial and restoration, graphics edits and saves are unavailable; Keep/Revert, deadline and focus-loss behavior remain intact.", "status": "not_run"},
+    {"id": "M3-G07", "scenario": "Apply without saving, then explicitly save and relaunch. Inspect the engine file and read-only/write-failure behavior; never infer successful persistence from SaveSettings.", "status": "not_run"},
+    {"id": "M3-G08", "scenario": "Inspect current HDR, dynamic resolution and audio quality after ApplyNonResolutionSettings reapplies existing preferences; confirm expected host behavior.", "status": "not_run"},
+    {"id": "M3-I01", "scenario": "Tab and Shift-Tab reach the campaign-name field and all enabled actions. Typing does not start a campaign; gamepad navigation retains fresh-name actions.", "status": "not_run"},
+    {"id": "M3-I02", "scenario": "Switch keyboard/mouse and controller in gameplay and menus; observe matching native hints without consumed input or movement/interaction duplication.", "status": "not_run"},
+    {"id": "M3-I03", "scenario": "Neutral stick drift and tiny cursor movement do not flip hints; intentional movement does. Check common controller cursor-emulation software.", "status": "not_run"},
+    {"id": "M3-I04", "scenario": "Repeated UI initialization/shutdown removes the input preprocessor and leaves no duplicate observer; verify 720p/1080p and 100-150 percent text layout.", "status": "not_run"}
+  ]
+}

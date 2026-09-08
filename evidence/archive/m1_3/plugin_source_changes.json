@@ -1,0 +1,88 @@
+{
+  "basis": "Supplied M1.2 ZIP; path/content hash comparison, not a Git revision.",
+  "baseline_zip": "Coastal_Exploration_M1_2_Source_Package(1).zip",
+  "baseline_zip_sha256": "3b58ca075c91597e09cdc3b98f19bc5a476d6a16634189632a2fa1f9aaaa9506",
+  "added": [
+    {
+      "path": "Source/CoastalFoundation/Private/CoastalIntegrationLibrary.cpp",
+      "sha256": "d9351a63751f9b9c621131b551c0dfe4b2ea71af071954eb70e593c386d0c210"
+    },
+    {
+      "path": "Source/CoastalFoundation/Private/CoastalPlacementLibrary.cpp",
+      "sha256": "6f703e28b7054cf6a6b8f5935a4fddbaaafcda94e70a3a7f534f165e846454b2"
+    },
+    {
+      "path": "Source/CoastalFoundation/Private/CoastalProviderAudit.cpp",
+      "sha256": "d47dcd3caa4dc6c23323c082662b142a64161d9cecdb9721a3d0e48f978c7326"
+    },
+    {
+      "path": "Source/CoastalFoundation/Private/CoastalSessionBootstrapComponent.cpp",
+      "sha256": "79b0fcd5ba6f5ff58bfa38efa24c951c61daa698e6c1b428aaf67eb3f76e33bf"
+    },
+    {
+      "path": "Source/CoastalFoundation/Private/CoastalStartupPreflight.cpp",
+      "sha256": "43ae8f8c0a965eb479a2286226ea7b8b9a642e1a58f950e0abd63acebe60ecb3"
+    },
+    {
+      "path": "Source/CoastalFoundation/Private/Tests/M1StartupAutomationTests.cpp",
+      "sha256": "6868903aca90bc18e72b00daaafbd954dc50ef2b632d02716020e888d19772de"
+    },
+    {
+      "path": "Source/CoastalFoundation/Public/CoastalIntegrationLibrary.h",
+      "sha256": "3591dd550eff5a1e75061db3a7fa7c34b64b24eefa4ea5ce9f059358a2396f69"
+    },
+    {
+      "path": "Source/CoastalFoundation/Public/CoastalIntegrationTypes.h",
+      "sha256": "44e0b3c862df4c1b8ba8b79969585422ac2c11cc141fb918a9d7e3d42175a921"
+    },
+    {
+      "path": "Source/CoastalFoundation/Public/CoastalPlacementLibrary.h",
+      "sha256": "49bfd6e8594009b6b8dc7f42aad3d5a35a15646881e19e5ac3947f1eda7d32d2"
+    },
+    {
+      "path": "Source/CoastalFoundation/Public/CoastalSessionBootstrapComponent.h",
+      "sha256": "46ff1b3bb92e351f1812944155319bfc34a5c92c5974d247233981d263506e4b"
+    },
+    {
+      "path": "Source/CoastalFoundation/Public/Core/BootstrapRules.h",
+      "sha256": "9c74d1dc6009648760f0edc2b96f9db13488e263319e565122277f0619ad3941"
+    },
+    {
+      "path": "Source/CoastalFoundation/Public/Core/TestRoomRules.h",
+      "sha256": "be5337f48abb9eb76fdb3cb7718eb18f461932b96f555dd9b5c9ac79ea639aa8"
+    }
+  ],
+  "modified": [
+    {
+      "path": "CoastalFoundation.uplugin",
+      "prior_sha256": "9ff44b20fb88a82e5c5a95ab6198a06f4b0f4b24c9cebdc7adce6959afb3689e",
+      "sha256": "1b3658d7e1690b4d0f8666d7e5eca929b8cf16800eea7ef5c2749cc8324bb0e4"
+    },
+    {
+      "path": "Source/CoastalFoundation/Private/CoastalSaveCoordinator.cpp",
+      "prior_sha256": "70537db6235e76b3c3b4f42794cb418af81c3d1c8095483fe367a0e2e45bb979",
+      "sha256": "ac87c06d10d643c008589120b66a1a993c05b4f4c54a54d077a444e80d1c6ab7"
+    },
+    {
+      "path": "Source/CoastalFoundation/Private/CoastalSaveRestore.cpp",
+      "prior_sha256": "3849b324fa7417a827ebfe9c08919c4a672f285f26508e93ad156d4e6b04b808",
+      "sha256": "6984129b88303266dff0f215c249c1b39792d0c543a08798d6c6ea0682ec3f2c"
+    },
+    {
+      "path": "Source/CoastalFoundation/Private/CoastalUISessionComponent.cpp",
+      "prior_sha256": "6bfc43e374e8cf02b2de3983100ea3e2eeb2c87e9777190064c01c5ae8ae6c72",
+      "sha256": "e101792dfbe81f56441201c63ff964c0e7af81ab34d171714be0b29556c82b3c"
+    },
+    {
+      "path": "Source/CoastalFoundation/Public/CoastalSaveCoordinator.h",
+      "prior_sha256": "d8312969438e4d1fde5decd22f752a9d9eda2aa274531cb0bfbcb75891b48b5b",
+      "sha256": "266d37b0b27778cfdf829a5e3b5d114da966759578684694105c9620f5942816"
+    },
+    {
+      "path": "Source/CoastalFoundation/Public/CoastalUISessionComponent.h",
+      "prior_sha256": "6a8502a20b51181d67108cc80205280c87a8c8c86d9c607893437c168d02f834",
+      "sha256": "4898198482bb945c82442821dd98f913c27336b66ba5080404f3667e17175865"
+    }
+  ],
+  "removed": []
+}

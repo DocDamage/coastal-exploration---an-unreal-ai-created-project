@@ -1,0 +1,11 @@
+$  bash tools/run_core_tests.sh
+Startup lifecycle core: 94 checks; 0 failures
+Campaign/transaction core: 227 checks; 0 failures
+407 checks; 0 failures
+Interaction routing/offer core: 211 checks; 0 failures
+Inventory view/catalogue core: 80 checks; 0 failures
+Save envelope core: 583 checks; 0 failures
+Test-room manifest core: 193 checks; 0 failures
+UI flow/presentation core: 650 checks; 0 failures
+
+Exit code: 0

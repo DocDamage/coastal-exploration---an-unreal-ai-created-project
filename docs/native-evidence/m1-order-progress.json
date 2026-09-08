@@ -1,0 +1,50 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "reference_cases": [
+    "QUEST-02",
+    "QUEST-03 M1 functional component",
+    "SAVE-05"
+  ],
+  "package_log": "m1-order-package.log",
+  "runtime_results": [
+    {
+      "mode": "order_new",
+      "passed": true,
+      "log": "m1-order-new-runtime.log"
+    },
+    {
+      "mode": "order_continue",
+      "passed": true,
+      "log": "m1-order-continue-runtime.log"
+    }
+  ],
+  "campaign": "59CA595B4239A3E0364D3C92A2C63EB6",
+  "setup": "UE 5.7.4 packaged Development Win64, actual AGIS/Hyper, original systems room, deterministic positioning and injected E/native UI commands.",
+  "verified": [
+    "Both actual parts collected while radio uninspected, unrepaired and message unheard. Cabin/dock/note facts remain false.",
+    "Actual storage round-trip precedes first radio inspection, repair and explicit transcript acknowledgement.",
+    "Safe return and UI Save complete at generation14 with five receipts.",
+    "Exactly transmission and north-reach-lead journal entries exist; both pickup world states are consumed. Optional mission facts remain false.",
+    "Fresh executable Continue restores same campaign, empty backpack/storage, repaired/acknowledged mission, five receipts, both journal entries and consumed pickup markers; no optional mission facts become required. Host checkpoint update advances generation15.",
+    "Both processes finish through normal UI Quit/exit_without_save."
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_sha256": "14c2638a4f0853e4c99b97e14537998a44dee036905dcb96aee9884f6f978c62",
+  "raw_log_sha256": {
+    "m1-order-package.log": "c3fb621410d022a5b38823b0d3ce2d8bae5b80b6c665160511d9b8ffd14cf571",
+    "m1-order-new-runtime.log": "8b1f4679ed6edbc75335e50a8ebf29e96e80f5cb9637461a826b941a2c483f7a",
+    "m1-order-continue-runtime.log": "b5257f10b97d06f9313d27782ef61e71770638027d9aa49f9abfe783f05aee76",
+    "m1-order-native.log": "2543f8f5128a54651f4372a9d5eb36aa0c7c9cdbafb8a4fd9ff167a3502d7481"
+  },
+  "limits": [
+    "No physical traversal or controller-only opening claim.",
+    "M1 functional independence from optional mission inputs is proven. The actual coastal cabin trigger/overlook route is not assembled or tested; that portion of QUEST-03 remains M2.",
+    "No production gameplay behavior changed; new acceptance ordering and stronger persisted-state assertions only."
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "editor_recipe_not_an_included_map",
+  "map_id": "level.systems_test",
+  "units": "centimeters",
+  "timings_seconds": {
+    "fade_out": 0.18,
+    "fade_in": 0.22,
+    "ground_stability": 0.35,
+    "settle_timeout": 2.0,
+    "checkpoint_dwell": 0.35
+  },
+  "volumes": [
+    {
+      "label": "DEV_Safety_CabinCheckpoint",
+      "kind": "DRY_CHECKPOINT",
+      "center_cm": [
+        -1300,
+        0,
+        100
+      ],
+      "half_extent_cm": [
+        150,
+        150,
+        100
+      ]
+    },
+    {
+      "label": "DEV_Safety_DockCheckpoint",
+      "kind": "DRY_CHECKPOINT",
+      "center_cm": [
+        1000,
+        0,
+        100
+      ],
+      "half_extent_cm": [
+        120,
+        120,
+        100
+      ]
+    },
+    {
+      "label": "DEV_Safety_DeepWaterProxy",
+      "kind": "DEEP_WATER",
+      "center_cm": [
+        1300,
+        -700,
+        100
+      ],
+      "half_extent_cm": [
+        120,
+        160,
+        100
+      ]
+    },
+    {
+      "label": "DEV_Safety_BoundaryProxy",
+      "kind": "OUT_OF_BOUNDS",
+      "center_cm": [
+        1480,
+        0,
+        100
+      ],
+      "half_extent_cm": [
+        100,
+        250,
+        100
+      ]
+    }
+  ]
+}

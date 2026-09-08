@@ -1,0 +1,58 @@
+$ python3 -m unittest discover -s tests -p test_*.py -v
+test_disabled_input_detected (test_host_preflight.HostPreflightTests.test_disabled_input_detected) ... ok
+test_editor_target_discovered_not_guessed (test_host_preflight.HostPreflightTests.test_editor_target_discovered_not_guessed) ... ok
+test_malformed_descriptor_reported (test_host_preflight.HostPreflightTests.test_malformed_descriptor_reported) ... ok
+test_missing_host_is_not_ready (test_host_preflight.HostPreflightTests.test_missing_host_is_not_ready) ... ok
+test_never_claims_build_or_gameplay (test_host_preflight.HostPreflightTests.test_never_claims_build_or_gameplay) ... ok
+test_new_report_roundtrip (test_host_preflight.HostPreflightTests.test_new_report_roundtrip) ... ok
+test_nonobject_json_reported (test_host_preflight.HostPreflightTests.test_nonobject_json_reported) ... ok
+test_report_refuses_overwrite (test_host_preflight.HostPreflightTests.test_report_refuses_overwrite) ... ok
+test_report_rejects_project_destination (test_host_preflight.HostPreflightTests.test_report_rejects_project_destination) ... ok
+test_dirty_packages_explicit (test_integration_report.IntegrationReportTests.test_dirty_packages_explicit) ... ok
+test_existing_file_not_overwritten (test_integration_report.IntegrationReportTests.test_existing_file_not_overwritten) ... ok
+test_fail_preserves_issue (test_integration_report.IntegrationReportTests.test_fail_preserves_issue) ... ok
+test_invalid_fields_rejected (test_integration_report.IntegrationReportTests.test_invalid_fields_rejected) ... ok
+test_invented_pass_claim_refused (test_integration_report.IntegrationReportTests.test_invented_pass_claim_refused) ... ok
+test_large_list_refused (test_integration_report.IntegrationReportTests.test_large_list_refused) ... ok
+test_manifest_pass_never_passes_runtime (test_integration_report.IntegrationReportTests.test_manifest_pass_never_passes_runtime) ... ok
+test_missing_parent_not_created (test_integration_report.IntegrationReportTests.test_missing_parent_not_created) ... ok
+test_room_pass_mismatch_refused (test_integration_report.IntegrationReportTests.test_room_pass_mismatch_refused) ... ok
+test_unknown_claim_or_naive_date_refused (test_integration_report.IntegrationReportTests.test_unknown_claim_or_naive_date_refused) ... ok
+test_write_new_roundtrip (test_integration_report.IntegrationReportTests.test_write_new_roundtrip) ... ok
+test_wrong_extension_refused (test_integration_report.IntegrationReportTests.test_wrong_extension_refused) ... ok
+test_actual_recipe_valid_without_mutation (test_recovery_layout.RecoveryLayoutTests.test_actual_recipe_valid_without_mutation) ... ok
+test_bad_vector_length (test_recovery_layout.RecoveryLayoutTests.test_bad_vector_length) ... ok
+test_boolean_coordinate (test_recovery_layout.RecoveryLayoutTests.test_boolean_coordinate) ... ok
+test_boolean_schema (test_recovery_layout.RecoveryLayoutTests.test_boolean_schema) ... ok
+test_duplicate_names (test_recovery_layout.RecoveryLayoutTests.test_duplicate_names) ... ok
+test_empty_and_excessive_rows (test_recovery_layout.RecoveryLayoutTests.test_empty_and_excessive_rows) ... ok
+test_excessive_coordinate (test_recovery_layout.RecoveryLayoutTests.test_excessive_coordinate) ... ok
+test_huge_integer (test_recovery_layout.RecoveryLayoutTests.test_huge_integer) ... ok
+test_infinity (test_recovery_layout.RecoveryLayoutTests.test_infinity) ... ok
+test_invalid_labels (test_recovery_layout.RecoveryLayoutTests.test_invalid_labels) ... ok
+test_nan (test_recovery_layout.RecoveryLayoutTests.test_nan) ... ok
+test_negative_extent (test_recovery_layout.RecoveryLayoutTests.test_negative_extent) ... ok
+test_no_runtime_pass_claim (test_recovery_layout.RecoveryLayoutTests.test_no_runtime_pass_claim) ... ok
+test_non_dictionary (test_recovery_layout.RecoveryLayoutTests.test_non_dictionary) ... ok
+test_timing_drift (test_recovery_layout.RecoveryLayoutTests.test_timing_drift) ... ok
+test_unhashable_type (test_recovery_layout.RecoveryLayoutTests.test_unhashable_type) ... ok
+test_unknown_field (test_recovery_layout.RecoveryLayoutTests.test_unknown_field) ... ok
+test_unknown_type (test_recovery_layout.RecoveryLayoutTests.test_unknown_type) ... ok
+test_wrong_map (test_recovery_layout.RecoveryLayoutTests.test_wrong_map) ... ok
+test_wrong_units (test_recovery_layout.RecoveryLayoutTests.test_wrong_units) ... ok
+test_zero_extent (test_recovery_layout.RecoveryLayoutTests.test_zero_extent) ... ok
+test_all_truncations (test_save_inspector.SaveInspectorTests.test_all_truncations) ... ok
+test_copy_keeps_original (test_save_inspector.SaveInspectorTests.test_copy_keeps_original) ... ok
+test_empty_payload (test_save_inspector.SaveInspectorTests.test_empty_payload) ... ok
+test_future_version (test_save_inspector.SaveInspectorTests.test_future_version) ... ok
+test_known_crc (test_save_inspector.SaveInspectorTests.test_known_crc) ... ok
+test_payload_corruption (test_save_inspector.SaveInspectorTests.test_payload_corruption) ... ok
+test_refuses_bad_source (test_save_inspector.SaveInspectorTests.test_refuses_bad_source) ... ok
+test_refuses_existing_destination (test_save_inspector.SaveInspectorTests.test_refuses_existing_destination) ... ok
+test_refuses_same_path (test_save_inspector.SaveInspectorTests.test_refuses_same_path) ... ok
+test_trailing_data (test_save_inspector.SaveInspectorTests.test_trailing_data) ... ok
+
+----------------------------------------------------------------------
+Ran 52 tests in 0.008s
+
+OK

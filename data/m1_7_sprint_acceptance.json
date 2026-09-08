@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "section": "M1.7 walk/sprint and preference upgrade",
+  "scope": "Actual Unreal/host/controller/Windows scenarios; no rows run in this source-delivery environment.",
+  "tests": [
+    {
+      "id": "m1_7.optional_absent",
+      "procedure": "Use the retained host without a Sprint component.",
+      "expected": "Movement stays host-owned. Sprint mode is disabled; other available options and campaign startup still work.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.opt_in",
+      "procedure": "Add one Sprint component with opt-in false; then enable only after real routing and restart.",
+      "expected": "No speed changes when disabled. With explicit correct routing the sprint option becomes available.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.duplicate",
+      "procedure": "Add two Sprint components on the actual character.",
+      "expected": "Neither is initialized by UI; no competing speed ownership; an options diagnostic is visible.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.bad_owner",
+      "procedure": "Place the component on a controller/director or unpossessed pawn and try initialization.",
+      "expected": "Initialization refuses; no player or movement component is invented.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.tuning",
+      "procedure": "Test defaults, valid custom values, nonfinite values, walk below 100, sprint below walk, and sprint above 1500.",
+      "expected": "Valid tuning is captured at initialization; invalid tuning is refused without a speed write.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.hold_keyboard",
+      "procedure": "Wire actual aggregate state. Release Shift after entering gameplay, then press/hold/release while walking.",
+      "expected": "Cap changes 330 -> 520 -> 330 once; actual motion follows host input/physics; no stamina drain.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.hold_controller",
+      "procedure": "Repeat using controller-only menus and left-stick click.",
+      "expected": "Same intentional Hold behavior, without needing keyboard input.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.toggle",
+      "procedure": "Select Toggle and explicitly apply; move with the stick, press Sprint, release Sprint, press again.",
+      "expected": "First press selects 520 cap; release preserves selection; second intentional press selects 330 cap.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.stationary",
+      "procedure": "Enable Toggle and stop all movement input while continuing real released Sprint samples.",
+      "expected": "Character stops by host physics. Toggle does not inject a movement direction or act as auto-run.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.two_devices",
+      "procedure": "Hold Shift and left-stick click together; release only one, then both.",
+      "expected": "Aggregate state stays down until both are up; no spurious release or second toggle.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.repeat_bindings",
+      "procedure": "Deliver duplicate aggregate samples in one frame, and repeated down samples across frames.",
+      "expected": "Only the first sample of a frame is accepted. Holding never repeatedly toggles.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.rapid_edges",
+      "procedure": "Press and release within one polling frame, then make a later deliberate press.",
+      "expected": "Document sampled-state behavior: a pulse not observed is not replayed. No queued future sprint.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.menu_held",
+      "procedure": "Open and close Pause, Inventory, Journal, Transcript and Settings while holding Sprint.",
+      "expected": "Sprint intent cancels on permission change. Returning while held never resumes sprint; actual release and a later press are needed.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.menu_roundtrip",
+      "procedure": "Open and close a blocker between two Sprint ticks.",
+      "expected": "Changed bridge revision still invalidates sprint; no hidden latched toggle survives.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.external_pause",
+      "procedure": "Pause through the real host, then resume while Sprint is held.",
+      "expected": "Observed pause disables sprint; resume requires real release and a later press. External pause between samples is not claimed observable without a revision change.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.new_continue",
+      "procedure": "Use New and Continue while sprint was selected previously.",
+      "expected": "New epoch resets active sprint. Saved preference mode persists independently, not the transient sprint request.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.move_lock",
+      "procedure": "Apply an independent controller movement ignore count while sprinting; release that owner correctly.",
+      "expected": "Sprint cancels; component does not release or reset the other owner\u2019s locks.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.jump_land",
+      "procedure": "Jump or walk off an edge with Sprint held/toggled, then land.",
+      "expected": "Observed non-walking mode cancels sprint. Landing requires release/repress; velocity is not forcibly zeroed. Record actual lateral-speed/deceleration behavior.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.crouch_custom",
+      "procedure": "Exercise host crouch, flying/custom/swimming or disabled movement as deliberate diagnostics.",
+      "expected": "Sprint request is disabled outside upright non-crouched MOVE_Walking; no new traversal system or MaxWalkSpeedCrouched change occurs.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.recovery",
+      "procedure": "Enter a safety hazard with Sprint held or toggled and complete safe return.",
+      "expected": "Recovery controls movement as before. Sprint does not resume on arrival; inventory, mission and receipts are unchanged.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.heartbeat",
+      "procedure": "Stop forwarding actual Sprint samples for more than two frames while component ticks; then resume while held.",
+      "expected": "Speed returns to walk. Input is not rearmed until a true released sample on a later eligible frame, then a later press.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.frame_rates",
+      "procedure": "Test 30/60/120 FPS and long frame hitches, including paused UI transitions.",
+      "expected": "No delta-time accumulation or toggle repeats. Two-frame lease changes wall-clock duration with FPS; record actual behavior, not an FPS-independence guarantee.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.foreign_speed",
+      "procedure": "During an active binding, change MaxWalkSpeed to a distinct value from a separate test owner.",
+      "expected": "Sprint disables, logs and exposes a diagnostic. The foreign value is preserved; no fight between writers or campaign reset.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.teardown",
+      "procedure": "End UI/component lifetime while it still owns its speed; repeat after a foreign speed edit.",
+      "expected": "Owned original speed is restored only while still owned. Tick prerequisites are removed; foreign edits are preserved.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.pawn_replacement",
+      "procedure": "Replace/destroy the fixed pawn or movement component during play.",
+      "expected": "No automatic pawn rebinding; sprint reports lifetime failure when observed and restores only owned state. Other campaign lifecycle rules still apply.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.tick_ownership",
+      "procedure": "Use normal tick order, then deliberately violate it or disable the Sprint tick in a disposable test.",
+      "expected": "Normal controller->Sprint->movement order works. Disabled/unexecuted component ticks cannot police an unobserved stale speed; remove/ReleaseOptions before disabling. Record this host violation, not a claimed recovery.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.settings_draft",
+      "procedure": "Change Hold/Toggle, use Back, Defaults, session-only apply and explicit save through keyboard and gamepad.",
+      "expected": "Back discards draft; Defaults only changes available fields; session-only does not write; verified save persists the mode.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.consumer_loss_draft",
+      "procedure": "Edit mode, then invalidate the sprint consumer before Apply.",
+      "expected": "Changed mode is not applied silently without the consumer. Reopen options to review available fields.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.legacy_load",
+      "procedure": "Back up real preferences; load the frozen M1.6 fixture in the actual platform options slot.",
+      "expected": "Original five values and generation load; mode defaults Hold; a legacy-format notice appears; no file is rewritten during load.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.legacy_upgrade",
+      "procedure": "Explicitly save Toggle after loading valid legacy preferences.",
+      "expected": "Only the inactive slot receives schema 2, generation+1 and exact verified bytes; original legacy slot stays unchanged.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.mixed_slots",
+      "procedure": "Load legacy+new slots with distinct/equal generations, then test supported corruption and unsupported future schema.",
+      "expected": "Highest unambiguous supported generation wins. Equality/future schema/read errors block writes; corrupt newer slot may recover legacy Hold with notice.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.migration_failure",
+      "procedure": "Inject write-before/after, corrupt readback and unreadable readback while upgrading disposable preferences.",
+      "expected": "Previous live values and previous valid slot remain. Further preference writes block; relaunch resolves whether new bytes reached disk.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.profile_isolation",
+      "procedure": "Save campaigns, switch campaigns, relaunch and inspect option/catalogue data.",
+      "expected": "No preference record appears as campaign; no inventory/mission data enters preferences; active sprint never restores from disk.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.readability",
+      "procedure": "Inspect every options row/command at 100% and 150% text at 1920x1080 and 1280x720.",
+      "expected": "Six fields and disabled reasons scroll and remain operable; actual focus/preview/back behavior is recorded.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_7.full_loop",
+      "procedure": "Package the actual systems room and complete New -> pickups -> storage -> repair -> transcript -> safe return -> verified save -> relaunch -> Continue.",
+      "expected": "Coherent campaign and retained mode; no lost/duplicated items. A real launched Windows package and evidence are required.",
+      "result": "not_run",
+      "evidence": null
+    }
+  ]
+}

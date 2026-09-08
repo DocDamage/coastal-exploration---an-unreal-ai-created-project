@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "section": "M1.8 routed audio options and preference upgrade",
+  "plugin_version": "0.1.8-m1-audio-options-source",
+  "source_basis": "supplied M1.7 source ZIP",
+  "engine_version": null,
+  "host_project": null,
+  "agis_version": null,
+  "hyper_version": null,
+  "unreal_editor_automation_tests_total": 30,
+  "host_project_available": false,
+  "vendor_packages_available": false,
+  "unreal_compiled": false,
+  "native_audio_mixing_executed": false,
+  "native_options_io_executed": false,
+  "native_widgets_rendered": false,
+  "actual_controller_tested": false,
+  "windows_packaged": false,
+  "paid_assets_included": false
+}

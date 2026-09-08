@@ -1,0 +1,10 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "0.1.0-m1-vendor-integration",
+  "FriendlyName": "Coastal Vendor Integration",
+  "Description": "Original project wrappers for the locally installed AGIS and Hyper assets.",
+  "CanContainContent": false,
+  "Modules": [{ "Name": "CoastalVendorIntegration", "Type": "Runtime", "LoadingPhase": "Default" }],
+  "Plugins": [{ "Name": "CoastalFoundation", "Enabled": true }]
+}

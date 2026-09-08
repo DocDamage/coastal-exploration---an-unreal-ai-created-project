@@ -1,0 +1,6 @@
+$ bash tools/run_core_tests.sh
+Campaign/transaction core: 227 checks; 0 failures
+407 checks; 0 failures
+Save envelope core: 583 checks; 0 failures
+
+Exit code: 0

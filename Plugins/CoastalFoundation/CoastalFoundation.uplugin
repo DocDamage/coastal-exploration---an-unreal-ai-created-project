@@ -1,0 +1,24 @@
+{
+  "FileVersion": 3,
+  "Version": 20,
+  "VersionName": "0.1.10-m1-display-settings-source",
+  "FriendlyName": "Coastal Foundation",
+  "Description": "Coastal Exploration source: First Signal, campaign persistence, native UI, startup, interaction, recovery, player and audio options, ambience/transcript playback, and timed display-mode trials. Requires actual Unreal/vendor/Windows validation.",
+  "Category": "Gameplay",
+  "CreatedBy": "Coastal Exploration Project",
+  "CanContainContent": false,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "CoastalFoundation",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "EnhancedInput",
+      "Enabled": true
+    }
+  ]
+}

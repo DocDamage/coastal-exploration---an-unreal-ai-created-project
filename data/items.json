@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "status": "design_specification_not_automatically_imported_into_unreal",
+  "inventory_authority": "AGIS through a to-be-implemented adapter",
+  "initial_inventory_grid": [
+    6,
+    4
+  ],
+  "cabin_storage_grid": [
+    8,
+    6
+  ],
+  "items": [
+    {
+      "id": "item.radio_battery",
+      "name": "Radio Battery",
+      "kind": "quest",
+      "quantity": 1,
+      "stack_limit": 1,
+      "grid": [
+        1,
+        2
+      ],
+      "required_for": "quest.first_signal",
+      "protect_from_discard": true,
+      "can_store": true,
+      "consumed_by": "first_signal.radio_repair.v1",
+      "mesh_status": "unverified",
+      "mesh_path": null,
+      "icon_path": null,
+      "presentation": "Use an inventoried suitable prop only after inspection; otherwise a clearly labeled development proxy."
+    },
+    {
+      "id": "item.marine_fuse",
+      "name": "Marine Fuse",
+      "kind": "quest",
+      "quantity": 1,
+      "stack_limit": 1,
+      "grid": [
+        1,
+        1
+      ],
+      "required_for": "quest.first_signal",
+      "protect_from_discard": true,
+      "can_store": true,
+      "consumed_by": "first_signal.radio_repair.v1",
+      "mesh_status": "unverified",
+      "mesh_path": null,
+      "icon_path": null,
+      "presentation": "Fuse box ownership does not establish a separate fuse mesh."
+    },
+    {
+      "id": "item.dock_key",
+      "name": "Dock Locker Key",
+      "kind": "key",
+      "quantity": 1,
+      "stack_limit": 1,
+      "grid": [
+        1,
+        1
+      ],
+      "required_for": null,
+      "protect_from_discard": true,
+      "can_store": true,
+      "consumed_by": null,
+      "mesh_status": "candidate_in_cabin_listing",
+      "mesh_path": null,
+      "icon_path": null,
+      "presentation": "Optional locker only. Never lock either required radio part behind this optional key."
+    },
+    {
+      "id": "item.old_postcard",
+      "name": "Old Postcard",
+      "kind": "discovery",
+      "quantity": 1,
+      "stack_limit": 1,
+      "grid": [
+        1,
+        1
+      ],
+      "required_for": null,
+      "protect_from_discard": false,
+      "can_store": true,
+      "consumed_by": null,
+      "mesh_status": "unverified",
+      "mesh_path": null,
+      "icon_path": null,
+      "presentation": "One original journal illustration/text; physical mesh optional and unverified."
+    }
+  ]
+}

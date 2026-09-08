@@ -1,0 +1,19 @@
+Command: bash tools/run_core_tests.sh
+Environment additions: {"CXX": "clang++"}
+Started UTC: 2026-09-06T14:02:41.939964+00:00
+Startup lifecycle core: 94 checks; 0 failures
+Campaign/transaction core: 227 checks; 0 failures
+407 checks; 0 failures
+Interaction routing/offer core: 211 checks; 0 failures
+Inventory view/catalogue core: 80 checks; 0 failures
+Options codec/selection core: 1170 checks; 0 failures
+Player options/look core: 277 checks; 0 failures
+Options storage/session core: 164 checks; 0 failures
+M1.6 preference upgrade core: 236 checks; 0 failures
+Safe-return/checkpoint core: 160 checks; 0 failures
+Save envelope core: 583 checks; 0 failures
+Sprint/input/speed ownership core: 1924 checks; 0 failures
+Test-room manifest core: 193 checks; 0 failures
+UI flow/presentation core: 650 checks; 0 failures
+
+Return code: 0

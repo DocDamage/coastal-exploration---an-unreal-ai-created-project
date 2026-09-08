@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "id": "level.first_signal",
+  "status": "metric_design_coordinates_not_a_generated_map",
+  "units": "meters",
+  "bounds_m": [
+    260,
+    200
+  ],
+  "coordinate_convention": "X east, Y north, Z up; convert meters to Unreal centimeters by multiplying by 100",
+  "target_route_length_m": [
+    500,
+    700
+  ],
+  "actual_route_length_measured": false,
+  "areas": [
+    {
+      "id": "area.cabin",
+      "name": "Cabin Cove",
+      "center_m": [
+        0,
+        0,
+        3
+      ],
+      "footprint_m": [
+        40,
+        35
+      ],
+      "purpose": "Spawn, radio, storage, return destination"
+    },
+    {
+      "id": "area.trail",
+      "name": "Shoreline Trail",
+      "center_m": [
+        60,
+        25,
+        5
+      ],
+      "footprint_m": [
+        90,
+        35
+      ],
+      "purpose": "Movement, navigational landmarks, fork"
+    },
+    {
+      "id": "area.dock",
+      "name": "Old Dock",
+      "center_m": [
+        125,
+        15,
+        2
+      ],
+      "footprint_m": [
+        55,
+        45
+      ],
+      "purpose": "Two guaranteed radio parts in separately identifiable unlocked containers"
+    },
+    {
+      "id": "area.overlook",
+      "name": "Rail Overlook",
+      "center_m": [
+        70,
+        80,
+        12
+      ],
+      "footprint_m": [
+        40,
+        30
+      ],
+      "purpose": "Optional discovery, distant platform sightline"
+    }
+  ],
+  "world_ids": [
+    "world.cabin.radio",
+    "world.cabin.storage",
+    "world.dock.battery_container",
+    "world.dock.fuse_container",
+    "world.dock.optional_locker",
+    "world.overlook.postcard"
+  ],
+  "main_connections": [
+    [
+      "area.cabin",
+      "area.trail"
+    ],
+    [
+      "area.trail",
+      "area.dock"
+    ]
+  ],
+  "optional_connections": [
+    [
+      "area.trail",
+      "area.overlook"
+    ],
+    [
+      "area.overlook",
+      "area.dock"
+    ]
+  ],
+  "water_policy": "Visual water with tested shore recovery. No swimming or boat control in v0.1.",
+  "readability": "Use dock silhouette, cabin roof, rail bridge, and path edges rather than mandatory marker following."
+}

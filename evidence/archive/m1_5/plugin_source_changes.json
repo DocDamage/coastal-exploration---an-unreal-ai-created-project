@@ -1,0 +1,139 @@
+{
+  "baseline_archive": "Coastal_Exploration_M1_4_Source_Package(1).zip",
+  "baseline_archive_sha256": "49da9aa28e37a97e3d54acbf535d472953819ec9f4d4adad29d34359ce7c9dae",
+  "source_revision": null,
+  "changes": [
+    {
+      "path": "Plugins/CoastalFoundation/CoastalFoundation.uplugin",
+      "change": "modified",
+      "before_sha256": "65ff890fd228b98cc51f4eb0ea08b5e9372f6ed7c018c0b3b733ff8ebc8ac441",
+      "after_sha256": "34dca77183560e77f671d1d6ad7f48a514f1600b8acc378df52e24bbd3bd92a4"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalHUDWidget.cpp",
+      "change": "modified",
+      "before_sha256": "c65c5a78694943ea50bd038b9b690e53a9a55a514433990d719b7de82dc6b936",
+      "after_sha256": "a8037446d985065513333c4f83e8d0bd55cd67f863b4c97f9e08600e2c94041b"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalPlacementLibrary.cpp",
+      "change": "modified",
+      "before_sha256": "6f703e28b7054cf6a6b8f5935a4fddbaaafcda94e70a3a7f534f165e846454b2",
+      "after_sha256": "e87dd78fc3f2bf1ab601248760dbd35b3489e673e00c137637662bff8b41b885"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalPlayerRecoveryComponent.cpp",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "57bc68b464d1e588eabfb90e8a9a4d722573a6274b05931619703047c0a32f3e"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalRecoveryExecution.cpp",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "76ce85a9e4ad609326f5fb5c52bfd71cf41dd3d6cb2390066f705d04bab468d5"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalRecoveryInput.cpp",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "8eac64908238f62ede8639cd2de7756abc5be2b4f3eb25f95044bee11c49b3d6"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSafetyVolume.cpp",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "1c64cd15876ec85faaefe15c8b17d47f341dad3be79799acbda1d1112f459173"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveCoordinator.cpp",
+      "change": "modified",
+      "before_sha256": "ac87c06d10d643c008589120b66a1a993c05b4f4c54a54d077a444e80d1c6ab7",
+      "after_sha256": "97697c4590ac916ae90652c9a6501998c7b1e1fee34f0f967ada848ab7da57ee"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveRecovery.cpp",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "4fad5537e4b778040958eada08deeb6060471365830a76d835da70ed24a5eb00"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveRestore.cpp",
+      "change": "modified",
+      "before_sha256": "6984129b88303266dff0f215c249c1b39792d0c543a08798d6c6ea0682ec3f2c",
+      "after_sha256": "3c95ef7cd340a82041f9d6f72283ea63514c1674b6685af9dc4ca2c36f7f4139"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSessionBootstrapComponent.cpp",
+      "change": "modified",
+      "before_sha256": "37944bf9e3386be7fcdd6faebb30ac3dce6f4f82a5ea9a9b98c452fd85d6d3e8",
+      "after_sha256": "b820742df312692cab61783d142ad9e1982ca72bdb2b0bb3d5c05038d856de30"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalStartupPreflight.cpp",
+      "change": "modified",
+      "before_sha256": "79c89e54efe9645b9ac3f736b923d7f9ea51279e36482bbdeade9c07f3d9ec7c",
+      "after_sha256": "cf9356620748ef53797e00d9d957341c8f3833663651dd1a6d3edc4446d00fc3"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUISessionComponent.cpp",
+      "change": "modified",
+      "before_sha256": "478c72c0879d65c8133bcabf4346c0125d0dae918ce9f551d36481e4d1685945",
+      "after_sha256": "d9f71b4acf9887f560f8847c45e7cc9afcbfbe9ad637da484c27760bd49950cd"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIStack.cpp",
+      "change": "modified",
+      "before_sha256": "73dc73a5f641c4468a32aeb8a02a85d37c6f4c5bb1ec86f3cdcd65d93ad2c724",
+      "after_sha256": "c9b5f6e72b56618c5153882f5127aab874aaa0c11095f17282da1783bb5b7df0"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/Tests/M1RecoveryAutomationTests.cpp",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "d5e311cbfabc459c3624e62561daa62eaa1bd5eff9a23f16b105913943e339cc"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalPlayerRecoveryComponent.h",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "ccdbc3173b3fde2402063b4bb4d34ae7a040c378908b7a19a532f8796db127ae"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalSafetyVolume.h",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "c3b017e7a603445bd05baa890e9f45b0b22a34b38583dfe76b487ffe9601f518"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalSaveCoordinator.h",
+      "change": "modified",
+      "before_sha256": "266d37b0b27778cfdf829a5e3b5d114da966759578684694105c9620f5942816",
+      "after_sha256": "767e5c49b84c9a292c5de5c4cac0bf514a1959e943123b94c4f44d252780a457"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalSessionBootstrapComponent.h",
+      "change": "modified",
+      "before_sha256": "129856a6865bcf5f4422d9359e948f774bbe049afd74acec7e18d1f9bd88d375",
+      "after_sha256": "1fd0607481b939bd8322c7f422cee3451a62dd3cb0767f124b816c0028d4853a"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalUISessionComponent.h",
+      "change": "modified",
+      "before_sha256": "4898198482bb945c82442821dd98f913c27336b66ba5080404f3667e17175865",
+      "after_sha256": "689d700338f5056b3892870bef3077ceffb3058f735e6285d320633a63079340"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/CampaignRules.h",
+      "change": "modified",
+      "before_sha256": "c48d1bda1fa2fdf0e909892abb104fce794a5f7a303a83884ab443adbf0e7ab9",
+      "after_sha256": "ce52716ab065a3b709a2c9d4ea66149ddd8e82d5c38839274768ce6a3c42954b"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/RecoveryRules.h",
+      "change": "added",
+      "before_sha256": null,
+      "after_sha256": "e6179f579f64471bb277ee8f6c0f09a6a84e3fdf39c198fc46d9fbf756cab6d1"
+    }
+  ]
+}

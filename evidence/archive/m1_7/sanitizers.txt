@@ -1,0 +1,33 @@
+Command: bash tools/run_sanitizers.sh
+Environment additions: {"CXX": "clang++"}
+Started UTC: 2026-09-06T14:03:00.341699+00:00
+Sanitizer compile/run: bootstrap_core_tests
+Startup lifecycle core: 94 checks; 0 failures
+Sanitizer compile/run: campaign_core_tests
+Campaign/transaction core: 227 checks; 0 failures
+Sanitizer compile/run: first_signal_core_tests
+407 checks; 0 failures
+Sanitizer compile/run: interaction_core_tests
+Interaction routing/offer core: 211 checks; 0 failures
+Sanitizer compile/run: inventory_view_tests
+Inventory view/catalogue core: 80 checks; 0 failures
+Sanitizer compile/run: options_codec_tests
+Options codec/selection core: 1170 checks; 0 failures
+Sanitizer compile/run: options_core_tests
+Player options/look core: 277 checks; 0 failures
+Sanitizer compile/run: options_storage_tests
+Options storage/session core: 164 checks; 0 failures
+Sanitizer compile/run: options_upgrade_tests
+M1.6 preference upgrade core: 236 checks; 0 failures
+Sanitizer compile/run: recovery_core_tests
+Safe-return/checkpoint core: 160 checks; 0 failures
+Sanitizer compile/run: save_envelope_tests
+Save envelope core: 583 checks; 0 failures
+Sanitizer compile/run: sprint_core_tests
+Sprint/input/speed ownership core: 1924 checks; 0 failures
+Sanitizer compile/run: test_room_core_tests
+Test-room manifest core: 193 checks; 0 failures
+Sanitizer compile/run: ui_flow_tests
+UI flow/presentation core: 650 checks; 0 failures
+
+Return code: 0

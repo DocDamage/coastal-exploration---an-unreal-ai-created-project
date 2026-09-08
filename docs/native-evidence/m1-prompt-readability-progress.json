@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-06",
+  "milestone_complete": false,
+  "implementation": "CoastalHostSession retains the actual Hyper widget and focus lifetime, positions its component at a lower-screen point using current viewport deprojection, applies the UI-selected text size with shadow and wrapping, and includes the authored object name. The focused static proxy label is restored on focus loss, modal opening, host invalidation or teardown. Native modal panel backgrounds are opaque.",
+  "package": "m1-readable-hyper-final-package.log: Development Win64 build/cook/stage/archive succeeded",
+  "passed_runs": [
+    {
+      "log": "m1-readable-hyper-final-720.log",
+      "resolution": "1280x720",
+      "text_percent": 150,
+      "campaign": "E4706642493FBF8A6BEB749B9F76FD3D",
+      "receipts": 5,
+      "exit_code": 0,
+      "visually_inspected": ["coastal_test_hyper_final_720-focus-16.png", "coastal_test_hyper_final_720-gamepad-focus-30.png"]
+    },
+    {
+      "log": "m1-readable-hyper-final-1080.log",
+      "resolution": "1920x1080",
+      "text_percent": 100,
+      "campaign": "E76B785841D1AE29CB0906A166EF02F4",
+      "receipts": 5,
+      "exit_code": 0,
+      "visually_inspected": ["coastal_test_hyper_final_1080-focus-8.png"]
+    }
+  ],
+  "regression": "m1-readable-hyper-unreal-report/index.json: 38 clean successes, one success with existing vendor tag warnings, zero failed/unrun/in-progress",
+  "limitations": [
+    "These are sampled rendered views, not a complete manual UI audit or exhaustive camera/display-mode coverage.",
+    "Navigation/confirmation use Slate gamepad events; world movement uses test positioning and injected input, not a physical controller.",
+    "Runs disable sound; they do not establish audible output.",
+    "Dynamic device glyph selection remains unimplemented. The prompt states both actual bindings."
+  ],
+  "evidence_boundary": "Raw screenshots, logs, package and vendor assets remain in external local evidence. Historical evidence is unchanged."
+}

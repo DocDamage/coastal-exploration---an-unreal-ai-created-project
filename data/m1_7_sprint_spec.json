@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "section": "M1.7 walk/sprint and preference upgrade",
+  "status": "source_implemented_native_not_run",
+  "component": "CoastalSprintComponent",
+  "owner": "one fixed possessed character; initialized by existing UI options owner",
+  "default_use_host_sprint_events": false,
+  "default_walk_cm_s": 330.0,
+  "default_sprint_cm_s": 520.0,
+  "walk_bounds_cm_s": [
+    100,
+    1000
+  ],
+  "sprint_bounds_cm_s": [
+    100,
+    1500
+  ],
+  "sprint_not_slower_than_walk": true,
+  "input_sample_lease_frames": 2,
+  "sample_lease_wall_clock_guarantee": false,
+  "option_field_count": 6,
+  "default_sprint_toggle": false,
+  "mode_values": [
+    "Hold",
+    "Toggle"
+  ],
+  "host_default_bindings": {
+    "keyboard": "Left Shift",
+    "gamepad": "Left stick click"
+  },
+  "input_sample_contract": "One actual aggregate Sprint down/released state per frame, including true release after eligible transitions. No fabricated release on Canceled/menu close.",
+  "interruptions": [
+    "menu or pause",
+    "session epoch change",
+    "interaction-permission revision change",
+    "move-input lock",
+    "leaving normal walking mode",
+    "crouch",
+    "sample expiry",
+    "Hold/Toggle change"
+  ],
+  "toggled_intent_saved": false,
+  "stamina": false,
+  "auto_run": false,
+  "native_input_mapping_created": false,
+  "movement_vector_written": false,
+  "property_owned": "CharacterMovement.MaxWalkSpeed",
+  "foreign_property_change": "Disable sprint with diagnostic; preserve the foreign value; no automatic reacquire.",
+  "persistence": {
+    "slots": [
+      "CoastalLocalOptions_v1_A",
+      "CoastalLocalOptions_v1_B"
+    ],
+    "slot_name_suffix_meaning": "retained preference namespace, not current payload schema",
+    "read_schemas": [
+      1,
+      2
+    ],
+    "write_schema": 2,
+    "legacy_payload_bytes": 40,
+    "legacy_encoded_bytes": 60,
+    "payload_bytes": 44,
+    "encoded_bytes": 64,
+    "auto_write_on_load": false,
+    "legacy_sprint_mode": "Hold",
+    "upgrade_trigger": "explicit Apply and save local options",
+    "campaign_schema_changed": false,
+    "older_plugin_readback_compatible": false
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "runtime_source_and_authoring_recipes_implemented_pending_native_build_and_live_editor_acceptance",
+  "campaign_policy": "Persist via the existing campaign journal and explicit optional expansion world records; retain all seven original required records. Loading a pre-expansion save initializes only approved new records to unread; no automatic write on load.",
+  "quests": [
+    {
+      "id": "quest.north_reach",
+      "title": "North Reach",
+      "starts_after": "quest.first_signal.complete",
+      "steps": [
+        {
+          "world_id": "world.north_reach.harbour_log",
+          "journal_id": "journal.north_reach.harbour_log",
+          "destination": "industrial_harbour",
+          "action": "Read harbour inspection log",
+          "title": "The last harbour inspection",
+          "text": "The outer signal lamp is running on reserve power. A cracked switch housing has left the service crew unable to confirm its status from shore. Follow the boardwalk to the sea platform and check the signal station before ordering new parts.",
+          "objective": "Read the inspection log at the Industrial Harbour."
+        },
+        {
+          "world_id": "world.north_reach.platform_signal",
+          "journal_id": "journal.north_reach.platform_signal",
+          "destination": "sea_platform",
+          "action": "Check the signal station",
+          "title": "A signal still burning",
+          "text": "The reserve lamp is steady. Beside its housing, a maintenance plate records a replacement assembly delivered to Powell Dock. The platform can stay lit for now; check the dock's work order to find out why the crew never returned.",
+          "objective": "Follow the boardwalk and check the sea platform's signal station."
+        },
+        {
+          "world_id": "world.north_reach.powell_order",
+          "journal_id": "journal.north_reach.powell_order",
+          "destination": "powell_dock",
+          "action": "Read the work order",
+          "title": "Powell's unfinished work",
+          "text": "The replacement housing reached the dock, but the crew was reassigned after a report from the old prison. Their survey notes also mention Hallsands and the village inland. You have confirmed the coastal signal route; those records may explain the abandoned settlements.",
+          "objective": "Read the maintenance work order at Powell Dock."
+        }
+      ]
+    },
+    {
+      "id": "quest.coastal_records",
+      "title": "Coastal Records",
+      "starts_after": "quest.north_reach.complete",
+      "steps": [
+        {
+          "world_id": "world.coastal_records.hallsands",
+          "journal_id": "journal.coastal_records.hallsands",
+          "destination": "hallsands",
+          "action": "Inspect the evacuation marker",
+          "title": "Hallsands: the evacuation mark",
+          "text": "A surviving marker gives the route used when the lower village was evacuated: follow the inland path to the tiled courtyard. Family records and the surveyor's register were carried there ahead of the storm.",
+          "objective": "Inspect the evacuation marker at Hallsands."
+        },
+        {
+          "world_id": "world.coastal_records.village",
+          "journal_id": "journal.coastal_records.village",
+          "destination": "medieval_italian_village",
+          "action": "Read the village register",
+          "title": "The courtyard register",
+          "text": "The register lists families received from the coast. A pencilled note says the surveyor moved the oldest maps to the ruins at Baelo Claudia, where the stone terrace offered a clear view of changes along the shore.",
+          "objective": "Read the register in the Medieval Italian Village courtyard."
+        },
+        {
+          "world_id": "world.coastal_records.baelo",
+          "journal_id": "journal.coastal_records.baelo",
+          "destination": "baelo_claudia",
+          "action": "Inspect the survey tablet",
+          "title": "Baelo: a changing shoreline",
+          "text": "The survey tablet compares the ancient shoreline with the present coast. A final annotation records a warning sent to the harbour and copied to the prison office. The prison's duty record should be the last surviving copy.",
+          "objective": "Inspect the survey tablet at Baelo Claudia."
+        },
+        {
+          "world_id": "world.coastal_records.prison",
+          "journal_id": "journal.coastal_records.prison",
+          "destination": "haunted_prison",
+          "action": "Read the prison duty record",
+          "title": "The last duty record",
+          "text": "The final entry confirms that the harbour warning arrived and the remaining occupants were moved inland. Supplies were left in the cells for anyone caught on the return journey. Together, the scattered records explain the evacuation route and close the coastal survey.",
+          "objective": "Find the final duty record inside Haunted Prison."
+        }
+      ]
+    }
+  ],
+  "presentation": "Original authored first-pass investigations. Runtime source derives both chains from these journal-backed discovery records and the authoring recipe places a visible Hyper-bound prop at each verified dry arrival. Native build, map authoring, immediate journal presentation, objective progression and save/reload checks remain required before calling this shipped quest gameplay."
+}

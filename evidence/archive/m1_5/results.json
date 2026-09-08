@@ -1,0 +1,80 @@
+{
+  "section": "M1.5",
+  "version": "0.1.5-m1-safe-return-source",
+  "recorded_utc": "2026-09-06T02:12:51.977596+00:00",
+  "scope": "Actual standalone helper/tool tests only; not Unreal or vendor gameplay.",
+  "checks": {
+    "gcc_core.txt": {
+      "command": [
+        "bash",
+        "tools/run_core_tests.sh"
+      ],
+      "environment_override": {},
+      "returncode": 0
+    },
+    "clang_core.txt": {
+      "command": [
+        "bash",
+        "tools/run_core_tests.sh"
+      ],
+      "environment_override": {
+        "CXX": "clang++"
+      },
+      "returncode": 0
+    },
+    "python_tests.txt": {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "environment_override": {},
+      "returncode": 0
+    },
+    "sanitizers.txt": {
+      "command": [
+        "bash",
+        "tools/run_sanitizers.sh"
+      ],
+      "environment_override": {
+        "CXX": "clang++"
+      },
+      "returncode": 0
+    },
+    "structural_checks.txt": {
+      "command": [
+        "python3",
+        "tools/verify_package.py"
+      ],
+      "environment_override": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "returncode": 0
+    }
+  },
+  "not_run": [
+    "UnrealHeaderTool",
+    "UnrealBuildTool",
+    "Windows compiler/PowerShell",
+    "19 Unreal automation tests",
+    "real AGIS/Hyper integration",
+    "editor safety recipe",
+    "native collision/input/fade/UI",
+    "Windows cook/package/launch",
+    "frame-time measurements"
+  ],
+  "cpp_assertions": 2605,
+  "python_test_cases": 52,
+  "structural_checks": 731,
+  "finalized_utc": "2026-09-06T02:15:59.329923+00:00",
+  "unreal_automation_tests_supplied": 19,
+  "unreal_automation_tests_executed": 0,
+  "local_recovery_acceptance_cases_supplied": 32,
+  "local_recovery_acceptance_cases_executed": 0
+}

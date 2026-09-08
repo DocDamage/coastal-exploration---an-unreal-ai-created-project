@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "case": "ui.storage.stale",
+  "runtime": "UE 5.7.4 packaged Development Win64, D3D11 1280x720, actual AGIS/Hyper/native UI",
+  "mode": "storage_revision",
+  "slot": "coastal_test_storage_revision",
+  "package_log": "m1-storage-revision-package-settled.log",
+  "runtime_log": "m1-storage-revision-runtime.log",
+  "fixture": "After actual Hyper pickup/open and presented storage, two real coordinator-guarded bridge transfers move the battery out and back without refreshing the UI inventory projection. Actual provider revision advances while displayed item contents return to their prior state. The queued fixture autosave settles before the refusal baseline.",
+  "verified": [
+    "First actual native Transfer button click rejects the stale revision",
+    "Presented visible panel contains Review the refreshed selection notice",
+    "Complete AGIS payload, campaign ID, three receipt IDs/fingerprints and save generation stay unchanged after rejected click",
+    "Second explicit native Transfer click applies once: empty backpack, one stored battery, four total receipts",
+    "Native UI quit and process exit 0"
+  ],
+  "limits": [
+    "Fixture changes provider state through real bridge transactions; no fake provider success or raw state patch",
+    "Test uses injected input and deterministic positioning, not physical-device evidence",
+    "No production logic changed; existing UI revision guard passed",
+    "Does not cover Busy/Failed retry identity, destroyed storage or session replacement"
+  ],
+  "source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52
+  },
+  "source_sha256": "c37bf872b7350bae0619226bee93d89ab6b810bc8c73cc90ab85a685f46172b0",
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  }
+}

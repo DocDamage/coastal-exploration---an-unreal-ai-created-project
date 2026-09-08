@@ -1,0 +1,34 @@
+# This starter contains original source and documents only. Review vendor paths before committing.
+Binaries/
+Intermediate/
+DerivedDataCache/
+Saved/
+.vs/
+.idea/
+*.sln
+*.suo
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+
+# Native integration: local logs, compiler products, and restricted dependencies.
+/local-evidence/
+*.local.json
+*.obj
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.zip
+# Actual inspected vendor mounts; local copies live in the external host.
+/Content/INVENTORY/
+/Content/Hyper/
+/Content/Fishermans_Cabin/
+/Content/__ExternalActors__/Fishermans_Cabin/
+/LocalVendor/
+/AdvancedGridInventorySyst/
+
+/Content/Coastal/Audio/SW_M1Ambience.uasset
+/Content/Coastal/Audio/SW_M1Action.uasset

@@ -1,0 +1,72 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "package_log": "m1-options-blocked-session-package-fixed.log",
+  "runtime": "UE5.7.4 packaged Development Win64, real UI/profile owners",
+  "results": {
+    "cases": [
+      {
+        "case": "inner_future_a",
+        "passed": true,
+        "files_unchanged": true,
+        "log": "m1-options-session-inner_future_a.log",
+        "fixture_sha256": [
+          "a58acc7d2eea79d7781e4614890e12caa1866d2e2a6c3095025a7d4189946ab2",
+          "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f"
+        ]
+      },
+      {
+        "case": "inner_future_b",
+        "passed": true,
+        "files_unchanged": true,
+        "log": "m1-options-session-inner_future_b.log",
+        "fixture_sha256": [
+          "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f",
+          "a58acc7d2eea79d7781e4614890e12caa1866d2e2a6c3095025a7d4189946ab2"
+        ]
+      },
+      {
+        "case": "both_corrupt",
+        "passed": true,
+        "files_unchanged": true,
+        "log": "m1-options-session-both_corrupt.log",
+        "fixture_sha256": [
+          "11d510e067d2cdcd7559bd86d27a2f4c20babd43670346b97af99b522c1f0075",
+          "11d510e067d2cdcd7559bd86d27a2f4c20babd43670346b97af99b522c1f0075"
+        ]
+      },
+      {
+        "case": "equal_generation",
+        "passed": true,
+        "files_unchanged": true,
+        "log": "m1-options-session-equal_generation.log",
+        "fixture_sha256": [
+          "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f",
+          "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f"
+        ]
+      }
+    ],
+    "original_file_count": 95,
+    "all_original_files_restored": true
+  },
+  "verified": [
+    "Both corrupt, equal generation and inner future schema in either slot present defaults with Save disabled",
+    "Mouse125 draft changes no live settings or bytes; explicit session Apply changes mouse only and keeps disk writes blocked",
+    "No fixture files replaced or deleted; all95 originals restored"
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52
+  },
+  "limits": [
+    "Development probe change only; no production behavior modified",
+    "Initial macro/else compilation failure retained; corrected package passed"
+  ]
+}

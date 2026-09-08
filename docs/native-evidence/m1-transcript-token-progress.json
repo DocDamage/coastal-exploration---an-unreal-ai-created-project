@@ -1,0 +1,43 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "reference_cases": [
+    "M1-06",
+    "ui.transcript.stale"
+  ],
+  "package_log": "m1-transcript-token-package.log",
+  "runtime_logs": [
+    "m1-transcript-token-new.log",
+    "m1-transcript-token-continue.log"
+  ],
+  "campaign": "FE421082428382BB6B1266A5D5CFABED",
+  "setup": "UE 5.7.4 packaged Development Win64; actual AGIS, Hyper, native transcript UI and save coordinator. A WITH_DEV_AUTOMATION_TESTS-only read accessor observes the real bridge-issued token before load.",
+  "verified": [
+    "Successful real save/load advances session epoch and retires old transcript panel.",
+    "Retained old widget callback cannot acknowledge or mutate mission/journal/inventory/receipts/generation.",
+    "On a subsequent test step, direct AcknowledgeTranscript(old issued token) returns InvalidTarget; message remains unacknowledged and complete AGIS payload/campaign, receipt IDs/fingerprints, journal and immediate save generation remain unchanged.",
+    "A fresh Hyper-opened transcript acknowledges normally; complete mission, safe return and verified save pass at generation16 with five receipts.",
+    "Fresh process Continue restores same completed campaign and five receipts; host checkpoint update advances generation17. Both processes exit normally through UI."
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_sha256": {
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInteractionBridge.h": "27ca564f53f23fd4a75463700f3381239e819ebfc6bb3875db1b71a602ddad8d",
+    "Plugins/CoastalVendorIntegration/Source/CoastalVendorIntegration/Private/CoastalCampaignProbe.cpp": "0657495276cf781e463d866f99673455cdb86e5c06c643116674342c736c2075",
+    "Plugins/CoastalVendorIntegration/Source/CoastalVendorIntegration/Private/CoastalSaveProbe.cpp": "75d640bc23c6b05073701ef449363a6c1faebbd92c674b87582d15e0ff0e1e1a"
+  },
+  "raw_log_sha256": {
+    "m1-transcript-token-new.log": "12dfbb4eea0e0be93f167cdd7378686fba4879c2fd432d8f11c97cf3b14e627e",
+    "m1-transcript-token-continue.log": "1d7fa6984e5ddf6e45c15e95a831282f41e6ae255440d122e16301f3d27f6b8d",
+    "m1-transcript-token-package.log": "7200100b0a7d72677fd3408f988058708ce8cbedf6d681ed1665fa5dded231e0",
+    "m1-transcript-token-native.log": "05f17c4d23ab4d4515f9f7129e95a78194e7dae72336547f62dfbca3e1e5faff"
+  },
+  "limits": [
+    "Deterministic test positioning/injected input is not physical-device traversal.",
+    "Accessor only observes a token; production permission, load and acknowledgement behavior is unchanged."
+  ]
+}

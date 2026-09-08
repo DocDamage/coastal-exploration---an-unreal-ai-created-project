@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-06",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 Development Win64, D3D11, 1280x720, sound disabled",
+  "map": "/Game/Coastal/Maps/L_SystemsTest_Capacity",
+  "package_log": "m1-storage-capacity-package.log",
+  "passed_runs": [
+    {"log": "m1-storage-capacity-new.log", "mode": "capacity_storage_new", "campaign": "CF96345F400CB3BA7FDEB38D2D664AE5", "generation": 116, "postcards": 48, "receipts": 97, "exit_code": 0},
+    {"log": "m1-storage-capacity-continue.log", "mode": "capacity_storage_continue", "campaign": "CF96345F400CB3BA7FDEB38D2D664AE5", "generation": 126, "postcards": 48, "receipts": 103, "exit_code": 0}
+  ],
+  "verified": [
+    "Two batches of 24 distinct world postcards are collected through real Hyper focus and E input, then transferred through Slate gamepad navigation/confirmation in the native UI.",
+    "The unchanged 8x6 cabin contains 48 real AGIS items. Battery transfer returns a visible No-space notice while preserving its source container, payload, receipts, campaign generation and world pickup active/hidden/collision states.",
+    "Explicit Save and clean UI quit precede a fresh executable process. Actual Continue restores the same campaign, byte-identical complete provider payload and 97 receipts.",
+    "Full-cabin refusal repeats after relaunch. Returning one postcard to the backpack frees one cell, which still cannot hold the 1x2 battery; this second refusal also conserves state.",
+    "Returning a second postcard through the UI frees enough space for battery transfer. The battery is retrieved through the UI, the fuse is collected through Hyper, and radio repair/acknowledgement/save complete.",
+    "All 48 postcards remain: two in the backpack and 46 in storage. Both critical parts are consumed, their world pickups remain collected, the final ledger has 103 receipts, and the final quit sequence exits cleanly."
+  ],
+  "visually_inspected": [
+    "coastal_test_storage_capacity-capacity_storage_new-refused.png: 48 cabin items, battery still in backpack, visible no-space notice and focused transfer command.",
+    "coastal_test_storage_capacity-capacity_storage_continue-one_refused.png: 47 cabin items, battery and returned postcard in backpack, visible no-space notice."
+  ],
+  "native_tests": {"report": "m1-storage-capacity-native-report/index.json", "succeeded": 40, "succeeded_with_warnings": 1, "failed": 0, "not_run": 0},
+  "python_tests": {"log": "m1-storage-register-python-tests.log", "passed": 52},
+  "requirement_mapping": "ACCEPTANCE_TESTS.md INV-05 and the full-storage requirement in M1_ADAPTER_CONTRACT.md now have packaged runtime evidence. The earlier full-backpack run covers INV-02 and interaction.full_backpack.",
+  "limitations": [
+    "Automated positioning and injected inputs do not establish physical-controller or complete manual traversal acceptance.",
+    "No audible output or target-hardware performance is established by these runs.",
+    "Other M1 settings, save-fault, UI and hardware acceptance requirements remain open."
+  ],
+  "evidence_boundary": "Raw logs, saves, screenshots, maps, vendor content and packages remain outside the public repository. Original historical ledgers remain unchanged; current mappings are recorded in external working inventories."
+}

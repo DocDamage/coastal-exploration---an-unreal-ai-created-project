@@ -1,0 +1,61 @@
+{
+  "checked_utc": "2026-09-06T14:04:56.859124+00:00",
+  "plugin_version": "0.1.7-m1-sprint-source",
+  "source_basis_archive_sha256": "beec3df1d0e265cb837cbc5d7505797928328f0cba387086ea22763ed1224dc2",
+  "checks": {
+    "gcc_core": {
+      "returncode": 0,
+      "log": "evidence/gcc_core.txt",
+      "suites": 14,
+      "assertions": 6376,
+      "failures": 0
+    },
+    "clang_core": {
+      "returncode": 0,
+      "log": "evidence/clang_core.txt",
+      "suites": 14,
+      "assertions": 6376,
+      "failures": 0
+    },
+    "sanitizers": {
+      "returncode": 0,
+      "log": "evidence/sanitizers.txt",
+      "suites": 14,
+      "assertions": 6376,
+      "failures": 0
+    },
+    "python_tests": {
+      "returncode": 0,
+      "log": "evidence/python_tests.txt",
+      "test_cases": 52
+    },
+    "structural_checks": {
+      "command": [
+        "python3",
+        "tools/verify_package.py"
+      ],
+      "returncode": 0,
+      "checks": 1024,
+      "failures": 0,
+      "log": "evidence/structural_checks.txt"
+    }
+  },
+  "unreal_build": "not_run",
+  "unreal_test_execution": "not_run",
+  "supplied_unreal_tests": 26,
+  "actual_vendor_integration": "not_run",
+  "native_rendering_controller_tests": "not_run",
+  "windows_gameplay": "not_run",
+  "execution_note": "An initial combined invocation timed out after its successful GCC stage. Clang, sanitizer and Python checks were rerun in a separate local process and completed; only complete current results are counted.",
+  "plugin_delta_counts": {
+    "added": 4,
+    "modified": 8,
+    "removed": 0,
+    "unchanged": 79
+  },
+  "protected_source_hash_comparisons": {
+    "files": 24,
+    "all_unchanged": true,
+    "scope": "Source hashes only, not old binary-save compatibility or vendor behavior."
+  }
+}

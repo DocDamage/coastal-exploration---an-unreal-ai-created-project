@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "scope": "Project-owned surface materials and decorative rail ballast",
+  "ground": {
+    "texture_scale_cm": 250,
+    "grass_tint_linear": [0.30, 0.48, 0.23],
+    "dirt_tint_linear": [0.78, 0.66, 0.51],
+    "shore_tint_linear": [0.65, 0.69, 0.72],
+    "roughness": 0.94,
+    "mask": "/Game/Coastal/M2/Textures/T_FirstSignalGroundMask",
+    "normal_maps": "Use the matching installed grass, dirt and rock textures"
+  },
+  "rail_ballast": {
+    "position_cm": [8070, 8500, 1153],
+    "dimensions_cm": [2300, 310, 16],
+    "texture_scale_cm": 65,
+    "tint_linear": [0.28, 0.29, 0.27],
+    "roughness": 0.96,
+    "collision": "NoCollision"
+  },
+  "dock": {
+    "hidden_original_visuals": ["Dock landing", "Old pier"],
+    "collision": "Retain original continuous deck colliders",
+    "visible_surface": "M3 Dock board surface"
+  },
+  "runtime_acceptance": "not_run"
+}

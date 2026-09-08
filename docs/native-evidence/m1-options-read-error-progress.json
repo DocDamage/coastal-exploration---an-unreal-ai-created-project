@@ -1,0 +1,47 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "runtime": "UE5.7.4 packaged Development Win64 D3D11 with actual native profile/UI/camera/audio owners",
+  "package_log": "m1-options-read-error-package.log",
+  "cases": [
+    {
+      "slot": "A",
+      "passed": true,
+      "files_unchanged": true,
+      "log": "m1-options-read-error-0.log"
+    },
+    {
+      "slot": "B",
+      "passed": true,
+      "files_unchanged": true,
+      "log": "m1-options-read-error-1.log"
+    }
+  ],
+  "fixture": "A separate Python process holds a real Win32 CreateFileW handle with no sharing on one existing slot for the full game process. It independently verifies existence and denied reads. Two valid records have distinct generations, avoiding an equal-generation confound. Both slot directions are tested.",
+  "verified": [
+    "Every native probe step observes exactly one existing slot for which LoadDataFromSlot actually fails",
+    "Defaults and explanatory blocked notice are presented; actual native Save button disabled",
+    "Mouse sensitivity draft125 leaves live defaults and files unchanged before Apply",
+    "Actual session-only Apply sets mouse125, preserves all other defaults and keeps profile writes blocked",
+    "After game exits and lock closes, both full slot files are byte-identical to their fixture state",
+    "All95 original save files restored with no additions"
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52
+  },
+  "limits": [
+    "Tests Windows sharing-denial read errors, not every disk/device error",
+    "Session-only edits under initial all-corrupt/future/equal-generation fixtures remain separately unobserved",
+    "First A runner result had an FName capitalization mismatch; native pass and exit independently verified, original result retained",
+    "No production logic changed; only development acceptance probe permits observing the intentional read error"
+  ],
+  "source_sha256": "f419e2c0a7de030c60f1a2f5c5b0a09ad5078c49e2571c3cf821164788b5c882"
+}

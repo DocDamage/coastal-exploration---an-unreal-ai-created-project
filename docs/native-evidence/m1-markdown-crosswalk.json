@@ -1,0 +1,976 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "scope_authorities": [
+    "COASTAL_EXPLORATION_FOUNDATION.md section14",
+    "WHAT_REMAINS.md M1 working-room requirements",
+    "original user GitHub start prompt"
+  ],
+  "method": "Read-only reconciliation of all 58 original Markdown procedures against scope authorities and inspected evidence. No new gameplay execution in this audit. Shared milestones preserve M1 functional invariants and identify later map/presentation portions; they do not waive M1 conditions.",
+  "source_sha256": {
+    "ACCEPTANCE_TESTS.md": "46fb26b84afd49312d91868fda62b065631eda787eb5f91d5293acb952dede14"
+  },
+  "evidence_sha256": {
+    "m1-campaign-ambiguous-progress.json": "9063b5fb7f601fc7558c80eeb6e1f6cceab7eb871625d0d550c74c827c7f590b",
+    "m1-reach-matrix-progress.json": "2adc35445f8fe84566c7237490e3e9bcb345c8283d7b58690b19118f6b585158",
+    "m1-cabin-availability.json": "d7d0e771848c6414ca1d9da32da2cb4d35cb04afba2472425fc9aecb43ef969f",
+    "integrated-gameplay-summary.json": "9157f24ce44901bb2c75a3931e2fa5476067fbac9bc4aee099104784500b84e3",
+    "m1-prompt-readability-progress.json": "d41761ca7a9eadb6377505653d8d5103573f79319d072b6303a09b16fb8033e0",
+    "m1-capacity-world-progress.json": "c99a58ebfef7510915c8a9b7dae3a483f6e5d8addd5e64d1d26f77d92ddbff36",
+    "integrated-unreal-automation-summary.json": "dd45b33196c4f128f2c2b9fa2abbc0b800f50670abe3d59823a470c15f3f32c8",
+    "m1-save-runtime-progress.json": "ead88a9e2ed7ee2f763e6dd2912178330283ba990878aa43864806bf0836410f",
+    "m1-storage-capacity-progress.json": "dc4eea92d66516ec35c3f35a42943da271f356b637ec319c826d229479dd2d24",
+    "m1-missing-provider-progress.json": "33baa4406054fc111470d873f6478254d1a78e307626c5642d75178b3f9e165b",
+    "m1-radio-gain-progress.json": "8edc2af49f28c8c4481a34a82665e2e7b7511ef117b1ea4b84fa5b52ba734e14",
+    "m1-transcript-stale-progress.json": "d6225e484fb3d788ee37443e069d3838edf07a605d2b448ecffa8f0260c8a6a6",
+    "m1-gamepad-ui-progress.json": "e67fbaa2c9661aedc5a37a9c181a916f170c5658c3d5826556e228cfcacedf4e",
+    "m1-provider-rollback-progress.json": "c9cfc19e7793c6100cad907e146b225ef91d5a4166b93b2faa9b568920949e59",
+    "m1-stale-storage-progress.json": "6676d5765cd32dbeb9f5e89bd2fc84752b0ba81e5d1b6336f71dd133588f4e95",
+    "m1-campaign-conflicts-progress.json": "1daaa734a61eba1e27ee9c185308c54bb10a97f0935fa6e3e52c5efabbd6c389",
+    "m1-order-progress.json": "a68467bbad5ca4bcbbd3832c9952384a432a571d9742869a2e02183ca9557fd0",
+    "m1-transcript-token-progress.json": "5e5afff1e79e63a2f185b3d24282952432ad1696f5fffa8fee8691c8d07e402e",
+    "m1-repair-id-progress.json": "db00e6c887eecf0f8d4f8c815585682ca449ad6483af939bc836885ec868ee47"
+  },
+  "tests": [
+    {
+      "id": "BUILD-01",
+      "procedure": "Compile clean host project and source plugin.",
+      "expected": "Unreal Header Tool and Development Editor build succeed.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Native builds pass; final clean rebuild/provenance reconciliation remains.",
+      "evidence": [
+        "m1-campaign-ambiguous-progress.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "BUILD-02",
+      "procedure": "Run all four supplied tests under Coastal.FirstSignal and Coastal.M1.",
+      "expected": "All four pass; this does not certify AGIS integration.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "All four named original tests are Success in the current 41-test native report.",
+      "evidence": [
+        "m1-campaign-ambiguous-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "BUILD-03",
+      "procedure": "Package and run Windows systems test map.",
+      "expected": "Launches without editor; no missing module/asset references.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Windows package launches outside editor and completes real gameplay. Optional missing profiler DLLs are not critical game modules/assets.",
+      "evidence": [
+        "m1-reach-matrix-progress.json",
+        "m1-campaign-ambiguous-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "ASSET-01",
+      "procedure": "Open each essential vendor demo independently.",
+      "expected": "Record working version, dependencies, and warnings.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Actual core AGIS/Hyper compatibility is established; complete independent vendor-demo coverage and cabin compatibility remain.",
+      "evidence": [
+        "m1-cabin-availability.json",
+        "integrated-gameplay-summary.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "ASSET-02",
+      "procedure": "Migrate selected cabin/dock assets.",
+      "expected": "Materials, references, collision, and door behavior are valid.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M2"
+      ],
+      "m1_required": false,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Selected environment migration and finished cabin/dock integration belong to coastal assembly; M1 cabin compatibility remains separately required.",
+      "evidence": [],
+      "m1_assessment": "not_applicable"
+    },
+    {
+      "id": "ASSET-03",
+      "procedure": "Review temporary-asset register.",
+      "expected": "Every proxy is labeled; finished-art claims match actual content.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1",
+        "M3"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Development labels and prompt presentation inspected; complete current temporary-asset register audit remains.",
+      "evidence": [
+        "m1-prompt-readability-progress.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "INV-01",
+      "procedure": "Pick up battery with room available.",
+      "expected": "Exactly one inventory instance; world pickup removed only after success.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Real Hyper pickup creates one battery and one receipt; world state only changes after success.",
+      "evidence": [
+        "m1-reach-matrix-progress.json",
+        "m1-capacity-world-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "INV-02",
+      "procedure": "Pick up battery with a full backpack.",
+      "expected": "Explicit capacity message; pickup remains; no hidden count change.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Actual full backpack refusal, visible capacity feedback and state conservation pass.",
+      "evidence": [
+        "m1-capacity-world-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "INV-03",
+      "procedure": "Repeated input on the same pickup.",
+      "expected": "No duplicate items or missing world-state marker.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Actual AGIS retry is idempotent in native automation; repeated player-input/world-marker scenario is not fully mapped.",
+      "evidence": [
+        "integrated-unreal-automation-summary.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "INV-04",
+      "procedure": "Move a required part to storage and back.",
+      "expected": "Counts conserved, instance stable, objective readiness refreshes.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Actual storage round-trip and stable UID return pass; explicit objective-readiness refresh assertion needs mapping.",
+      "evidence": [
+        "m1-save-runtime-progress.json",
+        "integrated-unreal-automation-summary.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "INV-05",
+      "procedure": "Attempt transfer to full storage.",
+      "expected": "Source remains unchanged; understandable failure.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Packaged full storage refusal and later successful transfer preserve items.",
+      "evidence": [
+        "m1-storage-capacity-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "INV-06",
+      "procedure": "Try to discard/sell/destroy a critical part.",
+      "expected": "Action unavailable; required item stays recoverable.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Inspect every exposed destructive item action in the actual host and verify required-item retention.",
+      "evidence": [],
+      "m1_assessment": "requires_evidence"
+    },
+    {
+      "id": "INV-07",
+      "procedure": "Repair with only one part.",
+      "expected": "No part consumed; quest unchanged; missing-item prompt.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Actual adapter refuses missing carried requirements without consumption; exact one-part mission/prompt scenario remains.",
+      "evidence": [
+        "integrated-unreal-automation-summary.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "INV-08",
+      "procedure": "Repair with both parts.",
+      "expected": "Exactly one of each consumed; one ledger commit; radio repaired.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Packaged actual repair consumes both parts once and leaves repaired/unacknowledged state with expected receipts.",
+      "evidence": [
+        "m1-reach-matrix-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "INV-09",
+      "procedure": "Repeat repair interaction 20 times.",
+      "expected": "No extra removal or rewards; no repeated adapter commit after repaired flag.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Native repair replay returns AlreadyCommitted; exactly 20 real interaction attempts are not demonstrated.",
+      "evidence": [
+        "integrated-unreal-automation-summary.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "INV-10",
+      "procedure": "Inject failure during two-item removal.",
+      "expected": "Complete rollback/reservation release; neither item lost.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Provider rollback during campaign restore is a different failure. Inject failure during the two-item repair transaction itself.",
+      "evidence": [],
+      "m1_assessment": "requires_evidence"
+    },
+    {
+      "id": "INV-11",
+      "procedure": "Replay an already committed transaction ID.",
+      "expected": "AlreadyCommitted; no consumption even though parts are now absent.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Actual AGIS transaction test retries the same repair ID after consumption and returns AlreadyCommitted; repaired bag stays empty.",
+      "evidence": [
+        "integrated-unreal-automation-summary.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "INV-12",
+      "procedure": "Reuse a transaction ID with different requirements.",
+      "expected": "Explicit error; no state mutation.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Actual AGIS rejects the committed repair ID with changed quantity or omitted requirement; equivalent reordered request remains AlreadyCommitted. Payload, campaign and complete receipts stay unchanged.",
+      "evidence": [
+        "integrated-unreal-automation-summary.json",
+        "m1-repair-id-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "INV-13",
+      "procedure": "Remove/unwire the real adapter.",
+      "expected": "NotConfigured; no fake repair or disappearing items.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Missing actual AGIS class produces visible NotConfigured, pristine world, disabled startup and unchanged saves.",
+      "evidence": [
+        "m1-missing-provider-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "QUEST-01",
+      "procedure": "Follow intended route.",
+      "expected": "Objective completes and returns to exploration.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M2"
+      ],
+      "m1_required": false,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Intended coastal route is M2; the required M1 systems-room mission loop has separate packaged evidence.",
+      "evidence": [],
+      "m1_assessment": "not_applicable"
+    },
+    {
+      "id": "QUEST-02",
+      "procedure": "Collect both parts before inspecting radio.",
+      "expected": "Valid progression; no missing trigger prerequisite.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1",
+        "M2"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Packaged actual parts-first collection, delayed inspection, storage, repair, acknowledgement, safe return and fresh Continue pass. Coastal new-player route remains a separate M2 gate.",
+      "evidence": [
+        "m1-order-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "QUEST-03",
+      "procedure": "Skip note, cabin trigger, and overlook.",
+      "expected": "Required mission still completes.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1",
+        "M2"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "M1 functional component passes: no cabin/dock/note mission inputs are required for completion or relaunch. Actual coastal trigger/overlook route remains unbuilt and untested in M2; it is not an M1 blocker.",
+      "evidence": [
+        "m1-order-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "QUEST-04",
+      "procedure": "Try listening before repair.",
+      "expected": "No completion flag.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Repair gating exists and native rules pass; direct premature listening/completion attempt needs actual-host evidence.",
+      "evidence": [
+        "integrated-unreal-automation-summary.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "QUEST-05",
+      "procedure": "Acknowledge transcript with audio muted/skipped.",
+      "expected": "Clear transcript and valid completion.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Radio mute runs retain explicit transcript acknowledgement and complete the mission.",
+      "evidence": [
+        "m1-radio-gain-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "QUEST-06",
+      "procedure": "Replay transmission.",
+      "expected": "No duplicate journal entry or reward.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1",
+        "M3"
+      ],
+      "m1_required": true,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Mission/journal invariants apply in M1; final presentation remains M3. Verify exact replay and future-lead UI behavior.",
+      "evidence": [],
+      "m1_assessment": "requires_evidence"
+    },
+    {
+      "id": "QUEST-07",
+      "procedure": "Finish and inspect future lead.",
+      "expected": "Journal lead exists; no button opens an unbuilt destination.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1",
+        "M3"
+      ],
+      "m1_required": true,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Mission/journal invariants apply in M1; final presentation remains M3. Verify exact replay and future-lead UI behavior.",
+      "evidence": [],
+      "m1_assessment": "requires_evidence"
+    },
+    {
+      "id": "SAVE-01",
+      "procedure": "Save before acquiring either part; relaunch.",
+      "expected": "Both world pickups remain.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Fresh process before either pickup needs its own world-state comparison.",
+      "evidence": [],
+      "m1_assessment": "requires_evidence"
+    },
+    {
+      "id": "SAVE-02",
+      "procedure": "Save carrying one part; relaunch.",
+      "expected": "One in inventory, only the other remains in world.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Fresh process restores carried battery and exact payload; explicitly assert the remaining fuse world state.",
+      "evidence": [
+        "m1-campaign-ambiguous-progress.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "SAVE-03",
+      "procedure": "Save with a required part in cabin storage.",
+      "expected": "Stored part restored; correct carried-inventory objective.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Partial storage snapshot survives fresh Continue; battery retrieved, fuse collected, mission completed.",
+      "evidence": [
+        "m1-save-runtime-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "SAVE-04",
+      "procedure": "Save after repair but before transmission.",
+      "expected": "Parts consumed, radio repaired, message still available.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Repaired/unacknowledged snapshot loads coherently during stale-transcript test; exact fresh-process pre-transmission save case remains.",
+      "evidence": [
+        "m1-transcript-stale-progress.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "SAVE-05",
+      "procedure": "Save after full completion; relaunch.",
+      "expected": "Complete objective, persistent journal, no respawned quest loot.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Fresh Continue explicitly verifies same completed campaign, empty containers, five receipts, both journal entries and both consumed world pickup markers.",
+      "evidence": [
+        "m1-transcript-stale-progress.json",
+        "m1-order-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "SAVE-06",
+      "procedure": "Request save during a repair callback.",
+      "expected": "Coordinator waits for consistent mutation boundary.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Exercise real save request inside repair callback, not only OperationGate helper tests.",
+      "evidence": [],
+      "m1_assessment": "requires_evidence"
+    },
+    {
+      "id": "SAVE-07",
+      "procedure": "Simulate write failure/denied path.",
+      "expected": "Visible error and previous valid generation preserved.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Actual packaged read-only refusal / corrupt-slot fallback preserves the other validated generation with recorded notices.",
+      "evidence": [
+        "m1-save-runtime-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "SAVE-08",
+      "procedure": "Corrupt newest slot.",
+      "expected": "Explicit recovery to previous validated generation.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Actual packaged read-only refusal / corrupt-slot fallback preserves the other validated generation with recorded notices.",
+      "evidence": [
+        "m1-save-runtime-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "SAVE-09",
+      "procedure": "Load unsupported schema/campaign mismatch.",
+      "expected": "Reject without partial restore or silent new game.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Prior future-envelope refusal and current different-campaign refusal preserve disk/live state without partial restore or silent New. Other compatibility variants remain separate.",
+      "evidence": [
+        "m1-save-runtime-progress.json",
+        "m1-campaign-conflicts-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "SAVE-10",
+      "procedure": "Start a new game after completion.",
+      "expected": "New campaign ID and fresh inventory/ledger/world/quest together.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "New campaign snapshots build without mutating current provider in automation; post-completion actual-host new campaign reset remains.",
+      "evidence": [
+        "integrated-unreal-automation-summary.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "SAVE-11",
+      "procedure": "Attempt load with missing inventory provider.",
+      "expected": "Continue blocked clearly; last valid save not overwritten.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Missing real provider visibly disables Continue and preserves all existing saves.",
+      "evidence": [
+        "m1-missing-provider-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "SAVE-12",
+      "procedure": "Reload while player transform is obstructed.",
+      "expected": "Safe validated fallback checkpoint, no loss of inventory.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Observed failed placement/rollback does not prove successful obstructed-transform fallback. Exercise the exact checkpoint case.",
+      "evidence": [],
+      "m1_assessment": "requires_evidence"
+    },
+    {
+      "id": "UI-01",
+      "procedure": "Complete opening using only gamepad.",
+      "expected": "All navigation, transfer, journal, and settings operations accessible.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1",
+        "M3"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "M1 requires usable real controller bindings; injected Slate navigation passes. Complete physical-controller opening traversal is M3 and remains unproven.",
+      "evidence": [
+        "m1-gamepad-ui-progress.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "UI-02",
+      "procedure": "Interact while inventory/pause menu is open.",
+      "expected": "No world interaction underneath UI.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Native UI/input rules pass; exact actual-host covered-modal and nested-close/focus scenarios need evidence mapping.",
+      "evidence": [
+        "integrated-unreal-automation-summary.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "UI-03",
+      "procedure": "Close nested menus with Escape/B.",
+      "expected": "Only top layer closes; focus restored.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Native UI/input rules pass; exact actual-host covered-modal and nested-close/focus scenarios need evidence mapping.",
+      "evidence": [
+        "integrated-unreal-automation-summary.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "UI-04",
+      "procedure": "Change input device mid-menu.",
+      "expected": "Correct prompts and usable focus.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1",
+        "M3"
+      ],
+      "m1_required": true,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "M1 device-switch usability remains required; final dynamic glyph presentation is M3. Test current actual host.",
+      "evidence": [],
+      "m1_assessment": "requires_evidence"
+    },
+    {
+      "id": "MOVE-01",
+      "procedure": "Traverse cabin doorway/corners.",
+      "expected": "Camera does not remain trapped in walls; player can see interactions.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M2",
+        "M3"
+      ],
+      "m1_required": false,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Finished cabin traversal and camera clearance follow cabin integration; M1 compatibility still separately required.",
+      "evidence": [],
+      "m1_assessment": "not_applicable"
+    },
+    {
+      "id": "MOVE-02",
+      "procedure": "Aim at an item through a wall or outside character reach.",
+      "expected": "Interaction denied even if camera can see it.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Actual Hyper pickup and repair targets refuse at distance/behind real collision; commit guards and visible prompt behavior pass.",
+      "evidence": [
+        "m1-reach-matrix-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "MOVE-03",
+      "procedure": "Fall into deep water/out of bounds.",
+      "expected": "Safe shore recovery, understandable message, no item loss or loop.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1",
+        "M3"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "M1 systems-room safe-return loop passes. Full physical traversal/no-loop behavior and actual shore presentation remain.",
+      "evidence": [
+        "integrated-gameplay-summary.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "PERF-01",
+      "procedure": "Repeat full route on baseline PC at 1080p.",
+      "expected": "Record measured frame times, memory, and streaming hitches.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M3"
+      ],
+      "m1_required": false,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Foundation puts target-hardware route/dressing performance after coastal assembly. Not an M1-only completion blocker.",
+      "evidence": [],
+      "m1_assessment": "not_applicable"
+    },
+    {
+      "id": "PERF-02",
+      "procedure": "Repeat after importing additional dressing.",
+      "expected": "Compare against baseline; investigate regressions before approval.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M3"
+      ],
+      "m1_required": false,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Foundation puts target-hardware route/dressing performance after coastal assembly. Not an M1-only completion blocker.",
+      "evidence": [],
+      "m1_assessment": "not_applicable"
+    },
+    {
+      "id": "RELEASE-01",
+      "procedure": "Launch packaged game from a clean working folder.",
+      "expected": "No editor or developer-content path dependency.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M4"
+      ],
+      "m1_required": false,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Clean target delivery launch is M4; M1 still requires the already-tested outside-editor room package.",
+      "evidence": [],
+      "m1_assessment": "not_applicable"
+    },
+    {
+      "id": "M1-01",
+      "procedure": "Duplicate an actor without changing its stable ID.",
+      "expected": "Configure refuses duplicate manifest.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "partial",
+      "rationale_and_remaining": "Room manifest helper tests pass; actual duplicate actor Configure refusal needs exact evidence.",
+      "evidence": [
+        "integrated-unreal-automation-summary.json"
+      ],
+      "m1_assessment": "partial"
+    },
+    {
+      "id": "M1-02",
+      "procedure": "New game in an existing save-set namespace.",
+      "expected": "Refused; both files retained.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Packaged New in an existing test namespace refuses while preserving both files and live state.",
+      "evidence": [
+        "m1-save-runtime-progress.json",
+        "m1-campaign-conflicts-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "M1-03",
+      "procedure": "Two valid slots with equal generation or different campaign GUIDs.",
+      "expected": "Ambiguous pair refused.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Both equal-generation and different-GUID valid campaign pairs refuse at the real packaged coordinator boundary without file or live-state changes.",
+      "evidence": [
+        "m1-campaign-conflicts-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "M1-04",
+      "procedure": "One future-schema slot beside an older valid slot.",
+      "expected": "No silent downgrade or overwrite.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Future envelope in either campaign slot beside valid counterpart refuses without overwrite.",
+      "evidence": [
+        "m1-save-runtime-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "M1-05",
+      "procedure": "Inject late placement failure then provider rollback failure.",
+      "expected": "Explicit RecoveryRequired; interactions/saves blocked.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Actual provider rejects rollback after injected late native failure; terminal UI/input/save locks and preserved-file relaunch pass.",
+      "evidence": [
+        "m1-provider-rollback-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "M1-06",
+      "procedure": "Acknowledge a transcript token from before a successful load.",
+      "expected": "Stale acknowledgement rejected.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Actual old issued token directly returns InvalidTarget after successful load; old widget callback also refuses without mission/journal/inventory/receipt/generation changes. Fresh acknowledgement and Continue pass.",
+      "evidence": [
+        "m1-transcript-stale-progress.json",
+        "m1-transcript-token-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "M1-07",
+      "procedure": "Transfer after leaving storage reach or closing context.",
+      "expected": "Rejected without item changes.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Transfer beyond reach and after context closure refuses without payload/receipt/generation changes.",
+      "evidence": [
+        "m1-stale-storage-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "M1-08",
+      "procedure": "Call old note method directly without journal/world update.",
+      "expected": "Inconsistent save rejected.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Exact listed actor/mission or editor-generator failure scenario needs actual execution and preservation evidence.",
+      "evidence": [],
+      "m1_assessment": "requires_evidence"
+    },
+    {
+      "id": "M1-09",
+      "procedure": "Save API reports failure but a newer valid disk generation exists.",
+      "expected": "Next write blocked until validated reload.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "satisfied_current_setup",
+      "rationale_and_remaining": "Valid generation reaches disk despite false return; retry blocks until validated fresh Continue, after which normal save succeeds.",
+      "evidence": [
+        "m1-campaign-ambiguous-progress.json"
+      ],
+      "m1_assessment": "satisfied_current_setup"
+    },
+    {
+      "id": "M1-10",
+      "procedure": "Run generator with unsaved changes or an existing destination map.",
+      "expected": "Refused without overwriting user content.",
+      "source_status": "NOT RUN",
+      "milestones": [
+        "M1"
+      ],
+      "m1_required": true,
+      "assessment": "requires_evidence",
+      "rationale_and_remaining": "Exact listed actor/mission or editor-generator failure scenario needs actual execution and preservation evidence.",
+      "evidence": [],
+      "m1_assessment": "requires_evidence"
+    }
+  ],
+  "counts": {
+    "partial": 17,
+    "satisfied_current_setup": 25,
+    "requires_evidence": 16
+  },
+  "m1_counts": {
+    "partial": 16,
+    "satisfied_current_setup": 26,
+    "requires_evidence": 10
+  },
+  "m1_cases": 52,
+  "later_only_cases": 6,
+  "native_case_support": {
+    "report": "m1-campaign-ambiguous-native-report/index.json",
+    "sha256": "1d6ea38e5d8088f21bab489b9267dc198fe88fe72b17cc25a701da41054efae7",
+    "verified_tests": [
+      "Coastal.FirstSignal.DefaultAdapterFailsClosed",
+      "Coastal.FirstSignal.SnapshotValidation",
+      "Coastal.M1.ProviderFailsClosed",
+      "Coastal.M1.SaveMemoryRoundTrip",
+      "Coastal.Vendor.AGIS.Transactions"
+    ],
+    "scope": "BUILD-02 original four tests and actual AGIS transaction replay supporting INV-11; not every host scenario.",
+    "agis_test_source_sha256": "3bd589beafcd1ace396e81f19863f035c64d1a1197491b3330746bd661b0b7b7"
+  },
+  "m1_count_basis": "Uses explicit m1_assessment, separating a completed M1 functional component from later map/presentation work in shared rows."
+}

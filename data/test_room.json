@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "status": "editor_recipe_not_an_included_map",
+  "map_id": "level.systems_test",
+  "map_path": "/Game/Coastal/Maps/L_SystemsTest_Integrated",
+  "units": "centimeters",
+  "floor_size_cm": [
+    3600,
+    2400,
+    40
+  ],
+  "player_start_cm": [
+    -1300,
+    0,
+    100
+  ],
+  "objects": [
+    {
+      "world_id": "world.test.radio",
+      "kind": "RADIO",
+      "label": "Cabin radio: inspect / repair / listen",
+      "position_cm": [
+        -850,
+        400,
+        90
+      ],
+      "size_cm": [
+        90,
+        55,
+        65
+      ]
+    },
+    {
+      "world_id": "world.test.storage",
+      "kind": "STORAGE",
+      "label": "Cabin storage",
+      "position_cm": [
+        -850,
+        -400,
+        65
+      ],
+      "size_cm": [
+        110,
+        75,
+        100
+      ]
+    },
+    {
+      "world_id": "world.test.door",
+      "kind": "DOOR",
+      "label": "Door: optional interaction test",
+      "position_cm": [
+        -100,
+        -700,
+        110
+      ],
+      "size_cm": [
+        20,
+        130,
+        220
+      ]
+    },
+    {
+      "world_id": "world.test.battery",
+      "kind": "PICKUP",
+      "label": "Radio battery",
+      "item_id": "item.radio_battery",
+      "position_cm": [
+        650,
+        420,
+        60
+      ],
+      "size_cm": [
+        40,
+        30,
+        55
+      ]
+    },
+    {
+      "world_id": "world.test.fuse",
+      "kind": "PICKUP",
+      "label": "Marine fuse",
+      "item_id": "item.marine_fuse",
+      "position_cm": [
+        650,
+        -420,
+        60
+      ],
+      "size_cm": [
+        30,
+        30,
+        35
+      ]
+    },
+    {
+      "world_id": "world.test.note",
+      "kind": "MAINTENANCE_NOTE",
+      "label": "Maintenance note",
+      "position_cm": [
+        200,
+        700,
+        85
+      ],
+      "size_cm": [
+        55,
+        40,
+        15
+      ]
+    },
+    {
+      "world_id": "world.test.postcard",
+      "kind": "DISCOVERY",
+      "label": "Optional postcard",
+      "journal_entry": "journal.first_signal.postcard",
+      "position_cm": [
+        1250,
+        750,
+        85
+      ],
+      "size_cm": [
+        40,
+        30,
+        12
+      ]
+    }
+  ],
+  "world_object_class": "/Game/Coastal/Integration/BP_CoastalHyperWorldObject.BP_CoastalHyperWorldObject_C"
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "section": "M1.10",
+  "plugin_version": "0.1.10-m1-display-settings-source",
+  "scope": "Native resolution/window-mode trials; bounded advance of M3. Not an M1/M2 acceptance result.",
+  "owner": "Existing local controller CoastalUISessionComponent owns one internal CoastalDisplaySettings UObject.",
+  "default_opt_in": false,
+  "platform": "Windows non-editor Game world, standalone single local player, standard UGameUserSettings; no XR system",
+  "modes": [
+    "fullscreen_if_supported",
+    "borderless_engine_reported_desktop",
+    "windowed_engine_reported_convenient"
+  ],
+  "candidate_bounds": {
+    "min_width": 1280,
+    "min_height": 720,
+    "max_width": 7680,
+    "max_height": 4320,
+    "max_unique_modes": 512
+  },
+  "snapshot_bounds": {
+    "min_dimension": 1,
+    "max_dimension": 32768
+  },
+  "trial_seconds": 15,
+  "restore_observation_seconds": 5,
+  "clock": "FPlatformTime::Seconds, not game delta",
+  "confirmation": "Matching observed FViewport on a later frame, new presentation opportunity after that match, current top ticket/epoch, foreground, before deadline.",
+  "cancel_on": [
+    "explicit_revert",
+    "back",
+    "deadline",
+    "observed_focus_loss",
+    "top_ticket_or_epoch_loss",
+    "session_recovery_or_return",
+    "clock_or_frame_regression",
+    "settings_field_conflict",
+    "captured_binding_loss"
+  ],
+  "rollback": "One best-effort request for actual pretrial size/window mode; observe on later frame. Failure locks this owner. No window position/monitor/HDR/refresh restoration guarantee.",
+  "save": "Only explicit Keep and request engine settings save. Calls ConfirmVideoMode/SaveSettings; void return does not verify disk persistence. Standard SaveSettings serializes other existing engine settings too.",
+  "session_only": "Retire trial without editing UGameUserSettings values; next trial captures actual kept viewport.",
+  "preservation": {
+    "campaign_schema_changed": false,
+    "preferences_schema_changed": false,
+    "current_preferences_schema": 3,
+    "campaign_items_story_changed": false
+  },
+  "not_implemented": [
+    "quality_presets",
+    "vsync_or_frame_cap_controls",
+    "monitor_picker",
+    "refresh_rate_control",
+    "HDR",
+    "dynamic_resolution",
+    "render_scale_control",
+    "native_build_or_playable_package"
+  ]
+}

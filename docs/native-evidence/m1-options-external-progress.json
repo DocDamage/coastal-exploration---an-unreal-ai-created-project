@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 packaged Development Win64 D3D11 1280x720, actual options UI",
+  "package_log": "m1-options-external-package.log",
+  "method": "A separate Python process waits for the native post-load/draft marker, then writes a valid newer schema-3 record with a changed Master value into A, or creates formerly absent B. The in-game probe performs no fixture write; it observes the change, invokes the real enabled Save command, then session-only Apply.",
+  "cases": [
+    {
+      "case": "active_changed",
+      "passed": true,
+      "external_bytes_preserved": true,
+      "log": "m1-options-external-active_changed.log",
+      "external_sha256": "465c680e6e182d1a29914d30fafed947330e5beaf6db23d2d439c0101525a1b0"
+    },
+    {
+      "case": "peer_appeared",
+      "passed": true,
+      "external_bytes_preserved": true,
+      "log": "m1-options-external-peer_appeared.log",
+      "external_sha256": "465c680e6e182d1a29914d30fafed947330e5beaf6db23d2d439c0101525a1b0"
+    }
+  ],
+  "verified": [
+    "Observed-file comparison refuses stale Save before writing or applying the draft",
+    "Previous ten live fields and actual camera FOV remain after refusal; Save becomes disabled",
+    "Diagnostic states files changed and nothing written/applied",
+    "Session-only defaults still apply with writes disabled; external bytes remain unchanged",
+    "Fixture restoration returns all 91 original save files to their prior bytes; no extra saves remain"
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "limitations": [
+    "Does not establish an operating-system lock or immunity to a write racing between the check and commit",
+    "Removal, unreadability and partial/ambiguous write outcomes remain separate cases",
+    "Native presented widget delegates used; physical-device/visual error-screen audit separate",
+    "Raw logs, backups and fixture files stay external"
+  ]
+}

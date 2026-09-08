@@ -1,0 +1,59 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 packaged Development Win64 D3D11 1280x720, mixer PCM16 stereo 48kHz",
+  "package_log": "m1-live-audio-package-fixed.log",
+  "runtime_log": "m1-live-audio-runtime.log",
+  "method": "Actual presented options commands apply Ambience 50, Effects 75, Radio 25 for session only. New starts actual ambience. Pause menu sets Master to zero and then back to 100 in the same process; each return to play records ten seconds. No direct profile setter or synthetic sound is used.",
+  "measurements": [
+    {
+      "interval": "baseline",
+      "peak": 528,
+      "rms": 45.787633101537125,
+      "seconds": 10.005333333333333,
+      "rate": 48000,
+      "channels": 2,
+      "sha256": "ed1d01579b5cf7125d787573c4c585280590ec88364833d5ee7157a64456bddc"
+    },
+    {
+      "interval": "muted",
+      "peak": 0,
+      "rms": 0.0,
+      "seconds": 10.026666666666667,
+      "rate": 48000,
+      "channels": 2,
+      "sha256": "19ed947dcc6d366b4184d0df0a1b85a456db9552b6afa13d4746c88978600a74"
+    },
+    {
+      "interval": "restored",
+      "peak": 623,
+      "rms": 50.653204010794504,
+      "seconds": 10.005333333333333,
+      "rate": 48000,
+      "channels": 2,
+      "sha256": "7c0050ce67a748c4efd8b23c28c341c0842b03c44faf688d75af0c7fbbe2b45b"
+    }
+  ],
+  "verified": [
+    "Muted interval contains exact zero PCM; baseline and restored intervals contain nonzero sound",
+    "Master changes preserve Ambience 50, Effects 75 and Radio 25",
+    "The same actual ambience component remains playing across all three intervals; no voice replacement or duplicate",
+    "Preference bytes remain unchanged through every sample; all 87 pre-existing save files have unchanged hashes",
+    "AGIS inventory payload and campaign generation remain unchanged within each sample",
+    "Native UI quit completes"
+  ],
+  "initial_failure": "m1-live-audio-package.log preserves test-only compile failure from auto pointer deduction against TObjectPtr<APawn>; corrected to an explicit APawn pointer before successful package.",
+  "limitations": [
+    "Output proves steady-state mute/restoration on the ambience route; it does not measure the 0.1-second fade or clicks at the transition",
+    "Radio/Effects live output and simultaneous-category independence remain separate acceptance",
+    "Looping baseline/restored windows cover different parts of the source; no identical waveform or exact restored amplitude claim",
+    "UI widget delegates are used; physical keyboard/controller and speaker audibility remain separate",
+    "Raw recordings, logs and saves stay external"
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  }
+}

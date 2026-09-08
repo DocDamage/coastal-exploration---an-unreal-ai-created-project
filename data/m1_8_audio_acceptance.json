@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "section": "M1.8 routed audio options and preference upgrade",
+  "scope": "Actual Unreal/host/audio-device/controller/Windows acceptance. No rows executed in this source-delivery environment.",
+  "tests": [
+    {
+      "id": "m1_8.optional_absent",
+      "procedure": "Start the retained host without an Audio Options component.",
+      "expected": "Audio fields are unavailable; text, compatible look/sprint controls, New and Continue retain their existing behavior.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.opt_in_disabled",
+      "procedure": "Add the component with default opt-in false.",
+      "expected": "No mix is created/pushed and no volume command is issued. An options warning explains missing routing.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.bad_owner",
+      "procedure": "Try initialization on a pawn, director, nonlocal controller or networked/split-screen world.",
+      "expected": "Initialization refuses without selecting a substitute owner/device.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.duplicate",
+      "procedure": "Add two audio-options components to the local controller before UI initialization.",
+      "expected": "UI initializes neither; no duplicate mix multiplication.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.missing_class",
+      "procedure": "Bind only zero, one or two of the three actual classes.",
+      "expected": "All four volume fields remain unavailable. No class asset/path is invented.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.aliased_classes",
+      "procedure": "Assign one class to more than one category.",
+      "expected": "Read validation refuses aliases rather than allowing one category to overwrite another.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.class_hierarchy",
+      "procedure": "Supply a class with a parent or child; repeat with passive modifiers.",
+      "expected": "Unsupported hierarchy/passive modifier is rejected. No asset is changed to make it pass.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.class_tuning",
+      "procedure": "Check volume outside [0,1], pitch outside (0,4], NaN/infinity via a disposable native fixture.",
+      "expected": "Invalid metadata is rejected before issuing audio commands.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.no_device",
+      "procedure": "Run the real host with audio disabled or an unavailable audio device.",
+      "expected": "Audio controls stay unavailable; no successful playback claim; campaign behavior remains independent.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.real_routing",
+      "procedure": "Route actual owned ambience, effects and radio sounds to the three dedicated independent classes, then opt in before startup.",
+      "expected": "Native command readiness is available. Audibly verify each sound is actually affected; the opt-in alone is not acceptance.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.startup_saved_mute",
+      "procedure": "Persist Master=0, relaunch and start actual sound sources only after UI/options initialization.",
+      "expected": "Mix begins with saved zero multipliers and zero startup fade; no intentional full-volume burst. Inspect actual device behavior.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.startup_missing_settings",
+      "procedure": "Use two missing preference slots and correct sound routing.",
+      "expected": "All volumes default 100%; no automatic preference write or automatically started sound.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.draft_cancel",
+      "procedure": "Change all four volumes in the options draft, then Back.",
+      "expected": "Audible mix/live values/files do not change; parent focus returns.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.session_apply",
+      "procedure": "Apply Master=50, Ambience=20, Effects=100, Radio=0 for session only.",
+      "expected": "Submitted multipliers are .1, .5, 0. No preference write; actual playback matches configured routing after interpolation.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.master_once",
+      "procedure": "Use Master=50 and each channel=50.",
+      "expected": "Each routed class gets .25, not .125 or .5. Independent categories do not receive a parent master a second time.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.category_isolation",
+      "procedure": "Mute each channel separately while sounds on the other two continue.",
+      "expected": "Only the selected routed class is muted; verify all actual cue/wave/class overrides.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.master_mute_restore",
+      "procedure": "Choose distinct channel levels, set Master=0 then restore Master=100.",
+      "expected": "Mute does not discard category settings; unmute restores those settings rather than resetting everything to 100.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.zero_loop_virtualization",
+      "procedure": "Mute/unmute a looping ambience asset and a finite radio source with the actual virtualization/concurrency policy.",
+      "expected": "No epsilon mute is substituted. Configure/record whether loops continue, resume or restart; the component does not manufacture stopped voices.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.no_playback_side_effect",
+      "procedure": "Repeatedly open/apply/close options while tracking sound spawning and radio tokens.",
+      "expected": "No sound is spawned/stopped/replayed by the volume component and no transcript is acknowledged.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.silent_radio_completion",
+      "procedure": "Play the complete First Signal mission with Master/Radio=0 or no audio owner.",
+      "expected": "Full transcript remains readable. Explicit Continue completes the message; no audio-finished callback gates or grants progress.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.ui_devices",
+      "procedure": "Use keyboard/mouse and controller-only to cycle all ten fields and adjust 0 through 100.",
+      "expected": "Five-percent bounds hold, existing six field indices/order remain, one command per frame, and settings require no mouse drag.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.ui_readability",
+      "procedure": "Inspect all native screens at 1920x1080/1280x720 and 100%/150% text.",
+      "expected": "Ten-row options body, error messages and all controls scroll and focus correctly; no hidden required command.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.paused_apply",
+      "procedure": "Apply valid preferences from Session/Pause while the world is paused.",
+      "expected": "Audio commands are submitted without changing pause/input ownership. Actual paused source playback follows host policy.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.new_continue",
+      "procedure": "Set session-only audio, switch campaigns through New/Continue and test recovery.",
+      "expected": "The local audio mix and values persist without repushing. Campaign epochs do not recreate preference/mix owners.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.legacy1_upgrade",
+      "procedure": "Load a backed-up schema1 pair and explicitly save new options.",
+      "expected": "Five values preserved, Hold sprint and 100% volumes default. No load write; explicit verified save writes schema3 to inactive slot.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.legacy2_upgrade",
+      "procedure": "Load backed-up schema2 preferences with Toggle then explicitly save changed volumes.",
+      "expected": "All six values preserved, volumes default 100%; explicit schema3 write increments generation and retains prior valid slot.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.upgrade_faults",
+      "procedure": "Inject no-write, partial/corrupt, unreadable readback and valid-write/failure-return cases into disposable platform slots.",
+      "expected": "No unverified write updates live values or applies new mix values. Further writes block; valid bytes that reached disk may load after relaunch.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.slot_conflicts",
+      "procedure": "Test mixed1/2/3 generations, equal generations, unsupported future schema, all-corrupt and read-error slots.",
+      "expected": "Highest unambiguous valid generation only; ambiguous/unsupported/read errors never authorize overwrite or silent reset.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.external_change",
+      "procedure": "Modify a disposable preference peer after load but before explicit save.",
+      "expected": "Observed-file check blocks write/apply; session-only remains available. No OS-lock/crash-safety guarantee is inferred.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.lost_after_draft",
+      "procedure": "Remove/invalidates the audio binding after changing audio draft fields, then Apply/Save.",
+      "expected": "Changed audio fields are refused before applying/saving when unavailability is observed. Reopen options for available fields.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.device_change",
+      "procedure": "Change the world audio device while the initialized owner ticks.",
+      "expected": "Feature disables and releases only its mix on the original device, not a mix on the replacement. No automatic rebind or campaign write.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.repeated_apply",
+      "procedure": "Apply unchanged values repeatedly; also change only text or masked channels while Master=0.",
+      "expected": "No repeated push and no redundant effective-gain updates. Stored masked channel preferences still change for future unmute.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.teardown",
+      "procedure": "Close UI/session, unregister/remove audio owner and end PIE in varied orders.",
+      "expected": "Pop occurs at most once, on the captured device. Other mixes and sound-class asset properties remain untouched; no retained owner leak.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.foreign_mix",
+      "procedure": "Run a deliberate separate mix against unrelated classes, and separately an intentionally conflicting same-class modifier.",
+      "expected": "Unrelated mix is preserved. Same-class independent modifiers can combine; record this unsupported ownership conflict instead of claiming conflict detection.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.downgrade",
+      "procedure": "Against backed-up disposable files, inspect older M1.6/M1.7 reader behavior after schema3 save.",
+      "expected": "Old readers reject the new schema. Rollback restores a backed-up old pair outside play; unrelated campaigns are not removed.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_8.packaged_loop",
+      "procedure": "Build/cook Windows, launch outside the editor and perform full New -> pickup -> storage -> repair -> transcript -> return -> verified save -> exit/relaunch -> Continue.",
+      "expected": "Campaign/inventory remain coherent and preferences restore separately. Record real versions, logs, audio/routing observations and screenshots.",
+      "result": "not_run",
+      "evidence": null
+    }
+  ]
+}

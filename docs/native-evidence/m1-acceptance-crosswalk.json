@@ -1,0 +1,2904 @@
+{
+  "date": "2026-09-07",
+  "full_m1_gate_passed": false,
+  "scope": "All 297 current JSON acceptance rows; additional Markdown reference cases and original handoff deliverables are separate and still require reconciliation. This is an evidence crosswalk, not a substitute acceptance gate.",
+  "status_meanings": {
+    "satisfied_current_setup": "Evidence supports the bounded row on the recorded setup; does not generalize to separate device/monitor rows.",
+    "partial": "Some conditions observed; row not complete.",
+    "requires_evidence": "No case-complete evidence mapped; may need a test or retrieval of existing evidence. Not an assertion that all behavior is unimplemented or never tested.",
+    "superseded_write_schema": "Older schema write demand conflicts with current increment; replacement invariants remain required."
+  },
+  "counts": {
+    "requires_evidence": 233,
+    "partial": 43,
+    "satisfied_current_setup": 20,
+    "superseded_write_schema": 1
+  },
+  "source_sha256": {
+    "m1_10_display_acceptance.json": "c657dfbdb8953bfae5d0d371584ab3a3d04a9d0d350a887964931f7c08ceb6c4",
+    "m1_2_ui_acceptance.json": "c34b4bcedbacf20ab0ddedef8ed028dcfeffd4de992ece79da63dd5754f76625",
+    "m1_3_startup_acceptance.json": "22c97f66b0ce69a3cefde2a236554155e25a3a53e74e8d81197f53c9be72f351",
+    "m1_4_interaction_acceptance.json": "1017be8c95b5dce2fa0b3ce25cc7d08608b94c8da9646aad8b6cb64610cf72a9",
+    "m1_5_recovery_acceptance.json": "57e012000f23685e78604032d1fefa0c49c790cd4205b5bf514c923faf2fd86f",
+    "m1_6_options_acceptance.json": "84f8de0f037164a0faa2d801901e8382c513215f812a2eaa1b317d2537d7c549",
+    "m1_7_sprint_acceptance.json": "3b89920109c90bc62476339a60b7ff4d49229a844d0035563af983f6c51e607f",
+    "m1_8_audio_acceptance.json": "f6ed02f93bac4fee836d1633aba92fd472d37f7d8d4e55358ba060226354694b",
+    "m1_9_playback_acceptance.json": "71230272f60ffcad4a1d1c65f22e4bf25eba080d804b3b879cacc79cb1a5cf01"
+  },
+  "evidence_sha256": {
+    "integrated-gameplay-summary.json": "9157f24ce44901bb2c75a3931e2fa5476067fbac9bc4aee099104784500b84e3",
+    "m1-ambience-gain-progress.json": "5bda12a9c3ae1c7bd36ffa6f16a854a3d56a294d34e7f0c604cafab7d9fac8ac",
+    "m1-capacity-world-progress.json": "c99a58ebfef7510915c8a9b7dae3a483f6e5d8addd5e64d1d26f77d92ddbff36",
+    "m1-display-audio-progress.json": "a13ebd7ab2fd51549fc683b24e5ffb1a8938365b942ba756b3da68b1727aa293",
+    "m1-display-mode-cycle-progress.json": "3e1994af3c7ca8b670efecd6826876a204dea94732ea29dcc8baef7b5235cbe5",
+    "m1-effects-gain-progress.json": "fd3990969120e43e8c95cd87070dbcfc59f46fb50bb1dce53f2062623e739f0f",
+    "m1-live-audio-progress.json": "88f4e31ab5639b1db010f799e5ff001779763ed5a882910f407317a9b039b1f9",
+    "m1-options-fault-progress.json": "0fbf4f0d799a4ee7d589f4efe496464eece978bce687e6a9346f01be62dbf139",
+    "m1-options-persistence-progress.json": "8676a2a2dd48e8a4ecea0505f256cab718c395765aef4841845a7cd061948b6a",
+    "m1-options-write-progress.json": "1827fb34d1acf3333d4f1e38ef36b729a7a813c206bbcf7b09cca6bdd8a5eaf7",
+    "m1-radio-gain-progress.json": "8edc2af49f28c8c4481a34a82665e2e7b7511ef117b1ea4b84fa5b52ba734e14",
+    "m1-save-runtime-progress.json": "ead88a9e2ed7ee2f763e6dd2912178330283ba990878aa43864806bf0836410f",
+    "m1-storage-capacity-progress.json": "dc4eea92d66516ec35c3f35a42943da271f356b637ec319c826d229479dd2d24",
+    "m1-missing-provider-progress.json": "33baa4406054fc111470d873f6478254d1a78e307626c5642d75178b3f9e165b",
+    "m1-options-external-progress.json": "0eee126689609d2def8b39d4e368302a8f1daf61a4e38eb42edb2b3d96b8b197",
+    "m1-storage-revision-progress.json": "612d2ce54c96ea47f5c42924e92b4be4ed13c604c26da38bbcf938cd9106fcd7",
+    "m1-options-legacy-progress.json": "36b56e2411489a318552a8b781610c99171f75960344e4b5acad3d9c1941ce9e",
+    "m1-options-compatibility-progress.json": "1a41ec04596f4eb55620789e46bf1c83de2f925bf400767b83bea6a2eb7f8126",
+    "m1-options-read-error-progress.json": "d88d57d9ebd503f93ab9b6159517a20763c9fe7bd01fa1fd1561556076f7aa9b",
+    "m1-options-blocked-session-progress.json": "5fcbcfda9f9f504586a3f6c3bbe57a901265246709fa9ce4f6abc8df8c3ceb1d",
+    "m1-transcript-stale-progress.json": "d6225e484fb3d788ee37443e069d3838edf07a605d2b448ecffa8f0260c8a6a6",
+    "m1-terminal-recovery-progress.json": "bbe7a033d5f0d6a54eb6c61ce9994563ee50e2b981d439845245374f60199ffc",
+    "m1-terminal-relaunch-progress.json": "3634ab0bd311cdb04f2d767bd1c297e69487ba7cd0ab41fd853a8dfa7fe5bc98",
+    "m1-provider-rollback-progress.json": "c9cfc19e7793c6100cad907e146b225ef91d5a4166b93b2faa9b568920949e59",
+    "m1-occlusion-progress.json": "3aeeb2cdfdb7c229c89f4181144a62a2275563e2bf4da2be5ea1d49cdd4a121e",
+    "m1-reach-matrix-progress.json": "2adc35445f8fe84566c7237490e3e9bcb345c8283d7b58690b19118f6b585158",
+    "m1-options-ambiguous-progress.json": "d096d0a5db33ebf7cd65d54c1c68a0435dc8a02fc9e0cb6a40ab553465eb87e0",
+    "m1-campaign-ambiguous-progress.json": "9063b5fb7f601fc7558c80eeb6e1f6cceab7eb871625d0d550c74c827c7f590b",
+    "m1-campaign-conflicts-progress.json": "1daaa734a61eba1e27ee9c185308c54bb10a97f0935fa6e3e52c5efabbd6c389",
+    "m1-order-progress.json": "a68467bbad5ca4bcbbd3832c9952384a432a571d9742869a2e02183ca9557fd0",
+    "m1-transcript-token-progress.json": "5e5afff1e79e63a2f185b3d24282952432ad1696f5fffa8fee8691c8d07e402e",
+    "m1-repair-id-progress.json": "db00e6c887eecf0f8d4f8c815585682ca449ad6483af939bc836885ec868ee47"
+  },
+  "tests": [
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-01",
+      "procedure": "Run real Windows host with bEnableDisplaySettings=false. Open Display settings.",
+      "expected": "No display request or preference write; explanatory unavailable screen; other menus work.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-02",
+      "procedure": "Opt in and open Display settings in embedded PIE and editor standalone viewport.",
+      "expected": "No window change; clear unavailable diagnostic. These are not accepted Windows tests.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-03",
+      "procedure": "Launch real Windows game with one local controller, standard settings object and opt-in.",
+      "expected": "Record actual native class/viewport, supported and convenient mode lists. No hardcoded monitor list.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json",
+        "m1-display-mode-cycle-progress.json"
+      ],
+      "remaining": "Actual host catalogue and resize writer inspected; complete adversarial enumeration/writer or binding audit remains."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-04",
+      "procedure": "Change mode and resolution repeatedly without Test.",
+      "expected": "Current viewport, engine saved settings, campaign and local preference slots stay unchanged.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json",
+        "m1-display-mode-cycle-progress.json"
+      ],
+      "remaining": "Normal draft/Keep/Revert/timeout behavior observed. Full row conditions such as request counts, all file isolation, or invalid/early command attempts are not all instrumented."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-05",
+      "procedure": "Change draft then Back and reopen.",
+      "expected": "Draft resets to actual viewport. No display request/save occurred.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-06",
+      "procedure": "Choose a reported different windowed size, Test, wait for new-mode paint, Keep session-only.",
+      "expected": "Only deliberate later-frame Keep succeeds; actual size matches; no engine or Coastal preference save requested.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json",
+        "m1-display-mode-cycle-progress.json"
+      ],
+      "remaining": "Normal draft/Keep/Revert/timeout behavior observed. Full row conditions such as request counts, all file isolation, or invalid/early command attempts are not all instrumented."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-07",
+      "procedure": "If advertised supported, test a listed exclusive resolution.",
+      "expected": "Actual mode/size must match before Keep. A normalized/rejected mode never masquerades as success.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-display-mode-cycle-progress.json"
+      ],
+      "remaining": "Verified on the recorded current monitor/runtime only; no multi-monitor claim."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-08",
+      "procedure": "Test engine-reported desktop borderless candidate on the intended monitor.",
+      "expected": "Actual size/mode matches or trial reverts. Do not mark multi-monitor support passed merely from one viewport size.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-display-mode-cycle-progress.json"
+      ],
+      "remaining": "Verified on the recorded current monitor/runtime only; no multi-monitor claim."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-09",
+      "procedure": "Inspect native enumerated candidates with small, duplicate, unusual or huge results.",
+      "expected": "Only unique admitted modes appear. No fabricated 1080p entry or out-of-range manual input.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json",
+        "m1-display-mode-cycle-progress.json"
+      ],
+      "remaining": "Actual host catalogue and resize writer inspected; complete adversarial enumeration/writer or binding audit remains."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-10",
+      "procedure": "Test a new mode with controller only.",
+      "expected": "Revert is initial/default focus, never Keep. Held confirm cannot accept the trial.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-11",
+      "procedure": "Use deliberate automated native input to attempt Keep on opening/matching frame.",
+      "expected": "No keep/save. Existing top-ticket/frame rules and new matched-frame gate remain effective.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-12",
+      "procedure": "Delay native resolution request application while old-mode dialog paints.",
+      "expected": "Old paint cannot enable Keep. Reset/scroll to new-mode body, later paint and later input are needed.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-13",
+      "procedure": "Press Escape/B after opening but before mode-matched body paint.",
+      "expected": "A fresh later-frame cancel may revert without waiting for paint; no mission/UI ownership bypass.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-14",
+      "procedure": "Leave confirmation idle while the native UI pauses the world.",
+      "expected": "At first running observation at/after 15 real seconds, one restore request, no save; countdown visible.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json",
+        "m1-display-mode-cycle-progress.json"
+      ],
+      "remaining": "Normal draft/Keep/Revert/timeout behavior observed. Full row conditions such as request counts, all file isolation, or invalid/early command attempts are not all instrumented."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-15",
+      "procedure": "Introduce controlled game-thread delay spanning deadline.",
+      "expected": "On resume no Keep before rollback; no claim that frozen code restored during the stall.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-16",
+      "procedure": "Attempt Keep at and after deadline before next regular UI tick.",
+      "expected": "Command-path realtime recheck rejects and requests restoration.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-17",
+      "procedure": "Test mode and activate Revert.",
+      "expected": "One restore request; panel closes; further trials blocked until later-frame original viewport observed.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json",
+        "m1-display-mode-cycle-progress.json"
+      ],
+      "remaining": "Normal draft/Keep/Revert/timeout behavior observed. Full row conditions such as request counts, all file isolation, or invalid/early command attempts are not all instrumented."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-18",
+      "procedure": "Test then Escape/B, repeat Back and close parent.",
+      "expected": "No duplicate restore; parent focus works; pending restoration continues while parent closed.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-19",
+      "procedure": "Alt-Tab/minimize while testing; return to game.",
+      "expected": "First observed foreground loss cancels trial. No hidden/background Keep/save.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-20",
+      "procedure": "Make mode request ineffective using a controlled local setup.",
+      "expected": "Keep never enables; timeout requests original. No fake applied/saved result.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-21",
+      "procedure": "Use a disposable host fault to prevent requested original mode from appearing.",
+      "expected": "After 5 seconds of running observation, diagnostic and trial lock; no infinite retry or claimed success.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-22",
+      "procedure": "Instrument immediate read after restore request before resolution sinks run.",
+      "expected": "Same-frame preexisting size does not count as observed restoration.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-23",
+      "procedure": "Keep mode B session-only from A; test C and revert.",
+      "expected": "Return to B, not older engine saved A; no unrelated preference migration.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-display-mode-cycle-progress.json"
+      ],
+      "remaining": "Verified on the recorded current monitor/runtime only; no multi-monitor claim."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-24",
+      "procedure": "Test and explicitly Keep plus save request; close/relaunch actual Windows game.",
+      "expected": "Record engine file/logs and actual relaunched mode; UI says save requested, not verified save. Separate from campaign acknowledgement.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-display-mode-cycle-progress.json"
+      ],
+      "remaining": "Verified on the recorded current monitor/runtime only; no multi-monitor claim."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-25",
+      "procedure": "Use disposable backed-up engine settings with a real controlled write failure.",
+      "expected": "No claimed disk verification; session mode remains kept; relaunch behavior and logs recorded, not assumed.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-26",
+      "procedure": "Back up engine settings then close/kill disposable game during trial and relaunch.",
+      "expected": "Trial source made no explicit save; examine actual engine host/autosave behavior. No hard crash-safety guarantee.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-27",
+      "procedure": "During trial change engine settings size/mode through a separate controlled owner.",
+      "expected": "Trial cancels, foreign stored values not overwritten, source locks after rollback observation. Remove competing owner before production.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-28",
+      "procedure": "Audit actual host for Alt-Enter, console, graphics menus and same-valued writers.",
+      "expected": "One intentional owner retained; acknowledge source cannot detect every temporary/same-value/global config writer.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json",
+        "m1-display-mode-cycle-progress.json"
+      ],
+      "remaining": "Actual host catalogue and resize writer inspected; complete adversarial enumeration/writer or binding audit remains."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-29",
+      "procedure": "Replace/remove viewport client or controller in disposable native test.",
+      "expected": "No request against a replacement viewport; failure diagnostic, no automatic rebind or saved trial.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-30",
+      "procedure": "Exit/remove UI during active/reverting trial and repeat supported release.",
+      "expected": "At most one new restore request for active trial, no extra save, no false restoration claim after ticking stops.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-31",
+      "procedure": "Trigger legitimate New/Continue while trial is active using a controlled native integration test.",
+      "expected": "Old trial canceled, no stale Keep changes new epoch; save callback does not reenter campaign mutation.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-32",
+      "procedure": "Activate retained recovery/return while testing display.",
+      "expected": "Cancel display without consuming items, moving checkpoints, clearing recovery, or acknowledging transcript.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-33",
+      "procedure": "Test all new screens at 1280x720, 100% and 150% text.",
+      "expected": "Mode description, timer, Revert and Keep usable via scroll; reset paint not stranded offscreen; controller focus remains visible.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-34",
+      "procedure": "Test every display command at 1920x1080 via controller-only and keyboard/mouse.",
+      "expected": "One command per frame; correct focus/Back; no gameplay input beneath menus or accidental Keep on held buttons.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-35",
+      "procedure": "Test actual mixed-DPI/secondary monitor arrangements and device removal.",
+      "expected": "Record actual behavior; mismatched requested size cannot be kept. Monitor/position/HDR/refresh restoration is outside scope.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-36",
+      "procedure": "Use a custom UGameUserSettings subclass or active XR-system host.",
+      "expected": "Unavailable rather than guessing subclass side effects or resizing a VR presentation.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-37",
+      "procedure": "Load existing schema-3 player options and a backed-up campaign, use display menu, complete radio.",
+      "expected": "Campaign/story/item/receipt behavior unchanged; no new Coastal preference schema or slot; audio/transcript remain independent.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_10_display_acceptance.json",
+      "id": "DISPLAY-38",
+      "procedure": "Package and launch real host; complete New, collect, storage round-trip, repair, transcript, safe return, verified save, relaunch, Continue.",
+      "expected": "Actual coherent gameplay with AGIS/Hyper and independent options. Only this full retained acceptance gate advances M1.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.start.unconfigured",
+      "procedure": "Attach diagnostic UI with the base adapter",
+      "expected": "Clear NotConfigured message; no inventory or successful Start/Continue.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-missing-provider-progress.json"
+      ],
+      "remaining": "Real missing-class initialization now shows the native NotConfigured screen and blocks campaign entry without world/file mutation. Explicit null/base-adapter and other specified variants remain."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.start.fresh",
+      "procedure": "Generate fresh name with gamepad and start",
+      "expected": "No keyboard needed; initial pending save becomes an actual verified Saved notice.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.start.existing",
+      "procedure": "Choose an existing set and press Start New",
+      "expected": "Original files retained; explicit refusal; no automatic deletion.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.catalogue.pairs",
+      "procedure": "Create A/B pair then open session menu",
+      "expected": "One deduplicated name; no claim it is validated until Continue.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.catalogue.unavailable",
+      "procedure": "Inject unsupported name enumeration",
+      "expected": "Unavailable differs from empty list; exact-name Continue remains possible.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.continue.failed",
+      "procedure": "Continue a missing/corrupt set",
+      "expected": "No new game is created; error remains visible.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-save-runtime-progress.json"
+      ],
+      "remaining": "Partial campaign restore/coordinator refusal verified. Complete UI-command failure presentation and all specified restored fields need case-specific mapping."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.continue.valid",
+      "procedure": "Quit and Continue a valid partial mission",
+      "expected": "Inventory, ledger, world, journal and mission restore together.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-save-runtime-progress.json"
+      ],
+      "remaining": "Partial campaign restore/coordinator refusal verified. Complete UI-command failure presentation and all specified restored fields need case-specific mapping."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.session.replace",
+      "procedure": "Choose another session while campaign active",
+      "expected": "Explicit confirmation before replacing live memory; Cancel preserves it.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.save.exit",
+      "procedure": "Save and Exit on healthy campaign",
+      "expected": "Exit occurs only after Saved/read-back verification.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.save.exit_failure",
+      "procedure": "Cause a disposable write failure then Save and Exit",
+      "expected": "Application remains open; failure is visible; previous slot retained.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.back.single",
+      "procedure": "Pause then journal; send repeated Back in one frame",
+      "expected": "Only journal closes; parent remains focused.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.back.hold",
+      "procedure": "Hold Escape/B across menu transitions",
+      "expected": "No rapid multi-layer closure or immediately reopened menu.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.focus.restore",
+      "procedure": "Focus Journal from pause; open/close child",
+      "expected": "Original pause command regains focus.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.input.world_block",
+      "procedure": "Press move/look/jump/interact under each modal",
+      "expected": "No world action; bridge blocker and UI-only input both effective.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.input.release",
+      "procedure": "Close last modal then move/look",
+      "expected": "Inputs restored; unrelated existing ignore-input locks preserved.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.input.teardown",
+      "procedure": "End play/re-enter test room repeatedly",
+      "expected": "No duplicate context, callback, widget or leaked blocker/lock.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.transcript.cancel",
+      "procedure": "Repair, display transcript, press Back",
+      "expected": "No messageHeard flag or final journal lead granted.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.transcript.confirm",
+      "procedure": "Open transcript with held confirm; release then explicitly Continue",
+      "expected": "No opening-frame acknowledgement; final journal records once.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.transcript.stale",
+      "procedure": "Keep old token/widget callback across successful load",
+      "expected": "Old action rejected; no progress change.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-transcript-stale-progress.json",
+        "m1-transcript-token-progress.json"
+      ],
+      "remaining": "None for this bounded case: old widget callback and direct old issued token both refuse after load, preserving state; fresh acknowledgement and Continue pass."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.inventory.unwired",
+      "procedure": "Do not override ReadContainerView",
+      "expected": "Explicit unavailable view; no fake empty-ready grid or transfers.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.inventory.invalid",
+      "procedure": "Return duplicate GUID, overlap, wrong container or mismatched revision",
+      "expected": "View invalid and transfers disabled.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.inventory.inspect",
+      "procedure": "Select item; inspect; return using controller",
+      "expected": "Same selected instance and parent focus retained.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.storage.roundtrip",
+      "procedure": "Move battery to cabin storage and back using gamepad",
+      "expected": "Real one-item transfers; objective follows carried contents; no duplicate.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-capacity-world-progress.json",
+        "m1-storage-capacity-progress.json",
+        "m1-save-runtime-progress.json"
+      ],
+      "remaining": "Actual transfers and mission completion pass; physical gamepad, carried-readiness offer assertions or world-input-under-modal conditions are not all mapped."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.storage.full",
+      "procedure": "Attempt transfer into full grid",
+      "expected": "NoSpace visible; source item stays recoverable.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-storage-capacity-progress.json"
+      ],
+      "remaining": "No remaining condition for this bounded storage refusal scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.storage.stale",
+      "procedure": "Change provider state after display before transfer",
+      "expected": "Refresh/review required; old display does not initiate a new transfer.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-storage-revision-progress.json"
+      ],
+      "remaining": "None for this bounded row on the recorded setup; physical input and retry/epoch variants have separate cases."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.storage.retry",
+      "procedure": "Inject Busy/Failed for a transfer and press Retry",
+      "expected": "Original request/operation GUID reused; no automatic retries or second intention.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.storage.range",
+      "procedure": "Move/teleport away while storage panel exists",
+      "expected": "Invalid context closes; no remote transfer or hidden retry.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.recovery.lock",
+      "procedure": "Inject late restore plus failed rollback in disposable session",
+      "expected": "Non-dismissible recovery; no save; exit/relaunch guidance.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-terminal-recovery-progress.json",
+        "m1-terminal-relaunch-progress.json",
+        "m1-provider-rollback-progress.json"
+      ],
+      "remaining": "None for bounded late native/provider rollback faults and sticky recovery UI on this setup; natural backend/collision failures are not inferred."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.viewport.readability",
+      "procedure": "Run native screens at 1080p and a smaller viewport",
+      "expected": "Text and all commands reachable; mouse/shoulder scrolling works.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.full_loop.gamepad",
+      "procedure": "Complete pickup-storage-repair-transcript-save-relaunch with controller only",
+      "expected": "Full original M1 invariants pass without mouse or developer commands.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_2_ui_acceptance.json",
+      "id": "ui.windows.package",
+      "procedure": "Cook/package and launch test room outside editor",
+      "expected": "Native widgets/assets/input are present; no missing critical dependency.",
+      "assessment": "partial",
+      "evidence": [
+        "integrated-gameplay-summary.json",
+        "m1-save-runtime-progress.json"
+      ],
+      "remaining": "Automated packaged core loop proven. Reconcile exact current build provenance and each retained acceptance condition before closing the broader row."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.valid",
+      "procedure": "Start from a clean test room with the actual ready adapter, dry character and exactly one of each owner.",
+      "expected": "Started opens the native session menu; no campaign is created and no save file is written until the player selects New or Continue.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.no_provider",
+      "procedure": "Supply null, a base adapter, and then an unready real adapter.",
+      "expected": "Blocked with a specific diagnostic; no fake inventory, save, receipt or hidden pickup.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-missing-provider-progress.json"
+      ],
+      "remaining": "Real missing-class initialization now shows the native NotConfigured screen and blocks campaign entry without world/file mutation. Explicit null/base-adapter and other specified variants remain."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.bad_owner",
+      "procedure": "Call before possession, from the wrong actor, and from an unregistered bootstrap.",
+      "expected": "Blocked before any real provider method is called.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.duplicate_owners",
+      "procedure": "Duplicate the UI, interaction bridge, bootstrap, controller or director component.",
+      "expected": "Specific ownership error; no selection of an arbitrary duplicate.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.other_world",
+      "procedure": "Supply an editor/class-default or other-world director/provider to the play-world component.",
+      "expected": "Blocked before provider reads or binding.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.network",
+      "procedure": "Run a networked PIE session.",
+      "expected": "Blocked; no implied co-op support.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.legacy_mixed",
+      "procedure": "Execute a legacy Configure or InitializeUI call before the new startup entry point.",
+      "expected": "Blocked; the old session is not rebound or silently replaced.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.missing_part",
+      "procedure": "Delete the authored fuse actor in a disposable test map.",
+      "expected": "room.missing_object identifies world.test.fuse; room editing is not auto-repaired.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.wrong_part",
+      "procedure": "Configure the battery pickup as a fuse or a quantity of two.",
+      "expected": "room.item_mismatch blocks startup; no duplicate critical grants.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.ids",
+      "procedure": "Duplicate or change a stable world ID; then add an unexpected persistent object.",
+      "expected": "A diagnostic identifies duplicate, malformed, missing or unexpected IDs; ordinary unregistered scenery remains allowed.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.optional_mapping",
+      "procedure": "Remove the optional postcard actor or set the wrong journal entry.",
+      "expected": "Authoring validation fails; this is a test-room manifest requirement, not a new quest prerequisite.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.initial_world",
+      "procedure": "Attempt startup after a pickup/door/note proxy already has active state.",
+      "expected": "Pristine-room check fails; no independent pre-restore is accepted.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.checkpoint",
+      "procedure": "Use a NaN/nonunit/out-of-bounds, obstructed, no-floor or unsafe-tagged checkpoint, and an invalid current spawn.",
+      "expected": "Blocked through the same dry-placement helper used by saving; no teleport or inventory mutation.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.input",
+      "procedure": "Use legacy PlayerInput or remove the Enhanced Input local-player subsystem.",
+      "expected": "Blocked before menu binding; no ClearAllMappings workaround.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.provider_export",
+      "procedure": "Return incompatible/empty export, invalid identity, or validation failure from the actual adapter.",
+      "expected": "Explicit provider diagnostic; no Configure call.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.provider_views",
+      "procedure": "Return invalid backpack/storage views, mismatched revisions or a shared instance GUID.",
+      "expected": "Blocked; actual storage must be initialized even when empty.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.pregranted",
+      "procedure": "Pregrant either required part to backpack or storage, or retain a previous receipt ledger.",
+      "expected": "Blocked; radio parts remain supplied by the two guaranteed world pickups.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.read_semantics",
+      "procedure": "Make read calls change revision/identity/receipts or report Available for an absent individual part.",
+      "expected": "The corresponding consistency check fails. This test does not establish all vendor side-effect freedom.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.explicit_retry",
+      "procedure": "First fail read-only preflight, fix the setup, then invoke StartTestRoom explicitly.",
+      "expected": "Retry is allowed from Blocked only; no timer retries or polling loops occur.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.double_call",
+      "procedure": "Invoke the same valid request twice and attempt a different director/provider/checkpoint after success.",
+      "expected": "Same request returns AlreadyStarted without duplicate UI/contexts; different request returns Rejected without rebind.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.reentrant",
+      "procedure": "Call StartTestRoom from provider callbacks and synchronously from OnStartupNotice.",
+      "expected": "Busy during the active attempt/notification; no recursive binding.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.partial_bind",
+      "procedure": "In a disposable host inject a Configure/bridge/UI initialization failure after preflight.",
+      "expected": "RestartRequired; coordinator mutation/save entry is poisoned; owned movement/look locks held until teardown. No in-place retry.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.teardown",
+      "procedure": "End PIE/relaunch after success and after binding failure while another input owner has locks.",
+      "expected": "No leftover startup debug message; only bootstrap-owned failure locks released. Native UI retains its own teardown responsibility.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.full_loop",
+      "procedure": "With bootstrap used instead of the legacy calls, complete pickup, storage transfer, repair, transcript, verified save, relaunch and Continue with keyboard and gamepad.",
+      "expected": "All retained M1/M1.2 campaign/UI checks still pass; no loss, duplicate grants or false save notices.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "editor.audit",
+      "procedure": "Run the read-only editor audit on valid, invalid and dirty test maps, then during PIE and with an existing report file.",
+      "expected": "Only loaded-world manifest facts reported; no asset edit/save, vendor call, file overwrite or runtime pass claim.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_3_startup_acceptance.json",
+      "id": "startup.windows",
+      "procedure": "Build and package the actual Development Windows test room; launch outside Unreal Editor.",
+      "expected": "Startup and full campaign loop work in the executable. Record exact versions and evidence; the gate is not met by an editor-only audit.",
+      "assessment": "partial",
+      "evidence": [
+        "integrated-gameplay-summary.json",
+        "m1-save-runtime-progress.json"
+      ],
+      "remaining": "Automated packaged core loop proven. Reconcile exact current build provenance and each retained acceptance condition before closing the broader row."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.bootstrap_optional",
+      "procedure": "Run the retained real M1.3 host without a relay.",
+      "expected": "Legacy startup remains valid; only shared bridge same-frame protection applies, not relay held/focus guarantees.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.bootstrap_relay",
+      "procedure": "Add one registered uninitialized relay with a real ready provider and use the existing bootstrap.",
+      "expected": "Relay initializes between bridge and UI; no automatic new/load/save.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.bootstrap_duplicate",
+      "procedure": "Add two relays, an initialized relay, or an invalid InputOwner in a disposable host.",
+      "expected": "Read-only preflight blocks before permanent binding.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.repeat_startup",
+      "procedure": "Repeat the exact successful startup and then repeat after destroying the bound relay.",
+      "expected": "First repeat is AlreadyStarted without extra contexts; lost required binding requires relaunch.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.native_keyboard",
+      "procedure": "Select NativeEnhancedInput, remove competing Interact handlers, forward actual Hyper focus, press/release E.",
+      "expected": "Exactly one appropriate bridge action per fresh press.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.native_gamepad",
+      "procedure": "Repeat the complete world loop with face-left and controller-only menus.",
+      "expected": "One action per fresh press and no world action while UI owns focus.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.vendor_state",
+      "procedure": "Select VendorEvents and forward actual aggregate input-down and released states.",
+      "expected": "No native context is created; held true does not repeat; false and a later press permits another action.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.wrong_input_owner",
+      "procedure": "Submit external state to a native-mode relay and attempt to hot-change its property.",
+      "expected": "External input rejected; initialized ownership does not silently switch.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.two_keys",
+      "procedure": "In native mode hold E and face-left together, then release only one.",
+      "expected": "No second action until the aggregate input is released and pressed again.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.door_duplicate",
+      "procedure": "Deliver two direct bridge TryInteract calls for the same door in one engine frame.",
+      "expected": "Only one door toggle; second call is SuppressedInput and broadcasts no recursive notice.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.radio_duplicate",
+      "procedure": "With both parts carried, issue two same-frame radio interactions before inspection.",
+      "expected": "Inspection happens once; repair does not execute in the same frame. A later explicit press is required.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.notice_recursion",
+      "procedure": "Temporarily wire an action-notice listener to call another bridge interaction/transfer/acknowledgement synchronously.",
+      "expected": "Nested call is SuppressedInput; no second mutation or recursive notice loop.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.held",
+      "procedure": "Hold Interact for several seconds through each world-object type.",
+      "expected": "Relay does not repeat door toggles, repair attempts, transcript opens or pickups.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.menu_held",
+      "procedure": "Hold Interact through opening and closing inventory/pause/storage/transcript.",
+      "expected": "No world action leaks; fresh focus and release then later press are required.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.menu_between_ticks",
+      "procedure": "Acquire and release a legitimate unique bridge UI blocker between relay ticks.",
+      "expected": "Permission revision invalidates the previous focus even though final blocked state is unchanged.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.pause_external",
+      "procedure": "Pause the real game through the host while no Coastal menu is open.",
+      "expected": "Direct world interactions and relay offers are blocked; UI-owned storage operations remain separately allowed.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.session_held",
+      "procedure": "Save/load or replace a campaign while focus is on a valid actor and input remains held.",
+      "expected": "Old epoch focus/input is rejected; no automatic follow-on action.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.heartbeat",
+      "procedure": "Stop forwarding selected-target updates while leaving a previously focused actor alive.",
+      "expected": "Offer hides and input rejects once sample age exceeds two frames; no target scanning or reacquisition.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.focus_loss_order",
+      "procedure": "Forward A then B, followed by a delayed ClearFocusedTarget(A).",
+      "expected": "B remains the current focus; clearing B or forwarding null removes it.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.invalid_target",
+      "procedure": "After valid focus, submit an unregistered or wrong-world Coastal actor.",
+      "expected": "Old valid focus is cleared and the invalid actor cannot be acted on.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.destroyed_target",
+      "procedure": "Destroy the focused actor in a disposable test; also test collected/hidden pickups.",
+      "expected": "Weak stale target cannot act; collected pickup offer is hidden; no repeated grant.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.no_queue",
+      "procedure": "Press when focus is absent/expired, then provide a fresh target while the key stays held.",
+      "expected": "No queued retry occurs; release and explicit new press is required.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.range_visibility",
+      "procedure": "Use actual Hyper focus on a distant actor and an actor behind the test obstruction.",
+      "expected": "Disabled offer/reason when applicable and commit-time TooFar/Occluded; no remote pickup/repair.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-occlusion-progress.json",
+        "m1-reach-matrix-progress.json"
+      ],
+      "remaining": "None for this bounded current-setup case. Four packaged pickup/repair cases prove distant and obstructed refusal, unchanged provider/save state, recovery within clear reach and inspected prompt behavior. Physical-device and independent presentation cases remain separate."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.offers_readonly",
+      "procedure": "Poll offers repeatedly for every kind before/after reading and repairing; inspect provider/world/mission/ledger.",
+      "expected": "No state mutations, receipts, transcript acknowledgement or saves from reads alone.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.repair_storage",
+      "procedure": "Move one required part into actual storage, inspect the radio offer, return it to backpack.",
+      "expected": "Readiness follows carried requirements; no availability inferred from remote storage or cached count.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-capacity-world-progress.json",
+        "m1-storage-capacity-progress.json",
+        "m1-save-runtime-progress.json"
+      ],
+      "remaining": "Actual transfers and mission completion pass; physical gamepad, carried-readiness offer assertions or world-input-under-modal conditions are not all mapped."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.full_backpack",
+      "procedure": "Fill the actual AGIS backpack and press Take on a required item with an enabled offer.",
+      "expected": "Real NoSpace leaves the pickup retrievable; an enabled offer never grants or guarantees capacity.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-capacity-world-progress.json"
+      ],
+      "remaining": "No remaining condition for this bounded capacity scenario; physical-input cases remain separate."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.storage_paused",
+      "procedure": "Open native storage and transfer while its UI pauses gameplay; then open transcript and acknowledge after presentation.",
+      "expected": "UI-specific transfer/ack paths still work with the shared dispatch guard; world Interact remains blocked.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-capacity-world-progress.json",
+        "m1-storage-capacity-progress.json",
+        "m1-save-runtime-progress.json"
+      ],
+      "remaining": "Actual transfers and mission completion pass; physical gamepad, carried-readiness offer assertions or world-input-under-modal conditions are not all mapped."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.provider_failure",
+      "procedure": "Make the real provider unavailable or put the coordinator in terminal recovery in a disposable run.",
+      "expected": "Offers hide and input fails closed; no fake inventory, mutation or automatic save/new campaign.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.pawn_teardown",
+      "procedure": "Change/destroy the possessed character and then exit/reenter the map.",
+      "expected": "No silent rebinding; old input/prompt cannot act, and relay-owned resources are removed without clearing unrelated mappings.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.low_frame_rate",
+      "procedure": "Exercise both input routes and vendor updates at low/variable frame rates with actual rendering.",
+      "expected": "Lease ordering is acceptable, presses do not target indefinitely stale selections, and no hidden repeat/queued action occurs.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_4_interaction_acceptance.json",
+      "id": "interaction.packaged_loop",
+      "procedure": "Build/cook/package the actual systems map for Windows, launch outside editor, finish the whole campaign, exit and Continue.",
+      "expected": "Coherent pickup/storage/repair/transcript/save/relaunch loop without loss or duplication; record actual evidence.",
+      "assessment": "partial",
+      "evidence": [
+        "integrated-gameplay-summary.json",
+        "m1-save-runtime-progress.json"
+      ],
+      "remaining": "Automated packaged core loop proven. Reconcile exact current build provenance and each retained acceptance condition before closing the broader row."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.default_legacy",
+      "procedure": "Start unchanged M1.4 room with no recovery component or safety volumes.",
+      "expected": "Existing bootstrap remains supported; no safe-return guarantee claimed.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.startup",
+      "procedure": "Add one recovery component to possessed character, valid safety volumes and dry fallback.",
+      "expected": "Original bootstrap initializes recovery before native UI; no automatic campaign creation.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.owner",
+      "procedure": "Use unpossessed owner, duplicate recovery components or competing manual/bootstrap calls.",
+      "expected": "Preflight/initialization rejects them; partial binding requires relaunch.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.missing_owner",
+      "procedure": "Place safety volumes without a recovery component.",
+      "expected": "Startup blocks rather than presenting inactive safety volumes as functioning protection.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.invalid_shape",
+      "procedure": "Tilt/zero-scale/negatively scale a volume or use malformed extents.",
+      "expected": "Startup/destination validation rejects invalid authored geometry.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.kill_z",
+      "procedure": "Set fall boundary below or too close to actual engine KillZ.",
+      "expected": "Startup blocks; no automatic change of host world settings.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.initial_save",
+      "procedure": "Start New and verify first generation before touching a safety zone.",
+      "expected": "Normal pending-versus-verified save behavior retained.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.dwell",
+      "procedure": "Stand on actual dry floor in a single checkpoint region.",
+      "expected": "A checkpoint records after continuous dwell, not immediately on an overlap event.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.no_spam",
+      "procedure": "Remain in one checkpoint for many frames and inspect save-generation changes.",
+      "expected": "Only one checkpoint-triggered save request per visit; unrelated autosaves are distinguished.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.leave_reenter",
+      "procedure": "Leave a checkpoint and return; change session or open/close a menu mid-dwell.",
+      "expected": "Dwell resets appropriately; a later deliberate visit can record again.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.ambiguous",
+      "procedure": "Overlap two checkpoint regions.",
+      "expected": "No checkpoint is chosen by actor iteration order.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.airborne",
+      "procedure": "Jump through a checkpoint region or stand on an unsafe/absent floor.",
+      "expected": "Airborne/unsafe samples do not record a checkpoint.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.deep_water",
+      "procedure": "Enter the deep-water proxy with a required item carried.",
+      "expected": "Fade/return/stability check completes; carried item and objective facts remain unchanged.",
+      "assessment": "partial",
+      "evidence": [
+        "integrated-gameplay-summary.json"
+      ],
+      "remaining": "Completed-campaign return and relaunch pass. Required-item-carried return and detailed journal/world/receipt assertions must be mapped to the precise scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.out_of_bounds",
+      "procedure": "Enter the route-boundary proxy.",
+      "expected": "Returns without damage or inventory mutation.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.fall",
+      "procedure": "Move below the configured recovery plane in a disposable test session.",
+      "expected": "Return occurs before engine destruction at tested fall speeds/frame times; no respawned replacement pawn.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.storage",
+      "procedure": "Store a required part, return from a hazard, then inspect backpack/storage.",
+      "expected": "Instance IDs, quantities, placement, receipt ledger and mission readiness remain coherent.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.repaired",
+      "procedure": "Repair, acknowledge transcript, then trigger a return.",
+      "expected": "Repair is not repeated; parts are not consumed again; transcript and lead retained.",
+      "assessment": "partial",
+      "evidence": [
+        "integrated-gameplay-summary.json"
+      ],
+      "remaining": "Completed-campaign return and relaunch pass. Required-item-carried return and detailed journal/world/receipt assertions must be mapped to the precise scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.queued_save",
+      "procedure": "Queue an autosave immediately before recovery starts; try manual save/load/new during the return.",
+      "expected": "No capture/mutation/IO begins mid-return; pending request survives and writes after safe completion.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.fallback",
+      "procedure": "Block the last checkpoint after leaving it, keeping initial fallback safe.",
+      "expected": "At most one primary and one distinct fallback attempt; explicit fallback notice.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.both_blocked",
+      "procedure": "Block both destinations using disposable backed-up saves.",
+      "expected": "No origin/random warp; fades clear; sticky recovery screen; further writes/interaction blocked.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.post_teleport",
+      "procedure": "Arrange collision so teleport fitting adjusts the requested position.",
+      "expected": "Actual resulting transform is revalidated for return and campaign load; unsafe result is not accepted.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.unstable",
+      "procedure": "Remove or move support after placement, or introduce a hazard during settling.",
+      "expected": "No repeated teleport loop; failure exits the fade and requires relaunch.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.jump_held",
+      "procedure": "Hold or press Jump/Interact during fade and settling; repeat on keyboard and gamepad.",
+      "expected": "Lower-priority gameplay input is blocked; no unexpected jump/interaction on return; fresh release required for Boolean actions.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.menu_keys",
+      "procedure": "Press Pause/Inventory/Journal during active return and immediately afterward.",
+      "expected": "No modal opens midway through relocation; menus remain usable afterward; no double action.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.input_ownership",
+      "procedure": "Retain an independently owned controller move/look lock while returning.",
+      "expected": "Only recovery-owned lock counts/input component are released; other owners remain intact.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.fade_ownership",
+      "procedure": "Run with fade disabled and with an existing cinematic fade before the return.",
+      "expected": "Recovery works without seizing an existing fade; no audio fading imposed.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.pause",
+      "procedure": "Pause externally during return, then resume in the same session.",
+      "expected": "Game-time phase stops/resumes without a mixed snapshot; host pause/fade ownership remains separate.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.low_fps",
+      "procedure": "Test variable FPS, a large hitch and high fall velocities.",
+      "expected": "Document real behavior; a single hitch cannot count as stable grounding; no claim from helper tests.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.destroy",
+      "procedure": "Destroy recovery component or pawn during an active campaign; invalidate cached safety volume.",
+      "expected": "Session fails closed as specified, owned resources tear down, no unsafe save or silent pawn rebinding.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.relaunch",
+      "procedure": "Return successfully, wait for verified generation, exit/relaunch/Continue.",
+      "expected": "Whole campaign restores with safe checkpoint and unchanged inventory/mission/world/journal.",
+      "assessment": "partial",
+      "evidence": [
+        "integrated-gameplay-summary.json"
+      ],
+      "remaining": "Completed-campaign return and relaunch pass. Required-item-carried return and detailed journal/world/receipt assertions must be mapped to the precise scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.write_failure",
+      "procedure": "Force a supported platform write-failure scenario after a successful return using disposable saves.",
+      "expected": "Return success is not labelled saved; write failure remains visible and prior generation recoverable.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_5_recovery_acceptance.json",
+      "id": "m1_5.windows",
+      "procedure": "Cook/package actual test map and launch outside editor with real AGIS/Hyper.",
+      "expected": "Complete original campaign and new return loop; record actual engine, toolchain, vendor versions and evidence.",
+      "assessment": "partial",
+      "evidence": [
+        "integrated-gameplay-summary.json",
+        "m1-save-runtime-progress.json"
+      ],
+      "remaining": "Automated packaged core loop proven. Reconcile exact current build provenance and each retained acceptance condition before closing the broader row."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.session_access",
+      "procedure": "Open Player options before New/Continue with keyboard, then controller.",
+      "expected": "Options opens as a child; Back returns to session without creating a campaign.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.pause_access",
+      "procedure": "Open options from pause during an active campaign.",
+      "expected": "Returning restores the focused pause command and does not leak world input.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.legacy_host",
+      "procedure": "Use no look component; keep the original character look handler.",
+      "expected": "Text settings work; camera/look controls remain disabled with a binding explanation.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.camera_only",
+      "procedure": "Add one look component with bUseHostLookEvents=false.",
+      "expected": "FOV works; sensitivity and inversion stay disabled; existing host look remains the owner.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.host_routes",
+      "procedure": "Enable host look events only after wiring real separate mouse/stick samples.",
+      "expected": "Sensitivity and inversion become available and each handler rotates only once.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json"
+      ],
+      "remaining": "Injected real input consumers pass sampled controls/sprint scenarios. Full device/range/modal matrix and exact stated edge sequences remain."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.invalid_camera",
+      "procedure": "Try zero/two active cameras, an orthographic camera, a non-character view target, or duplicate consumers.",
+      "expected": "Camera/look options stay unavailable; text options do not poison a healthy campaign.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.fov_extremes",
+      "procedure": "Apply 70, 85 and 110 degrees in the cabin and outdoors.",
+      "expected": "The actual camera component changes on apply; no camera manager or animation resets it unexpectedly.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.look_sensitivity",
+      "procedure": "Apply 25%, 100% and 300% for each real device.",
+      "expected": "Relative yaw/pitch response changes by the intended multiplier without double scaling.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.invert_y",
+      "procedure": "Apply invert on/off using both devices.",
+      "expected": "Only pitch sign changes; existing upstream orientation is accounted for.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.frame_rate",
+      "procedure": "Compare measured stick rotations at 30/60/120 FPS and mouse deltas distributed over frames.",
+      "expected": "Stick uses time; mouse is not multiplied by time. Host legacy input scales are documented.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.large_hitch",
+      "procedure": "Test a game-time frame longer than 0.1 seconds with the stick held.",
+      "expected": "Contribution is capped at 0.1 seconds; no full-hitch camera lurch is applied.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.dual_device",
+      "procedure": "Use mouse and stick together and deliberately duplicate one device callback in a frame.",
+      "expected": "Each device contributes at most once per engine frame; simultaneous devices remain additive.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.held_stick_menu",
+      "procedure": "Hold stick through pause/options/Back; release only after resuming.",
+      "expected": "No rotation until actual neutral is observed and a later non-neutral sample arrives.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json"
+      ],
+      "remaining": "Injected real input consumers pass sampled controls/sprint scenarios. Full device/range/modal matrix and exact stated edge sequences remain."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.released_in_menu",
+      "procedure": "Release the stick in a modal, resume, send the actual current neutral sample, then move.",
+      "expected": "No synthetic neutral; the real released state rearms look without a permanent latch.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json"
+      ],
+      "remaining": "Injected real input consumers pass sampled controls/sprint scenarios. Full device/range/modal matrix and exact stated edge sequences remain."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.held_stick_return",
+      "procedure": "Hold stick during M1.5 return; test menus and new/load session transitions too.",
+      "expected": "Look remains blocked during exclusive return and requires real neutral after the permission change.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.other_look_lock",
+      "procedure": "Take an independent controller look-ignore lock, then open/close options.",
+      "expected": "The options consumer neither clears nor bypasses another owner's lock.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.draft_cancel",
+      "procedure": "Change FOV/sensitivity/text/invert in the draft, then press Back without applying.",
+      "expected": "Only menu text preview was visible; all unapplied changes are discarded.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.session_apply",
+      "procedure": "Choose Apply for this session only, then New/Continue and later relaunch.",
+      "expected": "Values survive campaign switches in that session; relaunch uses the saved profile/defaults, not the session-only edit.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-options-persistence-progress.json",
+        "m1-live-audio-progress.json"
+      ],
+      "remaining": "Draft/session/relaunch and file isolation verified. New/Continue transitions, unavailable-field defaults, and catalogue filtering are not all covered by these runs."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.save_relaunch",
+      "procedure": "Choose Apply and save; close and relaunch the Windows executable.",
+      "expected": "The same five values load from a verified preferences record; campaign generation is independent.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-options-persistence-progress.json"
+      ],
+      "remaining": "All ten current fields, including the original five, persist; campaign file hashes unchanged."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.first_launch_no_write",
+      "procedure": "Launch without options files and make no explicit save choice.",
+      "expected": "Defaults load but no options file is automatically written.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.text_1080",
+      "procedure": "At 1920x1080, test every 100-150% text step across all native screens.",
+      "expected": "Heading, body, notices, buttons, help and save-name text scale and remain usable through scrolling.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.text_720",
+      "procedure": "Repeat at 1280x720, including long journal, inventory list, storage and error text.",
+      "expected": "No required button is unreachable; controller focus scrolls into view. Record real screenshots.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.transcript_presentation",
+      "procedure": "Open transcript at 150%; inspect top-of-body presentation and scrolling before Continue.",
+      "expected": "An entirely offscreen body is not treated as presented by the new layout test; explicit later acknowledgement still required.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.focus_resize",
+      "procedure": "Move to an options adjustment button, alter text size, then navigate with D-pad/Tab.",
+      "expected": "Focus remains on a valid command after reflow; one input frame cannot apply two commands.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.save_name_field",
+      "procedure": "Edit a selected save-set name at 150% and return from options.",
+      "expected": "The input field font scales and its selected name remains intact; no unintended Start/Continue.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.default_draft",
+      "procedure": "Choose defaults, then cancel; repeat and apply.",
+      "expected": "Only available settings are reset in the draft; no implicit disk deletion/reset.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-options-persistence-progress.json",
+        "m1-live-audio-progress.json"
+      ],
+      "remaining": "Draft/session/relaunch and file isolation verified. New/Continue transitions, unavailable-field defaults, and catalogue filtering are not all covered by these runs."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.one_corrupt",
+      "procedure": "Using backed-up disposable option files, damage one slot while another remains valid.",
+      "expected": "Explicit recovery notice; good generation loads; only the opposite slot may be written on deliberate save.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-options-fault-progress.json"
+      ],
+      "remaining": "Single/both corrupt, future envelope and equal-generation cases pass. Inner future schemas, read errors, mixed legacy/current generations or deliberate recovered save remain."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.both_bad",
+      "procedure": "Supply two damaged slots, an unsupported schema, equal generations or a read error.",
+      "expected": "Defaults with explanation, no automatic replacement; session-only options remain usable.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-options-fault-progress.json",
+        "m1-options-compatibility-progress.json",
+        "m1-options-read-error-progress.json",
+        "m1-options-blocked-session-progress.json"
+      ],
+      "remaining": "None for the bounded corrupt/unsupported/conflict/read-error refusal and session-only cases on this setup."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.write_failures",
+      "procedure": "Exercise actual platform write failure, read-back mismatch and ambiguous post-write failure.",
+      "expected": "No verified-save message; previous live values retained; other slot untouched; further writes blocked until relaunch.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-options-write-progress.json",
+        "m1-options-ambiguous-progress.json"
+      ],
+      "remaining": "None for the bounded injected-fault case: no-write, actual truncated file, actual unreadable read-back and valid-write/false-return pass across schemas1/2/3 with fresh relaunch and preserved prior slot/live values. Mix-submission conclusion includes inspected native command gating; acoustic behavior is separate."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.external_change",
+      "procedure": "Change/remove an observed options file after startup using a disposable backed-up test pair.",
+      "expected": "Save refuses before writing; no stale overwrite. This is not a test of guaranteed multiprocess locking.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-options-external-progress.json"
+      ],
+      "remaining": "Changed active file and newly created peer tested. Removal variant remains unexecuted."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.campaign_independence",
+      "procedure": "Hash campaign A/B before and after changing preferences without gameplay.",
+      "expected": "Options operations do not edit campaign files, mission, inventory, world state or receipts; catalogue ignores preference names.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-options-persistence-progress.json",
+        "m1-live-audio-progress.json"
+      ],
+      "remaining": "Draft/session/relaunch and file isolation verified. New/Continue transitions, unavailable-field defaults, and catalogue filtering are not all covered by these runs."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.camera_lifetime",
+      "procedure": "Switch view target or remove/activate another camera during options, then apply a previously edited camera value.",
+      "expected": "Unavailable consumer cannot silently apply the draft. Fixed-camera assumptions remain explicit.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.teardown",
+      "procedure": "Exit/reenter play and fail HUD setup after options initialization in a disposable host.",
+      "expected": "No duplicated consumer; owned FOV restores only while it still equals the last value this owner applied.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_6_options_acceptance.json",
+      "id": "m1_6.packaged_loop",
+      "procedure": "Run the retained full mission/storage/repair/transcript/return/save/relaunch loop, with options at 150% text and both input devices.",
+      "expected": "All retained gates pass in the actual Windows package; capture engine/tool/vendor versions and real evidence.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.optional_absent",
+      "procedure": "Use the retained host without a Sprint component.",
+      "expected": "Movement stays host-owned. Sprint mode is disabled; other available options and campaign startup still work.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.opt_in",
+      "procedure": "Add one Sprint component with opt-in false; then enable only after real routing and restart.",
+      "expected": "No speed changes when disabled. With explicit correct routing the sprint option becomes available.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.duplicate",
+      "procedure": "Add two Sprint components on the actual character.",
+      "expected": "Neither is initialized by UI; no competing speed ownership; an options diagnostic is visible.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.bad_owner",
+      "procedure": "Place the component on a controller/director or unpossessed pawn and try initialization.",
+      "expected": "Initialization refuses; no player or movement component is invented.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.tuning",
+      "procedure": "Test defaults, valid custom values, nonfinite values, walk below 100, sprint below walk, and sprint above 1500.",
+      "expected": "Valid tuning is captured at initialization; invalid tuning is refused without a speed write.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.hold_keyboard",
+      "procedure": "Wire actual aggregate state. Release Shift after entering gameplay, then press/hold/release while walking.",
+      "expected": "Cap changes 330 -> 520 -> 330 once; actual motion follows host input/physics; no stamina drain.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json"
+      ],
+      "remaining": "Injected real input consumers pass sampled controls/sprint scenarios. Full device/range/modal matrix and exact stated edge sequences remain."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.hold_controller",
+      "procedure": "Repeat using controller-only menus and left-stick click.",
+      "expected": "Same intentional Hold behavior, without needing keyboard input.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.toggle",
+      "procedure": "Select Toggle and explicitly apply; move with the stick, press Sprint, release Sprint, press again.",
+      "expected": "First press selects 520 cap; release preserves selection; second intentional press selects 330 cap.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json"
+      ],
+      "remaining": "Injected real input consumers pass sampled controls/sprint scenarios. Full device/range/modal matrix and exact stated edge sequences remain."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.stationary",
+      "procedure": "Enable Toggle and stop all movement input while continuing real released Sprint samples.",
+      "expected": "Character stops by host physics. Toggle does not inject a movement direction or act as auto-run.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json"
+      ],
+      "remaining": "Injected real input consumers pass sampled controls/sprint scenarios. Full device/range/modal matrix and exact stated edge sequences remain."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.two_devices",
+      "procedure": "Hold Shift and left-stick click together; release only one, then both.",
+      "expected": "Aggregate state stays down until both are up; no spurious release or second toggle.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.repeat_bindings",
+      "procedure": "Deliver duplicate aggregate samples in one frame, and repeated down samples across frames.",
+      "expected": "Only the first sample of a frame is accepted. Holding never repeatedly toggles.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.rapid_edges",
+      "procedure": "Press and release within one polling frame, then make a later deliberate press.",
+      "expected": "Document sampled-state behavior: a pulse not observed is not replayed. No queued future sprint.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.menu_held",
+      "procedure": "Open and close Pause, Inventory, Journal, Transcript and Settings while holding Sprint.",
+      "expected": "Sprint intent cancels on permission change. Returning while held never resumes sprint; actual release and a later press are needed.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-display-audio-progress.json"
+      ],
+      "remaining": "Injected real input consumers pass sampled controls/sprint scenarios. Full device/range/modal matrix and exact stated edge sequences remain."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.menu_roundtrip",
+      "procedure": "Open and close a blocker between two Sprint ticks.",
+      "expected": "Changed bridge revision still invalidates sprint; no hidden latched toggle survives.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.external_pause",
+      "procedure": "Pause through the real host, then resume while Sprint is held.",
+      "expected": "Observed pause disables sprint; resume requires real release and a later press. External pause between samples is not claimed observable without a revision change.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.new_continue",
+      "procedure": "Use New and Continue while sprint was selected previously.",
+      "expected": "New epoch resets active sprint. Saved preference mode persists independently, not the transient sprint request.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.move_lock",
+      "procedure": "Apply an independent controller movement ignore count while sprinting; release that owner correctly.",
+      "expected": "Sprint cancels; component does not release or reset the other owner\u00e2\u20ac\u2122s locks.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.jump_land",
+      "procedure": "Jump or walk off an edge with Sprint held/toggled, then land.",
+      "expected": "Observed non-walking mode cancels sprint. Landing requires release/repress; velocity is not forcibly zeroed. Record actual lateral-speed/deceleration behavior.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.crouch_custom",
+      "procedure": "Exercise host crouch, flying/custom/swimming or disabled movement as deliberate diagnostics.",
+      "expected": "Sprint request is disabled outside upright non-crouched MOVE_Walking; no new traversal system or MaxWalkSpeedCrouched change occurs.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.recovery",
+      "procedure": "Enter a safety hazard with Sprint held or toggled and complete safe return.",
+      "expected": "Recovery controls movement as before. Sprint does not resume on arrival; inventory, mission and receipts are unchanged.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.heartbeat",
+      "procedure": "Stop forwarding actual Sprint samples for more than two frames while component ticks; then resume while held.",
+      "expected": "Speed returns to walk. Input is not rearmed until a true released sample on a later eligible frame, then a later press.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.frame_rates",
+      "procedure": "Test 30/60/120 FPS and long frame hitches, including paused UI transitions.",
+      "expected": "No delta-time accumulation or toggle repeats. Two-frame lease changes wall-clock duration with FPS; record actual behavior, not an FPS-independence guarantee.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.foreign_speed",
+      "procedure": "During an active binding, change MaxWalkSpeed to a distinct value from a separate test owner.",
+      "expected": "Sprint disables, logs and exposes a diagnostic. The foreign value is preserved; no fight between writers or campaign reset.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.teardown",
+      "procedure": "End UI/component lifetime while it still owns its speed; repeat after a foreign speed edit.",
+      "expected": "Owned original speed is restored only while still owned. Tick prerequisites are removed; foreign edits are preserved.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.pawn_replacement",
+      "procedure": "Replace/destroy the fixed pawn or movement component during play.",
+      "expected": "No automatic pawn rebinding; sprint reports lifetime failure when observed and restores only owned state. Other campaign lifecycle rules still apply.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.tick_ownership",
+      "procedure": "Use normal tick order, then deliberately violate it or disable the Sprint tick in a disposable test.",
+      "expected": "Normal controller->Sprint->movement order works. Disabled/unexecuted component ticks cannot police an unobserved stale speed; remove/ReleaseOptions before disabling. Record this host violation, not a claimed recovery.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.settings_draft",
+      "procedure": "Change Hold/Toggle, use Back, Defaults, session-only apply and explicit save through keyboard and gamepad.",
+      "expected": "Back discards draft; Defaults only changes available fields; session-only does not write; verified save persists the mode.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.consumer_loss_draft",
+      "procedure": "Edit mode, then invalidate the sprint consumer before Apply.",
+      "expected": "Changed mode is not applied silently without the consumer. Reopen options to review available fields.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.legacy_load",
+      "procedure": "Back up real preferences; load the frozen M1.6 fixture in the actual platform options slot.",
+      "expected": "Original five values and generation load; mode defaults Hold; a legacy-format notice appears; no file is rewritten during load.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.legacy_upgrade",
+      "procedure": "Explicitly save Toggle after loading valid legacy preferences.",
+      "expected": "Only the inactive slot receives schema 2, generation+1 and exact verified bytes; original legacy slot stays unchanged.",
+      "assessment": "superseded_write_schema",
+      "evidence": [
+        "m1-options-persistence-progress.json"
+      ],
+      "remaining": "Its schema-2 WRITE expectation is superseded by M1.8 current schema-3 writes. Do not downgrade to pass it. Preserve its inactive-slot/generation/old-byte invariants in m1_8.legacy1_upgrade; that replacement remains open."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.mixed_slots",
+      "procedure": "Load legacy+new slots with distinct/equal generations, then test supported corruption and unsupported future schema.",
+      "expected": "Highest unambiguous supported generation wins. Equality/future schema/read errors block writes; corrupt newer slot may recover legacy Hold with notice.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.migration_failure",
+      "procedure": "Inject write-before/after, corrupt readback and unreadable readback while upgrading disposable preferences.",
+      "expected": "Previous live values and previous valid slot remain. Further preference writes block; relaunch resolves whether new bytes reached disk.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-options-ambiguous-progress.json"
+      ],
+      "remaining": "None for the bounded injected-fault case: no-write, actual truncated file, actual unreadable read-back and valid-write/false-return pass across schemas1/2/3 with fresh relaunch and preserved prior slot/live values. Mix-submission conclusion includes inspected native command gating; acoustic behavior is separate."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.profile_isolation",
+      "procedure": "Save campaigns, switch campaigns, relaunch and inspect option/catalogue data.",
+      "expected": "No preference record appears as campaign; no inventory/mission data enters preferences; active sprint never restores from disk.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.readability",
+      "procedure": "Inspect every options row/command at 100% and 150% text at 1920x1080 and 1280x720.",
+      "expected": "Six fields and disabled reasons scroll and remain operable; actual focus/preview/back behavior is recorded.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_7_sprint_acceptance.json",
+      "id": "m1_7.full_loop",
+      "procedure": "Package the actual systems room and complete New -> pickups -> storage -> repair -> transcript -> safe return -> verified save -> relaunch -> Continue.",
+      "expected": "Coherent campaign and retained mode; no lost/duplicated items. A real launched Windows package and evidence are required.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.optional_absent",
+      "procedure": "Start the retained host without an Audio Options component.",
+      "expected": "Audio fields are unavailable; text, compatible look/sprint controls, New and Continue retain their existing behavior.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.opt_in_disabled",
+      "procedure": "Add the component with default opt-in false.",
+      "expected": "No mix is created/pushed and no volume command is issued. An options warning explains missing routing.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.bad_owner",
+      "procedure": "Try initialization on a pawn, director, nonlocal controller or networked/split-screen world.",
+      "expected": "Initialization refuses without selecting a substitute owner/device.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.duplicate",
+      "procedure": "Add two audio-options components to the local controller before UI initialization.",
+      "expected": "UI initializes neither; no duplicate mix multiplication.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.missing_class",
+      "procedure": "Bind only zero, one or two of the three actual classes.",
+      "expected": "All four volume fields remain unavailable. No class asset/path is invented.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.aliased_classes",
+      "procedure": "Assign one class to more than one category.",
+      "expected": "Read validation refuses aliases rather than allowing one category to overwrite another.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.class_hierarchy",
+      "procedure": "Supply a class with a parent or child; repeat with passive modifiers.",
+      "expected": "Unsupported hierarchy/passive modifier is rejected. No asset is changed to make it pass.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.class_tuning",
+      "procedure": "Check volume outside [0,1], pitch outside (0,4], NaN/infinity via a disposable native fixture.",
+      "expected": "Invalid metadata is rejected before issuing audio commands.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.no_device",
+      "procedure": "Run the real host with audio disabled or an unavailable audio device.",
+      "expected": "Audio controls stay unavailable; no successful playback claim; campaign behavior remains independent.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.real_routing",
+      "procedure": "Route actual owned ambience, effects and radio sounds to the three dedicated independent classes, then opt in before startup.",
+      "expected": "Native command readiness is available. Audibly verify each sound is actually affected; the opt-in alone is not acceptance.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-radio-gain-progress.json",
+        "m1-effects-gain-progress.json",
+        "m1-ambience-gain-progress.json"
+      ],
+      "remaining": "Digital output validates each isolated class and combined Master/category quarter gains. Simultaneous all-channel setup and physical audibility are not established."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.startup_saved_mute",
+      "procedure": "Persist Master=0, relaunch and start actual sound sources only after UI/options initialization.",
+      "expected": "Mix begins with saved zero multipliers and zero startup fade; no intentional full-volume burst. Inspect actual device behavior.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.startup_missing_settings",
+      "procedure": "Use two missing preference slots and correct sound routing.",
+      "expected": "All volumes default 100%; no automatic preference write or automatically started sound.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.draft_cancel",
+      "procedure": "Change all four volumes in the options draft, then Back.",
+      "expected": "Audible mix/live values/files do not change; parent focus returns.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.session_apply",
+      "procedure": "Apply Master=50, Ambience=20, Effects=100, Radio=0 for session only.",
+      "expected": "Submitted multipliers are .1, .5, 0. No preference write; actual playback matches configured routing after interpolation.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.master_once",
+      "procedure": "Use Master=50 and each channel=50.",
+      "expected": "Each routed class gets .25, not .125 or .5. Independent categories do not receive a parent master a second time.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-radio-gain-progress.json",
+        "m1-effects-gain-progress.json",
+        "m1-ambience-gain-progress.json"
+      ],
+      "remaining": "Digital output validates each isolated class and combined Master/category quarter gains. Simultaneous all-channel setup and physical audibility are not established."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.category_isolation",
+      "procedure": "Mute each channel separately while sounds on the other two continue.",
+      "expected": "Only the selected routed class is muted; verify all actual cue/wave/class overrides.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.master_mute_restore",
+      "procedure": "Choose distinct channel levels, set Master=0 then restore Master=100.",
+      "expected": "Mute does not discard category settings; unmute restores those settings rather than resetting everything to 100.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-live-audio-progress.json"
+      ],
+      "remaining": "Distinct category preferences survive UI Master mute/unmute; actual ambience output resumes. Other-source transition output remains a separate test."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.zero_loop_virtualization",
+      "procedure": "Mute/unmute a looping ambience asset and a finite radio source with the actual virtualization/concurrency policy.",
+      "expected": "No epsilon mute is substituted. Configure/record whether loops continue, resume or restart; the component does not manufacture stopped voices.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-live-audio-progress.json"
+      ],
+      "remaining": "Pause options apply, same ambience voice, zero output and restoration proven. Other modal layers, finite-radio continuation, ownership and transition conditions remain."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.no_playback_side_effect",
+      "procedure": "Repeatedly open/apply/close options while tracking sound spawning and radio tokens.",
+      "expected": "No sound is spawned/stopped/replayed by the volume component and no transcript is acknowledged.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.silent_radio_completion",
+      "procedure": "Play the complete First Signal mission with Master/Radio=0 or no audio owner.",
+      "expected": "Full transcript remains readable. Explicit Continue completes the message; no audio-finished callback gates or grants progress.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-radio-gain-progress.json",
+        "m1-display-audio-progress.json"
+      ],
+      "remaining": "Muted and completed-clip campaign paths pass with explicit acknowledgement and conserved inventory/generation. Complete row-specific UI/journal/visibility evidence still requires mapping."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.ui_devices",
+      "procedure": "Use keyboard/mouse and controller-only to cycle all ten fields and adjust 0 through 100.",
+      "expected": "Five-percent bounds hold, existing six field indices/order remain, one command per frame, and settings require no mouse drag.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.ui_readability",
+      "procedure": "Inspect all native screens at 1920x1080/1280x720 and 100%/150% text.",
+      "expected": "Ten-row options body, error messages and all controls scroll and focus correctly; no hidden required command.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.paused_apply",
+      "procedure": "Apply valid preferences from Session/Pause while the world is paused.",
+      "expected": "Audio commands are submitted without changing pause/input ownership. Actual paused source playback follows host policy.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-live-audio-progress.json"
+      ],
+      "remaining": "Pause options apply, same ambience voice, zero output and restoration proven. Other modal layers, finite-radio continuation, ownership and transition conditions remain."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.new_continue",
+      "procedure": "Set session-only audio, switch campaigns through New/Continue and test recovery.",
+      "expected": "The local audio mix and values persist without repushing. Campaign epochs do not recreate preference/mix owners.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.legacy1_upgrade",
+      "procedure": "Load a backed-up schema1 pair and explicitly save new options.",
+      "expected": "Five values preserved, Hold sprint and 100% volumes default. No load write; explicit verified save writes schema3 to inactive slot.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-options-legacy-progress.json"
+      ],
+      "remaining": "None for this bounded upgrade case on the recorded setup; downgrade and failure variants remain separate."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.legacy2_upgrade",
+      "procedure": "Load backed-up schema2 preferences with Toggle then explicitly save changed volumes.",
+      "expected": "All six values preserved, volumes default 100%; explicit schema3 write increments generation and retains prior valid slot.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-options-legacy-progress.json"
+      ],
+      "remaining": "None for this bounded upgrade case on the recorded setup; downgrade and failure variants remain separate."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.upgrade_faults",
+      "procedure": "Inject no-write, partial/corrupt, unreadable readback and valid-write/failure-return cases into disposable platform slots.",
+      "expected": "No unverified write updates live values or applies new mix values. Further writes block; valid bytes that reached disk may load after relaunch.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-options-write-progress.json",
+        "m1-options-ambiguous-progress.json"
+      ],
+      "remaining": "None for the bounded injected-fault case: no-write, actual truncated file, actual unreadable read-back and valid-write/false-return pass across schemas1/2/3 with fresh relaunch and preserved prior slot/live values. Mix-submission conclusion includes inspected native command gating; acoustic behavior is separate."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.slot_conflicts",
+      "procedure": "Test mixed1/2/3 generations, equal generations, unsupported future schema, all-corrupt and read-error slots.",
+      "expected": "Highest unambiguous valid generation only; ambiguous/unsupported/read errors never authorize overwrite or silent reset.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-options-fault-progress.json",
+        "m1-options-compatibility-progress.json",
+        "m1-options-read-error-progress.json"
+      ],
+      "remaining": "None for the stated bounded selection/refusal conditions on this setup. Sharing-denial read errors tested in either slot; other device errors and slot-direction permutations remain separate variants."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.external_change",
+      "procedure": "Modify a disposable preference peer after load but before explicit save.",
+      "expected": "Observed-file check blocks write/apply; session-only remains available. No OS-lock/crash-safety guarantee is inferred.",
+      "assessment": "satisfied_current_setup",
+      "evidence": [
+        "m1-options-external-progress.json"
+      ],
+      "remaining": "Separate-process newer-record change refused before stale Save; session-only apply remains available. No OS-lock or crash-safety claim."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.lost_after_draft",
+      "procedure": "Remove/invalidates the audio binding after changing audio draft fields, then Apply/Save.",
+      "expected": "Changed audio fields are refused before applying/saving when unavailability is observed. Reopen options for available fields.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.device_change",
+      "procedure": "Change the world audio device while the initialized owner ticks.",
+      "expected": "Feature disables and releases only its mix on the original device, not a mix on the replacement. No automatic rebind or campaign write.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.repeated_apply",
+      "procedure": "Apply unchanged values repeatedly; also change only text or masked channels while Master=0.",
+      "expected": "No repeated push and no redundant effective-gain updates. Stored masked channel preferences still change for future unmute.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.teardown",
+      "procedure": "Close UI/session, unregister/remove audio owner and end PIE in varied orders.",
+      "expected": "Pop occurs at most once, on the captured device. Other mixes and sound-class asset properties remain untouched; no retained owner leak.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.foreign_mix",
+      "procedure": "Run a deliberate separate mix against unrelated classes, and separately an intentionally conflicting same-class modifier.",
+      "expected": "Unrelated mix is preserved. Same-class independent modifiers can combine; record this unsupported ownership conflict instead of claiming conflict detection.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.downgrade",
+      "procedure": "Against backed-up disposable files, inspect older M1.6/M1.7 reader behavior after schema3 save.",
+      "expected": "Old readers reject the new schema. Rollback restores a backed-up old pair outside play; unrelated campaigns are not removed.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_8_audio_acceptance.json",
+      "id": "m1_8.packaged_loop",
+      "procedure": "Build/cook Windows, launch outside the editor and perform full New -> pickup -> storage -> repair -> transcript -> return -> verified save -> exit/relaunch -> Continue.",
+      "expected": "Campaign/inventory remain coherent and preferences restore separately. Record real versions, logs, audio/routing observations and screenshots.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.optional_absent",
+      "procedure": "Run the retained host without the new playback component.",
+      "expected": "No new sources; existing mission, transcript, settings and campaign loop work unchanged.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.opt_in_off",
+      "procedure": "Add one playback owner with default opt-in false.",
+      "expected": "No Play or source creation. Visible optional-feature diagnostic; text is not disabled.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.wrong_owner",
+      "procedure": "Attempt initialization on a pawn, director or nonlocal controller.",
+      "expected": "Refuse without creating a source or selecting a replacement owner.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.duplicate",
+      "procedure": "Add two playback owners to the controller.",
+      "expected": "UI initializes neither and reports the duplicate; no doubled ambience or radio.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.routing_unready",
+      "procedure": "Enable playback without ready M1.8 routing or with no audio device.",
+      "expected": "No source starts; there is no uncontrolled full-volume fallback.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.no_assets",
+      "procedure": "Enable with both sound references empty.",
+      "expected": "No invented asset or automatic content fetch. Diagnostic leaves transcript usable.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.partial_ambience",
+      "procedure": "Assign only a valid owned looping ambience source.",
+      "expected": "Bed lifecycle works; radio transcript remains silent and completable.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.partial_radio",
+      "procedure": "Assign only a valid owned finite radio source.",
+      "expected": "No ambience; one transcript playback attempt when text is displayed.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.invalid_source",
+      "procedure": "Assign unplayable audio, a nonlooping bed, looping radio or radio duration outside (0,900].",
+      "expected": "Reject configuration without mutating source assets or mission state.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.silent_policy",
+      "procedure": "Assign a source without the PlayWhenSilent metadata contract, then test a corrected project-owned wrapper.",
+      "expected": "First configuration refuses. Corrected source must actually continue through mute in the real host.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.title_silence",
+      "procedure": "Launch to the native Session menu with both sources valid.",
+      "expected": "Initialization creates no playing voice. No ambience until active unobstructed gameplay.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.muted_startup",
+      "procedure": "Save Master=0, exit and relaunch; begin a campaign.",
+      "expected": "No audible full-volume burst. Mix initialized before source Play; confirm with actual audio capture.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.single_bed",
+      "procedure": "Start a campaign and stand in gameplay for a sustained run.",
+      "expected": "One local 2D bed, no per-frame play/restart or accumulating audio components.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-ambience-gain-progress.json",
+        "m1-live-audio-progress.json"
+      ],
+      "remaining": "Sustained actual bed and same component observed; per-frame source-start count and full lifetime leak audit remain."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.nested_menus",
+      "procedure": "Open Pause, settings and journal, then Back through each layer.",
+      "expected": "Bed pauses once and stays paused until final gameplay return, then resumes rather than restarts.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-live-audio-progress.json"
+      ],
+      "remaining": "Pause options apply, same ambience voice, zero output and restoration proven. Other modal layers, finite-radio continuation, ownership and transition conditions remain."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.external_pause",
+      "procedure": "Pause the host without opening a Coastal panel, then resume.",
+      "expected": "Bed remains paused until gameplay is eligible; transcript UI voice follows its explicit UI-pause policy.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.unpainted_text",
+      "procedure": "Open radio transcript but prevent a valid painted-body opportunity, then close it.",
+      "expected": "No voice start for unpresented/canceled text.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.transcript_modal",
+      "procedure": "Show a valid transcript and wait a later frame after body paint.",
+      "expected": "One Radio-class voice starts despite the deliberate modal world pause; bed is paused.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.finish_without_ack",
+      "procedure": "Let the complete clip finish while transcript remains open.",
+      "expected": "No replay, journal insertion, mission completion, inventory mutation or auto-close. Continue still requires explicit action.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-radio-gain-progress.json",
+        "m1-display-audio-progress.json"
+      ],
+      "remaining": "Muted and completed-clip campaign paths pass with explicit acknowledgement and conserved inventory/generation. Complete row-specific UI/journal/visibility evidence still requires mapping."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.early_continue",
+      "procedure": "Press Continue before the clip finishes, after normal presentation eligibility.",
+      "expected": "Existing mission acknowledgement executes once; source is stopped and destroyed on close.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.cancel",
+      "procedure": "Back out during playback.",
+      "expected": "Voice stops; no message-heard grant from cancellation or native Stop completion.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.explicit_replay",
+      "procedure": "Reinteract with the repaired radio to open a fresh transcript after cancel or completion.",
+      "expected": "New ticket permits one playback attempt from the beginning. No repeated item consumption or journal duplication.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.journal_silent",
+      "procedure": "Open journal entries including the saved transcript.",
+      "expected": "Reading the journal does not start the radio voice.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.radio_muted",
+      "procedure": "Set Radio=0 and complete the opening.",
+      "expected": "Full text and Continue remain available. Mission completion is independent of native sound output.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-radio-gain-progress.json",
+        "m1-display-audio-progress.json"
+      ],
+      "remaining": "Muted and completed-clip campaign paths pass with explicit acknowledgement and conserved inventory/generation. Complete row-specific UI/journal/visibility evidence still requires mapping."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.master_channel_gain",
+      "procedure": "Use distinct Master, Ambience and Radio values; mute/unmute.",
+      "expected": "Retained mix multiplies Master once. Source multipliers stay 1; settings do not respawn clips.",
+      "assessment": "partial",
+      "evidence": [
+        "m1-live-audio-progress.json"
+      ],
+      "remaining": "Pause options apply, same ambience voice, zero output and restoration proven. Other modal layers, finite-radio continuation, ownership and transition conditions remain."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.new_load_epoch",
+      "procedure": "Change campaign or Continue a save while presentation exists through a controlled native test path.",
+      "expected": "Old sources stop and stale tickets do not replay in the restored session; bed can begin once for the new epoch.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.failed_load",
+      "procedure": "Attempt a known invalid load from the session menu with the previous campaign retained.",
+      "expected": "No silent New. Bed remains paused under the retained modal; no automatic voice start.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.safe_return",
+      "procedure": "Enter a test hazard, then complete safe return.",
+      "expected": "Bed pauses during return and resumes after it; inventory, receipts, mission and journal unchanged by audio.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.terminal_recovery",
+      "procedure": "Inject a terminal recovery failure using disposable saves.",
+      "expected": "Both sources stop or remain silent; no autonomous replay, save or mission change.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.allocation_or_drop",
+      "procedure": "Instrument a source allocation/registration failure or enforce voice rejection through real concurrency.",
+      "expected": "No retry loop. Allocation failure is reported; void Play rejection is not misreported as audible success. Text remains usable.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.routing_removal",
+      "procedure": "Release/unregister the routing owner while both presentation paths have been exercised.",
+      "expected": "Owned voices stop before its mix contribution is popped. Unrelated audio/mixes remain untouched.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.device_or_source_loss",
+      "procedure": "Invalidate the captured device/source or disable UI tick through a controlled fault.",
+      "expected": "Running playback owner stops and refuses automatic rebind; no campaign writes or fake device recovery.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.teardown",
+      "procedure": "Exit/relaunch repeatedly, including while transcript voice plays.",
+      "expected": "No leaked components, duplicate delegates, extra mix pops or retained sources across worlds.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.controller_readability",
+      "procedure": "Use keyboard/mouse and controller-only at 720p/1080p, 100%/150% text.",
+      "expected": "Body/Continue still visible and operable; playback does not steal focus or consume input.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    },
+    {
+      "ledger": "m1_9_playback_acceptance.json",
+      "id": "m1_9.windows_full_loop",
+      "procedure": "Build/cook/package and launch Windows outside the editor; execute New, pickup, storage round-trip, repair, transcript, safe return, verified save, exit and Continue.",
+      "expected": "Coherent campaign with actual AGIS/Hyper; actual sources/routing and preferences restore separately. Record real logs and audio observations.",
+      "assessment": "requires_evidence",
+      "evidence": [],
+      "remaining": "No case-complete evidence mapped in this audit. Execute or locate evidence for every stated condition; native helper passes alone do not close an actual-host scenario."
+    }
+  ]
+}

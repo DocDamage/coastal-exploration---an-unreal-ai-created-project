@@ -1,0 +1,42 @@
+{
+  "recorded_utc": "2026-09-06T14:34:38.387051+00:00",
+  "plugin_version": "0.1.8-m1-audio-options-source",
+  "source_basis_archive_sha256": "cc8c705857f20d94942b408479558313a1f17749e6aae5d4ef62495efda9b055",
+  "standalone_cpp": {
+    "suites": 16,
+    "assertions_per_compiler": 7278,
+    "gcc": "passed",
+    "clang": "passed",
+    "clang_asan_ubsan": "passed",
+    "scope": "Shared engine-independent headers only. No Unreal or audio-device execution."
+  },
+  "python": {
+    "test_cases": 52,
+    "result": "passed",
+    "scope": "Retained filesystem/tool fixtures, not real host integration."
+  },
+  "structural": {
+    "result": "passed",
+    "scope": "Source/data/document consistency and Python syntax; not native compilation.",
+    "checks": 1226,
+    "failures": 0,
+    "evidence": "structural_checks_execution.json"
+  },
+  "supplied_unreal_tests": 30,
+  "unreal_build": "not_run",
+  "unreal_automation": "not_run",
+  "actual_audio_playback": "not_run",
+  "actual_vendor_integration": "not_run",
+  "native_rendering_controller_tests": "not_run",
+  "windows_gameplay": "not_run",
+  "source_delta_counts": {
+    "added": 4,
+    "modified": 9,
+    "removed": 0
+  },
+  "protected_source_files_unchanged": 46,
+  "initial_runs": {
+    "gcc": "Initial run found two stale six-row wraparound expectations; adjusted to current last row and reran successfully. New audio suites passed on the initial run. Output retained in initial_gcc_core.txt.",
+    "structural": "Initial packaging check found six links whose new evidence/manifest files were not yet assembled or needed archived retargeting; no source guardrail failures. Output retained in initial_structural_checks.txt."
+  }
+}

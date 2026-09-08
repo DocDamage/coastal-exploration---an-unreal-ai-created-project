@@ -1,0 +1,11 @@
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/gcc_core.txt
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/clang_core.txt
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/sanitizers.txt
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/python_tests.txt
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/structural_checks.txt
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/results.json
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/environment.txt
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/plugin_source_changes.json
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/source_preservation.json
+1575 structural checks; 9 failures
+Scope: JSON/source/document consistency only; no Unreal, AGIS, platform-save, or gameplay execution.

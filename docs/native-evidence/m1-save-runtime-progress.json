@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-06",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 Development Win64 package, actual integrated AGIS/Hyper room, D3D11, sound disabled",
+  "regression": "Current package build succeeds; m1-rejection-unreal-tests.log reports 39/39 native tests passed (38 clean, one with retained vendor tag warnings), zero failed/unrun.",
+  "partial_progress": {
+    "passed": true,
+    "logs": ["m1-partial-new.log", "m1-partial-continue.log"],
+    "verified": "New campaign saves one battery in storage with the fuse still recoverable and radio inspected/unrepaired. Fresh process matches campaign ID and entire AGIS payload including two receipts, then retrieves battery, collects fuse, repairs and explicitly acknowledges, saves and quits with five receipts."
+  },
+  "write_failure": {
+    "passed": true,
+    "log": "m1-write-failure.log",
+    "fault": "Both existing disposable test-slot files temporarily made read-only through the actual platform filesystem after backup; real UI Save is invoked.",
+    "verified": "DiskFailure notice, unchanged generation, both files byte-identical, actual AGIS payload unchanged, no recovery poison. Attributes restored; next UI Save succeeds and the game quits cleanly.",
+    "cleanup": "Both test files independently confirmed writable after process exit. External finally cleanup backs up normal in-probe cleanup."
+  },
+  "corrupt_slot_recovery": {
+    "passed": true,
+    "logs": ["m1-corrupt-a-continue.log", "m1-corrupt-b-continue.log"],
+    "fault": "Exclusive new copied test pairs; one payload bit flipped in A or B respectively, producing a verified outer checksum mismatch. Source saves untouched.",
+    "verified": "Real recovered-previous notice, same campaign, repaired/acknowledged mission and five receipts; valid counterpart's SHA-256 unchanged after each process."
+  },
+  "invalid_pair_refusal": {
+    "passed": true,
+    "logs": ["m1-both-corrupt-refusal-2.log", "m1-future-a-refusal-2.log", "m1-future-b-refusal.log"],
+    "fault": "Exclusive copied pairs with both payload checksums broken, or unsupported envelope version 2 in A/B with the other slot valid.",
+    "verified": "Presented Continue is available by design. Direct real coordinator Load returns InvalidSnapshot or Incompatible; New in the existing namespace also refuses. Campaign ID, generation, epoch, actual AGIS payload, journal, mission/world state, player transform and all six fixture files remain unchanged; no active campaign or recovery poison. Clean UI quit follows.",
+    "scope": "Actual packaged coordinator-boundary test with UI presence checks; does not claim controller navigation or UI-click error presentation. Initial failed runs incorrectly expected Continue to be disabled and are preserved."
+  },
+  "limitations": ["Uses painted enabled widget commands and real Enhanced Input with deterministic positioning; not physical-controller traversal", "Read-only refusal does not prove disk-full, partial-write, process-kill or rollback-failure behavior", "Unsupported envelope refusal does not establish every provider/payload schema migration case"],
+  "evidence_boundary": "Full logs, screenshots, original and modified saves, payload fixtures and hashes remain external local evidence. Historical delivered evidence is unchanged."
+}

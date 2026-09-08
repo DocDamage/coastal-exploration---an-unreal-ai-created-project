@@ -1,0 +1,280 @@
+{
+  "map_id": "level.first_signal",
+  "selection": "Original seven destinations and Camping confirmed September 7; Haunted Prison, Medieval Italian Village, Swimming Animations and Morbid Motions reaffirmed September 8, 2026.",
+  "animation_packages": [
+    "Camping Animations",
+    "Swimming \u00e2\u20ac\u201d Animations",
+    "Morbid Motions \u00e2\u20ac\u201d Animations"
+  ],
+  "destinations": [
+    {
+      "id": "hallsands",
+      "name": "Hallsands",
+      "center": [
+        -19000,
+        22000,
+        -2300
+      ],
+      "source": "/Game/Coastal/Expansion/Hallsands/SM_Hallsands"
+    },
+    {
+      "id": "baelo",
+      "name": "Baelo Claudia",
+      "center": [
+        8000,
+        23000,
+        200
+      ],
+      "source": "/Game/Coastal/Expansion/Baelo/SM_Baelo"
+    },
+    {
+      "id": "powell",
+      "name": "Powell Dock",
+      "center": [
+        26000,
+        4000,
+        300
+      ],
+      "source": "/Game/Docks/VOL2_Powell"
+    },
+    {
+      "id": "harbour",
+      "name": "Industrial Harbour",
+      "center": [
+        30000,
+        23000,
+        350
+      ],
+      "source": "/Game/Industrial_Harbour"
+    },
+    {
+      "id": "sea_platform",
+      "name": "Abandoned Sea Platform",
+      "center": [
+        40000,
+        -14000,
+        800
+      ],
+      "source": "/Game/HorrorOceanRig"
+    },
+    {
+      "id": "atlantis",
+      "name": "Atlantis Ruins",
+      "source": null,
+      "status": "Owned; Unreal download requires Launcher/Fab plugin"
+    },
+    {
+      "id": "station",
+      "name": "Modular SciFi Station",
+      "source": null,
+      "status": "Owned; Unreal download requires Launcher/Fab plugin"
+    },
+    {
+      "id": "haunted_prison",
+      "name": "Haunted Prison",
+      "source": "/Game/HAUNTED_PRISON",
+      "archive": "F:/coastline/HauntedPrison.zip",
+      "status": "Six-cell assembly saved; harbour approach and two cell entries passed scripted CharacterMovement traversal.",
+      "authoring_recipe": "tools/unreal/build_prison_destination.py",
+      "center": [
+        20500,
+        29000,
+        400
+      ],
+      "dry_arrival": [
+        21600,
+        29000,
+        498
+      ]
+    },
+    {
+      "id": "medieval_italian_village",
+      "name": "Medieval Italian Village",
+      "source": "/Game/ItalianMedievalTown",
+      "archive": "F:/coastline/MedievalItalianTown.zip",
+      "status": "Three authored houses and courtyard saved; trail approach and courtyard loop passed scripted CharacterMovement traversal.",
+      "authoring_recipe": "tools/unreal/build_italian_village.py",
+      "center": [
+        -4500,
+        14600,
+        2200
+      ],
+      "dry_arrival": [
+        -1600,
+        15300,
+        2298
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "id": "north_trail",
+      "points": [
+        [
+          7600,
+          8200,
+          1150
+        ],
+        [
+          8200,
+          12000,
+          1420
+        ],
+        [
+          8000,
+          16000,
+          1150
+        ],
+        [
+          8000,
+          18500,
+          650
+        ],
+        [
+          8000,
+          19800,
+          450
+        ],
+        [
+          8000,
+          20000,
+          428
+        ]
+      ]
+    },
+    {
+      "id": "village_trail",
+      "points": [
+        [
+          8200,
+          12000,
+          1420
+        ],
+        [
+          2000,
+          15000,
+          1600
+        ],
+        [
+          -3500,
+          19000,
+          900
+        ],
+        [
+          -5500,
+          22000,
+          55
+        ],
+        [
+          -6500,
+          22000,
+          94
+        ]
+      ]
+    },
+    {
+      "id": "powell_trail",
+      "points": [
+        [
+          12500,
+          1500,
+          250
+        ],
+        [
+          15500,
+          1500,
+          250
+        ],
+        [
+          19500,
+          3000,
+          300
+        ],
+        [
+          24500,
+          4000,
+          300
+        ]
+      ]
+    },
+    {
+      "id": "harbour_trail",
+      "points": [
+        [
+          8000,
+          16000,
+          1150
+        ],
+        [
+          15000,
+          17000,
+          850
+        ],
+        [
+          24000,
+          19500,
+          400
+        ],
+        [
+          27000,
+          21500,
+          350
+        ],
+        [
+          28500,
+          23000,
+          350
+        ]
+      ]
+    },
+    {
+      "id": "platform_walk",
+      "points": [
+        [
+          26000,
+          4000,
+          300
+        ],
+        [
+          31000,
+          -2000,
+          550
+        ],
+        [
+          36000,
+          -8000,
+          800
+        ],
+        [
+          38500,
+          -14000,
+          800
+        ]
+      ],
+      "kind": "boardwalk"
+    }
+  ],
+  "camp_marker_tag": "Coastal.Campsite",
+  "persistence": "Scenery, routes and transient campsite presentation do not add WorldObjects or change the existing seven-record save manifest. Destination quests and stateful interactions require a later explicit migration implementation.",
+  "surface_swimming": {
+    "zone_class": "/Script/CoastalFoundation.CoastalSwimmingZone",
+    "water_surface_z": -90,
+    "zone_center": [
+      11700,
+      -1650,
+      -270
+    ],
+    "zone_size": [
+      1200,
+      3700,
+      360
+    ],
+    "approach_recipe": "tools/unreal/build_swimming_approach.py",
+    "configuration_recipe": "tools/unreal/configure_sheltered_swimming.py",
+    "scripted_traversal": "passed",
+    "pause_save_load_boundary_recovery": "passed",
+    "physical_device_acceptance": "not_run",
+    "packaged_acceptance": "not_run",
+    "save_schema_changed": false
+  }
+}

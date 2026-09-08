@@ -1,0 +1,37 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 packaged Development Win64, D3D11 1280x720, actual AGIS/Hyper/native UI",
+  "mode": "storage_stale",
+  "slot": "coastal_test_storage_stale",
+  "package_log": "m1-stale-storage-package.log",
+  "runtime_log": "m1-stale-storage-runtime.log",
+  "verified": [
+    "Actual Hyper pickup and storage opening precede the test",
+    "Move 600 cm vertically beyond reach, then issue a well-formed transfer before the UI tick: TooFar",
+    "After the UI tick, modal closes and another request receives InvalidTarget",
+    "Each refused request preserves complete AGIS payload, campaign ID, all receipt IDs/fingerprints and save generation",
+    "Reopen through actual Hyper and transfer via actual native UI: one stored battery, empty backpack, exactly two receipts",
+    "Exit through native UI; process exit 0"
+  ],
+  "limits": [
+    "Test positioning is not physical locomotion evidence",
+    "Does not test provider revision changes after presentation, occlusion, stale transcript tickets or session-epoch replacement",
+    "Save generation conservation is measured across each immediate rejected transaction; movement/checkpoint lifecycle is not asserted",
+    "No production logic changed; this verifies existing reach/context guards"
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_sha256": "933c2cb6677dd3b95300476e166af7820ba777c1de837f89a8c4d6fdf64be4dc",
+  "source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52,
+    "core_log": "m1-stale-storage-core.log",
+    "python_log": "m1-stale-storage-python.log"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-06",
+  "milestone_complete": false,
+  "native_report": "m1-capacity-latent-native-report/index.json",
+  "native_result": {"succeeded": 39, "succeeded_with_warnings": 1, "failed": 0, "not_run": 0},
+  "capacity_test": "Coastal.Vendor.AGIS.Capacity",
+  "verified_with_real_agis": [
+    "24 distinct nonstackable postcards fill the unchanged 6x4 backpack through normal provider collection methods.",
+    "Battery, fuse and additional postcard pickups return actual NoSpace; payload, receipts and revision remain unchanged.",
+    "Existing pickup retry remains idempotent when full. Moving three postcards to storage frees enough cells for both critical parts; repair preserves all postcards.",
+    "48 postcards fill the unchanged 8x6 cabin through normal collection and transfer methods.",
+    "A full cabin refuses battery transfer. One free cell still cannot hold the two-cell battery; two adjacent free cells allow transfer.",
+    "Full-container snapshots restore with matching payload and receipts. Lost/duplicate postcard instances and missing pickup receipts fail validation.",
+    "Codec1 snapshots retain their original representation; codec2 covers postcard instances; unknown future versions remain incompatible."
+  ],
+  "packaged_regressions": [
+    {"log": "m1-capacity-core-regression.log", "mode": "new", "campaign": "1F95F8144008E42809473089A43A97BD", "receipts": 5, "result": "pass", "exit_code": 0},
+    {"log": "m1-codec1-packaged-compat.log", "mode": "continue", "campaign": "E4706642493FBF8A6BEB749B9F76FD3D", "receipts": 5, "result": "pass", "exit_code": 0}
+  ],
+  "package_log": "m1-capacity-package.log",
+  "compatibility_fixture": "Copied both save files and expected campaign ID from a completed pre-extension run to exclusive coastal_test_codec1_compat slots. Original files were independently rehashed and remain unchanged.",
+  "initial_failure": "m1-capacity-native-tests.log preserves the first capacity driver's Blueprint runaway-loop guard failure. The driver was changed to yield between bounded transaction batches; no engine limit was raised or disabled.",
+  "remaining": [
+    "Packaged capacity fixture with persistent world pickups, Hyper interaction, rendered inventory refusal and save/relaunch is not run.",
+    "The default seven-object systems room remains unchanged and strict. Its existing journal postcard discovery is separate from the new reserved postcard pickup instance IDs.",
+    "No physical-controller, audible-output or target-hardware performance evidence is established by these runs."
+  ],
+  "evidence_boundary": "Raw reports, logs, fixtures, packages and vendor content remain outside the public source repository. Historical evidence is unchanged."
+}

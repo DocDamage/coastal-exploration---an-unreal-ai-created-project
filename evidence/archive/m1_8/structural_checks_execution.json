@@ -1,0 +1,11 @@
+{
+  "started_utc": "2026-09-06T14:34:37.616462+00:00",
+  "finished_utc": "2026-09-06T14:34:38.262059+00:00",
+  "command": [
+    "python3",
+    "tools/verify_package.py"
+  ],
+  "returncode": 0,
+  "stdout": "1226 structural checks; 0 failures\nScope: JSON/source/document consistency only; no Unreal, AGIS, platform-save, or gameplay execution.\n",
+  "stderr": ""
+}

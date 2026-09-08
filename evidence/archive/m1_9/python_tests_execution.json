@@ -1,0 +1,19 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_*.py"
+  ],
+  "environment_overrides": {},
+  "started_utc": "2026-09-06T17:16:05.468731+00:00",
+  "completed_utc": "2026-09-06T17:16:07.155840+00:00",
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "....................................................\n----------------------------------------------------------------------\nRan 52 tests in 0.011s\n\nOK\n",
+  "scope": "Standalone/source tooling only; not Unreal or vendor execution."
+}

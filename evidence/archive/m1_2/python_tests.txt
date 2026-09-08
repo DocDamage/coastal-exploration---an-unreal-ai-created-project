@@ -1,0 +1,24 @@
+test_disabled_input_detected (test_host_preflight.HostPreflightTests.test_disabled_input_detected) ... ok
+test_editor_target_discovered_not_guessed (test_host_preflight.HostPreflightTests.test_editor_target_discovered_not_guessed) ... ok
+test_malformed_descriptor_reported (test_host_preflight.HostPreflightTests.test_malformed_descriptor_reported) ... ok
+test_missing_host_is_not_ready (test_host_preflight.HostPreflightTests.test_missing_host_is_not_ready) ... ok
+test_never_claims_build_or_gameplay (test_host_preflight.HostPreflightTests.test_never_claims_build_or_gameplay) ... ok
+test_new_report_roundtrip (test_host_preflight.HostPreflightTests.test_new_report_roundtrip) ... ok
+test_nonobject_json_reported (test_host_preflight.HostPreflightTests.test_nonobject_json_reported) ... ok
+test_report_refuses_overwrite (test_host_preflight.HostPreflightTests.test_report_refuses_overwrite) ... ok
+test_report_rejects_project_destination (test_host_preflight.HostPreflightTests.test_report_rejects_project_destination) ... ok
+test_all_truncations (test_save_inspector.SaveInspectorTests.test_all_truncations) ... ok
+test_copy_keeps_original (test_save_inspector.SaveInspectorTests.test_copy_keeps_original) ... ok
+test_empty_payload (test_save_inspector.SaveInspectorTests.test_empty_payload) ... ok
+test_future_version (test_save_inspector.SaveInspectorTests.test_future_version) ... ok
+test_known_crc (test_save_inspector.SaveInspectorTests.test_known_crc) ... ok
+test_payload_corruption (test_save_inspector.SaveInspectorTests.test_payload_corruption) ... ok
+test_refuses_bad_source (test_save_inspector.SaveInspectorTests.test_refuses_bad_source) ... ok
+test_refuses_existing_destination (test_save_inspector.SaveInspectorTests.test_refuses_existing_destination) ... ok
+test_refuses_same_path (test_save_inspector.SaveInspectorTests.test_refuses_same_path) ... ok
+test_trailing_data (test_save_inspector.SaveInspectorTests.test_trailing_data) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.006s
+
+OK

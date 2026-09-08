@@ -1,0 +1,93 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "reference_case": "interaction.range_visibility",
+  "setup": "UE 5.7.4 Windows Development package, actual AGIS and Hyper, 1280x720, injected Enhanced Input E, four separate disposable coastal_test_reach_visual_ campaigns. NoSound used for gameplay-only runs.",
+  "package_log": "m1-reach-visual-package.log",
+  "runtime_results": [
+    {
+      "mode": "distance_radio",
+      "passed": true,
+      "log": "m1-reach-visual-distance_radio.log"
+    },
+    {
+      "mode": "occlusion_radio",
+      "passed": true,
+      "log": "m1-reach-visual-occlusion_radio.log"
+    },
+    {
+      "mode": "distance",
+      "passed": true,
+      "log": "m1-reach-visual-distance.log"
+    },
+    {
+      "mode": "occlusion",
+      "passed": true,
+      "log": "m1-reach-visual-occlusion.log"
+    }
+  ],
+  "verified": [
+    "Distant battery and repair-ready radio retain actual Hyper focus with a visible disabled Move closer offer. Native commit returns TooFar.",
+    "A real Visibility-blocking box is introduced after establishing usable Hyper focus on each nearby target. Hyper prompt clears; native commit returns Occluded.",
+    "Refused input and commit preserve actual AGIS payload, receipt count, save generation and unapplied pickup/repair state.",
+    "Restoring clear reach allows one actual Hyper pickup (one battery, one receipt) or one actual Hyper repair (both parts consumed, three total receipts, message still unacknowledged).",
+    "All four runs finish through Pause/Quit/exit_without_save.",
+    "All four refused-state PNGs inspected: readable Move closer prompts for distance, cleared prompts for occlusion."
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "native_report": "m1-reach-matrix-native-report/index.json",
+  "native_scope": "After all four gameplay modes were implemented; subsequent source change only adds screenshot capture. Final captured package rebuilt successfully and all four gameplay cases rerun.",
+  "prior_source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52,
+    "logs": [
+      "m1-occlusion-core.log",
+      "m1-occlusion-python.log"
+    ],
+    "scope": "Core and Python sources unchanged by these development-only acceptance additions."
+  },
+  "captures": {
+    "coastal_test_reach_visual_distance_radio-refused.png": {
+      "sha256": "3b8b170033c7f178f12363afa9c8002899079840c0e048d8a4db1ae264436fb6",
+      "visual_observation": "Move closer prompt visible"
+    },
+    "coastal_test_reach_visual_occlusion_radio-refused.png": {
+      "sha256": "77c0456ab8fc3a25806515af7e186aa007cdd6fb8008a26ac7172d671d641814",
+      "visual_observation": "Interaction prompt cleared"
+    },
+    "coastal_test_reach_visual_distance-refused.png": {
+      "sha256": "e9a71927844d770b44a7e41cf3df266f175f9b8e8c2563454379ec3ccfe70dc4",
+      "visual_observation": "Move closer prompt visible"
+    },
+    "coastal_test_reach_visual_occlusion-refused.png": {
+      "sha256": "7b90cb1d86e1723c0363158895990399bd5f47c5074e6e71358a48f08fc15e60",
+      "visual_observation": "Interaction prompt cleared"
+    }
+  },
+  "source_sha256": {
+    "CoastalOcclusionProbe.cpp": "c351dfcff1a593dcb605cc94a6454324e922895050f145a2724298972212b073",
+    "CoastalSaveProbe.cpp": "a9e296fc281bc6d78b1b891ec5e889d505c9591a8c2b395016b1f944d2414451",
+    "CoastalSaveFaultProbe.cpp": "9fd5fd84e48a5da53430d3e03e74775ea71f6ee70534de4184e7151fbd52a8ce"
+  },
+  "raw_log_sha256": {
+    "m1-reach-visual-distance_radio.log": "4e41b3911a476dc6c1b8d4e5ea48de6e05512f4ffb0b175c9247f6258d5c6872",
+    "m1-reach-visual-occlusion_radio.log": "5ff434edce9ae2b9fa033760f7a1e416bf392d647c61451cee793f815d1ab1d0",
+    "m1-reach-visual-distance.log": "2c4b5fe31bd27b9e550d59058cf84969c0a3b1ccd45dbd0d574c2a165c6b2c99",
+    "m1-reach-visual-occlusion.log": "a172c6c7af3d5391355a5a73a23def3701e334af6bc4d9582619064b682a78b9",
+    "m1-reach-visual-package.log": "a66e445da8aadc4b135fab2a9506bdf21054754efab64cb0f32735e2aa048f2a",
+    "m1-reach-matrix-native.log": "2685e2ffc97218f0420c34b75e2696eea2bb7a4894689d74e604503229a8cdcf"
+  },
+  "limits": [
+    "Deterministic positioning and injected events do not establish physical keyboard/controller operation.",
+    "Obstruction fixture is a real collision box without a visible mesh; this verifies collision/interaction behavior, not final art.",
+    "English prompts inspected at 1280x720 on current local hardware; independent language, resolution and device cases remain separate.",
+    "No production interaction or inventory-authority behavior changed.",
+    "NoSound intentionally yields audio-unavailable diagnostics in these gameplay captures; audio acceptance uses separate audible runs."
+  ]
+}

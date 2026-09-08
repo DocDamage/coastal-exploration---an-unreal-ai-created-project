@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "package_log": "m1-terminal-recovery-package.log",
+  "runtime_log": "m1-terminal-recovery-runtime.log",
+  "runtime": "UE5.7.4 packaged Development Win64 D3D11, actual AGIS/coordinator/UI",
+  "fault": "WITH_DEV_AUTOMATION_TESTS only, explicit CoastalFailNativeRestore flag, existing coastal_test_ campaign only. ApplyNative returns false after real inventory restore and native world/mission application on both initial load and rollback. Two fault markers verified.",
+  "verified": [
+    "Real New and Hyper battery pickup followed by SaveNow produce two preserved slot files",
+    "Load returns RecoveryRequired after both late native applications fail",
+    "Presented recovery panel has exactly one enabled command: Exit Without Saving",
+    "BeginMutation refuses, SaveNow returns Busy, world input disallowed and generation unchanged",
+    "Both complete disk slot byte arrays remain unchanged; process exits through real native UI"
+  ],
+  "normal_regression": {
+    "logs": [
+      "m1-terminal-recovery-normal-new.log",
+      "m1-terminal-recovery-normal-continue.log"
+    ],
+    "campaign": "121951884B6B39AC2CECF4AD5A65E9B5",
+    "receipts": 5,
+    "repaired": true,
+    "acknowledged": true
+  },
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52
+  },
+  "remaining": [
+    "Explicit Escape/back attempts and rendered relaunch-guidance content not asserted by this probe",
+    "Relaunch of this same partial fault fixture not tested; separate healthy New/Continue passes",
+    "Markdown M1-05 specifically asks provider rollback failure; this native-side failure does not close that case",
+    "This is explicit fault injection, not an observed physical collision or engine placement failure"
+  ]
+}

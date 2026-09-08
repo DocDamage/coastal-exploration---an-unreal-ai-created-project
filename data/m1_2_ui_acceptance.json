@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "section": "M1.2",
+  "status": "manual_engine_acceptance_not_run",
+  "tests": [
+    {
+      "id": "ui.start.unconfigured",
+      "procedure": "Attach diagnostic UI with the base adapter",
+      "expected": "Clear NotConfigured message; no inventory or successful Start/Continue.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.start.fresh",
+      "procedure": "Generate fresh name with gamepad and start",
+      "expected": "No keyboard needed; initial pending save becomes an actual verified Saved notice.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.start.existing",
+      "procedure": "Choose an existing set and press Start New",
+      "expected": "Original files retained; explicit refusal; no automatic deletion.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.catalogue.pairs",
+      "procedure": "Create A/B pair then open session menu",
+      "expected": "One deduplicated name; no claim it is validated until Continue.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.catalogue.unavailable",
+      "procedure": "Inject unsupported name enumeration",
+      "expected": "Unavailable differs from empty list; exact-name Continue remains possible.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.continue.failed",
+      "procedure": "Continue a missing/corrupt set",
+      "expected": "No new game is created; error remains visible.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.continue.valid",
+      "procedure": "Quit and Continue a valid partial mission",
+      "expected": "Inventory, ledger, world, journal and mission restore together.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.session.replace",
+      "procedure": "Choose another session while campaign active",
+      "expected": "Explicit confirmation before replacing live memory; Cancel preserves it.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.save.exit",
+      "procedure": "Save and Exit on healthy campaign",
+      "expected": "Exit occurs only after Saved/read-back verification.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.save.exit_failure",
+      "procedure": "Cause a disposable write failure then Save and Exit",
+      "expected": "Application remains open; failure is visible; previous slot retained.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.back.single",
+      "procedure": "Pause then journal; send repeated Back in one frame",
+      "expected": "Only journal closes; parent remains focused.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.back.hold",
+      "procedure": "Hold Escape/B across menu transitions",
+      "expected": "No rapid multi-layer closure or immediately reopened menu.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.focus.restore",
+      "procedure": "Focus Journal from pause; open/close child",
+      "expected": "Original pause command regains focus.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.input.world_block",
+      "procedure": "Press move/look/jump/interact under each modal",
+      "expected": "No world action; bridge blocker and UI-only input both effective.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.input.release",
+      "procedure": "Close last modal then move/look",
+      "expected": "Inputs restored; unrelated existing ignore-input locks preserved.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.input.teardown",
+      "procedure": "End play/re-enter test room repeatedly",
+      "expected": "No duplicate context, callback, widget or leaked blocker/lock.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.transcript.cancel",
+      "procedure": "Repair, display transcript, press Back",
+      "expected": "No messageHeard flag or final journal lead granted.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.transcript.confirm",
+      "procedure": "Open transcript with held confirm; release then explicitly Continue",
+      "expected": "No opening-frame acknowledgement; final journal records once.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.transcript.stale",
+      "procedure": "Keep old token/widget callback across successful load",
+      "expected": "Old action rejected; no progress change.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.inventory.unwired",
+      "procedure": "Do not override ReadContainerView",
+      "expected": "Explicit unavailable view; no fake empty-ready grid or transfers.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.inventory.invalid",
+      "procedure": "Return duplicate GUID, overlap, wrong container or mismatched revision",
+      "expected": "View invalid and transfers disabled.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.inventory.inspect",
+      "procedure": "Select item; inspect; return using controller",
+      "expected": "Same selected instance and parent focus retained.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.storage.roundtrip",
+      "procedure": "Move battery to cabin storage and back using gamepad",
+      "expected": "Real one-item transfers; objective follows carried contents; no duplicate.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.storage.full",
+      "procedure": "Attempt transfer into full grid",
+      "expected": "NoSpace visible; source item stays recoverable.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.storage.stale",
+      "procedure": "Change provider state after display before transfer",
+      "expected": "Refresh/review required; old display does not initiate a new transfer.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.storage.retry",
+      "procedure": "Inject Busy/Failed for a transfer and press Retry",
+      "expected": "Original request/operation GUID reused; no automatic retries or second intention.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.storage.range",
+      "procedure": "Move/teleport away while storage panel exists",
+      "expected": "Invalid context closes; no remote transfer or hidden retry.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.recovery.lock",
+      "procedure": "Inject late restore plus failed rollback in disposable session",
+      "expected": "Non-dismissible recovery; no save; exit/relaunch guidance.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.viewport.readability",
+      "procedure": "Run native screens at 1080p and a smaller viewport",
+      "expected": "Text and all commands reachable; mouse/shoulder scrolling works.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.full_loop.gamepad",
+      "procedure": "Complete pickup-storage-repair-transcript-save-relaunch with controller only",
+      "expected": "Full original M1 invariants pass without mouse or developer commands.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "ui.windows.package",
+      "procedure": "Cook/package and launch test room outside editor",
+      "expected": "Native widgets/assets/input are present; no missing critical dependency.",
+      "result": "not_run",
+      "evidence": null
+    }
+  ]
+}

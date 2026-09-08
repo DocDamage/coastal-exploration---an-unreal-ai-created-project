@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "runtime": "Existing UE5.7.4 Development Win64 package from m1-options-legacy-package-fixed; actual profile/UI/camera/text/audio owners",
+  "future_inner_schema": {
+    "cases": [
+      {
+        "case": "inner_future_a",
+        "passed": true,
+        "files_unchanged": true,
+        "log": "m1-options-inner_future_a.log",
+        "fixture_sha256": [
+          "a58acc7d2eea79d7781e4614890e12caa1866d2e2a6c3095025a7d4189946ab2",
+          "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f"
+        ]
+      },
+      {
+        "case": "inner_future_b",
+        "passed": true,
+        "files_unchanged": true,
+        "log": "m1-options-inner_future_b.log",
+        "fixture_sha256": [
+          "d00abe92ce1df3a7c93a39ee872a55dd84e3251e79a196abf711566773ba7a6f",
+          "a58acc7d2eea79d7781e4614890e12caa1866d2e2a6c3095025a7d4189946ab2"
+        ]
+      }
+    ],
+    "original_file_count": 95,
+    "all_original_files_restored": true
+  },
+  "mixed_schema_cases": [
+    {
+      "older_schema": 1,
+      "newer_schema": 2,
+      "passed": true,
+      "external_upgrade_verified": true,
+      "log": "m1-options-mixed1-2-runtime.log"
+    },
+    {
+      "older_schema": 2,
+      "newer_schema": 1,
+      "passed": true,
+      "external_upgrade_verified": true,
+      "log": "m1-options-mixed2-1-runtime.log"
+    },
+    {
+      "older_schema": 1,
+      "newer_schema": 3,
+      "passed": true,
+      "external_upgrade_verified": true,
+      "log": "m1-options-mixed1-3-runtime.log"
+    },
+    {
+      "older_schema": 3,
+      "newer_schema": 1,
+      "passed": true,
+      "external_upgrade_verified": true,
+      "log": "m1-options-mixed3-1-runtime.log"
+    },
+    {
+      "older_schema": 2,
+      "newer_schema": 3,
+      "passed": true,
+      "external_upgrade_verified": true,
+      "log": "m1-options-mixed2-3-runtime.log"
+    },
+    {
+      "older_schema": 3,
+      "newer_schema": 2,
+      "passed": true,
+      "external_upgrade_verified": true,
+      "log": "m1-options-mixed3-2-runtime.log"
+    }
+  ],
+  "verified": [
+    "Inner schema99 with a valid outer envelope, length and recomputed CRC blocks selection in either A or B, presents defaults/diagnostic, disables native Save and preserves both files",
+    "Every directed pair among schemas1/2/3 selects B generation11 over A generation10, including a newer legacy schema over an older schema3",
+    "Loading preserves fixture bytes and original/default values; newer schema3 fixtures retain all ten custom values",
+    "For selected legacy records, explicit changed-Master Save writes schema3 generation12 to inactive A and preserves selected B",
+    "Both mixed batches and future batch restore all95 original save files with no additions"
+  ],
+  "limits": [
+    "Read-error slots still require native fault testing",
+    "Blocked session-only edits are not exercised by these future-schema probes",
+    "Mixed generation test places newer slot in B; separate slot-direction variants are not implied",
+    "The first mixed runner had a case-sensitive log-match failure on Loaded; native pass/exit and preserved files were independently verified, original result retained",
+    "No production or native probe source changed this turn; prior41 native passes and source regressions are unchanged-build evidence, not new runs"
+  ],
+  "source_sha256": "173946461554219b1d05edac1e35340a2a696e3e731b419f0a5cd1aeb6d43886"
+}

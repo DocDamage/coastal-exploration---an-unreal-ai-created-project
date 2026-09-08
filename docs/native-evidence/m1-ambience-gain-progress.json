@@ -1,0 +1,111 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 packaged Development Win64 D3D11 1280x720, PCM16 stereo 48kHz mixer output",
+  "package_log": "m1-ambience-package.log",
+  "method": "Development ambience mode starts New through the real UI, verifies initial empty inventory, observes a 15-second gameplay interval with the actual owned ambience source playing, checks unchanged AGIS payload and campaign generation, stops mixer recording, then pauses and quits. Disposable preference fixtures isolate Ambience by muting Effects/Radio.",
+  "runs": [
+    {
+      "case": "full",
+      "master": 100,
+      "ambience": 100,
+      "radio": 0,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-ambience-gain-full.log"
+    },
+    {
+      "case": "half",
+      "master": 100,
+      "ambience": 50,
+      "radio": 0,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-ambience-gain-half.log"
+    },
+    {
+      "case": "combined",
+      "master": 50,
+      "ambience": 50,
+      "radio": 0,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-ambience-gain-combined.log"
+    },
+    {
+      "case": "mute",
+      "master": 100,
+      "ambience": 0,
+      "radio": 0,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-ambience-gain-mute.log"
+    }
+  ],
+  "measurements": [
+    {
+      "case": "full",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 15.936,
+      "peak": 1261,
+      "energy": 143120.43205208334,
+      "sha256": "0acdd2c04a29658b6f0a9755fcde28e195a353cb0cdb51b15e3debbe08d56d63",
+      "amplitude_ratio_from_energy": 1.0,
+      "peak_ratio": 1.0
+    },
+    {
+      "case": "half",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 16.064,
+      "peak": 630,
+      "energy": 35709.760489583336,
+      "sha256": "b5aaa48916c4af76d9beb97951a52ee52b7a54a6489385f864872c699c5371d0",
+      "amplitude_ratio_from_energy": 0.49950823139538675,
+      "peak_ratio": 0.49960348929421095
+    },
+    {
+      "case": "combined",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 16.021333333333335,
+      "peak": 315,
+      "energy": 8768.038479166667,
+      "sha256": "2a889f2b1602aeb0164bb64c26458cb8937660f8c2d663016052bcf4a23bca26",
+      "amplitude_ratio_from_energy": 0.24751436218928877,
+      "peak_ratio": 0.24980174464710547
+    },
+    {
+      "case": "mute",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 16.0,
+      "peak": 0,
+      "energy": 0.0,
+      "sha256": "a9ca7f09ba9650803ccf94c1a3222d3b6f904134effb0f0a63b755a7745d42ac",
+      "amplitude_ratio_from_energy": 0.0,
+      "peak_ratio": 0.0
+    }
+  ],
+  "verified": [
+    "Ambience 50% energy-derived amplitude ratio 0.499508 and peak ratio 0.499603",
+    "Combined Master/Ambience 50% energy-derived amplitude ratio 0.247514 and peak ratio 0.249802",
+    "Ambience mute produces zero PCM throughout recording",
+    "All four intervals conserve campaign generation and AGIS inventory; source stays playing even when muted",
+    "Original preferences restored; all 58 earlier campaign files unchanged"
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "limitations": [
+    "Fixed-duration looping recordings differ slightly in duration and phase; this is approximate gain evidence, not sample-identical waveform comparison",
+    "Saved fixtures do not establish live adjustment/fade or simultaneous-category independence",
+    "No physical speaker, startup-transient or full audio lifecycle claim",
+    "These are New/idle/pause/quit runs, not additional complete mission-loop tests",
+    "Raw audio, logs and test files remain external"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "reference_case": "INV-12",
+  "runtime": "UE 5.7.4 Development Editor native automation, real AGIS components initialized in an engine game world.",
+  "build_log": "m1-repair-id-editor-build.log",
+  "native_log": "m1-repair-id-native.log",
+  "test": "Coastal.Vendor.AGIS.Transactions",
+  "verified": [
+    "Actual battery/fuse repair commits before the conflict tests; repeat identical request returns AlreadyCommitted.",
+    "Same committed repair ID with battery quantity changed to2 returns Failed.",
+    "Same committed repair ID with fuse requirement omitted returns Failed.",
+    "Equivalent reversed requirement order still returns AlreadyCommitted.",
+    "Complete AGIS payload, campaign GUID, receipt count, every transaction ID and every fingerprint remain unchanged after conflicting and equivalent requests.",
+    "Existing repaired-snapshot restore and empty-backpack checks still pass."
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_sha256": "b056c21eef20d16ca95a32746359ed3b39df47c81b44efa8f23f92c77daed393",
+  "raw_log_sha256": {
+    "m1-repair-id-editor-build.log": "015c874f6a0a4ab8f136ad27d82340f5e3e3426e8e364236d14dc80c6a17f120",
+    "m1-repair-id-native.log": "43d89d88fd049cd75e75352a41c595da6c28f8f827974857b3f0367af955a976"
+  },
+  "limits": [
+    "Direct actual-provider contract test, not physical repeated interaction or a packaged UI scenario.",
+    "Only automation source changed. No gameplay code changed and no package rebuild/runtime run was needed for this native-only case.",
+    "The separate 20-interaction and mid-transaction removal-failure cases remain open."
+  ]
+}

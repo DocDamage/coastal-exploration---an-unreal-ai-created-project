@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "problem": "Host returned after AGIS initialization failure with only a log message and no native diagnostic screen.",
+  "change": "Failure now attaches the existing native UI in its supported NotConfigured state to the unconfigured coordinator and bridge. Startup remains false; no replacement inventory or campaign is created. The host ticks the opt-in diagnostic probe even when startup is blocked.",
+  "fixture": "Development-only CoastalMissingAGIS redirects the actual inventory-class load to an absent test path. No vendor assets are edited or removed. Production builds omit this flag.",
+  "package_log": "m1-missing-provider-package.log",
+  "runtime_log": "m1-missing-provider-runtime.log",
+  "verified": [
+    "Actual AGIS status is NotConfigured, host startup false, native diagnostic modal initialized",
+    "Presented NOT CONFIGURED text and disabled Start/Continue verified programmatically and visually",
+    "Seven authored world objects remain pristine; no active campaign or nonzero generation",
+    "All 89 existing save files retain exact SHA-256; no new save files",
+    "Enabled native Exit and exit-without-save commands complete process exit"
+  ],
+  "screenshot": "coastal_test_missing_provider-diagnostic.png",
+  "normal_regression": {
+    "logs": [
+      "m1-missing-provider-normal.log",
+      "m1-missing-provider-normal-continue.log"
+    ],
+    "same_campaign": "E20F58B442395E1DA2154698BCADDB4D",
+    "receipts": 5,
+    "repaired": true,
+    "acknowledged": true
+  },
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "limitations": [
+    "Missing-class loading exercises one real unready-provider path, not every null/base adapter or later provider-loss variant",
+    "Diagnostic UI failure during its own initialization remains a separate fault case",
+    "UI commands invoked through enabled painted native delegates; physical input separate",
+    "Raw logs, screenshots, saves and packaged binaries remain external"
+  ]
+}

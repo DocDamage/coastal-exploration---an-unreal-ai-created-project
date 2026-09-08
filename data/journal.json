@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "original_m1_copy",
+  "entries": [
+    {
+      "id": "journal.first_signal.maintenance",
+      "text": "Cabin radio service note: the battery is missing and the marine fuse has blown. Check the old dock maintenance stores. The two parts are kept separately."
+    },
+    {
+      "id": "journal.first_signal.postcard",
+      "text": "The postcard shows the bay before the service walkway collapsed. Someone circled the outer signal lamp and wrote: \"Still lit after closing day.\""
+    },
+    {
+      "id": "journal.first_signal.transmission",
+      "text": "Coast watch, this is North Reach maintenance. The outer platform's signal lamp is still active. The service walkway is damaged\u2014approach from the marked landing. I've left the inspection log at the harbour office. Check there before setting out."
+    },
+    {
+      "id": "journal.north_reach.lead",
+      "text": "North Reach: check the inspection log at the harbour office before approaching the outer platform. This is a recorded lead; travel there is not available in this opening."
+    }
+  ]
+}

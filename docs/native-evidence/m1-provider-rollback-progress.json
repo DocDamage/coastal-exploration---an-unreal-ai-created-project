@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "reference_case": "ACCEPTANCE_TESTS.md M1-05",
+  "package_log": "m1-provider-rollback-package.log",
+  "runtime_logs": [
+    "m1-provider-rollback-fault.log",
+    "m1-provider-rollback-restored.log"
+  ],
+  "fault": "Explicit development flags and active coastal_test_ namespace only. One late native return-failure after actual inventory/world/mission restoration. Rollback payload deliberately emptied before passing to the actual AGIS adapter; its validator returns Failed. Native rollback then succeeds, isolating inventory rejection as the poison condition.",
+  "verified": [
+    "Exactly one late-native-failure marker",
+    "Actual adapter rollback result Failed (3), native rollback true",
+    "Load returns RecoveryRequired; painted exit-only recovery includes relaunch guidance",
+    "Escape and stale Back leave saves, mutation and world input blocked; both disk files unchanged across all three checks",
+    "Fresh process without fault flags restores campaign777B3E664E329C15612E25B698E501C5, exact AGIS payload, one receipt and carried battery with normal input/mutation access"
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52
+  },
+  "limits": [
+    "Fault injection verifies the specified recovery response; not a physical collision or spontaneously failing vendor backend",
+    "Invalid rollback input is test-local; prior captured snapshot and disk files are not corrupted",
+    "No alternative inventory authority or fake provider success"
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "basis_archive_sha256": "cc8c705857f20d94942b408479558313a1f17749e6aae5d4ef62495efda9b055",
+  "scope": "Exact byte comparison of enumerated mission, campaign, inventory, interaction, recovery, movement, look and startup source against the supplied M1.7 archive. Not a binary-save compatibility test.",
+  "all_unchanged": true,
+  "files": [
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInteractionBridge.cpp",
+      "unchanged": true,
+      "sha256": "138e062da59322bf225b75c77c017f34888cc96f246f69f1accbf62e65ae12ec"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInteractionInput.cpp",
+      "unchanged": true,
+      "sha256": "0e07d57565b0153e6220a4ef30f6f09d366e5fede17dea5f0f256efdcf828ff1"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInteractionOffer.cpp",
+      "unchanged": true,
+      "sha256": "b7e4db2e24b8365c82555973366431d2fcca2d08d6e00258fb52c6dd87994a6c"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInteractionRelayComponent.cpp",
+      "unchanged": true,
+      "sha256": "c1bba85e3b1946c4c7365d80c9a3db70a69617c735d0ad81f0416dea7d2a54cd"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInventoryAdapter.cpp",
+      "unchanged": true,
+      "sha256": "f963e30df4eb28f82de150ffdc0e98bd947d173d1b68a36bc2c36a0bd032ac90"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInventoryView.cpp",
+      "unchanged": true,
+      "sha256": "4d33e4cfb24c0885f67741fc9f203d4729de059e5f93b60767aeee7d241f2cac"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalLookInputComponent.cpp",
+      "unchanged": true,
+      "sha256": "fba0a8f845e4966bf7e026e0c324d84d31473b0436fe118c92aa3d53786f730a"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalPlayerRecoveryComponent.cpp",
+      "unchanged": true,
+      "sha256": "57bc68b464d1e588eabfb90e8a9a4d722573a6274b05931619703047c0a32f3e"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalRecoveryExecution.cpp",
+      "unchanged": true,
+      "sha256": "76ce85a9e4ad609326f5fb5c52bfd71cf41dd3d6cb2390066f705d04bab468d5"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalRecoveryInput.cpp",
+      "unchanged": true,
+      "sha256": "8eac64908238f62ede8639cd2de7756abc5be2b4f3eb25f95044bee11c49b3d6"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSafetyVolume.cpp",
+      "unchanged": true,
+      "sha256": "1c64cd15876ec85faaefe15c8b17d47f341dad3be79799acbda1d1112f459173"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveCoordinator.cpp",
+      "unchanged": true,
+      "sha256": "97697c4590ac916ae90652c9a6501998c7b1e1fee34f0f967ada848ab7da57ee"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveOperations.cpp",
+      "unchanged": true,
+      "sha256": "a0344375109171ff07f6a002f37f825e5dd888530c188279be51ef1fb037a68a"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveRecovery.cpp",
+      "unchanged": true,
+      "sha256": "4fad5537e4b778040958eada08deeb6060471365830a76d835da70ed24a5eb00"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveRestore.cpp",
+      "unchanged": true,
+      "sha256": "3c95ef7cd340a82041f9d6f72283ea63514c1674b6685af9dc4ca2c36f7f4139"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveStorage.cpp",
+      "unchanged": true,
+      "sha256": "f9081c674ff2be8be0148353485afc2a2c43f05067bf84958b01470eedd8308f"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSessionBootstrapComponent.cpp",
+      "unchanged": true,
+      "sha256": "b820742df312692cab61783d142ad9e1982ca72bdb2b0bb3d5c05038d856de30"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSnapshotValidation.cpp",
+      "unchanged": true,
+      "sha256": "d635d4e8276021349dd5dfb46fe88c275cdbdd9174e58fec5c6f8234c992dad8"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSprintComponent.cpp",
+      "unchanged": true,
+      "sha256": "45bc1b83323cfa4f5d539283fbf21ac18b5a492f9e77ac40d1b7047bb24f00e2"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalStartupPreflight.cpp",
+      "unchanged": true,
+      "sha256": "cf9356620748ef53797e00d9d957341c8f3833663651dd1a6d3edc4446d00fc3"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalStoryLibrary.cpp",
+      "unchanged": true,
+      "sha256": "03960cc30e9aea7288ec1ba7012b74bdec890f197bb856108137481c31419f3d"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalWorldObject.cpp",
+      "unchanged": true,
+      "sha256": "643453b2acafd6ecf52255e5ea4bcccac18d570ef688f370d3243c68e5ece1c1"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/FirstSignalComponent.cpp",
+      "unchanged": true,
+      "sha256": "5b0007fd72ad6127604d9612f3e0ff129b24031dadcc1015a59a40bf196bfa44"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/Tests/FirstSignalAutomationTests.cpp",
+      "unchanged": true,
+      "sha256": "9025bdfb1f1aa2ae3d59f9329c1c072dade9426edbf7d7c905da34b3d96e50b4"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalCampaignSave.h",
+      "unchanged": true,
+      "sha256": "6f7e16a27e86d6147f1dd07ccebcc6cdc742e9eabbabd2462b0b22abbc2f77d4"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalCampaignTypes.h",
+      "unchanged": true,
+      "sha256": "7206ee60e90b2b3fa321f823eb7d85f324d74ac95fde87b91887357e3387dcc3"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInteractionBridge.h",
+      "unchanged": true,
+      "sha256": "72f68afc0f6e59bfcc45534b8c5228ef9988dd4d93d3cde890ee0b716b663967"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInteractionOffer.h",
+      "unchanged": true,
+      "sha256": "62e26276075ff6483649ded54b8692a3c14d3d4a5043d6e39106f2bcbef9a628"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInteractionRelayComponent.h",
+      "unchanged": true,
+      "sha256": "6870a5c090df43b6bd178cc8f1fbeb766b34bc35551b4b64585f8b58ef615625"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInventoryAdapter.h",
+      "unchanged": true,
+      "sha256": "41e8434dc2dae6c1fb356f3bc7e876206ed88432983f38fa6f279739597cbf73"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInventoryView.h",
+      "unchanged": true,
+      "sha256": "66ab9940a32e0dddb50cc2bf858d32e8d32907a6751149ab6b3eae949cd15caf"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalLookInputComponent.h",
+      "unchanged": true,
+      "sha256": "df3953c21468a7367c5606adb7b8c06fb8210978ae20c63a9f59eb1c3877ec90"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalPlayerRecoveryComponent.h",
+      "unchanged": true,
+      "sha256": "ccdbc3173b3fde2402063b4bb4d34ae7a040c378908b7a19a532f8796db127ae"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalSafetyVolume.h",
+      "unchanged": true,
+      "sha256": "c3b017e7a603445bd05baa890e9f45b0b22a34b38583dfe76b487ffe9601f518"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalSaveCoordinator.h",
+      "unchanged": true,
+      "sha256": "767e5c49b84c9a292c5de5c4cac0bf514a1959e943123b94c4f44d252780a457"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalSessionBootstrapComponent.h",
+      "unchanged": true,
+      "sha256": "1fd0607481b939bd8322c7f422cee3451a62dd3cb0767f124b816c0028d4853a"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalSprintComponent.h",
+      "unchanged": true,
+      "sha256": "6553c9d5b642abd6f3b9c7e291ab47b14e0837f0918379c7ef1b9a43ac0eef33"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalStoryLibrary.h",
+      "unchanged": true,
+      "sha256": "486a5848c8153753a4d328f18f7cffcb6146f4fc1c4ed1de46d30e35545b3bdd"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalWorldObject.h",
+      "unchanged": true,
+      "sha256": "ee22cead558ee48170c26ddce8a7a6f15ef47519e95a7d89371f7809415a8334"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/CampaignRules.h",
+      "unchanged": true,
+      "sha256": "ce52716ab065a3b709a2c9d4ea66149ddd8e82d5c38839274768ce6a3c42954b"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/FirstSignalRules.h",
+      "unchanged": true,
+      "sha256": "b51fb2cd8aed04b84bb72d42b37d84de8db1db15e5b758a7e1f57fd35d2008f8"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/RecoveryRules.h",
+      "unchanged": true,
+      "sha256": "e6179f579f64471bb277ee8f6c0f09a6a84e3fdf39c198fc46d9fbf756cab6d1"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/SaveEnvelope.h",
+      "unchanged": true,
+      "sha256": "4dc83c0fbce49ac1d65722d6a8be696550456f0001cef4cbe5a1b717a45ee9e2"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/SprintRules.h",
+      "unchanged": true,
+      "sha256": "679b1dd228b0a5961b84f91485b54011bc3c025a4aeba21cfc4757c9f134af68"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/TransactionRules.h",
+      "unchanged": true,
+      "sha256": "eba25de9d9391326ff5f0b537357038c706b69a0abf28d822409fb7ece8c4981"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/FirstSignalComponent.h",
+      "unchanged": true,
+      "sha256": "fbf23dcf71ccd56d31774a7016db153f7e3bfc61f63167246dddbf7b2510e0fc"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "map": "/Game/Coastal/Maps/L_FirstSignal",
+  "seed": 73019,
+  "shore_rock_count": 32,
+  "grass_patch_count": 48,
+  "minimum_route_clearance_cm": 650,
+  "minimum_area_clearance_cm": 1600,
+  "decoration_collision": "NoCollision",
+  "water_parameters": {"Roughness": 0.18, "Wave Strength": 0.06, "Wave Speed 1": 4, "Wave Speed 2": 6},
+  "dock_basin": {"center_x": 12500, "half_width": 2300, "side_fade": 1300, "landward_y": 800, "landward_fade": 700, "bed_height": -350},
+  "water": "Inspect and use the locally owned Nordic cabin water material through a project-owned duplicate instance.",
+  "scope": "Offline authored dressing; no runtime procedural world, navigation, swimming, mission, or save changes."
+}

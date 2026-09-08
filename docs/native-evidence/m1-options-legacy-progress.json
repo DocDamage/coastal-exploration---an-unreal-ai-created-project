@@ -1,0 +1,51 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 packaged Development Win64 D3D11, real options UI and camera/text/audio owners",
+  "package_log": "m1-options-legacy-package-fixed.log",
+  "results": {
+    "cases": [
+      {
+        "schema": 1,
+        "passed": true,
+        "external_upgrade_verified": true,
+        "log": "m1-options-legacy1-audio-runtime.log"
+      },
+      {
+        "schema": 2,
+        "passed": true,
+        "external_upgrade_verified": true,
+        "log": "m1-options-legacy2-audio-runtime.log"
+      }
+    ],
+    "all_original_save_files_restored": true,
+    "original_file_count": 95
+  },
+  "verified": [
+    "Backed-up schema1 and schema2 pairs A generation10/B generation11 are decoded by actual native profile owner",
+    "All five original settings preserved; schema1 defaults Hold, schema2 preserves Toggle; all four volumes default100",
+    "Both complete slot files match externally recorded fixtures after initialization; no load-time upgrade",
+    "Actual options UI changes Master100 to95; unapplied draft leaves live settings and files unchanged",
+    "Explicit native Save verifies schema3 generation12 in inactive A; active legacy B remains byte-identical",
+    "Actual camera FOV90 and native text scaling150 match preferences",
+    "External Python verifies upgraded schema/generation/Master/CRC and preserves prior B",
+    "All95 pre-existing save files restored byte-for-byte; no extra campaign saves"
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "limits": [
+    "No physical audio-output claim; checks active audio owner and profile values",
+    "Future inner schemas, downgrade refusal and legacy write faults remain separate cases",
+    "Initial compilation syntax error and initial NoSound-disabled consumer run retained; neither is counted as passed"
+  ],
+  "source_sha256": "173946461554219b1d05edac1e35340a2a696e3e731b419f0a5cd1aeb6d43886",
+  "source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52
+  }
+}

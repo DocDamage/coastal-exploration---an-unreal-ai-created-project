@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "plugin_version": "0.1.10-m1-display-settings-source",
+  "host_project": null,
+  "engine_version": null,
+  "agis_version": null,
+  "hyper_version": null,
+  "host_project_available": false,
+  "vendor_packages_available": false,
+  "unreal_compiled": false,
+  "native_display_switch_executed": false,
+  "native_widgets_rendered": false,
+  "controller_gameplay_tested": false,
+  "engine_settings_io_verified": false,
+  "windows_packaged": false,
+  "unreal_editor_automation_tests_total": 38,
+  "standalone_cpp_suites": 18,
+  "actual_monitor_configuration": null,
+  "actual_supported_resolutions": null,
+  "actual_game_user_settings_path": null
+}

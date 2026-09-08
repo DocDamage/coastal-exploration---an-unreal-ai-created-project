@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "section": "M1.6 player options and readability",
+  "status": "source_implemented_native_not_run",
+  "options": {
+    "mouse_percent": {
+      "default": 100,
+      "min": 25,
+      "max": 300,
+      "step": 25
+    },
+    "stick_percent": {
+      "default": 100,
+      "min": 25,
+      "max": 300,
+      "step": 25
+    },
+    "field_of_view": {
+      "default": 85,
+      "min": 70,
+      "max": 110,
+      "step": 5
+    },
+    "text_percent": {
+      "default": 100,
+      "min": 100,
+      "max": 150,
+      "step": 10
+    },
+    "invert_y": {
+      "default": false
+    }
+  },
+  "persistence": {
+    "slots": [
+      "CoastalLocalOptions_v1_A",
+      "CoastalLocalOptions_v1_B"
+    ],
+    "user_index": 0,
+    "payload_bytes": 40,
+    "encoded_bytes": 60,
+    "auto_write_on_load": false,
+    "campaign_data_included": false,
+    "delete_on_failure": false,
+    "verified_readback": true,
+    "cross_process_lock": false
+  },
+  "look": {
+    "owner": "host action mappings; optional CoastalLookInputComponent consumer",
+    "default_use_host_look_events": false,
+    "base_stick_rate_input_units_per_second": 90.0,
+    "max_stick_frame_seconds": 0.1,
+    "neutral_epsilon": 0.0001,
+    "mouse_delta_time_multiplier": false,
+    "second_dead_zone": false
+  },
+  "boundaries": [
+    "No audio sliders, resolution changes, input remapping or hold/toggle sprint in this increment.",
+    "Native text only; Hyper prompts and vendor widgets need their actual font API integration.",
+    "No coastline, owned artwork, host project or Windows executable."
+  ]
+}

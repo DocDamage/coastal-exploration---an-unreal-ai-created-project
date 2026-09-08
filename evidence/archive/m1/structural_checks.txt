@@ -1,0 +1,4 @@
+$ python tools/verify_package.py
+279 structural checks; 0 failures
+Scope: JSON/source/document consistency only; no Unreal, AGIS, platform-save, or gameplay execution.
+Exit code: 0

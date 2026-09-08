@@ -1,0 +1,33 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "case": "ui.recovery.lock",
+  "package_log": "m1-terminal-relaunch-package.log",
+  "runtime_logs": [
+    "m1-terminal-relaunch-fault.log",
+    "m1-terminal-relaunch-restored.log"
+  ],
+  "verified": [
+    "Presented recovery panel includes Close the game, relaunch, and load a validated save",
+    "Recovery remains modal and exit-only before and after actual Enhanced Input Escape and a stale native Back command",
+    "Mutation, save and world input remain blocked; both disk files unchanged after each dismissal attempt",
+    "Fresh process without fault flag restores same campaign 9F3547974EE6D9C0E96439A4897CA4A7, byte-identical AGIS payload, one receipt and one carried battery",
+    "Fresh session has normal world input and accepts/relinquishes the normal mutation gate; no replacement campaign"
+  ],
+  "fault_scope": "Late native failure after actual AGIS/world/mission restore on initial load and rollback; explicit development-only flag plus disposable active namespace",
+  "limits": [
+    "Injected native-side rollback failure; the distinct provider-rollback-failure Markdown case remains open",
+    "Input injection rather than physical keyboard/controller; no physical collision-failure claim"
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "section": "M1.10",
+  "scope": "Actual-host/manual integration scenarios; all unrun in source delivery. Separate from 38 supplied native automation tests.",
+  "tests": [
+    {
+      "id": "DISPLAY-01",
+      "name": "Opt-in disabled",
+      "procedure": "Run real Windows host with bEnableDisplaySettings=false. Open Display settings.",
+      "expected": "No display request or preference write; explanatory unavailable screen; other menus work.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-02",
+      "name": "PIE refusal",
+      "procedure": "Opt in and open Display settings in embedded PIE and editor standalone viewport.",
+      "expected": "No window change; clear unavailable diagnostic. These are not accepted Windows tests.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-03",
+      "name": "Eligible host catalogue",
+      "procedure": "Launch real Windows game with one local controller, standard settings object and opt-in.",
+      "expected": "Record actual native class/viewport, supported and convenient mode lists. No hardcoded monitor list.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-04",
+      "name": "Draft isolation",
+      "procedure": "Change mode and resolution repeatedly without Test.",
+      "expected": "Current viewport, engine saved settings, campaign and local preference slots stay unchanged.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-05",
+      "name": "Discard draft",
+      "procedure": "Change draft then Back and reopen.",
+      "expected": "Draft resets to actual viewport. No display request/save occurred.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-06",
+      "name": "Windowed trial keep",
+      "procedure": "Choose a reported different windowed size, Test, wait for new-mode paint, Keep session-only.",
+      "expected": "Only deliberate later-frame Keep succeeds; actual size matches; no engine or Coastal preference save requested.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-07",
+      "name": "Exclusive fullscreen",
+      "procedure": "If advertised supported, test a listed exclusive resolution.",
+      "expected": "Actual mode/size must match before Keep. A normalized/rejected mode never masquerades as success.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-08",
+      "name": "Borderless desktop",
+      "procedure": "Test engine-reported desktop borderless candidate on the intended monitor.",
+      "expected": "Actual size/mode matches or trial reverts. Do not mark multi-monitor support passed merely from one viewport size.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-09",
+      "name": "Resolution bounds",
+      "procedure": "Inspect native enumerated candidates with small, duplicate, unusual or huge results.",
+      "expected": "Only unique admitted modes appear. No fabricated 1080p entry or out-of-range manual input.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-10",
+      "name": "Default Revert focus",
+      "procedure": "Test a new mode with controller only.",
+      "expected": "Revert is initial/default focus, never Keep. Held confirm cannot accept the trial.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-11",
+      "name": "No opening-frame keep",
+      "procedure": "Use deliberate automated native input to attempt Keep on opening/matching frame.",
+      "expected": "No keep/save. Existing top-ticket/frame rules and new matched-frame gate remain effective.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-12",
+      "name": "Repaint in new mode",
+      "procedure": "Delay native resolution request application while old-mode dialog paints.",
+      "expected": "Old paint cannot enable Keep. Reset/scroll to new-mode body, later paint and later input are needed.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-13",
+      "name": "Unpainted cancellation",
+      "procedure": "Press Escape/B after opening but before mode-matched body paint.",
+      "expected": "A fresh later-frame cancel may revert without waiting for paint; no mission/UI ownership bypass.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-14",
+      "name": "Paused deadline",
+      "procedure": "Leave confirmation idle while the native UI pauses the world.",
+      "expected": "At first running observation at/after 15 real seconds, one restore request, no save; countdown visible.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-15",
+      "name": "Hitch across deadline",
+      "procedure": "Introduce controlled game-thread delay spanning deadline.",
+      "expected": "On resume no Keep before rollback; no claim that frozen code restored during the stall.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-16",
+      "name": "Exact deadline input",
+      "procedure": "Attempt Keep at and after deadline before next regular UI tick.",
+      "expected": "Command-path realtime recheck rejects and requests restoration.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-17",
+      "name": "Manual Revert",
+      "procedure": "Test mode and activate Revert.",
+      "expected": "One restore request; panel closes; further trials blocked until later-frame original viewport observed.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-18",
+      "name": "Back cancellation",
+      "procedure": "Test then Escape/B, repeat Back and close parent.",
+      "expected": "No duplicate restore; parent focus works; pending restoration continues while parent closed.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-19",
+      "name": "Observed focus loss",
+      "procedure": "Alt-Tab/minimize while testing; return to game.",
+      "expected": "First observed foreground loss cancels trial. No hidden/background Keep/save.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-20",
+      "name": "Suppressed native switch",
+      "procedure": "Make mode request ineffective using a controlled local setup.",
+      "expected": "Keep never enables; timeout requests original. No fake applied/saved result.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-21",
+      "name": "Rollback failure",
+      "procedure": "Use a disposable host fault to prevent requested original mode from appearing.",
+      "expected": "After 5 seconds of running observation, diagnostic and trial lock; no infinite retry or claimed success.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-22",
+      "name": "Same-frame restore",
+      "procedure": "Instrument immediate read after restore request before resolution sinks run.",
+      "expected": "Same-frame preexisting size does not count as observed restoration.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-23",
+      "name": "Successive session-only trials",
+      "procedure": "Keep mode B session-only from A; test C and revert.",
+      "expected": "Return to B, not older engine saved A; no unrelated preference migration.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-24",
+      "name": "Explicit engine save",
+      "procedure": "Test and explicitly Keep plus save request; close/relaunch actual Windows game.",
+      "expected": "Record engine file/logs and actual relaunched mode; UI says save requested, not verified save. Separate from campaign acknowledgement.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-25",
+      "name": "Engine save failure",
+      "procedure": "Use disposable backed-up engine settings with a real controlled write failure.",
+      "expected": "No claimed disk verification; session mode remains kept; relaunch behavior and logs recorded, not assumed.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-26",
+      "name": "No writes on crash-before-keep",
+      "procedure": "Back up engine settings then close/kill disposable game during trial and relaunch.",
+      "expected": "Trial source made no explicit save; examine actual engine host/autosave behavior. No hard crash-safety guarantee.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-27",
+      "name": "Competing settings field writer",
+      "procedure": "During trial change engine settings size/mode through a separate controlled owner.",
+      "expected": "Trial cancels, foreign stored values not overwritten, source locks after rollback observation. Remove competing owner before production.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-28",
+      "name": "Unobserved/same-value writer limitation",
+      "procedure": "Audit actual host for Alt-Enter, console, graphics menus and same-valued writers.",
+      "expected": "One intentional owner retained; acknowledge source cannot detect every temporary/same-value/global config writer.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-29",
+      "name": "Lost fixed viewport",
+      "procedure": "Replace/remove viewport client or controller in disposable native test.",
+      "expected": "No request against a replacement viewport; failure diagnostic, no automatic rebind or saved trial.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-30",
+      "name": "Shutdown ordering",
+      "procedure": "Exit/remove UI during active/reverting trial and repeat supported release.",
+      "expected": "At most one new restore request for active trial, no extra save, no false restoration claim after ticking stops.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-31",
+      "name": "Session epoch replacement",
+      "procedure": "Trigger legitimate New/Continue while trial is active using a controlled native integration test.",
+      "expected": "Old trial canceled, no stale Keep changes new epoch; save callback does not reenter campaign mutation.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-32",
+      "name": "Recovery/safe return",
+      "procedure": "Activate retained recovery/return while testing display.",
+      "expected": "Cancel display without consuming items, moving checkpoints, clearing recovery, or acknowledging transcript.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-33",
+      "name": "720p readability",
+      "procedure": "Test all new screens at 1280x720, 100% and 150% text.",
+      "expected": "Mode description, timer, Revert and Keep usable via scroll; reset paint not stranded offscreen; controller focus remains visible.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-34",
+      "name": "1080p controller path",
+      "procedure": "Test every display command at 1920x1080 via controller-only and keyboard/mouse.",
+      "expected": "One command per frame; correct focus/Back; no gameplay input beneath menus or accidental Keep on held buttons.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-35",
+      "name": "Multiple-monitor limitation",
+      "procedure": "Test actual mixed-DPI/secondary monitor arrangements and device removal.",
+      "expected": "Record actual behavior; mismatched requested size cannot be kept. Monitor/position/HDR/refresh restoration is outside scope.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-36",
+      "name": "Custom settings/XR refusal",
+      "procedure": "Use a custom UGameUserSettings subclass or active XR-system host.",
+      "expected": "Unavailable rather than guessing subclass side effects or resizing a VR presentation.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-37",
+      "name": "Previous campaign and options",
+      "procedure": "Load existing schema-3 player options and a backed-up campaign, use display menu, complete radio.",
+      "expected": "Campaign/story/item/receipt behavior unchanged; no new Coastal preference schema or slot; audio/transcript remain independent.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "DISPLAY-38",
+      "name": "Full Windows gate",
+      "procedure": "Package and launch real host; complete New, collect, storage round-trip, repair, transcript, safe return, verified save, relaunch, Continue.",
+      "expected": "Actual coherent gameplay with AGIS/Hyper and independent options. Only this full retained acceptance gate advances M1.",
+      "result": "not_run",
+      "evidence": null
+    }
+  ]
+}

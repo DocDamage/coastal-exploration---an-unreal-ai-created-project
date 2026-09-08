@@ -1,0 +1,222 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "reference_cases": [
+    "m1_6.write_failures",
+    "m1_7.migration_failure",
+    "m1_8.upgrade_faults"
+  ],
+  "setup": "UE 5.7.4 Windows Development package, real platform preference files and initialized native camera/audio consumers. Legacy schema1/schema2 target A; current schema3 targets B. Independent external fixture encoder verifies envelope/CRC, exact bytes and selected generation.",
+  "package_log": "m1-options-ambiguous-package.log",
+  "fault_scope": "Explicit options_ambiguous acceptance mode, coastal_test_ namespace and CoastalOptionsWriteFault flag, guarded by WITH_DEV_AUTOMATION_TESTS. Windows read-lock path additionally guarded by PLATFORM_WINDOWS. Original file backups restored in finally.",
+  "faults": {
+    "no_write": "Injected false before platform write; destination unchanged. Complements prior actual read-only platform refusal.",
+    "partial": "Actual platform write of half the encoded record; write returns success but actual read-back detects invalid/mismatched bytes.",
+    "after_write": "Actual complete valid platform write followed by injected false return.",
+    "read_lock": "Actual complete platform write, then CreateFileW share-zero lock on destination during native read-back. Acquired lock and Unreal Failed to read file warning verified; handle released after save decision."
+  },
+  "runtime_cases": [
+    {
+      "schema": 1,
+      "fault": "no_write",
+      "target": "A",
+      "passed": true,
+      "relaunch_schema": 1,
+      "relaunch_generation": 11,
+      "fault_log": "m1-options-ambiguous-1-no_write-fault.log",
+      "reload_log": "m1-options-ambiguous-1-no_write-reload.log"
+    },
+    {
+      "schema": 1,
+      "fault": "partial",
+      "target": "A",
+      "passed": true,
+      "relaunch_schema": 1,
+      "relaunch_generation": 11,
+      "fault_log": "m1-options-ambiguous-1-partial-fault.log",
+      "reload_log": "m1-options-ambiguous-1-partial-reload.log"
+    },
+    {
+      "schema": 1,
+      "fault": "after_write",
+      "target": "A",
+      "passed": true,
+      "relaunch_schema": 3,
+      "relaunch_generation": 12,
+      "fault_log": "m1-options-ambiguous-1-after_write-fault.log",
+      "reload_log": "m1-options-ambiguous-1-after_write-reload.log"
+    },
+    {
+      "schema": 1,
+      "fault": "read_lock",
+      "target": "A",
+      "passed": true,
+      "relaunch_schema": 3,
+      "relaunch_generation": 12,
+      "fault_log": "m1-options-ambiguous-1-read_lock-fault.log",
+      "reload_log": "m1-options-ambiguous-1-read_lock-reload.log"
+    },
+    {
+      "schema": 2,
+      "fault": "no_write",
+      "target": "A",
+      "passed": true,
+      "relaunch_schema": 2,
+      "relaunch_generation": 11,
+      "fault_log": "m1-options-ambiguous-2-no_write-fault.log",
+      "reload_log": "m1-options-ambiguous-2-no_write-reload.log"
+    },
+    {
+      "schema": 2,
+      "fault": "partial",
+      "target": "A",
+      "passed": true,
+      "relaunch_schema": 2,
+      "relaunch_generation": 11,
+      "fault_log": "m1-options-ambiguous-2-partial-fault.log",
+      "reload_log": "m1-options-ambiguous-2-partial-reload.log"
+    },
+    {
+      "schema": 2,
+      "fault": "after_write",
+      "target": "A",
+      "passed": true,
+      "relaunch_schema": 3,
+      "relaunch_generation": 12,
+      "fault_log": "m1-options-ambiguous-2-after_write-fault.log",
+      "reload_log": "m1-options-ambiguous-2-after_write-reload.log"
+    },
+    {
+      "schema": 2,
+      "fault": "read_lock",
+      "target": "A",
+      "passed": true,
+      "relaunch_schema": 3,
+      "relaunch_generation": 12,
+      "fault_log": "m1-options-ambiguous-2-read_lock-fault.log",
+      "reload_log": "m1-options-ambiguous-2-read_lock-reload.log"
+    },
+    {
+      "schema": 3,
+      "fault": "no_write",
+      "target": "B",
+      "passed": true,
+      "relaunch_schema": 3,
+      "relaunch_generation": 11,
+      "fault_log": "m1-options-ambiguous-3-no_write-fault.log",
+      "reload_log": "m1-options-ambiguous-3-no_write-reload.log"
+    },
+    {
+      "schema": 3,
+      "fault": "partial",
+      "target": "B",
+      "passed": true,
+      "relaunch_schema": 3,
+      "relaunch_generation": 11,
+      "fault_log": "m1-options-ambiguous-3-partial-fault.log",
+      "reload_log": "m1-options-ambiguous-3-partial-reload.log"
+    },
+    {
+      "schema": 3,
+      "fault": "after_write",
+      "target": "B",
+      "passed": true,
+      "relaunch_schema": 3,
+      "relaunch_generation": 12,
+      "fault_log": "m1-options-ambiguous-3-after_write-fault.log",
+      "reload_log": "m1-options-ambiguous-3-after_write-reload.log"
+    },
+    {
+      "schema": 3,
+      "fault": "read_lock",
+      "target": "B",
+      "passed": true,
+      "relaunch_schema": 3,
+      "relaunch_generation": 12,
+      "fault_log": "m1-options-ambiguous-3-read_lock-fault.log",
+      "reload_log": "m1-options-ambiguous-3-read_lock-reload.log"
+    }
+  ],
+  "verified": [
+    "Unverified save retains all ten previous live values and actual FOV; reports write could not be verified.",
+    "Previously selected slot stays byte-identical; visible native Save disables; direct second save refuses without additional IO or live changes.",
+    "Each case exits via native UI, then starts a fresh process without fault flags.",
+    "No-write/partial cases retain generation11 prior supported record. Valid bytes written before false return or locked read-back load as schema3 generation12 on relaunch.",
+    "External comparison verifies exact destination bytes and that relaunch changes neither slot.",
+    "All 131 original save files restored exactly after fault matrix and again after normal-save regression."
+  ],
+  "audio_command_evidence": {
+    "runtime": "Actual audio owner ready and all ten live fields unchanged, including distinct schema3 volume values.",
+    "source_audit": "CoastalUIOptions.cpp only calls ApplyAudioOptions inside if(Applied); SaveAndApply returns false for these failures. CoastalAudioOptionsComponent.cpp derives submitted gains only from the live profile; TickComponent checks readiness without submitting new mix values. This supports no new mix submission, not acoustic output measurement."
+  },
+  "normal_save_regression": [
+    {
+      "schema": 1,
+      "passed": true,
+      "external_upgrade_verified": true,
+      "log": "m1-options-ambiguous-normal1-audio-runtime.log"
+    },
+    {
+      "schema": 2,
+      "passed": true,
+      "external_upgrade_verified": true,
+      "log": "m1-options-ambiguous-normal2-audio-runtime.log"
+    }
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52
+  },
+  "original_file_count": 131,
+  "all_original_save_files_restored": true,
+  "source_sha256": {
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalLocalOptions.cpp": "2d65203d3eb39cf638729dd9342fc04f11a7ef6f14ef2ca07af81dbdaee4f7c7",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIOptions.cpp": "c2f67d81c3e21f07bec5c37d6dd1d164dbbbea9b6571d5285aee54abf4e096fa",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalAudioOptionsComponent.cpp": "620467e19a1ae9a20f3c78e7a27a8f66add6e656dd822a2a27042f45fd36c311",
+    "Plugins/CoastalVendorIntegration/Source/CoastalVendorIntegration/Private/CoastalOptionsProbe.cpp": "0d1e2b96e4af42c576930758f2fc1f39617d9b23b8eb68d8c4339ffb3302c3ab"
+  },
+  "raw_log_sha256": {
+    "m1-options-ambiguous-1-no_write-fault.log": "7fa8b5c5b67b66ab9696082dd0211112d501db0ad4d6f10be1464bfbceb3b30d",
+    "m1-options-ambiguous-1-no_write-reload.log": "b633272222011253573388bb2408207cf8ac1b3323901905e8ab0f2deb5b5bc0",
+    "m1-options-ambiguous-1-partial-fault.log": "089d14eadc80b42c400987db882702793d6c97b80d3054b7eec9150b5c55a30d",
+    "m1-options-ambiguous-1-partial-reload.log": "a059e6ddb3d53c9282e4f60377c5d56cb9f1d8030e1ca603843f87feb3b4455f",
+    "m1-options-ambiguous-1-after_write-fault.log": "b5a1d10ed291157590439e115c81c1dc2853f1cad32bec05f30d7d035214575e",
+    "m1-options-ambiguous-1-after_write-reload.log": "0f8adf9b1122b85c8705e4e2e89f2e602f11b2882670f51052f6f51f46684f94",
+    "m1-options-ambiguous-1-read_lock-fault.log": "31bd8ab2f2ba29e82ad238e407c5b776d738ce8247bc33f4e7a2ab955d32658f",
+    "m1-options-ambiguous-1-read_lock-reload.log": "e89d0340bb12dcb915d2cc64d83fc1dbb7117c04cac89140ae88203976c21c66",
+    "m1-options-ambiguous-2-no_write-fault.log": "b382978eaa310e94f2a072f603084fba369a0425814ec2efb17036975f83ac2b",
+    "m1-options-ambiguous-2-no_write-reload.log": "509e6da5e1ba659d8f157510474b8c78f9995184aaa96461e6acfaedd731be62",
+    "m1-options-ambiguous-2-partial-fault.log": "71a9c5f09381b1eec2e3691a77328ee53346d2a8380e77851879d9619c1e705d",
+    "m1-options-ambiguous-2-partial-reload.log": "9e4afd20a64f683f8641298a945c9dc11e6bb3e6f13050061c9e315beca4d34f",
+    "m1-options-ambiguous-2-after_write-fault.log": "7b2c58dbd0626b0ace9e67b0fd3a3e84095db36941366be91131652c198b08ec",
+    "m1-options-ambiguous-2-after_write-reload.log": "968bfdca030918ea9b6819898f0749656088facc3ae969610a4c179a4b7dcf4a",
+    "m1-options-ambiguous-2-read_lock-fault.log": "4d1879831d50ad631767e52f518ca80cc906ecd698072f494c80a6cc9efeb91d",
+    "m1-options-ambiguous-2-read_lock-reload.log": "e639cbc06062c033a5daac655a5a7081b0984507a82aeec6af22070a6eacbaa5",
+    "m1-options-ambiguous-3-no_write-fault.log": "c1e8aa8374183a515f70472d03182b6793bf7f80ad74536b24b5034a63b056ed",
+    "m1-options-ambiguous-3-no_write-reload.log": "5e1148c3a599ca4c26dd57ac5e7c9ab228624222ea17fec92949bad5b5d1f8d0",
+    "m1-options-ambiguous-3-partial-fault.log": "bc880b62effb90623519a107970478a8bfe996b350793815e669b582b34e94d8",
+    "m1-options-ambiguous-3-partial-reload.log": "2ff56180982bcd255188163f12306be9c8ce11ea686bd036625d4ae48cf9b24d",
+    "m1-options-ambiguous-3-after_write-fault.log": "b202cbcf05c47b33cb12e41dd122ee5d7bb7907d394f2aa2d7250d0001662cc2",
+    "m1-options-ambiguous-3-after_write-reload.log": "c2b082c4589b1e2d21f57932ecb45b02f7ee9481359426dbd0a624b63166a4b7",
+    "m1-options-ambiguous-3-read_lock-fault.log": "409894815055b4f17ac66d0a8f47bb4096805076d875c2af1d847f6c59388a5e",
+    "m1-options-ambiguous-3-read_lock-reload.log": "1fea8a9be431114147b9602b461de6d65f0ec755d04ff81160e5d9f345e35725",
+    "m1-options-ambiguous-normal1-audio-runtime.log": "5ae437bd29fe02dcba97208f457a0a38e59f951aa5611bfc21b7298b07b77c7b",
+    "m1-options-ambiguous-normal2-audio-runtime.log": "beec83b5c6804f212e227e31d9fb3508a3771669fb2eccc7ac720c28993d8ec8",
+    "m1-options-ambiguous-package.log": "1ccddb5472368a07012521612a28f4bf1191225d691f428189c536f2af319ade",
+    "m1-options-ambiguous-native.log": "15248692ba83de8dd7f7f9d387d88d9c4c0ea4a5600dec30031e4c9c8a7b1d20",
+    "m1-options-ambiguous-core.log": "eab33b74a2c213157a78c3148b29fa8b8acc3c5b9e6addef8c7c4734146f7077",
+    "m1-options-ambiguous-python.log": "57879260feb93d626249626684890b815c4e0e5ab472c42ab5e8585a5db4f410"
+  },
+  "limits": [
+    "Controlled failure injection is not a physical disk-full or power-loss test.",
+    "No audio-thread or acoustic measurement claimed for this fault matrix; mix-submission conclusion combines retained live values with the inspected command gate.",
+    "Existing corrupt/conflict, physical-device and other lifecycle acceptance rows remain separate."
+  ]
+}

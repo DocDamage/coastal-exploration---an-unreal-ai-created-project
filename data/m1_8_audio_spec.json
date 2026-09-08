@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "section": "M1.8 routed audio options and preference upgrade",
+  "runtime_configuration": "Native C++ defaults and editor-authored class references; JSON is a checked specification, not runtime-loaded.",
+  "options": {
+    "master_percent": {
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 5
+    },
+    "ambience_percent": {
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 5
+    },
+    "effects_percent": {
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 5
+    },
+    "radio_percent": {
+      "default": 100,
+      "min": 0,
+      "max": 100,
+      "step": 5
+    }
+  },
+  "routing": {
+    "owner": "one optional local PlayerController CoastalAudioOptionsComponent",
+    "default_opt_in": false,
+    "classes": [
+      "Ambience",
+      "Effects",
+      "Radio"
+    ],
+    "class_paths": {
+      "Ambience": null,
+      "Effects": null,
+      "Radio": null
+    },
+    "distinct_classes": true,
+    "parent_classes_allowed": false,
+    "child_classes_allowed": false,
+    "passive_mix_modifiers_allowed": false,
+    "authored_volume_range": [
+      0,
+      1
+    ],
+    "authored_pitch_range": [
+      0,
+      4
+    ],
+    "authored_pitch_min_exclusive": true,
+    "master_policy": "Fold master * channel / 10000 into each isolated class. No parent/global master override.",
+    "class_children_affected": false,
+    "startup_fade_seconds": 0,
+    "apply_fade_seconds": 0.1,
+    "mute_scalar": 0,
+    "initial_values_before_mix_push": true,
+    "one_push_per_owner": true,
+    "new_mix_on_apply": false,
+    "unrelated_mixes_cleared": false,
+    "global_base_mix_replaced": false,
+    "asset_properties_mutated": false,
+    "audio_playback_implemented": false,
+    "device_command_acknowledgement": false,
+    "sound_routing_certified_by_opt_in": false,
+    "cleanup": "Pop only the owned transient mix on the captured strong device handle; no auto-rebinding."
+  },
+  "persistence": {
+    "slots": [
+      "CoastalLocalOptions_v1_A",
+      "CoastalLocalOptions_v1_B"
+    ],
+    "read_schemas": [
+      1,
+      2,
+      3
+    ],
+    "write_schema": 3,
+    "legacy_schema1_payload_bytes": 40,
+    "legacy_schema2_payload_bytes": 44,
+    "payload_bytes": 60,
+    "encoded_bytes": 80,
+    "audio_payload_offsets": {
+      "master_percent": 44,
+      "ambience_percent": 48,
+      "effects_percent": 52,
+      "radio_percent": 56
+    },
+    "auto_write_on_load": false,
+    "verified_readback": true,
+    "campaign_schema_changed": false,
+    "source_schema1_sprint_default": "Hold",
+    "old_schemas_audio_default_percent": 100,
+    "downgrade_supported_after_upgrade": false,
+    "cross_process_lock": false,
+    "crash_atomicity_proven": false
+  },
+  "progress": {
+    "radio_transcript_independent_of_audio": true,
+    "audio_finished_event_completes_mission": false,
+    "mute_changes_mission": false
+  },
+  "content": {
+    "audio_files_included": false,
+    "sound_class_assets_included": false,
+    "vendor_content_included": false,
+    "new_map_included": false
+  }
+}

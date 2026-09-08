@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "local_values_not_supplied",
+  "engine_version": null,
+  "toolchain_version": null,
+  "host_project_path": null,
+  "editor_target": null,
+  "actual_agis_version": null,
+  "actual_agis_adapter_class": null,
+  "actual_hyper_version": null,
+  "actual_hyper_interface": null,
+  "local_player_controller_class": null,
+  "local_character_class": null,
+  "provider_provisional_ready_hook": null,
+  "hyper_pressed_once_hook": null,
+  "test_map_path": null,
+  "packaged_build_path": null,
+  "evidence_directory": null
+}

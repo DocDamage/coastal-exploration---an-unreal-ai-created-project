@@ -1,0 +1,56 @@
+{
+  "recorded_at_utc": "2026-09-06T00:28:07.111019+00:00",
+  "project_section_date": "2026-09-05",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "python": "3.13.5",
+  "compilers": {
+    "g++": "g++ (Debian 14.2.0-19) 14.2.0",
+    "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)"
+  },
+  "checks": [
+    {
+      "check": "gcc_core",
+      "exit_code": 0,
+      "log": "evidence/gcc_core.txt"
+    },
+    {
+      "check": "clang_core",
+      "exit_code": 0,
+      "log": "evidence/clang_core.txt"
+    },
+    {
+      "check": "python_tests",
+      "exit_code": 0,
+      "log": "evidence/python_tests.txt"
+    },
+    {
+      "check": "address_and_undefined_behavior_sanitizers",
+      "exit_code": 0,
+      "log": "evidence/sanitizers.txt"
+    },
+    {
+      "check": "structural_consistency_and_python_syntax",
+      "exit_code": 0,
+      "log": "evidence/structural_checks.txt"
+    }
+  ],
+  "cpp_assertions_per_compiler": 1217,
+  "cpp_suites": {
+    "first_signal": 407,
+    "campaign_transaction": 227,
+    "save_envelope": 583
+  },
+  "python_test_cases": 10,
+  "unreal_header_tool": "NOT_RUN",
+  "unreal_build_tool": "NOT_RUN",
+  "unreal_editor_automation": "NOT_RUN",
+  "editor_map_generation": "NOT_RUN",
+  "agis_integration": "NOT_RUN",
+  "hyper_integration": "NOT_RUN",
+  "end_to_end_campaign_persistence": "NOT_RUN",
+  "gamepad_ui": "NOT_RUN",
+  "windows_package": "NOT_RUN",
+  "boundary": "C++ tests execute engine-independent rules used by the runtime; Python tests exercise tooling. Neither executes Unreal wrapper code or actual AGIS transactions.",
+  "structural_checks": 279,
+  "source_file_count": 30
+}

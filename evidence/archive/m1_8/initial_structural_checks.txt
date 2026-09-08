@@ -1,0 +1,8 @@
+1223 structural checks; 6 failures
+Scope: JSON/source/document consistency only; no Unreal, AGIS, platform-save, or gameplay execution.
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/structural_checks.txt
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/results.json
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/environment.txt
+FAIL: Broken local link in VALIDATION_REPORT.md: evidence/plugin_source_changes.json
+FAIL: Broken local link in VALIDATION_REPORT.md: SHA256SUMS.txt
+FAIL: Broken local link in M1_7_VALIDATION_REPORT.md: SHA256SUMS.txt

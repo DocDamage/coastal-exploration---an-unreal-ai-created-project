@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-06",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 Development Win64 integrated room, D3D11, sound disabled",
+  "fixes": [
+    "Host disables CommonUI.ShouldVirtualAcceptSimulateMouseButton so CommonUI does not consume Coastal's focused confirmation as a mouse click.",
+    "Button label slots fill available width with centered text, removing unnecessary short-label wrapping.",
+    "Save-name field uses dark foreground text on its light background."
+  ],
+  "input_path": "D-pad key down/up through FSlateApplication, actual UMG user focus, then gamepad face-bottom confirmation through Slate. No direct focus assignment or OnClicked broadcast for these UI commands. Test save name is populated through the rendered text-box property.",
+  "passed_runs": [
+    {"resolution": "1280x720", "text_percent": 100, "log": "m1-gamepad-ui-fixed-720.log"},
+    {"resolution": "1280x720", "text_percent": 150, "log": "m1-gamepad-ui-150-720.log"},
+    {"resolution": "1920x1080", "text_percent": 100, "log": "m1-gamepad-ui-1080.log"},
+    {"resolution": "1920x1080", "text_percent": 150, "log": "m1-gamepad-ui-150-1080.log"}
+  ],
+  "verified": "Options selection/application, New, storage transfer and return, explicit transcript acknowledgement, Save and quit use Slate navigation/confirmation; campaign completes with five actual AGIS receipts. Each process reaches clean exit_without_save. Focus screenshots retained; session, enlarged options and transcript views visually inspected. Save-field contrast change was applied before the 1080p runs.",
+  "regression": "m1-gamepad-ui-unreal-tests.log: 39/39 native tests pass, 38 clean and one with retained vendor tag warnings; zero failed/unrun.",
+  "limitations": ["World positioning remains deterministic test teleportation and world interaction/menu opening retain prior injected input", "Not physical-controller traversal or a complete manual UI audit", "No sound in these runs; audio behavior is covered separately", "Initial failure and console-override diagnostic preserved; final four runs use packaged host configuration without that override"],
+  "evidence_boundary": "Raw screenshots, logs, saves and packaged/vendor assets remain external. Original historical evidence is unchanged."
+}

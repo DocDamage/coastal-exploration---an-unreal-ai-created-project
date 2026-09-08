@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "case": "ui.transcript.stale",
+  "package_log": "m1-transcript-stale-package-paired.log",
+  "runtime_logs": [
+    "m1-transcript-stale-paired-new.log",
+    "m1-transcript-stale-paired-continue.log"
+  ],
+  "campaign": "362EE95948C5567444F72581833955E4",
+  "runtime": "UE5.7.4 packaged Development Win64 D3D11; actual AGIS, Hyper, native UI and coordinator IO",
+  "method": "Complete real pickup/storage/repair sequence, retain actual presented radio widget and enabled acknowledgement button with strong references, SaveNow and LoadCampaign successfully, wait for UI epoch reset, broadcast the old native button callback. Then reopen via Hyper and acknowledge using fresh UI, complete safe return/save/quit and fresh Continue.",
+  "verified": [
+    "Successful load advances session epoch and removes old panel",
+    "Old widget callback leaves message unacknowledged, journal, complete AGIS payload/campaign, receipt IDs/fingerprints and immediate save generation unchanged",
+    "Fresh radio panel requires explicit acknowledgement and completes normally",
+    "Final campaign generation16 has five receipts, repaired/acknowledged mission; fresh Continue restores same campaign and five receipts (generation17 after host checkpoint update)"
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52
+  },
+  "limits": [
+    "Retained widget callback is tested; arbitrary raw token dispatch is a separate variant",
+    "Positioning/injected input, not physical-device traversal",
+    "First standalone Continue attempt lacked the new-mode campaign-ID comparison artifact; driver fixed and entire paired sequence rerun, original failure preserved",
+    "Production mission/save/UI logic unchanged"
+  ],
+  "source_sha256": {
+    "CoastalCampaignProbe.cpp": "74c6bfd995413c879565d593466bafb146e6211830e3dac27e1578945bd5e47d",
+    "CoastalSaveProbe.cpp": "23094e81dd836fd75d0f686c1de4b57c6cd5c19fd391bedfa71094dff9182c3e"
+  }
+}

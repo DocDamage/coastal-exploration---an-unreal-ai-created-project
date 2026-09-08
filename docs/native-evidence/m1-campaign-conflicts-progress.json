@@ -1,0 +1,66 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "reference_cases": [
+    "M1-03",
+    "SAVE-09 (campaign mismatch portion)",
+    "M1-02 (additional existing-valid-file evidence)"
+  ],
+  "package_log": "m1-campaign-conflicts-package.log",
+  "runtime": "UE 5.7.4 packaged Development Win64, actual AGIS provider and real coordinator; two exclusive copied test pairs.",
+  "cases": [
+    {
+      "mode": "equal_save",
+      "passed": true,
+      "fixture_bytes_unchanged": true,
+      "original_saves_unchanged": true,
+      "original_count": 133,
+      "log": "m1-campaign-conflict-equal_save.log",
+      "fixture_sha256": [
+        "0c86a646e06ccc9f77df045dfd119c84b07b5d8be55c7e2e547c6ffe1b0e5693",
+        "0c86a646e06ccc9f77df045dfd119c84b07b5d8be55c7e2e547c6ffe1b0e5693"
+      ]
+    },
+    {
+      "mode": "foreign_save",
+      "passed": true,
+      "fixture_bytes_unchanged": true,
+      "original_saves_unchanged": true,
+      "original_count": 133,
+      "log": "m1-campaign-conflict-foreign_save.log",
+      "fixture_sha256": [
+        "0c86a646e06ccc9f77df045dfd119c84b07b5d8be55c7e2e547c6ffe1b0e5693",
+        "ceb3b50d33dde3634348fa02748d4c7701da5c0a13c8de1ffd8aeebfe0844655"
+      ]
+    }
+  ],
+  "fixture_validation": "External envelope/CRC verification, native SaveGame decoding, actual AGIS snapshot validation. Equal pair has matching GUID and generation5; foreign pair has different GUIDs and distinct generations5/4. Foreign rejection must specifically report A/B campaign identity mismatch.",
+  "verified": [
+    "Load refuses equal generations as Incompatible and different campaign identities as InvalidSnapshot.",
+    "New in either existing namespace also refuses.",
+    "No active campaign or recovery poison; coordinator campaign ID/generation/epoch, transform, journal, mission and world flags remain unchanged; actual AGIS payload unchanged.",
+    "All four fixture files and all 133 pre-existing saves remain byte-identical.",
+    "Actual presented Continue remains enabled for error reporting; both runs exit through native Quit/exit_without_save."
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "limits": [
+    "Coordinator calls exercise refusal; this does not claim physical-controller navigation or a clicked Continue error-screen inspection.",
+    "No production code changed; development acceptance probe and copied fixtures only.",
+    "Other inner/provider schema versions remain separate compatibility conditions."
+  ],
+  "source_sha256": {
+    "CoastalSaveProbe.cpp": "c4cd56d96f7ee93f6a10d21d6a39f257dd003b0c84534c229d495bf1cb9319d2",
+    "CoastalSaveRejectProbe.cpp": "bb24f694ef5109d9491e8d0f499694663d973295b03596ff9019ca040540352c"
+  },
+  "raw_log_sha256": {
+    "m1-campaign-conflict-equal_save.log": "00754d0865bc180f44dfd47647d2d9f31118ee5ad65dde8237dafbe27d7dea4d",
+    "m1-campaign-conflict-foreign_save.log": "4576ef01fbc9429efdb029df5e0869237253e1663ec8cac1b31c228d088be42d",
+    "m1-campaign-conflicts-package.log": "4b57a10b566c6d930c9e315d31836df7e4182adc31bfbc784fd88a5ac34b7018",
+    "m1-campaign-conflicts-native.log": "7237d93846e56dc20cfe737d0320c0230cd2ad0d28c048155fb76534c6bbbf7d"
+  }
+}

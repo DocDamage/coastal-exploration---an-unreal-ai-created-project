@@ -1,0 +1,101 @@
+{
+  "section": "M1.4",
+  "plugin_version": "0.1.4-m1-interaction-source",
+  "recorded_utc": "2026-09-06T01:42:49.786432+00:00",
+  "scope": "Standalone helper/source/tool checks only; no Unreal, AGIS/Hyper or Windows gameplay execution.",
+  "commands": [
+    {
+      "name": "gcc_core",
+      "argv": [
+        "bash",
+        "tools/run_core_tests.sh"
+      ],
+      "environment_overrides": {},
+      "returncode": 0,
+      "elapsed_seconds": 3.387,
+      "log": "evidence/gcc_core.txt"
+    },
+    {
+      "name": "clang_core",
+      "argv": [
+        "bash",
+        "tools/run_core_tests.sh"
+      ],
+      "environment_overrides": {
+        "CXX": "clang++"
+      },
+      "returncode": 0,
+      "elapsed_seconds": 3.438,
+      "log": "evidence/clang_core.txt"
+    },
+    {
+      "name": "sanitizers",
+      "argv": [
+        "bash",
+        "tools/run_sanitizers.sh"
+      ],
+      "environment_overrides": {
+        "CXX": "clang++"
+      },
+      "returncode": 0,
+      "elapsed_seconds": 7.621,
+      "log": "evidence/sanitizers.txt"
+    },
+    {
+      "name": "python_tests",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "returncode": 0,
+      "elapsed_seconds": 0.644,
+      "log": "evidence/python_tests.txt"
+    },
+    {
+      "name": "structural_checks",
+      "argv": [
+        "python3",
+        "tools/verify_package.py"
+      ],
+      "environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "returncode": 0,
+      "elapsed_seconds": 0.603,
+      "log": "evidence/structural_checks.txt",
+      "note": "Rerun after the final validation report was written."
+    }
+  ],
+  "unrun": [
+    "Unreal Header Tool",
+    "UnrealBuildTool",
+    "15 supplied Unreal automation tests",
+    "Real AGIS/Hyper integration",
+    "Native Enhanced Input/controller and prompt behavior",
+    "Editor map generation",
+    "Windows PowerShell runner",
+    "Windows cooking/packaging",
+    "Standalone Windows game launch",
+    "Runtime performance"
+  ],
+  "finalized_utc": "2026-09-06T01:44:19.187201+00:00",
+  "assertion_accounting": {
+    "cpp_suites": 8,
+    "cpp_assertions_per_compiler": 2445,
+    "new_cpp_assertions": 211,
+    "retained_cpp_assertions": 2234,
+    "python_cases": 31,
+    "new_python_cases": 0,
+    "structural_checks": 616
+  }
+}

@@ -1,0 +1,25 @@
+Recorded UTC: 2026-09-06T01:42:49.786432+00:00
+Platform: Linux-6.18.35-x86_64-with-glibc2.41
+$ g++ --version
+g++ (Debian 14.2.0-19) 14.2.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+$ clang++ --version
+clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /usr/local/swift/usr/bin
+$ python3 --version
+Python 3.13.5
+PATH lookup UnrealEditor: None
+PATH lookup UnrealEditor-Cmd: None
+PATH lookup UnrealBuildTool: None
+PATH lookup dotnet: None
+PATH lookup pwsh: None
+Inspected directory /opt/unreal-engine: exists=False
+Inspected directory /usr/local/UnrealEngine: exists=False
+Inspected directory /root/UnrealEngine: exists=False
+Mounted /mnt/data .uproject files: []
+Inspection scope is the listed paths, PATH and mounted delivery files; not every possible installation location.
+The supplied ZIP contains original source only; no actual vendor package APIs were mounted or tested.

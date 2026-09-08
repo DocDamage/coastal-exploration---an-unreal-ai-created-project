@@ -1,0 +1,182 @@
+{
+  "recorded_utc": "2026-09-06T02:52:56.396645+00:00",
+  "basis_archive": "Coastal_Exploration_M1_5_Source_Package(1).zip",
+  "basis_archive_sha256": "143d1f9f8328fec5a07b55d80e941123033f80cfbd405285e9f34529126b773c",
+  "plugin_version": "0.1.6-m1-player-options-source",
+  "counts": {
+    "added": 9,
+    "modified": 12,
+    "removed": 0,
+    "unchanged": 66
+  },
+  "added": [
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalLocalOptions.cpp",
+      "after_sha256": "11bf16c0516a1fe772d11bbe1d92c8b936b2e2a62455e2de277faa2cedd34b4b"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalLookInputComponent.cpp",
+      "after_sha256": "fba0a8f845e4966bf7e026e0c324d84d31473b0436fe118c92aa3d53786f730a"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIOptions.cpp",
+      "after_sha256": "22d1822d8dffccf23fe85a869c807ddf4383250ff412a70753956777d5171ef5"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/Tests/M1OptionsAutomationTests.cpp",
+      "after_sha256": "2484a6535827756d58cb4d6dcb9d3ec32d3e3d26b2cb3e23bc6ccbfce05e892f"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalLocalOptions.h",
+      "after_sha256": "f159a9108e56befe650616ac6beeafc8e8564cd878325fead526b4129ab41547"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalLookInputComponent.h",
+      "after_sha256": "df3953c21468a7367c5606adb7b8c06fb8210978ae20c63a9f59eb1c3877ec90"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/OptionsPersistence.h",
+      "after_sha256": "e471339f98f777a4cfe1f7fd9ee448a6a2493f4ab92dbcd5ae309e0c730d2041"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/OptionsSession.h",
+      "after_sha256": "6e7a4f038f4ad61a57e2faed4b812e07f9de3d55b5180ae09580b8eb68bfd7d6"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/PlayerOptionsRules.h",
+      "after_sha256": "3ea5cbea4a2ab5bc59e81511fe5da94f9a479d773e204468bb897dc2edef265f"
+    }
+  ],
+  "modified": [
+    {
+      "path": "Plugins/CoastalFoundation/CoastalFoundation.uplugin",
+      "before_sha256": "34dca77183560e77f671d1d6ad7f48a514f1600b8acc378df52e24bbd3bd92a4",
+      "after_sha256": "0f0c31c5cf734f88f21aec1054d80e8cfd2dd3a5070e4f974752455534c74754"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalHUDWidget.cpp",
+      "before_sha256": "a8037446d985065513333c4f83e8d0bd55cd67f863b4c97f9e08600e2c94041b",
+      "after_sha256": "95c28cb51299b362118a208b68658d21932a7fb831840e8ff7be488ec929bfa3"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalPanelInput.cpp",
+      "before_sha256": "5f6870bbbed4df126cd5909231d3f75c18ccfe16b4d6b91833ab39e8b5fded1c",
+      "after_sha256": "70e42018c101f06efa8967d8249f7e4ea3ca0f11b6b39eb00a06bf98f0b949ae"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalPanelWidget.cpp",
+      "before_sha256": "a002703425540a055eca11d3053b420784f0a1f5b0c909d64bba72be97b3877b",
+      "after_sha256": "f6562ae33e7c7c17e92fdcabca36fdac1d44fed61741ab1bd31eb35488054d53"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUICommands.cpp",
+      "before_sha256": "5e264bc8e3ecbb0a027d2e0c78cfb00c4e581fc9bc795abc248503f772c9d8cf",
+      "after_sha256": "9c62eb7a8d88cceaaa11d6b56624a9c79a84830c1ef329a2f790385b47a453f6"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIPresentation.cpp",
+      "before_sha256": "978f2eea662bcc98f4e2388a712af3f279040ce03540899e1e6198b6c5447c8e",
+      "after_sha256": "b039580f10038a68b495fd1775546b7a10882b7e4b728963689422c2c66682a1"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUISessionComponent.cpp",
+      "before_sha256": "d9f71b4acf9887f560f8847c45e7cc9afcbfbe9ad637da484c27760bd49950cd",
+      "after_sha256": "42da8e73504395672f3c4e62cfbd3ada4e68a08443049f9702f27b881a146951"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIStack.cpp",
+      "before_sha256": "c9b5f6e72b56618c5153882f5127aab874aaa0c11095f17282da1783bb5b7df0",
+      "after_sha256": "c225db529b4a070164a1cafd1e691bd8f9480fe18bd40dd2d6cb107f046d42d6"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalHUDWidget.h",
+      "before_sha256": "ca017fa2b766ef1a6d2b5d481541c0bb8d1df8f84364c78d40f6aee93a5bea16",
+      "after_sha256": "31f86e64274a74bc4613dc1ede207e4e8e53c5287be4ea4b81bbd4eded317c99"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalPanelWidget.h",
+      "before_sha256": "33ecf368601fb236f43085a3f00ae3a30f38b38e4469a36022c2331bd3d5a34c",
+      "after_sha256": "35e55e190ca782963d0dca0544347806938e413a6a9df629be089c218ccd4cb7"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalUISessionComponent.h",
+      "before_sha256": "689d700338f5056b3892870bef3077ceffb3058f735e6285d320633a63079340",
+      "after_sha256": "69c0ce1410503e9b54b8e272c04a7e474688c80c2a0ddd93a1d1a308fd0d9ed2"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/UIFlowRules.h",
+      "before_sha256": "eb38aa0d1664adceba1e2da8945c0555cb4c68df0223437b529f926138268550",
+      "after_sha256": "be87c95f5eea039b7090049bd8936b8f7722b62f8c03706445b0a876bddbdab8"
+    }
+  ],
+  "removed": [],
+  "unchanged_paths": [
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/CoastalFoundation.Build.cs",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalContractLibrary.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalFoundationModule.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalIntegrationLibrary.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInteractionBridge.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInteractionInput.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInteractionOffer.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInteractionRelayComponent.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInventoryAdapter.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInventoryView.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalMissionDirector.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalPlacementLibrary.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalPlayerRecoveryComponent.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalProviderAudit.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalRecoveryExecution.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalRecoveryInput.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSafetyVolume.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveCoordinator.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveOperations.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveRecovery.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveRestore.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveStorage.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSessionBootstrapComponent.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSnapshotValidation.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalStartupPreflight.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalStoryLibrary.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIInput.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIInventory.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUISaveCatalogue.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalWorldObject.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/FirstSignalComponent.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/Tests/FirstSignalAutomationTests.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/Tests/M1AutomationTests.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/Tests/M1InteractionAutomationTests.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/Tests/M1RecoveryAutomationTests.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/Tests/M1StartupAutomationTests.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/Tests/M1UIAutomationTests.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalCampaignSave.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalCampaignTypes.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalContractLibrary.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalFoundationTypes.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalIntegrationLibrary.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalIntegrationTypes.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInteractionBridge.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInteractionOffer.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInteractionRelayComponent.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInventoryAdapter.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInventoryView.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalMissionDirector.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalPlacementLibrary.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalPlayerRecoveryComponent.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalSafetyVolume.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalSaveCoordinator.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalSessionBootstrapComponent.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalStoryLibrary.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalWorldObject.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/BootstrapRules.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/CampaignRules.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/FirstSignalRules.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/InteractionRules.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/InventoryViewRules.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/RecoveryRules.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/SaveEnvelope.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/TestRoomRules.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/TransactionRules.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/FirstSignalComponent.h"
+  ],
+  "scope": "Content hash comparison against the actual supplied ZIP. No repository revision or engine compatibility claim."
+}

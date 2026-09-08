@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "requested_on": "2026-09-08",
+  "authority": "User authorized download/install of needed assets and explicitly confirmed playable combat; German Shepherd must be a trusty sidekick.",
+  "scope": [
+    "Swimming in every actual water area",
+    "Morbid animation gameplay",
+    "Atlantis Ruins and Modular SciFi Station acquisition/assembly",
+    "Destination quests and interactions",
+    "Richer dressing and scan/terrain edge blending",
+    "Acquire and integrate all 24 linked assets",
+    "Playable combat",
+    "German Shepherd companion"
+  ],
+  "preservation": [
+    "Retain First Signal and existing saves",
+    "Retain AGIS inventory authority",
+    "Integrate interaction packs through existing authority unless an explicit migration is designed",
+    "Keep purchased content in private local host/vendor storage"
+  ],
+  "assets": [
+    {
+      "request_number": 3,
+      "fab_id": "f036035a-9edf-407a-99d3-4ef97924ddac",
+      "url": "https://www.fab.com/listings/f036035a-9edf-407a-99d3-4ef97924ddac",
+      "name": "Free Animation Set - Zipline - Skydiving - Glide - Paraglider - Dash - Falling",
+      "intended_role": "Traversal animations",
+      "identity_status": "user_confirmed_public_fetch_unavailable",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 4,
+      "fab_id": "5be73b43-3f63-4b06-a016-5674c1fca727",
+      "url": "https://www.fab.com/listings/5be73b43-3f63-4b06-a016-5674c1fca727",
+      "name": "Advanced Lock On & Target Switching System",
+      "intended_role": "Combat targeting",
+      "identity_status": "user_confirmed_public_fetch_unavailable",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 5,
+      "fab_id": "0a73214a-3896-4342-bdbd-b0d0f86d94e0",
+      "url": "https://www.fab.com/listings/0a73214a-3896-4342-bdbd-b0d0f86d94e0",
+      "name": "Easy Custom Notifications - C++ notifications with custom widgets, fonts, audio",
+      "intended_role": "Player notifications through existing UI owner",
+      "identity_status": "user_confirmed_public_fetch_unavailable",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 6,
+      "fab_id": "9706ea78-9806-4a3b-969e-a10ca55fcfd6",
+      "url": "https://www.fab.com/listings/9706ea78-9806-4a3b-969e-a10ca55fcfd6",
+      "name": "PCGEx | Scheduling Policies",
+      "intended_role": "Procedural dressing scheduling",
+      "identity_status": "listing_verified",
+      "acquisition_status": "publisher_source_copied_to_ue58",
+      "integration_status": "runtime_generation_cleanup_regeneration_verified_ue58",
+      "source": "https://github.com/PCGEx/PCGExSchedulingPolicies",
+      "local_path": "F:/coastline/LocalVendor/PCGExSchedulingPolicies",
+      "revision": "54ac7cb6f7959db63e6aa84b10d3851761880b12",
+      "engine_version": "5.8.0",
+      "note": "Bounded six-instance north-trail graph uses real PCGEx sphere scheduling. Near generation, distance cleanup and deterministic regeneration passed; originals retained as editor-only authoring references."
+    },
+    {
+      "request_number": 7,
+      "fab_id": "0a897de8-58de-48f6-bc8a-cc343fdb5483",
+      "url": "https://www.fab.com/listings/0a897de8-58de-48f6-bc8a-cc343fdb5483",
+      "name": "Advanced Networked Shooter System (Core Plugin) V1.0",
+      "intended_role": "Playable combat",
+      "identity_status": "listing_verified",
+      "acquisition_status": "actual_fab_source_download_verified",
+      "integration_status": "staged_enabled_ue58_build_in_progress",
+      "local_path": "F:/coastline/LocalVendor/AdvancedShooterSystem/Staged/Advanced22548e075794V1",
+      "publisher_demo_url": "https://drive.google.com/file/d/1oa5yhfWPxVU25NdO4E7pbR7EQ2DHBYb5/view",
+      "engine_version": "5.8.0",
+      "note": "Actual Fab manifest payload: 123 files, 187311088 installed bytes, all size/SHA256 verified. Thirteen source files are present. Earlier binary-only result applies only to the separate public demo. Source-backed integration is in progress in an isolated Working copy; vendor not yet enabled in Host58."
+    },
+    {
+      "request_number": 8,
+      "fab_id": "aefcb699-9e01-4645-ac26-95472ce0f930",
+      "url": "https://www.fab.com/listings/aefcb699-9e01-4645-ac26-95472ce0f930",
+      "name": "Advanced C++ Health, Shield & DBNO Component (AAA Multiplayer)",
+      "intended_role": "Combat health and damage",
+      "identity_status": "listing_verified",
+      "acquisition_status": "publisher_demo_downloaded_binary_only_ue58",
+      "integration_status": "not_integrated",
+      "local_path": "F:/coastline/LocalVendor/AdvancedNetworkedShooter/ShooterDemo.zip",
+      "publisher_demo_url": "https://drive.google.com/file/d/1oa5yhfWPxVU25NdO4E7pbR7EQ2DHBYb5/view",
+      "engine_version": "5.8.0",
+      "note": "Publisher demo includes both plugin descriptors and UE5.8 binaries, without original C++ Source folders. Not enabled in UE5.7.4. Fab source/compatible package still required."
+    },
+    {
+      "request_number": 9,
+      "fab_id": "7ff75833-1c75-45c8-99d2-bf05646b81c4",
+      "url": "https://www.fab.com/listings/7ff75833-1c75-45c8-99d2-bf05646b81c4",
+      "name": "Advanced Interaction System (Offline & Multiplayer C++)",
+      "intended_role": "Inspect integration with existing Hyper authority",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 10,
+      "fab_id": "911e2f23-b689-4f7b-9dcb-3f0147cea2ba",
+      "url": "https://www.fab.com/listings/911e2f23-b689-4f7b-9dcb-3f0147cea2ba",
+      "name": "Procedural Wind",
+      "intended_role": "Environmental audio",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 11,
+      "fab_id": "2b11f781-970a-4c37-9ab2-90d16137555f",
+      "url": "https://www.fab.com/listings/2b11f781-970a-4c37-9ab2-90d16137555f",
+      "name": "Procedural Sea Waves",
+      "intended_role": "Coastal MetaSound audio (not water geometry)",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 12,
+      "fab_id": "98b91605-159b-4407-8f15-cdeeb46ecd99",
+      "url": "https://www.fab.com/listings/98b91605-159b-4407-8f15-cdeeb46ecd99",
+      "name": "Procedural Heartbeat",
+      "intended_role": "Combat feedback audio",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 13,
+      "fab_id": "84e0fd02-9c0a-468b-9c3b-f454d4326f4e",
+      "url": "https://www.fab.com/listings/84e0fd02-9c0a-468b-9c3b-f454d4326f4e",
+      "name": "Carpenter's Workshop Environment ( Workshop Prop Pack Carpenter Woodworking 3d )",
+      "intended_role": "Workshop destination dressing and repair interactions",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 14,
+      "fab_id": "b849a192-611b-42c4-b5b8-7f42c88ec842",
+      "url": "https://www.fab.com/listings/b849a192-611b-42c4-b5b8-7f42c88ec842",
+      "name": "Various Attitudes animations (Motion Cast - FREE01)",
+      "intended_role": "Character action animation",
+      "identity_status": "listing_verified",
+      "acquisition_status": "actual_local_vault_payload_available",
+      "integration_status": "not_integrated",
+      "local_path": "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\Untitled7d4c7ad8f6d9V2\\data\\Content\\Various_Attitudes_animations_Pack"
+    },
+    {
+      "request_number": 15,
+      "fab_id": "a14e583e-c9e7-48ad-8e08-0d5b6d427b34",
+      "url": "https://www.fab.com/listings/a14e583e-c9e7-48ad-8e08-0d5b6d427b34",
+      "name": "Multi-Sports Animations",
+      "intended_role": "Character action animation",
+      "identity_status": "listing_verified",
+      "acquisition_status": "actual_local_vault_payload_available",
+      "integration_status": "not_integrated",
+      "local_path": "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\MultiSpo60adf452aae5V1\\data\\Content\\MultiSportAnimations"
+    },
+    {
+      "request_number": 16,
+      "fab_id": "2829d871-ade0-483b-aa63-fa1ae85aa42b",
+      "url": "https://www.fab.com/listings/2829d871-ade0-483b-aa63-fa1ae85aa42b",
+      "name": "Handy Action Base",
+      "intended_role": "Inspect movement integration without competing input owners",
+      "identity_status": "listing_verified",
+      "acquisition_status": "actual_local_vault_payload_available",
+      "integration_status": "not_integrated",
+      "local_path": "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\HandyAct5fe97203e579V1\\data\\Content\\HandyActionBase"
+    },
+    {
+      "request_number": 17,
+      "fab_id": "17f62a8f-387b-48b0-9198-af7273dc3733",
+      "url": "https://www.fab.com/listings/17f62a8f-387b-48b0-9198-af7273dc3733",
+      "name": "Dynamic Rope",
+      "intended_role": "Rope interaction and traversal",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 18,
+      "fab_id": "1c2d0fea-7278-49f0-9559-3efef3076ac0",
+      "url": "https://www.fab.com/listings/1c2d0fea-7278-49f0-9559-3efef3076ac0",
+      "name": "Volumetric Super Storm",
+      "intended_role": "Weather presentation",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 19,
+      "fab_id": "5ffcabde-3356-4d75-b98e-580825f15e47",
+      "url": "https://www.fab.com/listings/5ffcabde-3356-4d75-b98e-580825f15e47",
+      "name": "German Shepherd 3D Dog Model",
+      "intended_role": "Trusty companion: follow, wait, regroup, safe recovery",
+      "identity_status": "listing_verified",
+      "acquisition_status": "vault_payload_imported_ue58",
+      "integration_status": "assets_imported_companion_behavior_pending",
+      "local_path": "F:/coastline/LocalHost58/CoastalExploration/Content/German_Shepherd_3D_Model",
+      "note": "27 real Unreal assets copied from local VaultCache and size-verified; not yet an active companion."
+    },
+    {
+      "request_number": 20,
+      "fab_id": "610dd0fd-8eda-4704-a1eb-19fe22d45a00",
+      "url": "https://www.fab.com/listings/610dd0fd-8eda-4704-a1eb-19fe22d45a00",
+      "name": "Auto Footsteps Utility",
+      "intended_role": "Footstep integration",
+      "identity_status": "listing_verified",
+      "acquisition_status": "actual_local_vault_payload_available",
+      "integration_status": "not_integrated",
+      "local_path": "C:\\ProgramData\\Epic\\EpicGamesLauncher\\VaultCache\\AutoFoot5d7090713df6V2\\data\\Content\\AutoFootsteps"
+    },
+    {
+      "request_number": 21,
+      "fab_id": "ad61ff8f-a190-481d-a04a-19061c07c0e8",
+      "url": "https://www.fab.com/listings/ad61ff8f-a190-481d-a04a-19061c07c0e8",
+      "name": "Door Interaction System",
+      "intended_role": "Door presentation through coherent world state",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 22,
+      "fab_id": "8700611f-e21e-4cfd-8c33-a0cfc38398a4",
+      "url": "https://www.fab.com/listings/8700611f-e21e-4cfd-8c33-a0cfc38398a4",
+      "name": "Lightweight Day and Night Manager",
+      "intended_role": "Day/night world lighting",
+      "identity_status": "listing_verified",
+      "acquisition_status": "source_copied_and_rebuilt_ue58",
+      "integration_status": "authored_live_clock_lighting_pause_resume_verified",
+      "local_path": "C:/Program Files/Epic Games/UE_5.7/Engine/Plugins/Marketplace/Lightweifafe9bd6710bV1",
+      "engine_version": "5.7.0",
+      "note": "One manager binds existing sun/fog. 48-minute cycle; time is not campaign-persistent."
+    },
+    {
+      "request_number": 23,
+      "fab_id": "879d4e43-5a9f-4d42-aafe-aca06b5584a5",
+      "url": "https://www.fab.com/listings/879d4e43-5a9f-4d42-aafe-aca06b5584a5",
+      "name": "Stylized Domes Shader",
+      "intended_role": "SciFi station force-field presentation",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 24,
+      "fab_id": "9319491d-0e91-422c-9b67-ad4bf6c01a02",
+      "url": "https://www.fab.com/listings/9319491d-0e91-422c-9b67-ad4bf6c01a02",
+      "name": "RamsterZ Free Anims Volume 1",
+      "intended_role": "Character action animation",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 25,
+      "fab_id": "68aca290-3b17-4acc-93f7-719d980f17f9",
+      "url": "https://www.fab.com/listings/68aca290-3b17-4acc-93f7-719d980f17f9",
+      "name": "Dynamic Falling & Rolling Animation Pack - Free Asset",
+      "intended_role": "Fall/roll presentation",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    },
+    {
+      "request_number": 26,
+      "fab_id": "95f5f297-aee7-4496-8c7d-e4e7ed53b45d",
+      "url": "https://www.fab.com/listings/95f5f297-aee7-4496-8c7d-e4e7ed53b45d",
+      "name": "Motifect Martial Arts Motion Pack",
+      "intended_role": "Playable melee animation",
+      "identity_status": "listing_verified",
+      "acquisition_status": "pending_fab_download",
+      "integration_status": "not_integrated"
+    }
+  ],
+  "acquisition_blockers": [
+    "CUA and Computer Use kernel initialization fail: failed to write kernel assets, path not found",
+    "Playwright cannot attach: extension missing",
+    "Three public listing requests return HTTP403",
+    "Authenticated Epic/Fab download route is not yet operational"
+  ],
+  "notes": [
+    "Listing capabilities do not establish local integration or engine compatibility.",
+    "No paid purchase has been made. Check ownership and concrete price before any paid transaction."
+  ]
+}

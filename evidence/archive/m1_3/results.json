@@ -1,0 +1,83 @@
+{
+  "section": "M1.3",
+  "plugin_version": "0.1.3-m1-startup-source",
+  "observed_utc": "2026-09-06T01:25:42.987163+00:00",
+  "source_only": true,
+  "commands": [
+    {
+      "command": [
+        "bash",
+        "tools/run_core_tests.sh"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "log": "evidence/gcc_core.txt"
+    },
+    {
+      "command": [
+        "bash",
+        "tools/run_core_tests.sh"
+      ],
+      "environment_overrides": {
+        "CXX": "clang++"
+      },
+      "exit_code": 0,
+      "log": "evidence/clang_core.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "log": "evidence/python_tests.txt"
+    },
+    {
+      "command": [
+        "bash",
+        "tools/run_sanitizers.sh"
+      ],
+      "environment_overrides": {},
+      "exit_code": 0,
+      "log": "evidence/sanitizers.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/verify_package.py"
+      ],
+      "environment_overrides": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 0,
+      "log": "evidence/structural_checks.txt"
+    }
+  ],
+  "unreal_editor_automation_tests_supplied": 11,
+  "unreal_editor_automation_tests_executed": 0,
+  "unrun": [
+    "UnrealHeaderTool",
+    "UnrealBuildTool",
+    "Windows host compilation",
+    "native bootstrap",
+    "real AGIS transactions/views",
+    "Hyper bindings",
+    "editor map audit/generation",
+    "controller gameplay",
+    "Windows packaging/launch/performance"
+  ],
+  "cpp_assertions_per_compiler": 2234,
+  "new_cpp_assertions": 287,
+  "python_test_cases": 31,
+  "structural_checks": 519,
+  "structural_failures": 0,
+  "evidence_finalized_utc": "2026-09-06T01:25:57.026976+00:00"
+}

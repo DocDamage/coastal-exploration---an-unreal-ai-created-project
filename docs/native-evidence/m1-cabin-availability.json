@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-07",
+  "requirement": "Foundation section14 M1: verify candidate engine against cabin separately",
+  "asset": "Nordic Fishing Hut - Coastal Lakeside Cabin [Interior + Exterior]",
+  "listing": "https://www.fab.com/listings/e56e7e02-01b8-4a15-a108-aa5d76ea0e10",
+  "local_search": "Resolved: installed in external LocalVendor/NordicHut. Workspace NordicHut junction exposes the same staging project to Launcher.",
+  "ownership": "User confirmed Fab library; authenticated Fab page displayed Saved in My Library and library search returned the exact listing",
+  "download_ui": "Epic Games Launcher authenticated Fab Library: exact Nordic Fishing Hut asset, Add To Project. Launcher InstallDirectory C:/dev/Astra Project/NordicHut; ProcessSuccess TRUE at 2026-09-07 04:16:56 UTC.",
+  "import_test": "not_run",
+  "package_test": "not_run",
+  "next": "User explicitly deferred testing until the game is more fully built. Cabin compatibility and physical-device play remain unverified, not closeout blockers under revised scope.",
+  "installed_content_files": 2414,
+  "installed_content_bytes": 1993587656,
+  "staging_engine_association": "5.7"
+}

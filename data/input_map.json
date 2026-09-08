@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "design_specification_not_unreal_input_assets",
+  "actions": [
+    {
+      "id": "IA_Move",
+      "type": "Axis2D",
+      "keyboard_mouse": "WASD",
+      "gamepad": "Left stick",
+      "context": "Exploration"
+    },
+    {
+      "id": "IA_Look",
+      "type": "Axis2D",
+      "keyboard_mouse": "Mouse",
+      "gamepad": "Right stick",
+      "context": "Exploration"
+    },
+    {
+      "id": "IA_Jump",
+      "type": "Bool",
+      "keyboard_mouse": "Space",
+      "gamepad": "Face bottom / A",
+      "context": "Exploration"
+    },
+    {
+      "id": "IA_Sprint",
+      "type": "Bool",
+      "keyboard_mouse": "Left Shift",
+      "gamepad": "Left stick click",
+      "context": "Exploration"
+    },
+    {
+      "id": "IA_Interact",
+      "type": "Bool",
+      "keyboard_mouse": "E",
+      "gamepad": "Face left / X",
+      "context": "Exploration"
+    },
+    {
+      "id": "IA_Inventory",
+      "type": "Bool",
+      "keyboard_mouse": "Tab",
+      "gamepad": "Face top / Y",
+      "context": "Exploration"
+    },
+    {
+      "id": "IA_Journal",
+      "type": "Bool",
+      "keyboard_mouse": "J",
+      "gamepad": "View / Select",
+      "context": "Exploration"
+    },
+    {
+      "id": "IA_Pause",
+      "type": "Bool",
+      "keyboard_mouse": "Escape",
+      "gamepad": "Menu / Start",
+      "context": "Always"
+    },
+    {
+      "id": "IA_UIConfirm",
+      "type": "Bool",
+      "keyboard_mouse": "Enter / Left click",
+      "gamepad": "Face bottom / A",
+      "context": "UI"
+    },
+    {
+      "id": "IA_UICancel",
+      "type": "Bool",
+      "keyboard_mouse": "Escape",
+      "gamepad": "Face right / B",
+      "context": "UI"
+    }
+  ],
+  "rule": "Consume UI confirm/cancel once; remove or block world interaction mappings while UI owns focus.",
+  "runtime_implementation_notes": {
+    "m1_2": "Menu actions are generated at runtime by CoastalUISessionComponent.",
+    "m1_4": "Optional NativeEnhancedInput relay creates E / Face-left interaction action at runtime. VendorEvents mode creates no mapping. Movement/jump/sprint remain host-owned.",
+    "asset_creation": "No input .uasset files are supplied.",
+    "m1_7": "Optional CoastalSprintComponent consumes the actual host aggregate IA_Sprint state and owns only MaxWalkSpeed. No input action or context is created; Left Shift / left-stick click remain design defaults, not verified bindings."
+  }
+}

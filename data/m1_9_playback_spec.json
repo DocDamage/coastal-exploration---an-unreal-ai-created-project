@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "section": "M1.9 ambience and transcript audio playback",
+  "runtime_configuration": "Native C++ plus editor-authored actual sound references; JSON is specification, not a runtime asset loader.",
+  "owner": "one optional local PlayerController CoastalAudioPlaybackComponent",
+  "default_opt_in": false,
+  "requires_ready_audio_options": true,
+  "initialization": "Existing native UI after local options/mix and widgets; initialization submits no Play.",
+  "ambience": {
+    "source_path": null,
+    "local_2d_bed": true,
+    "requires_loop": true,
+    "requires_play_when_silent": true,
+    "starts_per_session_epoch": 1,
+    "start_under_initial_menu": false,
+    "pause_under_menus_and_recovery": true,
+    "resume_without_replay": true,
+    "zones_or_crossfades": false
+  },
+  "radio": {
+    "source_path": null,
+    "requires_loop": false,
+    "requires_play_when_silent": true,
+    "duration_min_exclusive_seconds": 0,
+    "duration_max_seconds": 900,
+    "start_after_presented_body": true,
+    "start_attempts_per_ui_ticket": 1,
+    "plays_in_paused_transcript_modal": true,
+    "stop_on_close_acknowledge_session_change": true,
+    "audio_finished_completes_mission": false,
+    "journal_autoplays_voice": false
+  },
+  "lifecycle": {
+    "private_transient_sources": true,
+    "auto_activate": false,
+    "auto_destroy": false,
+    "multiple_instances_per_component": false,
+    "source_gain": 1,
+    "source_pitch": 1,
+    "master_applied_by": "retained mix only",
+    "volume_edits_restart_audio": false,
+    "retry_from_is_playing": false,
+    "audio_finished_delegate_bound": false,
+    "stop_sources_before_mix_pop": true,
+    "automatic_device_rebind": false,
+    "synchronous_device_acknowledgement": false
+  },
+  "preservation": {
+    "campaign_schema_changed": false,
+    "preferences_schema_changed": false,
+    "preference_read_schemas": [
+      1,
+      2,
+      3
+    ],
+    "preference_write_schema": 3,
+    "new_settings_rows": 0,
+    "mission_progress_independent_of_audio": true
+  },
+  "content": {
+    "audio_assets_included": false,
+    "vendor_content_included": false,
+    "new_map_included": false,
+    "footsteps_implemented": false,
+    "spatial_radio_implemented": false,
+    "music_implemented": false
+  }
+}

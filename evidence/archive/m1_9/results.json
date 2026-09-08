@@ -1,0 +1,43 @@
+{
+  "recorded_utc": "2026-09-06T17:21:28.378538+00:00",
+  "plugin_version": "0.1.9-m1-audio-playback-source",
+  "source_basis_archive_sha256": "804239da210916336f96974b408c4ef30a5ec614d74e6bf7c5a420a13c0d1865",
+  "baseline_manifest_files_verified": 275,
+  "standalone_cpp": {
+    "suites": 17,
+    "assertions_per_compiler": 7389,
+    "retained_assertions": 7278,
+    "new_playback_assertions": 111,
+    "gcc": "passed",
+    "clang": "passed",
+    "clang_asan_ubsan": "passed",
+    "scope": "Shared engine-independent headers only; no native Unreal/audio/vendor execution."
+  },
+  "python": {
+    "test_cases": 52,
+    "result": "passed",
+    "scope": "Retained tooling/filesystem fixtures; not host/native tests."
+  },
+  "structural": {
+    "result": "passed",
+    "checks": 1409,
+    "failures": 0,
+    "scope": "Source/data/document consistency; not native compilation.",
+    "evidence": "structural_checks_execution.json"
+  },
+  "supplied_unreal_tests": 34,
+  "new_native_acceptance_cases": 34,
+  "unreal_build": "not_run",
+  "unreal_automation": "not_run",
+  "actual_audio_playback": "not_run",
+  "actual_vendor_integration": "not_run",
+  "native_rendering_controller_tests": "not_run",
+  "windows_gameplay": "not_run",
+  "source_delta_counts": {
+    "added": 6,
+    "modified": 6,
+    "removed": 0
+  },
+  "unchanged_plugin_files": 89,
+  "unchanged_prior_data_files": 27
+}

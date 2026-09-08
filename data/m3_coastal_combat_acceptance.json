@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "status": "compiled_in_isolated_ue58_host_paused_before_native_and_live_combat_acceptance",
+  "scope": "One standalone dry-land Industrial Harbour encounter using the real AdvancedShooterSystem fire/reload/damage path.",
+  "ownership": {
+    "module": "CoastalExpansion58 is disabled by default and must only be enabled in the UE5.8 host.",
+    "input": "One runtime Enhanced Input component at priority 5; existing menu, recovery and interaction owners retain higher priorities.",
+    "inventory": "Weapon clip and reserve are transient encounter state. No AGIS items, pickup path, save record or inventory shadow is created.",
+    "lifecycle": "Encounter exit, campaign epoch change, defeat/recovery, player replacement and EndPlay unequip and destroy the transient weapon.",
+    "ui": "One project-owned noninteractive overlay consumes only authoritative component state. Vendor demo widgets are not instantiated."
+  },
+  "native_tests": [
+    "Coastal.M3.Combat.GatesRejectUnsafeActions",
+    "Coastal.M3.Combat.AuthoritativeAmmoAndReload",
+    "Coastal.M3.Combat.ShieldHealthAndDefeat",
+    "Coastal.M3.Combat.CampaignEpochResetsTransientState"
+  ],
+  "live_recipe": "tools/unreal/check_coastal_combat.py",
+  "live_cases": [
+    "A clear shot applies point damage and consumes exactly one authoritative round.",
+    "A saved Visibility collision wall blocks target damage.",
+    "Pause rejects fire without ammo mutation.",
+    "Reload publishes only actual clip/reserve values after completion.",
+    "An in-range sentry does not attack off-screen, then attacks when visibly rendered through clear line of sight.",
+    "Lethal damage enters the existing recovery flow and resets transient health/shield.",
+    "Campaign reload destroys the prior epoch weapon object."
+  ],
+  "sentry_policy": "A sentry attacks only inside its bounded home radius, inside range, with Visibility line of sight, while recently rendered and while the player combat gate accepts hostile damage.",
+  "presentation": "The authored weapon and each accepted shot use real StaticMesh components. Tracers have collision disabled and a bounded 0.08 second lifespan.",
+  "not_claimed": [
+    "No editor authoring or PIE case has run.",
+    "No physical-device aiming, Windows package, multiplayer or collectible-ammo support is claimed.",
+    "No close-range martial attack is included because the staged shooter payload supplies no compatible melee animation or API."
+  ],
+  "open_review_findings": [
+    "Project tracer uses an unspread ray while vendor damage uses spread; authoritative callback integration was interrupted by user pause.",
+    "Wrapper shot cooldown uses game time while vendor rate limiting uses real time; time-dilation mismatch remains.",
+    "Updated controller input probe and live harness are compiled/prepared but live controls acceptance has not run."
+  ]
+}

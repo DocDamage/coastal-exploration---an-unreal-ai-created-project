@@ -1,0 +1,59 @@
+{
+  "date": "2026-09-06",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 packaged Development Win64, D3D11, 1280x720 Windowed, integrated systems room, audio enabled",
+  "implementation": "Development-only options_save, options_session and options_reload probes operate enabled, presented native UI commands and inspect the existing single preference owner. No production preference logic or schema changed.",
+  "package_log": "m1-options-persistence-package.log",
+  "selected_values": {
+    "mouse_percent": 125,
+    "stick_percent": 125,
+    "field_of_view": 90,
+    "text_percent": 150,
+    "invert_y": true,
+    "sprint_toggle": true,
+    "master_percent": 95,
+    "ambience_percent": 90,
+    "effects_percent": 85,
+    "radio_percent": 80
+  },
+  "runs": [
+    {
+      "log": "m1-options-save.log",
+      "exit_code": 0,
+      "result": "Ten fields edited from defaults through menu commands. Before Apply, draft leaves live profile, camera FOV and disk unchanged. Explicit Apply/save reports verified readback; selected schema-3 record matches all ten live fields at generation 1."
+    },
+    {
+      "log": "m1-options-session-relaunch.log",
+      "exit_code": 0,
+      "result": "Fresh process loads all ten custom values, observes actual camera FOV 90 and UI font-size calculation 36 for base 24. Both preference slots match saved evidence bytes. Session-only defaults then apply all ten default fields and actual FOV 85 while both disk slots remain unchanged."
+    },
+    {
+      "log": "m1-options-final-relaunch.log",
+      "exit_code": 0,
+      "result": "Another fresh process loads the original saved custom values at generation 1 with byte-identical preference slots, proving session-only defaults did not persist. All runs complete UI quit."
+    }
+  ],
+  "campaign_isolation": {
+    "before": "m1-options-persistence-before.json",
+    "after": "m1-options-persistence-after.json",
+    "unchanged_campaign_files": 58,
+    "new_files": [
+      "CoastalLocalOptions_v1_A.sav"
+    ],
+    "initial_local_options": "Both absent; first verified explicit save writes A only"
+  },
+  "limitations": [
+    "Audio owner readiness and saved volume values do not prove audible output or correct acoustic gain.",
+    "FOV and font-size values were inspected programmatically; this does not replace visual or physical-device acceptance.",
+    "Session options through New/Continue/recovery and preference write/corruption/compatibility failures remain separate acceptance.",
+    "Raw files, logs, saves and packaged assets remain external local evidence."
+  ],
+  "native_regression": {
+    "report": "m1-options-native-report/index.json",
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0,
+    "inProcess": 0
+  }
+}

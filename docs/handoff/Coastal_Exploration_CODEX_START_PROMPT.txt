@@ -1,0 +1,29 @@
+Take over Coastal Exploration / First Signal using this project repository:
+https://github.com/DocDamage/coastal-exploration---an-unreal-ai-created-project
+
+Use the supplied GitHub transfer pack and cumulative M1.10 source archive. Read Coastal_Exploration_CODEX_HANDOFF.md and the source package's existing AGENTS.md before changing anything.
+
+FIRST: INSPECT AND IMPORT THE BASELINE
+The repository was inspected on September 6, 2026: public, default branch main, and README.md only at the root. Recheck its current state; preserve any newer files, commits, branches, local host work, and uncommitted changes.
+
+Use an existing matching checkout or clone this exact repository. Work on one focused branch, suggested name codex/m1-native-integration. Do not create a competing master branch, reset dirty work, force-push, or automatically merge to main. Prepare and review changes locally; push/open a pull request only when I request publication.
+
+Verify Coastal_Exploration_M1_10_Source_Package.zip against the handoff checksum and its internal manifest, then extract it to a temporary directory. If the repository still has only its introductory README, import the contents of Coastal_Exploration_M1_10 into the repository root as editable files, keeping Plugins, docs, data, tests, and tools together. Do not leave the implementation only inside a ZIP. Merge README content and preserve the existing project AGENTS.md rather than generating generic replacements. Keep historical source evidence clearly distinguished from new results. Do not overlay older milestone ZIPs or overwrite an existing Unreal host.
+
+THIS REPOSITORY IS PUBLIC
+Keep purchased Fab/Leartes/AGIS/Hyper packages, vendor source, raw paid assets, credentials, saves, generated build/cache files, and private machine details out of public commits. Inspect actual vendor paths and extend ignore rules before staging. Do not blindly ignore all Content or all Unreal asset files; distinguish original shareable project content from restricted dependencies. Review the staged diff and file list before committing, and review history before any authorized push. Do not change visibility or select a license without my direction.
+
+THEN: COMPLETE REAL M1 INTEGRATION
+Inspect the local Unreal host, installed engine, compatible Windows toolchain, and actual AGIS/Hyper packages. Report remaining blockers and a short ordered plan, then implement the first nonblocked task in the same session. Do not stop at repository setup or a plan.
+
+Preserve third-person, single-player, Windows-first scope; AGIS as the sole inventory authority; Hyper as focus/target/prompt authority; the existing native UI and single bootstrap; and current mission, stable IDs, save/receipt contracts, and player preferences. Inspect real vendor APIs. No mock-success adapters, duplicate systems, invented binary assets, or unrelated source-only features.
+
+Fix the native build, implement actual adapters/input wiring, configure the systems room through Unreal, and package and launch Windows when the tools are available. The acceptance loop is:
+New -> collect both parts -> storage round-trip -> repair radio -> explicit transcript acknowledgement -> safe return -> verified save -> quit/relaunch -> Continue.
+Inventory, world state, receipts, and mission progress must stay coherent. Test partial progress, repeated interactions, full containers, failed saves/loads, and recovery. Verify controls/audio preferences and display persistence separately.
+
+Rerun available source checks. Run all 38 supplied Unreal automation tests and relevant real-host acceptance cases when possible. Historical standalone passes are not native build or Windows gameplay evidence. Mark unexecuted tests not_run and record genuine logs and outcomes.
+
+When tools or dependencies are missing, identify exactly what is absent and what it blocks. Continue safe independent work, but do not replace missing integration with a fake provider or unrelated new features. Report repository changes/branch/commit/push status, tests actually executed, native build, real vendor integration, Windows gameplay, and remaining blockers separately.
+
+Do not start M2 coast assembly until the actual packaged M1 gate passes. Begin inspection now, then implement.

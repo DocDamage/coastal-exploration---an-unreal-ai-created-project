@@ -1,0 +1,68 @@
+{
+  "source_basis_archive_sha256": "804239da210916336f96974b408c4ef30a5ec614d74e6bf7c5a420a13c0d1865",
+  "added": [
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalAudioPlaybackComponent.cpp",
+      "after_sha256": "7575fb8d23a272930b86e14d70f3c5eaf8da72c41918abe3b3d24aecd1b127a2"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalAudioPlaybackSources.cpp",
+      "after_sha256": "44d7e9b8d611792e61a78c974034a933d51da738259119f8e187023d645d2af4"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIAudio.cpp",
+      "after_sha256": "d5766d9e0d51622af2f39262d4c6471c4ef3d93d670bdf68c164395684d65782"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/Tests/M1AudioPlaybackAutomationTests.cpp",
+      "after_sha256": "f88ba316bb263cacdd11cdacb03f1ab901762fc49c983d8fddde1e9b8253006c"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalAudioPlaybackComponent.h",
+      "after_sha256": "02bb4d4221e7240507f92d66af33cd94a89aac70d9d42830c7d778d034881de3"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/AudioPlaybackRules.h",
+      "after_sha256": "81857929174dc7bca159dcf6703b906bc2228c744d1245d8f41b5b563f5c4633"
+    }
+  ],
+  "modified": [
+    {
+      "path": "Plugins/CoastalFoundation/CoastalFoundation.uplugin",
+      "before_sha256": "93ab9202ff5284d60397d9271539fc6ae7337c368970c4ab857eb6e99755817e",
+      "after_sha256": "713978b6c9160f9b60f8034b5c465f2b39921a7ea95b5b62b338185cfb402b6c"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalAudioOptionsComponent.cpp",
+      "before_sha256": "a026ce6b1f6f6d48cb325009728f21c5a2590262e4a33fe750eeadc214013274",
+      "after_sha256": "4b05e98f6180ed1d7040f65647b37c40a1deb160550e46c51616f94d83bddeea"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUISessionComponent.cpp",
+      "before_sha256": "d07bde43aef7f16b052dade35ce3432d367dcb1415e9a3029b3e7750e1c8142d",
+      "after_sha256": "662a00ab19a422d95f183a71ada44533d27e9bb15b4ead12e05b15766be58791"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIStack.cpp",
+      "before_sha256": "c225db529b4a070164a1cafd1e691bd8f9480fe18bd40dd2d6cb107f046d42d6",
+      "after_sha256": "81ff2d5c8178772d05207ffb0a1e89421c871653b700bdfd8ff8e0bb8ba8cc60"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalAudioOptionsComponent.h",
+      "before_sha256": "cc92c56e24565daa7631b71207373128259192b3d012f7eea306d0536fbd9ca6",
+      "after_sha256": "ebc95b11825750c29c8daf3c0040be6c933c0ab69c90fa136045352ebab8f62b"
+    },
+    {
+      "path": "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalUISessionComponent.h",
+      "before_sha256": "79c49089fb9184bdd8863e75640a1d7a05518412d7474f10a8f0bf6b450db461",
+      "after_sha256": "564a284c2bde18663372b0cd71d63d57f6077070c11afb98bdc5cb70fccc8896"
+    }
+  ],
+  "removed": [],
+  "counts": {
+    "added": 6,
+    "modified": 6,
+    "removed": 0
+  },
+  "comparison": "Actual supplied M1.8 ZIP versus current plugin bytes; no repository revision inferred."
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "packaged_core_loop_passed_full_acceptance_pending",
+  "engine_tested": "Unreal Engine 5.7.4",
+  "host_project_path": "../LocalHost/CoastalExploration/CoastalExploration.uproject",
+  "items": [
+    {
+      "role": "AGIS owner class",
+      "actual_symbol_or_path": "/Game/INVENTORY/Core/InventoryComponents/Inventory__Main.Inventory__Main_C",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "AGIS version",
+      "actual_symbol_or_path": "Installed project descriptor 5.8; inspected core assets load/compile in UE 5.7.4; provider agis-blueprint-20260906.codec1 and codec2",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "AGIS item definition battery",
+      "actual_symbol_or_path": "CDT_Items runtime parent: item.radio_battery (original Coastal row, 1x2, nonstackable)",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "AGIS item definition fuse",
+      "actual_symbol_or_path": "CDT_Items runtime parent: item.marine_fuse (original Coastal row, 1x1, nonstackable)",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "AGIS atomic insertion",
+      "actual_symbol_or_path": "UCoastalAGISAdapter: Find Space For Item Stack + isolated real AGIS reconstruction + validated native swap",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "AGIS atomic consumption",
+      "actual_symbol_or_path": "UCoastalAGISAdapter::TryCommitRequirements; staged real AGIS replacement, canonical repair receipt",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "AGIS atomic transfer",
+      "actual_symbol_or_path": "UCoastalAGISAdapter::TryTransfer; real AGIS destination fit, stable instance ID and operation receipt",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "AGIS export/import codec",
+      "actual_symbol_or_path": "UCoastalAGISAdapter: codec1 preserves two-part snapshots; codec2 adds distinct postcard instances UID 3..74 in the same 6x4 and 8x6 grids, with campaign/placement/receipt validation",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "AGIS item definition postcard",
+      "actual_symbol_or_path": "CDT_Items runtime parent: item.old_postcard (original Coastal row, 1x1, nonstackable); distinct reserved world.test.postcard.001 through .072 pickup instances in the capacity fixture",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "AGIS critical-item UI protection",
+      "actual_symbol_or_path": "Original rows have no drop/use actions; native storage permits only validated round-trip transfer",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "Hyper focus/action interface",
+      "actual_symbol_or_path": "/Game/Hyper/Interaction/Blueprints/AC_CH_Interact_Base; BPI_CanInteract and BPI_Interact; real Can Interact Trace",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "Hyper installed version",
+      "actual_symbol_or_path": "InteractionSystem_5.7.zip (owned Hyper distribution; SHA-256 recorded in integration docs)",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "Third Person GameMode",
+      "actual_symbol_or_path": "/Game/Coastal/Integration/BP_CoastalGameMode.BP_CoastalGameMode_C",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "Player character",
+      "actual_symbol_or_path": "/Game/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.BP_ThirdPersonCharacter_C",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "Storage widget",
+      "actual_symbol_or_path": "UCoastalPanelWidget / UCoastalUISessionComponent (real AGIS views)",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "Transcript widget",
+      "actual_symbol_or_path": "UCoastalPanelWidget / UCoastalUISessionComponent (explicit acknowledgement ticket)",
+      "status": "inspected_and_bound"
+    },
+    {
+      "role": "Development start/save/continue widget",
+      "actual_symbol_or_path": "BP_CoastalPlayerController with UCoastalHostSession and existing single session bootstrap",
+      "status": "inspected_and_bound"
+    }
+  ],
+  "source_implemented": [
+    "campaign coordinator",
+    "native stable-ID proxies",
+    "interaction guard/bridge",
+    "save envelope and validation",
+    "test room editor recipe",
+    "actual AGIS adapter",
+    "actual Hyper wrappers and focus forwarding",
+    "native Enhanced Input interaction relay",
+    "development campaign acceptance probe"
+  ],
+  "engine_compiled": true,
+  "vendor_integrated": true,
+  "windows_packaged": true,
+  "packaged_core_loop_passed": true,
+  "full_m1_gate_passed": false
+}

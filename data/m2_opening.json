@@ -1,0 +1,17 @@
+{
+  "map_id": "level.first_signal",
+  "map_path": "/Game/Coastal/Maps/L_FirstSignal",
+  "units": "centimeters",
+  "main_path": [[0,0,300],[1000,2600,350],[2700,4400,440],[4500,4000,470],[5600,2000,470],[7000,2800,490],[7800,5000,510],[10000,4700,430],[11400,3000,320],[12500,1500,250]],
+  "overlook_path": [[5600,2000,470],[5900,4300,680],[6800,6500,920],[7600,8200,1150]],
+  "path_width_cm": 360,
+  "world_bounds": [-5500,18500,-7000,13500],
+  "areas": {"cabin":[0,0,300],"dock":[12500,1500,250],"overlook":[7600,8200,1150]},
+  "persistent_ids": {
+    "radio":"world.test.radio", "storage":"world.test.storage", "door":"world.test.door",
+    "battery_supply_box":"world.test.battery", "fuse_supply_box":"world.test.fuse",
+    "maintenance_note":"world.test.note", "overlook_postcard":"world.test.postcard"
+  },
+  "persistence_note":"Retain the existing seven logical IDs and real AGIS receipt identities. The distinct level.first_signal map identity prevents M1 saves loading into M2. Each supply box grants exactly one item and remains after collection.",
+  "testing":"Gameplay acceptance deferred by user; generated layout distances are design measurements, not a timed physical playthrough."
+}

@@ -1,0 +1,169 @@
+{
+  "reportCreatedOn": "2026.09.06-20.24.59",
+  "succeeded": 38,
+  "succeededWithWarnings": 1,
+  "failed": 0,
+  "notRun": 0,
+  "totalDuration": 3.6158640384674072,
+  "engine": "5.7.4",
+  "mode": "NullRHI editor automation",
+  "tests": [
+    {
+      "name": "Coastal.FirstSignal.DefaultAdapterFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.FirstSignal.SnapshotValidation",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1.ProviderFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1.SaveMemoryRoundTrip",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1AudioOptions.CurrentCodec",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1AudioOptions.GainRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1AudioOptions.RoutingAndLifecycleRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1AudioOptions.UnboundFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1AudioPlayback.PresentationRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1AudioPlayback.RoutingReleaseReentry",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1AudioPlayback.SourceRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1AudioPlayback.UnboundFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Display.CatalogueRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Display.DeadlineRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Display.ModalRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Display.UnboundFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Interaction.BridgeSameFrameGuard",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Interaction.InvalidOwnerFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Interaction.ReadOnlyOfferFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Interaction.SessionAndFocusRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Options.ModalAndPresentationRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Options.PreferenceCodec",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Options.UnboundConsumersFailClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Recovery.ExclusiveCampaignGate",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Recovery.SettleAndSessionRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Recovery.SharedSafetyGeometry",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Recovery.UnboundOwnerFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Sprint.OptionCodec",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Sprint.SpeedOwnershipRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Sprint.TransitionRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Sprint.UnboundFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Startup.InvalidOwnerFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Startup.LifecycleRules",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Startup.ProviderAuditFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1Startup.RoomManifest",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1UI.FlowPermissions",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1UI.ProviderViewFailsClosed",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.M1UI.ViewValidation",
+      "state": "Success"
+    },
+    {
+      "name": "Coastal.Vendor.AGIS.Transactions",
+      "state": "Success"
+    }
+  ],
+  "warning_scope": "Real AGIS test loads vendor demo definitions containing 24 missing weapon attachment GameplayTag warnings; original 38 tests pass without warnings."
+}

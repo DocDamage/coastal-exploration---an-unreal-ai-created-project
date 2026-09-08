@@ -1,0 +1,51 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "reference_case": "ACCEPTANCE_TESTS.md M1-09",
+  "package_log": "m1-campaign-ambiguous-package.log",
+  "runtime_results": [
+    {
+      "mode": "campaign_ambiguous",
+      "passed": true,
+      "log": "m1-campaign-ambiguous-runtime.log"
+    },
+    {
+      "mode": "campaign_ambiguous_reload",
+      "passed": true,
+      "log": "m1-campaign-ambiguous-reload-runtime.log"
+    }
+  ],
+  "setup": "UE 5.7.4 Windows Development package, actual AGIS and Hyper, disposable coastal_test_campaign_ambiguous. Start and pickup establish a real partial campaign.",
+  "fault_scope": "WITH_DEV_AUTOMATION_TESTS only; explicit campaign_ambiguous mode, CoastalCampaignWriteAfterFailure flag, coastal_test_ save-set and an arm marker created only after a verified baseline. Actual complete platform write succeeds, then WriteVerified deliberately returns false before read-back. Probe immediately removes arm marker. Fresh process has no fault flag.",
+  "verified": [
+    "Baseline live generation4, actual carried battery and one receipt.",
+    "Exactly one complete platform write (generation5, slotA) followed by injected DiskFailure; live generation remains4 and exactly one disk slot changes.",
+    "Next SaveNow returns InvalidSnapshot with newer-disk-generation notice; no file, provider-payload, receipt or generation changes.",
+    "Fresh Continue loads generation5 of campaign2082C7194F12253ADABC409F0F814A0F, exact actual AGIS payload, one carried battery and one receipt; leaves both files unchanged.",
+    "After validated reload, a normal SaveNow succeeds and verifies generation6.",
+    "Both processes complete normal Pause/Quit/exit_without_save UI flow; arm marker absent afterward."
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_sha256": {
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalSaveStorage.cpp": "742abaca8d6c8f29a0ce5000be9a1c973b45b83c9b6965adff2f9c426159d87d",
+    "Plugins/CoastalVendorIntegration/Source/CoastalVendorIntegration/Private/CoastalCampaignWriteProbe.cpp": "f255b75ab2048abf944b98df8e678787724a3e6317d984be6e7d2ae816d994ee",
+    "Plugins/CoastalVendorIntegration/Source/CoastalVendorIntegration/Private/CoastalSaveProbe.cpp": "003e9e2991b7b3042fc86c0896d03fdc3cd330971aad43ccd4f0e854678fd8ee",
+    "Plugins/CoastalVendorIntegration/Source/CoastalVendorIntegration/Private/CoastalSaveFaultProbe.cpp": "143e7683df401c2c2ec87acf60cf5b5435245e90159cf9a2924ac6b61e324e55"
+  },
+  "raw_log_sha256": {
+    "m1-campaign-ambiguous-runtime.log": "5f0061580c5fc51cb691d3b42f531f71081e118fc351404cd5eb5b6c04331147",
+    "m1-campaign-ambiguous-reload-runtime.log": "cd6227974339c4b45b9632a9bfb68f68357a35c0f2cb5b485f6c519ac894d499",
+    "m1-campaign-ambiguous-package.log": "069200d90b5719f163de912f19aa91a7a035ef8fb2f570b5b917c7ab4d2c850f",
+    "m1-campaign-ambiguous-native.log": "3f55c3a615af50e9471a5702d24d9621b9b5524e52c1cad720520b883a27dd68"
+  },
+  "limits": [
+    "Controlled failure-after-write injection is not a physical power-loss or disk-full test.",
+    "This closes the explicit newer-valid-generation retry invariant; it does not close every campaign IO/compatibility case.",
+    "No inventory authority replacement or fabricated provider success."
+  ]
+}

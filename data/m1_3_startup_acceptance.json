@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "section": "M1.3",
+  "status": "manual_engine_acceptance_not_run",
+  "tests": [
+    {
+      "id": "startup.valid",
+      "procedure": "Start from a clean test room with the actual ready adapter, dry character and exactly one of each owner.",
+      "expected": "Started opens the native session menu; no campaign is created and no save file is written until the player selects New or Continue.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.no_provider",
+      "procedure": "Supply null, a base adapter, and then an unready real adapter.",
+      "expected": "Blocked with a specific diagnostic; no fake inventory, save, receipt or hidden pickup.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.bad_owner",
+      "procedure": "Call before possession, from the wrong actor, and from an unregistered bootstrap.",
+      "expected": "Blocked before any real provider method is called.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.duplicate_owners",
+      "procedure": "Duplicate the UI, interaction bridge, bootstrap, controller or director component.",
+      "expected": "Specific ownership error; no selection of an arbitrary duplicate.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.other_world",
+      "procedure": "Supply an editor/class-default or other-world director/provider to the play-world component.",
+      "expected": "Blocked before provider reads or binding.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.network",
+      "procedure": "Run a networked PIE session.",
+      "expected": "Blocked; no implied co-op support.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.legacy_mixed",
+      "procedure": "Execute a legacy Configure or InitializeUI call before the new startup entry point.",
+      "expected": "Blocked; the old session is not rebound or silently replaced.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.missing_part",
+      "procedure": "Delete the authored fuse actor in a disposable test map.",
+      "expected": "room.missing_object identifies world.test.fuse; room editing is not auto-repaired.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.wrong_part",
+      "procedure": "Configure the battery pickup as a fuse or a quantity of two.",
+      "expected": "room.item_mismatch blocks startup; no duplicate critical grants.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.ids",
+      "procedure": "Duplicate or change a stable world ID; then add an unexpected persistent object.",
+      "expected": "A diagnostic identifies duplicate, malformed, missing or unexpected IDs; ordinary unregistered scenery remains allowed.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.optional_mapping",
+      "procedure": "Remove the optional postcard actor or set the wrong journal entry.",
+      "expected": "Authoring validation fails; this is a test-room manifest requirement, not a new quest prerequisite.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.initial_world",
+      "procedure": "Attempt startup after a pickup/door/note proxy already has active state.",
+      "expected": "Pristine-room check fails; no independent pre-restore is accepted.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.checkpoint",
+      "procedure": "Use a NaN/nonunit/out-of-bounds, obstructed, no-floor or unsafe-tagged checkpoint, and an invalid current spawn.",
+      "expected": "Blocked through the same dry-placement helper used by saving; no teleport or inventory mutation.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.input",
+      "procedure": "Use legacy PlayerInput or remove the Enhanced Input local-player subsystem.",
+      "expected": "Blocked before menu binding; no ClearAllMappings workaround.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.provider_export",
+      "procedure": "Return incompatible/empty export, invalid identity, or validation failure from the actual adapter.",
+      "expected": "Explicit provider diagnostic; no Configure call.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.provider_views",
+      "procedure": "Return invalid backpack/storage views, mismatched revisions or a shared instance GUID.",
+      "expected": "Blocked; actual storage must be initialized even when empty.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.pregranted",
+      "procedure": "Pregrant either required part to backpack or storage, or retain a previous receipt ledger.",
+      "expected": "Blocked; radio parts remain supplied by the two guaranteed world pickups.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.read_semantics",
+      "procedure": "Make read calls change revision/identity/receipts or report Available for an absent individual part.",
+      "expected": "The corresponding consistency check fails. This test does not establish all vendor side-effect freedom.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.explicit_retry",
+      "procedure": "First fail read-only preflight, fix the setup, then invoke StartTestRoom explicitly.",
+      "expected": "Retry is allowed from Blocked only; no timer retries or polling loops occur.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.double_call",
+      "procedure": "Invoke the same valid request twice and attempt a different director/provider/checkpoint after success.",
+      "expected": "Same request returns AlreadyStarted without duplicate UI/contexts; different request returns Rejected without rebind.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.reentrant",
+      "procedure": "Call StartTestRoom from provider callbacks and synchronously from OnStartupNotice.",
+      "expected": "Busy during the active attempt/notification; no recursive binding.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.partial_bind",
+      "procedure": "In a disposable host inject a Configure/bridge/UI initialization failure after preflight.",
+      "expected": "RestartRequired; coordinator mutation/save entry is poisoned; owned movement/look locks held until teardown. No in-place retry.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.teardown",
+      "procedure": "End PIE/relaunch after success and after binding failure while another input owner has locks.",
+      "expected": "No leftover startup debug message; only bootstrap-owned failure locks released. Native UI retains its own teardown responsibility.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.full_loop",
+      "procedure": "With bootstrap used instead of the legacy calls, complete pickup, storage transfer, repair, transcript, verified save, relaunch and Continue with keyboard and gamepad.",
+      "expected": "All retained M1/M1.2 campaign/UI checks still pass; no loss, duplicate grants or false save notices.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "editor.audit",
+      "procedure": "Run the read-only editor audit on valid, invalid and dirty test maps, then during PIE and with an existing report file.",
+      "expected": "Only loaded-world manifest facts reported; no asset edit/save, vendor call, file overwrite or runtime pass claim.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "startup.windows",
+      "procedure": "Build and package the actual Development Windows test room; launch outside Unreal Editor.",
+      "expected": "Startup and full campaign loop work in the executable. Record exact versions and evidence; the gate is not met by an editor-only audit.",
+      "result": "not_run",
+      "evidence": null
+    }
+  ]
+}

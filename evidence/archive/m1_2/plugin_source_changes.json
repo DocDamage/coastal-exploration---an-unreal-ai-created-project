@@ -1,0 +1,34 @@
+{
+  "baseline": "supplied Coastal_Exploration_M1_Source_Package(1).zip",
+  "scope": "Plugins/CoastalFoundation only; content hashes, not a Git diff",
+  "added": [
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalHUDWidget.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInventoryView.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalPanelInput.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalPanelWidget.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUICommands.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIInput.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIInventory.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIPresentation.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUISaveCatalogue.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUISessionComponent.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalUIStack.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/Tests/M1UIAutomationTests.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalHUDWidget.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInventoryView.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalPanelWidget.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalUISessionComponent.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/InventoryViewRules.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/Core/UIFlowRules.h"
+  ],
+  "modified": [
+    "Plugins/CoastalFoundation/CoastalFoundation.uplugin",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/CoastalFoundation.Build.cs",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInteractionBridge.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Private/CoastalInventoryAdapter.cpp",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInteractionBridge.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalInventoryAdapter.h",
+    "Plugins/CoastalFoundation/Source/CoastalFoundation/Public/CoastalSaveCoordinator.h"
+  ],
+  "removed": []
+}

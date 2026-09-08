@@ -1,0 +1,16 @@
+{
+  "basis": "Actual supplied M1.6 OptionsPersistence.h compiled with GCC C++17; no Unreal or platform IO.",
+  "baseline_archive_sha256": "beec3df1d0e265cb837cbc5d7505797928328f0cba387086ea22763ed1224dc2",
+  "legacy_options_hex": "434f4153545341560100000028000000d6955a244353544f50545321010000001100000000000000c8000000960000005f0000008c00000001000000",
+  "legacy_options_sha256": "0c8bfb43128584654908294e01b7000ea7849c84e07f46db3af76f7795488f71",
+  "generation": 17,
+  "values": {
+    "mouse": 200,
+    "stick": 150,
+    "fov": 95,
+    "text": 140,
+    "invert_y": true
+  },
+  "compiler_result": 0,
+  "fixture_result": 0
+}

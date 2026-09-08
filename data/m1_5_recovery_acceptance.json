@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "status": "not_run_in_delivery_environment",
+  "tests": [
+    {
+      "id": "m1_5.default_legacy",
+      "action": "Start unchanged M1.4 room with no recovery component or safety volumes.",
+      "expected": "Existing bootstrap remains supported; no safe-return guarantee claimed.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.startup",
+      "action": "Add one recovery component to possessed character, valid safety volumes and dry fallback.",
+      "expected": "Original bootstrap initializes recovery before native UI; no automatic campaign creation.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.owner",
+      "action": "Use unpossessed owner, duplicate recovery components or competing manual/bootstrap calls.",
+      "expected": "Preflight/initialization rejects them; partial binding requires relaunch.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.missing_owner",
+      "action": "Place safety volumes without a recovery component.",
+      "expected": "Startup blocks rather than presenting inactive safety volumes as functioning protection.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.invalid_shape",
+      "action": "Tilt/zero-scale/negatively scale a volume or use malformed extents.",
+      "expected": "Startup/destination validation rejects invalid authored geometry.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.kill_z",
+      "action": "Set fall boundary below or too close to actual engine KillZ.",
+      "expected": "Startup blocks; no automatic change of host world settings.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.initial_save",
+      "action": "Start New and verify first generation before touching a safety zone.",
+      "expected": "Normal pending-versus-verified save behavior retained.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.dwell",
+      "action": "Stand on actual dry floor in a single checkpoint region.",
+      "expected": "A checkpoint records after continuous dwell, not immediately on an overlap event.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.no_spam",
+      "action": "Remain in one checkpoint for many frames and inspect save-generation changes.",
+      "expected": "Only one checkpoint-triggered save request per visit; unrelated autosaves are distinguished.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.leave_reenter",
+      "action": "Leave a checkpoint and return; change session or open/close a menu mid-dwell.",
+      "expected": "Dwell resets appropriately; a later deliberate visit can record again.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.ambiguous",
+      "action": "Overlap two checkpoint regions.",
+      "expected": "No checkpoint is chosen by actor iteration order.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.airborne",
+      "action": "Jump through a checkpoint region or stand on an unsafe/absent floor.",
+      "expected": "Airborne/unsafe samples do not record a checkpoint.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.deep_water",
+      "action": "Enter the deep-water proxy with a required item carried.",
+      "expected": "Fade/return/stability check completes; carried item and objective facts remain unchanged.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.out_of_bounds",
+      "action": "Enter the route-boundary proxy.",
+      "expected": "Returns without damage or inventory mutation.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.fall",
+      "action": "Move below the configured recovery plane in a disposable test session.",
+      "expected": "Return occurs before engine destruction at tested fall speeds/frame times; no respawned replacement pawn.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.storage",
+      "action": "Store a required part, return from a hazard, then inspect backpack/storage.",
+      "expected": "Instance IDs, quantities, placement, receipt ledger and mission readiness remain coherent.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.repaired",
+      "action": "Repair, acknowledge transcript, then trigger a return.",
+      "expected": "Repair is not repeated; parts are not consumed again; transcript and lead retained.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.queued_save",
+      "action": "Queue an autosave immediately before recovery starts; try manual save/load/new during the return.",
+      "expected": "No capture/mutation/IO begins mid-return; pending request survives and writes after safe completion.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.fallback",
+      "action": "Block the last checkpoint after leaving it, keeping initial fallback safe.",
+      "expected": "At most one primary and one distinct fallback attempt; explicit fallback notice.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.both_blocked",
+      "action": "Block both destinations using disposable backed-up saves.",
+      "expected": "No origin/random warp; fades clear; sticky recovery screen; further writes/interaction blocked.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.post_teleport",
+      "action": "Arrange collision so teleport fitting adjusts the requested position.",
+      "expected": "Actual resulting transform is revalidated for return and campaign load; unsafe result is not accepted.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.unstable",
+      "action": "Remove or move support after placement, or introduce a hazard during settling.",
+      "expected": "No repeated teleport loop; failure exits the fade and requires relaunch.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.jump_held",
+      "action": "Hold or press Jump/Interact during fade and settling; repeat on keyboard and gamepad.",
+      "expected": "Lower-priority gameplay input is blocked; no unexpected jump/interaction on return; fresh release required for Boolean actions.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.menu_keys",
+      "action": "Press Pause/Inventory/Journal during active return and immediately afterward.",
+      "expected": "No modal opens midway through relocation; menus remain usable afterward; no double action.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.input_ownership",
+      "action": "Retain an independently owned controller move/look lock while returning.",
+      "expected": "Only recovery-owned lock counts/input component are released; other owners remain intact.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.fade_ownership",
+      "action": "Run with fade disabled and with an existing cinematic fade before the return.",
+      "expected": "Recovery works without seizing an existing fade; no audio fading imposed.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.pause",
+      "action": "Pause externally during return, then resume in the same session.",
+      "expected": "Game-time phase stops/resumes without a mixed snapshot; host pause/fade ownership remains separate.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.low_fps",
+      "action": "Test variable FPS, a large hitch and high fall velocities.",
+      "expected": "Document real behavior; a single hitch cannot count as stable grounding; no claim from helper tests.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.destroy",
+      "action": "Destroy recovery component or pawn during an active campaign; invalidate cached safety volume.",
+      "expected": "Session fails closed as specified, owned resources tear down, no unsafe save or silent pawn rebinding.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.relaunch",
+      "action": "Return successfully, wait for verified generation, exit/relaunch/Continue.",
+      "expected": "Whole campaign restores with safe checkpoint and unchanged inventory/mission/world/journal.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.write_failure",
+      "action": "Force a supported platform write-failure scenario after a successful return using disposable saves.",
+      "expected": "Return success is not labelled saved; write failure remains visible and prior generation recoverable.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_5.windows",
+      "action": "Cook/package actual test map and launch outside editor with real AGIS/Hyper.",
+      "expected": "Complete original campaign and new return loop; record actual engine, toolchain, vendor versions and evidence.",
+      "result": "not_run",
+      "evidence": null
+    }
+  ]
+}

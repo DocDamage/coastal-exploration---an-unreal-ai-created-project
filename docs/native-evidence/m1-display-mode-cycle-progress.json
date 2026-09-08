@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-06",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 Development Win64, D3D11, Intel Iris Xe, integrated systems room, NoSound",
+  "change": "Development acceptance flag CoastalDisplayModeCycle routes the existing display probe through the actual next-window-mode menu command. No display behavior or confirmation guard changed.",
+  "build": {"log": "m1-display-mode-cycle-package.log", "exit_code": 0},
+  "session": {
+    "log": "m1-display-mode-cycle.log",
+    "exit_code": 0,
+    "initial_viewport": "1280x720 Windowed",
+    "verified": [
+      "Draft leaves actual viewport and captured engine preference fields unchanged",
+      "1280x720 Fullscreen settles, then Revert restores original windowed viewport",
+      "Fullscreen session Keep leaves saved preference fields unchanged",
+      "Borderless trial timeout restores actual prior fullscreen viewport while menu is paused",
+      "1920x1200 Borderless settles and explicit painted Keep/save completes",
+      "UI quit and exit-without-campaign-save complete"
+    ],
+    "marker": "COASTAL_DISPLAY_SESSION_PASS draft, revert, session keep, timeout; save requested: 1920 1200 1"
+  },
+  "fresh_process": {
+    "log": "m1-display-mode-cycle-reload.log",
+    "exit_code": 0,
+    "launch_window_or_resolution_overrides": false,
+    "marker": "COASTAL_DISPLAY_RELOAD_PASS 1920 1200 1"
+  },
+  "settings": {
+    "before_backup": "m1-display-mode-cycle-before.ini",
+    "after_backup": "m1-display-mode-cycle-after.ini",
+    "changed_fields": ["ResolutionSizeX", "ResolutionSizeY", "LastUserConfirmedResolutionSizeX", "LastUserConfirmedResolutionSizeY", "FullscreenMode", "LastConfirmedFullscreenMode"],
+    "other_fields": "Unchanged in before/after comparison"
+  },
+  "native_regression": {"report": "m1-display-cycle-native-report/index.json", "succeeded": 40, "succeeded_with_vendor_warnings": 1, "failed": 0, "not_run": 0},
+  "limitations": [
+    "Earlier m1-display-candidate-2.log failure remains preserved. It used an earlier host and a different reported desktop size; this pass does not isolate its root cause.",
+    "Covers the current monitor setup only; mixed DPI and secondary-monitor operation remain unverified.",
+    "Commands use enabled, painted native widget delegates; physical controller and manual traversal are separate acceptance.",
+    "Focus loss, competing writer, owner-loss and remaining display fault acceptance remain open.",
+    "Raw logs, config backups, screenshots and binary packages stay outside the public repository."
+  ]
+}

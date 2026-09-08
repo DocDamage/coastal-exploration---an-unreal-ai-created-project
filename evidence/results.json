@@ -1,0 +1,45 @@
+{
+  "recorded_utc": "2026-09-06T18:00:02.308571+00:00",
+  "plugin_version": "0.1.10-m1-display-settings-source",
+  "source_basis_archive_sha256": "f4e23c36a9d6a446b6a2f5e6fccff3ae037e0bd483bff2d41dfca5b4c55d45d4",
+  "baseline_manifest_files_verified": 305,
+  "standalone_cpp": {
+    "suites": 18,
+    "assertions_per_compiler": 7674,
+    "retained_assertions": 7389,
+    "new_display_assertions": 285,
+    "gcc": "passed",
+    "clang": "passed",
+    "clang_asan_ubsan": "passed",
+    "scope": "Exact shared engine-independent headers only; no native display/widget/vendor execution."
+  },
+  "python": {
+    "test_cases": 52,
+    "result": "passed",
+    "scope": "Retained local tooling tests with filesystem fixtures."
+  },
+  "structural": {
+    "result": "passed",
+    "checks": 1592,
+    "failures": 0,
+    "scope": "Source/data/document consistency only; not native compilation.",
+    "evidence": "structural_checks_execution.json"
+  },
+  "supplied_unreal_tests": 38,
+  "new_manual_display_cases": 38,
+  "unreal_build": "not_run",
+  "unreal_automation": "not_run",
+  "native_display_switch": "not_run",
+  "engine_settings_io": "not_run",
+  "actual_audio_playback": "not_run",
+  "actual_vendor_integration": "not_run",
+  "native_rendering_controller_tests": "not_run",
+  "windows_gameplay": "not_run",
+  "source_delta_counts": {
+    "added": 7,
+    "modified": 10,
+    "removed": 0
+  },
+  "unchanged_plugin_files": 91,
+  "unchanged_prior_data_files": 31
+}

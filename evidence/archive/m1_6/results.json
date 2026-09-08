@@ -1,0 +1,99 @@
+{
+  "plugin_version": "0.1.6-m1-player-options-source",
+  "scope": "Standalone shared C++ helpers and local Python tools only. No Unreal/vendor/Windows gameplay execution.",
+  "checks": {
+    "gcc_core": {
+      "command": [
+        "bash",
+        "tools/run_core_tests.sh"
+      ],
+      "environment_overrides": {
+        "CXX": "g++"
+      },
+      "started_utc": "2026-09-06T02:51:27.997028+00:00",
+      "finished_utc": "2026-09-06T02:51:33.204753+00:00",
+      "returncode": 0,
+      "log": "evidence/gcc_core.txt"
+    },
+    "clang_core": {
+      "command": [
+        "bash",
+        "tools/run_core_tests.sh"
+      ],
+      "environment_overrides": {
+        "CXX": "clang++"
+      },
+      "started_utc": "2026-09-06T02:51:33.205258+00:00",
+      "finished_utc": "2026-09-06T02:51:38.561937+00:00",
+      "returncode": 0,
+      "log": "evidence/clang_core.txt"
+    },
+    "python_tests": {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "environment_overrides": {},
+      "started_utc": "2026-09-06T02:51:38.562251+00:00",
+      "finished_utc": "2026-09-06T02:51:39.211772+00:00",
+      "returncode": 0,
+      "log": "evidence/python_tests.txt"
+    },
+    "sanitizers": {
+      "command": [
+        "bash",
+        "tools/run_sanitizers.sh"
+      ],
+      "environment_overrides": {
+        "CXX": "clang++"
+      },
+      "started_utc": "2026-09-06T02:51:46.072939+00:00",
+      "finished_utc": "2026-09-06T02:51:57.716998+00:00",
+      "returncode": 0,
+      "log": "evidence/sanitizers.txt"
+    },
+    "structural_checks": {
+      "command": [
+        "python3",
+        "tools/verify_package.py"
+      ],
+      "environment_overrides": {},
+      "started_utc": "2026-09-06T02:52:56.985062+00:00",
+      "finished_utc": "2026-09-06T02:52:57.593642+00:00",
+      "returncode": 0,
+      "log": "evidence/structural_checks.txt"
+    }
+  },
+  "unreal_build": "not_run",
+  "native_automation": "not_run",
+  "actual_vendor_integration": "not_run",
+  "windows_gameplay": "not_run",
+  "recorded_utc": "2026-09-06T02:52:57.593642+00:00",
+  "assertions_per_compiler": 4148,
+  "standalone_cpp_suites": 12,
+  "assertions_by_suite": {
+    "Startup lifecycle core": 94,
+    "Campaign/transaction core": 227,
+    "First Signal mission": 407,
+    "Interaction routing/offer core": 211,
+    "Inventory view/catalogue core": 80,
+    "Options codec/selection core": 1102,
+    "Player options/look core": 277,
+    "Options storage/session core": 164,
+    "Safe-return/checkpoint core": 160,
+    "Save envelope core": 583,
+    "Test-room manifest core": 193,
+    "UI flow/presentation core": 650
+  },
+  "python_tests": 52,
+  "supplied_unreal_automation_tests": 22,
+  "new_unrun_acceptance_scenarios": 34,
+  "structural_checks": 894
+}

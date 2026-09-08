@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "plugin_version": "0.1.2-m1-ui-source",
+  "host_project_available": false,
+  "vendor_packages_available": false,
+  "unreal_compiled": false,
+  "native_widgets_rendered": false,
+  "controller_gameplay_tested": false,
+  "windows_packaged": false,
+  "paid_assets_included": false,
+  "unreal_editor_automation_tests_total": 7
+}

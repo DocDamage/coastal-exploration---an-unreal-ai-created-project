@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "milestone": "M3",
+  "scope": "Read-only inventory presentation and journal browsing",
+  "native_execution": "deferred_to_integrated_checkpoint",
+  "cases": [
+    {"id": "M3-IJ01", "scenario": "Inspect empty, one-item, six-item and seven-or-more-item views; Previous/Next reach all items and direct rows follow the selected page.", "status": "not_run"},
+    {"id": "M3-IJ02", "scenario": "Change or remove a displayed item before selecting its row; selection refreshes AGIS and resolves the instance GUID rather than selecting a different item by index.", "status": "not_run"},
+    {"id": "M3-IJ03", "scenario": "Compare occupied-space totals to actual rotated AGIS item footprints. A fragmented destination still rejects a transfer that does not fit without losing the source.", "status": "not_run"},
+    {"id": "M3-IJ04", "scenario": "Move one item in each direction, reject stale views, and retry an unresolved transfer; retain the original operation ID and existing save boundary.", "status": "not_run"},
+    {"id": "M3-IJ05", "scenario": "Read each discovered journal entry, including the transmission; browsing grants no discovery, acknowledgement, repair or travel action.", "status": "not_run"},
+    {"id": "M3-IJ06", "scenario": "Select a new item or journal entry at 720p/1080p with 100-150 percent text; the reader scrolls to the text and keyboard/controller focus remains usable.", "status": "not_run"},
+    {"id": "M3-IJ07", "scenario": "Refresh while focused on a command, including a dynamic item row; restore the same enabled command when present and use a valid fallback after removal.", "status": "not_run"},
+    {"id": "M3-IJ08", "scenario": "Start/load another campaign and reopen the journal; only that campaign's discoveries appear and old reading state is cleared.", "status": "not_run"}
+  ]
+}

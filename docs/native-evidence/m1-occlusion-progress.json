@@ -1,0 +1,42 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "reference_case": "interaction.range_visibility (occluded pickup portion)",
+  "package_log": "m1-occlusion-package-sequence.log",
+  "runtime_log": "m1-occlusion-runtime-sequence.log",
+  "setup": "UE 5.7.4 Windows Development package; actual AGIS and Hyper; disposable coastal_test_occlusion_sequence campaign. Development-only probe establishes usable Hyper battery focus, then spawns a real Visibility-blocking box between character eyes and interaction point.",
+  "verified": [
+    "Actual relay offer is no longer usable and native preview refuses while obstructed",
+    "Injected E press/release cannot collect; AGIS payload, receipt count and save generation remain unchanged",
+    "Direct commit returns Occluded without mutation",
+    "Removing blocker permits actual Hyper pickup exactly once: one battery, one receipt",
+    "Normal Pause/Quit/exit_without_save UI steps complete"
+  ],
+  "native_regression": {
+    "succeeded": 40,
+    "succeededWithWarnings": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "source_regression": {
+    "core_suites": 18,
+    "core_assertions": 7674,
+    "python_tests": 52
+  },
+  "earlier_attempts": [
+    {
+      "log": "m1-occlusion-runtime.log",
+      "result": "Failed offer check; blocker created before establishing camera/Hyper focus"
+    },
+    {
+      "log": "m1-occlusion-runtime-focus.log",
+      "result": "Timed out waiting for target WorldId with obstruction already present"
+    }
+  ],
+  "limits": [
+    "Distant-target TooFar and radio repair variants remain open",
+    "Hidden or disabled offer accepted; exact painted disabled reason was not inspected",
+    "Injected input does not establish physical-device behavior",
+    "The test obstacle and probe are development-only; no production interaction behavior changed"
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "section": "M1.6 player options and readability",
+  "scope": "Real host/Unreal/Windows tests. No row has been run in this delivery environment.",
+  "tests": [
+    {
+      "id": "m1_6.session_access",
+      "procedure": "Open Player options before New/Continue with keyboard, then controller.",
+      "expected": "Options opens as a child; Back returns to session without creating a campaign.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.pause_access",
+      "procedure": "Open options from pause during an active campaign.",
+      "expected": "Returning restores the focused pause command and does not leak world input.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.legacy_host",
+      "procedure": "Use no look component; keep the original character look handler.",
+      "expected": "Text settings work; camera/look controls remain disabled with a binding explanation.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.camera_only",
+      "procedure": "Add one look component with bUseHostLookEvents=false.",
+      "expected": "FOV works; sensitivity and inversion stay disabled; existing host look remains the owner.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.host_routes",
+      "procedure": "Enable host look events only after wiring real separate mouse/stick samples.",
+      "expected": "Sensitivity and inversion become available and each handler rotates only once.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.invalid_camera",
+      "procedure": "Try zero/two active cameras, an orthographic camera, a non-character view target, or duplicate consumers.",
+      "expected": "Camera/look options stay unavailable; text options do not poison a healthy campaign.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.fov_extremes",
+      "procedure": "Apply 70, 85 and 110 degrees in the cabin and outdoors.",
+      "expected": "The actual camera component changes on apply; no camera manager or animation resets it unexpectedly.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.look_sensitivity",
+      "procedure": "Apply 25%, 100% and 300% for each real device.",
+      "expected": "Relative yaw/pitch response changes by the intended multiplier without double scaling.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.invert_y",
+      "procedure": "Apply invert on/off using both devices.",
+      "expected": "Only pitch sign changes; existing upstream orientation is accounted for.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.frame_rate",
+      "procedure": "Compare measured stick rotations at 30/60/120 FPS and mouse deltas distributed over frames.",
+      "expected": "Stick uses time; mouse is not multiplied by time. Host legacy input scales are documented.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.large_hitch",
+      "procedure": "Test a game-time frame longer than 0.1 seconds with the stick held.",
+      "expected": "Contribution is capped at 0.1 seconds; no full-hitch camera lurch is applied.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.dual_device",
+      "procedure": "Use mouse and stick together and deliberately duplicate one device callback in a frame.",
+      "expected": "Each device contributes at most once per engine frame; simultaneous devices remain additive.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.held_stick_menu",
+      "procedure": "Hold stick through pause/options/Back; release only after resuming.",
+      "expected": "No rotation until actual neutral is observed and a later non-neutral sample arrives.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.released_in_menu",
+      "procedure": "Release the stick in a modal, resume, send the actual current neutral sample, then move.",
+      "expected": "No synthetic neutral; the real released state rearms look without a permanent latch.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.held_stick_return",
+      "procedure": "Hold stick during M1.5 return; test menus and new/load session transitions too.",
+      "expected": "Look remains blocked during exclusive return and requires real neutral after the permission change.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.other_look_lock",
+      "procedure": "Take an independent controller look-ignore lock, then open/close options.",
+      "expected": "The options consumer neither clears nor bypasses another owner's lock.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.draft_cancel",
+      "procedure": "Change FOV/sensitivity/text/invert in the draft, then press Back without applying.",
+      "expected": "Only menu text preview was visible; all unapplied changes are discarded.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.session_apply",
+      "procedure": "Choose Apply for this session only, then New/Continue and later relaunch.",
+      "expected": "Values survive campaign switches in that session; relaunch uses the saved profile/defaults, not the session-only edit.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.save_relaunch",
+      "procedure": "Choose Apply and save; close and relaunch the Windows executable.",
+      "expected": "The same five values load from a verified preferences record; campaign generation is independent.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.first_launch_no_write",
+      "procedure": "Launch without options files and make no explicit save choice.",
+      "expected": "Defaults load but no options file is automatically written.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.text_1080",
+      "procedure": "At 1920x1080, test every 100-150% text step across all native screens.",
+      "expected": "Heading, body, notices, buttons, help and save-name text scale and remain usable through scrolling.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.text_720",
+      "procedure": "Repeat at 1280x720, including long journal, inventory list, storage and error text.",
+      "expected": "No required button is unreachable; controller focus scrolls into view. Record real screenshots.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.transcript_presentation",
+      "procedure": "Open transcript at 150%; inspect top-of-body presentation and scrolling before Continue.",
+      "expected": "An entirely offscreen body is not treated as presented by the new layout test; explicit later acknowledgement still required.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.focus_resize",
+      "procedure": "Move to an options adjustment button, alter text size, then navigate with D-pad/Tab.",
+      "expected": "Focus remains on a valid command after reflow; one input frame cannot apply two commands.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.save_name_field",
+      "procedure": "Edit a selected save-set name at 150% and return from options.",
+      "expected": "The input field font scales and its selected name remains intact; no unintended Start/Continue.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.default_draft",
+      "procedure": "Choose defaults, then cancel; repeat and apply.",
+      "expected": "Only available settings are reset in the draft; no implicit disk deletion/reset.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.one_corrupt",
+      "procedure": "Using backed-up disposable option files, damage one slot while another remains valid.",
+      "expected": "Explicit recovery notice; good generation loads; only the opposite slot may be written on deliberate save.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.both_bad",
+      "procedure": "Supply two damaged slots, an unsupported schema, equal generations or a read error.",
+      "expected": "Defaults with explanation, no automatic replacement; session-only options remain usable.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.write_failures",
+      "procedure": "Exercise actual platform write failure, read-back mismatch and ambiguous post-write failure.",
+      "expected": "No verified-save message; previous live values retained; other slot untouched; further writes blocked until relaunch.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.external_change",
+      "procedure": "Change/remove an observed options file after startup using a disposable backed-up test pair.",
+      "expected": "Save refuses before writing; no stale overwrite. This is not a test of guaranteed multiprocess locking.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.campaign_independence",
+      "procedure": "Hash campaign A/B before and after changing preferences without gameplay.",
+      "expected": "Options operations do not edit campaign files, mission, inventory, world state or receipts; catalogue ignores preference names.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.camera_lifetime",
+      "procedure": "Switch view target or remove/activate another camera during options, then apply a previously edited camera value.",
+      "expected": "Unavailable consumer cannot silently apply the draft. Fixed-camera assumptions remain explicit.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.teardown",
+      "procedure": "Exit/reenter play and fail HUD setup after options initialization in a disposable host.",
+      "expected": "No duplicated consumer; owned FOV restores only while it still equals the last value this owner applied.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_6.packaged_loop",
+      "procedure": "Run the retained full mission/storage/repair/transcript/return/save/relaunch loop, with options at 150% text and both input devices.",
+      "expected": "All retained gates pass in the actual Windows package; capture engine/tool/vendor versions and real evidence.",
+      "result": "not_run",
+      "evidence": null
+    }
+  ]
+}

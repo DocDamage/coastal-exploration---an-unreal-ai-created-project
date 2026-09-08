@@ -1,0 +1,124 @@
+{
+  "date": "2026-09-07",
+  "milestone_complete": false,
+  "runtime": "UE 5.7.4 packaged Development Win64 D3D11 1280x720, real mixer PCM16 stereo 48kHz",
+  "method": "Actual successful campaign interactions trigger the owned action sound. Disposable schema-3 fixtures isolate Effects by muting Ambience/Radio. A final isolated-radio fixture sets Master and Radio to 50. Compare integrated energy and peak against each channel full-volume baseline. No production source or audio asset changed.",
+  "runs": [
+    {
+      "case": "full",
+      "master": 100,
+      "effects": 100,
+      "radio": 0,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-effects-gain-full.log"
+    },
+    {
+      "case": "half",
+      "master": 100,
+      "effects": 50,
+      "radio": 0,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-effects-gain-half.log"
+    },
+    {
+      "case": "combined",
+      "master": 50,
+      "effects": 50,
+      "radio": 0,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-effects-gain-combined.log"
+    },
+    {
+      "case": "mute",
+      "master": 100,
+      "effects": 0,
+      "radio": 0,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-effects-gain-mute.log"
+    },
+    {
+      "case": "radio_combined",
+      "master": 50,
+      "effects": 0,
+      "radio": 50,
+      "passed": true,
+      "preference_unchanged": true,
+      "log": "m1-effects-gain-radio_combined.log"
+    }
+  ],
+  "measurements": [
+    {
+      "case": "full",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 35.904,
+      "peak": 3835,
+      "energy": 118263.88378125,
+      "sha256": "ee0c318e1c7fe0c6305cab7264f652162b6647c73a434f827a325683a4ac199e",
+      "amplitude_ratio_from_energy": 1.0,
+      "peak_ratio": 1.0
+    },
+    {
+      "case": "half",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 35.648,
+      "peak": 1917,
+      "energy": 29516.838208333334,
+      "sha256": "54288f8a1aeff3662a2fd09ffb32e4f758c017628c2b9628118ae13c078bc552",
+      "amplitude_ratio_from_energy": 0.49958437720304805,
+      "peak_ratio": 0.4998696219035202
+    },
+    {
+      "case": "combined",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 35.968,
+      "peak": 958,
+      "energy": 7354.44384375,
+      "sha256": "edd08a243f7299158f51ebd138884a31007cb5071e0cddecd5bba4e26574cd54",
+      "amplitude_ratio_from_energy": 0.24937266672133926,
+      "peak_ratio": 0.2498044328552803
+    },
+    {
+      "case": "mute",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 35.968,
+      "peak": 0,
+      "energy": 0.0,
+      "sha256": "743c84f633c1f892c82b5abbd050883917880c35b094a896622898ac02589db7",
+      "amplitude_ratio_from_energy": 0.0,
+      "peak_ratio": 0.0
+    },
+    {
+      "case": "radio_combined",
+      "rate": 48000,
+      "channels": 2,
+      "seconds": 35.797333333333334,
+      "peak": 2839,
+      "energy": 1363571.9787708332,
+      "sha256": "c97420830582ec51e0101cd1d63e22fc205ef04c4911dd6d63e28c0e93c3696a",
+      "amplitude_ratio_from_energy": 0.24985150956614258,
+      "peak_ratio": 0.25
+    }
+  ],
+  "verified": [
+    "Effects 50% amplitude ratio 0.499584; combined Master/Effects 50% ratio 0.249373",
+    "Effects mute produces exact zero PCM throughout the recorded interval",
+    "Combined Master/Radio 50% ratio 0.249852 against prior full-radio baseline",
+    "All five real Hyper/AGIS campaign loops pass wait conservation, explicit acknowledgement, save and UI quit",
+    "Preference fixtures remain byte-identical within each run; original preferences restored afterward; all 58 earlier campaign files unchanged"
+  ],
+  "limitations": [
+    "Rendered digital mixer output does not prove physical speaker audibility",
+    "Saved fixtures test startup-loaded gains; live UI edits/fades/mute restoration remain separate",
+    "Ambience gain and simultaneous-category independence remain open",
+    "Not a complete startup-transient or audio-device lifecycle test",
+    "Raw recordings, logs, fixtures and campaign saves remain external"
+  ]
+}

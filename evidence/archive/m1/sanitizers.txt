@@ -1,0 +1,17 @@
+$ clang++ -std=c++17 -Wall -Wextra -Werror -pedantic -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -I /mnt/data/Coastal_Exploration_M1/Plugins/CoastalFoundation/Source/CoastalFoundation/Public /mnt/data/Coastal_Exploration_M1/tests/campaign_core_tests.cpp -o /tmp/tmpg6fa35yd/campaign_core_tests
+
+$ /tmp/tmpg6fa35yd/campaign_core_tests
+Campaign/transaction core: 227 checks; 0 failures
+Exit code: 0
+
+$ clang++ -std=c++17 -Wall -Wextra -Werror -pedantic -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -I /mnt/data/Coastal_Exploration_M1/Plugins/CoastalFoundation/Source/CoastalFoundation/Public /mnt/data/Coastal_Exploration_M1/tests/first_signal_core_tests.cpp -o /tmp/tmpg6fa35yd/first_signal_core_tests
+
+$ /tmp/tmpg6fa35yd/first_signal_core_tests
+407 checks; 0 failures
+Exit code: 0
+
+$ clang++ -std=c++17 -Wall -Wextra -Werror -pedantic -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -I /mnt/data/Coastal_Exploration_M1/Plugins/CoastalFoundation/Source/CoastalFoundation/Public /mnt/data/Coastal_Exploration_M1/tests/save_envelope_tests.cpp -o /tmp/tmpg6fa35yd/save_envelope_tests
+
+$ /tmp/tmpg6fa35yd/save_envelope_tests
+Save envelope core: 583 checks; 0 failures
+Exit code: 0

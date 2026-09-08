@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "section": "M1.9 ambience and transcript audio playback",
+  "scope": "Actual Unreal/host/audio/controller/Windows acceptance; none executed in this source environment.",
+  "tests": [
+    {
+      "id": "m1_9.optional_absent",
+      "procedure": "Run the retained host without the new playback component.",
+      "expected": "No new sources; existing mission, transcript, settings and campaign loop work unchanged.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.opt_in_off",
+      "procedure": "Add one playback owner with default opt-in false.",
+      "expected": "No Play or source creation. Visible optional-feature diagnostic; text is not disabled.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.wrong_owner",
+      "procedure": "Attempt initialization on a pawn, director or nonlocal controller.",
+      "expected": "Refuse without creating a source or selecting a replacement owner.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.duplicate",
+      "procedure": "Add two playback owners to the controller.",
+      "expected": "UI initializes neither and reports the duplicate; no doubled ambience or radio.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.routing_unready",
+      "procedure": "Enable playback without ready M1.8 routing or with no audio device.",
+      "expected": "No source starts; there is no uncontrolled full-volume fallback.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.no_assets",
+      "procedure": "Enable with both sound references empty.",
+      "expected": "No invented asset or automatic content fetch. Diagnostic leaves transcript usable.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.partial_ambience",
+      "procedure": "Assign only a valid owned looping ambience source.",
+      "expected": "Bed lifecycle works; radio transcript remains silent and completable.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.partial_radio",
+      "procedure": "Assign only a valid owned finite radio source.",
+      "expected": "No ambience; one transcript playback attempt when text is displayed.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.invalid_source",
+      "procedure": "Assign unplayable audio, a nonlooping bed, looping radio or radio duration outside (0,900].",
+      "expected": "Reject configuration without mutating source assets or mission state.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.silent_policy",
+      "procedure": "Assign a source without the PlayWhenSilent metadata contract, then test a corrected project-owned wrapper.",
+      "expected": "First configuration refuses. Corrected source must actually continue through mute in the real host.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.title_silence",
+      "procedure": "Launch to the native Session menu with both sources valid.",
+      "expected": "Initialization creates no playing voice. No ambience until active unobstructed gameplay.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.muted_startup",
+      "procedure": "Save Master=0, exit and relaunch; begin a campaign.",
+      "expected": "No audible full-volume burst. Mix initialized before source Play; confirm with actual audio capture.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.single_bed",
+      "procedure": "Start a campaign and stand in gameplay for a sustained run.",
+      "expected": "One local 2D bed, no per-frame play/restart or accumulating audio components.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.nested_menus",
+      "procedure": "Open Pause, settings and journal, then Back through each layer.",
+      "expected": "Bed pauses once and stays paused until final gameplay return, then resumes rather than restarts.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.external_pause",
+      "procedure": "Pause the host without opening a Coastal panel, then resume.",
+      "expected": "Bed remains paused until gameplay is eligible; transcript UI voice follows its explicit UI-pause policy.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.unpainted_text",
+      "procedure": "Open radio transcript but prevent a valid painted-body opportunity, then close it.",
+      "expected": "No voice start for unpresented/canceled text.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.transcript_modal",
+      "procedure": "Show a valid transcript and wait a later frame after body paint.",
+      "expected": "One Radio-class voice starts despite the deliberate modal world pause; bed is paused.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.finish_without_ack",
+      "procedure": "Let the complete clip finish while transcript remains open.",
+      "expected": "No replay, journal insertion, mission completion, inventory mutation or auto-close. Continue still requires explicit action.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.early_continue",
+      "procedure": "Press Continue before the clip finishes, after normal presentation eligibility.",
+      "expected": "Existing mission acknowledgement executes once; source is stopped and destroyed on close.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.cancel",
+      "procedure": "Back out during playback.",
+      "expected": "Voice stops; no message-heard grant from cancellation or native Stop completion.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.explicit_replay",
+      "procedure": "Reinteract with the repaired radio to open a fresh transcript after cancel or completion.",
+      "expected": "New ticket permits one playback attempt from the beginning. No repeated item consumption or journal duplication.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.journal_silent",
+      "procedure": "Open journal entries including the saved transcript.",
+      "expected": "Reading the journal does not start the radio voice.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.radio_muted",
+      "procedure": "Set Radio=0 and complete the opening.",
+      "expected": "Full text and Continue remain available. Mission completion is independent of native sound output.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.master_channel_gain",
+      "procedure": "Use distinct Master, Ambience and Radio values; mute/unmute.",
+      "expected": "Retained mix multiplies Master once. Source multipliers stay 1; settings do not respawn clips.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.new_load_epoch",
+      "procedure": "Change campaign or Continue a save while presentation exists through a controlled native test path.",
+      "expected": "Old sources stop and stale tickets do not replay in the restored session; bed can begin once for the new epoch.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.failed_load",
+      "procedure": "Attempt a known invalid load from the session menu with the previous campaign retained.",
+      "expected": "No silent New. Bed remains paused under the retained modal; no automatic voice start.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.safe_return",
+      "procedure": "Enter a test hazard, then complete safe return.",
+      "expected": "Bed pauses during return and resumes after it; inventory, receipts, mission and journal unchanged by audio.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.terminal_recovery",
+      "procedure": "Inject a terminal recovery failure using disposable saves.",
+      "expected": "Both sources stop or remain silent; no autonomous replay, save or mission change.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.allocation_or_drop",
+      "procedure": "Instrument a source allocation/registration failure or enforce voice rejection through real concurrency.",
+      "expected": "No retry loop. Allocation failure is reported; void Play rejection is not misreported as audible success. Text remains usable.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.routing_removal",
+      "procedure": "Release/unregister the routing owner while both presentation paths have been exercised.",
+      "expected": "Owned voices stop before its mix contribution is popped. Unrelated audio/mixes remain untouched.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.device_or_source_loss",
+      "procedure": "Invalidate the captured device/source or disable UI tick through a controlled fault.",
+      "expected": "Running playback owner stops and refuses automatic rebind; no campaign writes or fake device recovery.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.teardown",
+      "procedure": "Exit/relaunch repeatedly, including while transcript voice plays.",
+      "expected": "No leaked components, duplicate delegates, extra mix pops or retained sources across worlds.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.controller_readability",
+      "procedure": "Use keyboard/mouse and controller-only at 720p/1080p, 100%/150% text.",
+      "expected": "Body/Continue still visible and operable; playback does not steal focus or consume input.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "m1_9.windows_full_loop",
+      "procedure": "Build/cook/package and launch Windows outside the editor; execute New, pickup, storage round-trip, repair, transcript, safe return, verified save, exit and Continue.",
+      "expected": "Coherent campaign with actual AGIS/Hyper; actual sources/routing and preferences restore separately. Record real logs and audio observations.",
+      "result": "not_run",
+      "evidence": null
+    }
+  ]
+}

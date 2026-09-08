@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "section": "M1.4",
+  "status": "manual_engine_acceptance_not_run",
+  "tests": [
+    {
+      "id": "interaction.bootstrap_optional",
+      "procedure": "Run the retained real M1.3 host without a relay.",
+      "expected": "Legacy startup remains valid; only shared bridge same-frame protection applies, not relay held/focus guarantees.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.bootstrap_relay",
+      "procedure": "Add one registered uninitialized relay with a real ready provider and use the existing bootstrap.",
+      "expected": "Relay initializes between bridge and UI; no automatic new/load/save.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.bootstrap_duplicate",
+      "procedure": "Add two relays, an initialized relay, or an invalid InputOwner in a disposable host.",
+      "expected": "Read-only preflight blocks before permanent binding.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.repeat_startup",
+      "procedure": "Repeat the exact successful startup and then repeat after destroying the bound relay.",
+      "expected": "First repeat is AlreadyStarted without extra contexts; lost required binding requires relaunch.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.native_keyboard",
+      "procedure": "Select NativeEnhancedInput, remove competing Interact handlers, forward actual Hyper focus, press/release E.",
+      "expected": "Exactly one appropriate bridge action per fresh press.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.native_gamepad",
+      "procedure": "Repeat the complete world loop with face-left and controller-only menus.",
+      "expected": "One action per fresh press and no world action while UI owns focus.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.vendor_state",
+      "procedure": "Select VendorEvents and forward actual aggregate input-down and released states.",
+      "expected": "No native context is created; held true does not repeat; false and a later press permits another action.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.wrong_input_owner",
+      "procedure": "Submit external state to a native-mode relay and attempt to hot-change its property.",
+      "expected": "External input rejected; initialized ownership does not silently switch.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.two_keys",
+      "procedure": "In native mode hold E and face-left together, then release only one.",
+      "expected": "No second action until the aggregate input is released and pressed again.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.door_duplicate",
+      "procedure": "Deliver two direct bridge TryInteract calls for the same door in one engine frame.",
+      "expected": "Only one door toggle; second call is SuppressedInput and broadcasts no recursive notice.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.radio_duplicate",
+      "procedure": "With both parts carried, issue two same-frame radio interactions before inspection.",
+      "expected": "Inspection happens once; repair does not execute in the same frame. A later explicit press is required.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.notice_recursion",
+      "procedure": "Temporarily wire an action-notice listener to call another bridge interaction/transfer/acknowledgement synchronously.",
+      "expected": "Nested call is SuppressedInput; no second mutation or recursive notice loop.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.held",
+      "procedure": "Hold Interact for several seconds through each world-object type.",
+      "expected": "Relay does not repeat door toggles, repair attempts, transcript opens or pickups.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.menu_held",
+      "procedure": "Hold Interact through opening and closing inventory/pause/storage/transcript.",
+      "expected": "No world action leaks; fresh focus and release then later press are required.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.menu_between_ticks",
+      "procedure": "Acquire and release a legitimate unique bridge UI blocker between relay ticks.",
+      "expected": "Permission revision invalidates the previous focus even though final blocked state is unchanged.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.pause_external",
+      "procedure": "Pause the real game through the host while no Coastal menu is open.",
+      "expected": "Direct world interactions and relay offers are blocked; UI-owned storage operations remain separately allowed.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.session_held",
+      "procedure": "Save/load or replace a campaign while focus is on a valid actor and input remains held.",
+      "expected": "Old epoch focus/input is rejected; no automatic follow-on action.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.heartbeat",
+      "procedure": "Stop forwarding selected-target updates while leaving a previously focused actor alive.",
+      "expected": "Offer hides and input rejects once sample age exceeds two frames; no target scanning or reacquisition.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.focus_loss_order",
+      "procedure": "Forward A then B, followed by a delayed ClearFocusedTarget(A).",
+      "expected": "B remains the current focus; clearing B or forwarding null removes it.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.invalid_target",
+      "procedure": "After valid focus, submit an unregistered or wrong-world Coastal actor.",
+      "expected": "Old valid focus is cleared and the invalid actor cannot be acted on.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.destroyed_target",
+      "procedure": "Destroy the focused actor in a disposable test; also test collected/hidden pickups.",
+      "expected": "Weak stale target cannot act; collected pickup offer is hidden; no repeated grant.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.no_queue",
+      "procedure": "Press when focus is absent/expired, then provide a fresh target while the key stays held.",
+      "expected": "No queued retry occurs; release and explicit new press is required.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.range_visibility",
+      "procedure": "Use actual Hyper focus on a distant actor and an actor behind the test obstruction.",
+      "expected": "Disabled offer/reason when applicable and commit-time TooFar/Occluded; no remote pickup/repair.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.offers_readonly",
+      "procedure": "Poll offers repeatedly for every kind before/after reading and repairing; inspect provider/world/mission/ledger.",
+      "expected": "No state mutations, receipts, transcript acknowledgement or saves from reads alone.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.repair_storage",
+      "procedure": "Move one required part into actual storage, inspect the radio offer, return it to backpack.",
+      "expected": "Readiness follows carried requirements; no availability inferred from remote storage or cached count.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.full_backpack",
+      "procedure": "Fill the actual AGIS backpack and press Take on a required item with an enabled offer.",
+      "expected": "Real NoSpace leaves the pickup retrievable; an enabled offer never grants or guarantees capacity.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.storage_paused",
+      "procedure": "Open native storage and transfer while its UI pauses gameplay; then open transcript and acknowledge after presentation.",
+      "expected": "UI-specific transfer/ack paths still work with the shared dispatch guard; world Interact remains blocked.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.provider_failure",
+      "procedure": "Make the real provider unavailable or put the coordinator in terminal recovery in a disposable run.",
+      "expected": "Offers hide and input fails closed; no fake inventory, mutation or automatic save/new campaign.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.pawn_teardown",
+      "procedure": "Change/destroy the possessed character and then exit/reenter the map.",
+      "expected": "No silent rebinding; old input/prompt cannot act, and relay-owned resources are removed without clearing unrelated mappings.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.low_frame_rate",
+      "procedure": "Exercise both input routes and vendor updates at low/variable frame rates with actual rendering.",
+      "expected": "Lease ordering is acceptable, presses do not target indefinitely stale selections, and no hidden repeat/queued action occurs.",
+      "result": "not_run",
+      "evidence": null
+    },
+    {
+      "id": "interaction.packaged_loop",
+      "procedure": "Build/cook/package the actual systems map for Windows, launch outside editor, finish the whole campaign, exit and Continue.",
+      "expected": "Coherent pickup/storage/repair/transcript/save/relaunch loop without loss or duplication; record actual evidence.",
+      "result": "not_run",
+      "evidence": null
+    }
+  ]
+}

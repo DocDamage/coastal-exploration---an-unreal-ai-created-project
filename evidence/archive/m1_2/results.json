@@ -1,0 +1,69 @@
+{
+  "recorded_at_utc": "2026-09-06T00:54:44.339355+00:00",
+  "project_section_date": "2026-09-05",
+  "plugin_version": "0.1.2-m1-ui-source",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "python": "3.13.5",
+  "compilers": {
+    "g++": "g++ (Debian 14.2.0-19) 14.2.0",
+    "clang++": "clang version 17.0.0 (https://github.com/swiftlang/llvm-project.git 10999b6d034fe318f3d56c83bddb6572593a8bb0)"
+  },
+  "checks": [
+    {
+      "check": "gcc_core",
+      "exit_code": 0,
+      "log": "evidence/gcc_core.txt"
+    },
+    {
+      "check": "clang_core",
+      "exit_code": 0,
+      "log": "evidence/clang_core.txt"
+    },
+    {
+      "check": "python_tests",
+      "exit_code": 0,
+      "log": "evidence/python_tests.txt"
+    },
+    {
+      "check": "sanitizers",
+      "exit_code": 0,
+      "log": "evidence/sanitizers.txt"
+    },
+    {
+      "check": "structural_checks",
+      "exit_code": 0,
+      "log": "evidence/structural_checks.txt"
+    }
+  ],
+  "cpp_assertions_per_compiler": 1947,
+  "cpp_suites": {
+    "first_signal": 407,
+    "campaign_transaction": 227,
+    "save_envelope": 583,
+    "ui_flow_presentation": 650,
+    "inventory_view_catalogue": 80
+  },
+  "new_cpp_assertions": 730,
+  "python_test_cases": 19,
+  "new_python_test_cases": 9,
+  "structural_checks": 402,
+  "unreal_automation_tests_provided": 7,
+  "unrun": [
+    "unreal_header_tool",
+    "unreal_build_tool",
+    "unreal_editor_automation",
+    "editor_map_generation",
+    "native_widget_rendering",
+    "actual_host_preflight",
+    "agis_integration",
+    "hyper_integration",
+    "end_to_end_campaign_persistence",
+    "controller_only_gameplay",
+    "windows_powershell_runner",
+    "windows_package",
+    "standalone_launch",
+    "performance_measurement"
+  ],
+  "boundary": "Engine-independent helpers and Python tooling only. Native Unreal UI, reflection, real vendor integration, platform IO fault behavior and a playable build have not been validated.",
+  "milestone_gate": "NOT_PASSED"
+}
