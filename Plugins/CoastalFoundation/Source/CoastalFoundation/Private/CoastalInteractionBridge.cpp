@@ -45,8 +45,8 @@ void UCoastalInteractionBridge::ReleaseUIBlocker(FName Token)
 }
 void UCoastalInteractionBridge::CloseStorage() { OpenStorage.Reset(); }
 void UCoastalInteractionBridge::CancelTranscript() { TranscriptToken.Invalidate(); }
-ECoastalActionResult UCoastalInteractionBridge::Emit(ECoastalActionResult Result)
-{ OnActionNotice.Broadcast(Result); return Result; }
+ECoastalActionResult UCoastalInteractionBridge::Emit(ECoastalActionResult Result, FName Cue, FVector Location)
+{ OnActionNotice.Broadcast(Result); OnActionFeedback.Broadcast(Result, Cue, Location); return Result; }
 ECoastalActionResult UCoastalInteractionBridge::FromInventory(ECoastalInventoryCommit Result)
 {
     switch (Result)
@@ -105,7 +105,17 @@ ECoastalActionResult UCoastalInteractionBridge::TryInteract(ACoastalWorldObject*
         }
     }
     if (!JournalToPresent.IsNone()) OnJournalRequested.Broadcast(JournalToPresent);
-    return Emit(Result);
+    FName Cue = TEXT("confirm");
+    switch (Target->Kind)
+    {
+    case ECoastalObjectKind::Door: Cue = Target->IsActive() ? TEXT("door_open") : TEXT("door_close"); break;
+    case ECoastalObjectKind::Pickup: Cue = TEXT("pickup"); break;
+    case ECoastalObjectKind::Storage: Cue = TEXT("storage"); break;
+    case ECoastalObjectKind::Discovery: Cue = TEXT("journal"); break;
+    case ECoastalObjectKind::MaintenanceNote: Cue = TEXT("paper"); break;
+    default: break;
+    }
+    return Emit(Result, Cue, Target->GetInteractionPoint());
 }
 ECoastalActionResult UCoastalInteractionBridge::ApplyAction(ACoastalWorldObject* Target)
 {
@@ -200,7 +210,7 @@ ECoastalActionResult UCoastalInteractionBridge::TransferWithOpenStorage(const FC
         Result = FromInventory(Saves->GetInventory()->TryTransfer(Request));
         if (Result == ECoastalActionResult::Applied || Result == ECoastalActionResult::AlreadyApplied) Saves->RequestSave();
     }
-    return Emit(Result);
+    return Emit(Result, TEXT("pickup"));
 }
 
 ECoastalActionResult UCoastalInteractionBridge::ValidateOpenStorage() const

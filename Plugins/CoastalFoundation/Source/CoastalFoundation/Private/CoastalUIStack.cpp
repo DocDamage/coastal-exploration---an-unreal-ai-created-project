@@ -10,7 +10,7 @@ namespace
     FName Blocker(const coastal::PanelTicket& Ticket)
     { return FName(*FString::Printf(TEXT("coastal.ui.%llu"), static_cast<unsigned long long>(Ticket.id))); }
 }
-bool UCoastalUISessionComponent::Push(coastal::PanelKind Kind)
+bool UCoastalUISessionComponent::Push(coastal::PanelKind Kind, bool bFeedback)
 {
     if (!bInitialized || !IsValid(Controller) || !IsValid(Bridge)) return false;
     if (!Panels.IsEmpty()) Flow.RememberFocus(Panels.Last()->Ticket, Panels.Last()->FocusIndex());
@@ -23,9 +23,11 @@ bool UCoastalUISessionComponent::Push(coastal::PanelKind Kind)
     Widget->Setup(this, Ticket); Panels.Add(Widget);
     Widget->AddToViewport(20 + Panels.Num()); Widget->Refresh();
     ApplyInputOwnership(); Widget->FocusDefault(0, false); Widget->ScrollToTop();
-    RefreshAudioPlayback(); return true;
+    RefreshAudioPlayback();
+    if (bFeedback) OnMenuFeedback.Broadcast(Kind == coastal::PanelKind::Journal ? TEXT("journal") : TEXT("confirm"));
+    return true;
 }
-void UCoastalUISessionComponent::CloseTop()
+void UCoastalUISessionComponent::CloseTop(bool bFeedback)
 {
     if (Panels.IsEmpty() || !Flow.Pop(Panels.Last()->Ticket, IsValid(Saves) && Saves->HasActiveCampaign())) return;
     auto* Old = Panels.Pop().Get();
@@ -46,6 +48,12 @@ void UCoastalUISessionComponent::CloseTop()
         const int Focus = Flow.Top()->focus; Panels.Last()->Refresh(); Panels.Last()->FocusDefault(Focus);
     }
     RefreshAudioPlayback();
+    if (bFeedback) OnMenuFeedback.Broadcast(TEXT("cancel"));
+}
+void UCoastalUISessionComponent::NotifyMenuFocus(UCoastalPanelWidget* Sender)
+{
+    if (IsInitialized() && !Panels.IsEmpty() && Panels.Last() == Sender && Sender->HasBeenPresented())
+        OnMenuFeedback.Broadcast(TEXT("select"));
 }
 void UCoastalUISessionComponent::ClearPanels()
 {

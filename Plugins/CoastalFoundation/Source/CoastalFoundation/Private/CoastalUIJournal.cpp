@@ -29,6 +29,7 @@ void UCoastalUISessionComponent::SelectJournalEntry(FName Command)
 {
     const FName Requested(*Command.ToString().RightChop(11));
     if (!IsValid(Saves) || !Saves->GetJournal().Contains(Requested)) return;
+    if (JournalSelection != Requested) OnMenuFeedback.Broadcast(TEXT("journal"));
     JournalSelection = Requested;
     // Keep the selected entry's text in view instead of scrolling to its button.
     bReadTextPending = true;

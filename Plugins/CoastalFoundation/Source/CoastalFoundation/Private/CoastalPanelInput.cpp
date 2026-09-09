@@ -59,6 +59,7 @@ FReply UCoastalPanelWidget::NativeOnPreviewKeyDown(const FGeometry& Geometry, co
         const bool IncludeName = Key == EKeys::Tab && SaveField && SaveField->IsVisible();
         const int32 Count = Buttons.Num() + (IncludeName ? 1 : 0);
         int32 Index = FocusIndex();
+        const int32 PreviousIndex = Index;
         if (!IncludeName && Index == Buttons.Num()) Index = Previous ? 0 : Buttons.Num() - 1;
         for (int32 I = 0; I < Count; ++I)
         {
@@ -66,6 +67,7 @@ FReply UCoastalPanelWidget::NativeOnPreviewKeyDown(const FGeometry& Geometry, co
             if (IncludeName && Index == Buttons.Num()) { FocusDefault(Index); break; }
             if (Buttons[Index]->GetIsEnabled()) { Buttons[Index]->SetUserFocus(GetOwningPlayer()); Scroller->ScrollWidgetIntoView(Buttons[Index], false, EDescendantScrollDestination::IntoView, 8); break; }
         }
+        if (Session && FocusIndex() != PreviousIndex) Session->NotifyMenuFocus(this);
         return FReply::Handled();
     }
     if (Key == EKeys::Enter || Key == EKeys::SpaceBar || Key == EKeys::Gamepad_FaceButton_Bottom)

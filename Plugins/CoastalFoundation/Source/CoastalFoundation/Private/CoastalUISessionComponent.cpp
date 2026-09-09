@@ -121,14 +121,14 @@ void UCoastalUISessionComponent::TickComponent(float Delta, ELevelTick TickType,
     {
         StorageId = PendingStorageId; PendingStorageId = NAME_None; bStorageSide = false; SelectedRow = -1;
         if (Bridge->ValidateOpenStorage() == ECoastalActionResult::Applied && !HasModal())
-        { ReadViews(); if (!Push(coastal::PanelKind::Storage)) Bridge->CloseStorage(); }
+        { ReadViews(); if (!Push(coastal::PanelKind::Storage, false)) Bridge->CloseStorage(); }
         else { Bridge->CloseStorage(); StorageId = NAME_None; }
     }
     if (PendingTranscriptToken.IsValid())
     {
         TranscriptToken = PendingTranscriptToken; TranscriptText = PendingTranscriptText;
         PendingTranscriptToken.Invalidate(); PendingTranscriptText = FText::GetEmpty();
-        if (HasModal() || !Push(coastal::PanelKind::Transcript)) Bridge->CancelTranscript();
+        if (HasModal() || !Push(coastal::PanelKind::Transcript, false)) Bridge->CancelTranscript();
     }
     if (!PendingJournalEntry.IsNone())
     {
@@ -137,7 +137,7 @@ void UCoastalUISessionComponent::TickComponent(float Delta, ELevelTick TickType,
         {
             JournalSelection = Entry;
             bReadTextPending = true;
-            if (Push(coastal::PanelKind::Journal))
+            if (Push(coastal::PanelKind::Journal, false))
                 ActionNotice = TEXT("Journal opened to the selected record.");
             bReadTextPending = false;
         }

@@ -3,9 +3,15 @@ coastal exploration - an unreal ai created project
 
 ## Local native integration
 
+September 9: the first new-asset increment adds ten interaction/UI audio clips. The
+new native build passes all 54 tests; 69 scripted gameplay assertions and actual
+mixer mute/half-gain checks pass. All 72 pre-existing save files remain unchanged.
+Listening/tonal review and the remaining asset batches are still open. See
+[interaction audio](docs/M3_INTERACTION_AUDIO.md).
+
 Development has resumed on the relocated `G:/coastline` workspace with Unreal 5.8.2 and MCP connected. This repository is a source snapshot of the coastal game and its integration tools; it does not include the external Unreal host project, purchased Fab assets, campaign saves, or a playable download.
 
-The isolated Unreal 5.8.2 host passes 52 native tests, 16 scripted combat cases,
+The isolated Unreal 5.8.2 host passes 54 native tests, 16 scripted combat cases,
 22 water/checkpoint cases, 11 swimming route waypoints, 4 Morbid shelter cases and
 7 German Shepherd companion cases. Both owned Atlantis Ruins and Modular SciFi
 Station packs are assembled with tested routes and persistent investigation

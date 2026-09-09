@@ -23,7 +23,7 @@ void UCoastalUISessionComponent::Command(UCoastalPanelWidget* Sender, FName Id)
     // Whitelist actual commands for this screen; native callers cannot bypass disabled buttons.
     FText Title, Body; TArray<FCoastalUIChoice> Choices; Present(Kind, Title, Body, Choices);
     if (Id != TEXT("back") && !Choices.ContainsByPredicate([Id](const auto& C) { return C.Command == Id && C.bEnabled; })) return;
-    if (Id == TEXT("back")) { CloseTop(); return; }
+    if (Id == TEXT("back")) { CloseTop(true); return; }
     if ((Kind == K::Inventory || Kind == K::Storage) && Id.ToString().StartsWith(TEXT("select_item.")))
     { SelectInventoryItem(Id); return; }
     if (Kind == K::Journal && Id.ToString().StartsWith(TEXT("read_entry.")))
@@ -58,7 +58,9 @@ void UCoastalUISessionComponent::Command(UCoastalPanelWidget* Sender, FName Id)
     if (Id == TEXT("save") || Id == TEXT("save_exit"))
     {
         if (!IntegrationReady() || Saves->IsBusy()) return;
-        if (Saves->SaveNow() == ECoastalSaveResult::Saved && Id == TEXT("save_exit")) QuitWithoutSave();
+        const bool Saved = Saves->SaveNow() == ECoastalSaveResult::Saved;
+        OnMenuFeedback.Broadcast(Saved ? TEXT("confirm") : TEXT("error"));
+        if (Saved && Id == TEXT("save_exit")) QuitWithoutSave();
         return;
     }
     if (Id == TEXT("sessions")) { Push(K::Session); return; }

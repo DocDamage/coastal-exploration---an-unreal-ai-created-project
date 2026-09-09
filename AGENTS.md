@@ -1,3 +1,37 @@
+## Interaction/UI audio checkpoint — September 9, 2026
+
+The first ordered increment of the new asset batch is integrated in the independent
+UE5.8.2 host: ten selected WAVs from Fantasy UI Essentials, Horror Interaction and
+Cozy Everyday Objects. Existing bridge/UI owners drive one bounded feedback voice
+for successful actions, menu navigation, cancel/error, inventory, storage, notes,
+records and doors. Automatic panels do not duplicate the action cue. Reload,
+recovery, pause and routing teardown retire the appropriate voice.
+
+Native build and all **54 native tests** pass (53 clean, one retained AGIS warning).
+Source checks pass **70 Python tests and 3,538 consistency checks**.
+The disposable `coastal_test_m3_audio_0909e` campaign passes **69 scripted assertions**.
+Real mixer captures pass: Effects/Master mute each produce zero signal; Effects
+50% measures 0.4988 of baseline RMS. Background capture temporarily bypasses app
+focus mute and solos PIE audio, then restores both. Listening/tonal, physical-device,
+spatial listening, performance and Windows-package acceptance remain separate.
+
+All **72 pre-existing save files**, both host maps and project descriptors are
+hash-verified unchanged (76 files). The original UE5.7 rollback host is intact.
+Editor is outside PIE with 2,934 actors, no dirty packages and normal background
+settings. Purchased payloads and evidence remain outside the source repository.
+
+Read [interaction audio](docs/M3_INTERACTION_AUDIO.md). Evidence: `m3-interaction-audio-build.*`,
+`m3-interaction-audio-native-tests.*`, `m3-interaction-audio-live.json`,
+`m3-interaction-audio-output.json` and `m3-interaction-audio-preservation-after.json`
+under the workspace's `local-evidence`. Earlier failed harness/silent-output reports
+are retained. Only the generated PCH cache was moved to the current user's SSD,
+with SHA256 verification and its HDD original preserved; see `m3-ue58-ssd-pch-0909.json`.
+
+The remaining twelve archives are not imported. Bonus Vol.01 is reserved for tonal
+review. Next ordered work is music/thunder, merchant animations, isolated
+pickup/rotation review, then fishing/combat audio. This is an interaction-audio
+checkpoint, not completion of all 16 archives or of M3.
+
 ## Additional M3 asset batch — September 8, 2026
 
 The user added all 16 archives in `G:/coastline/even newer assets and animations`

@@ -17,6 +17,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCoastalStorageRequested, FName, Sto
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FCoastalTranscriptRequested, FText, Transcript, FGuid, AcknowledgementToken);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCoastalJournalRequested, FName, JournalEntryId);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCoastalActionNotice, ECoastalActionResult, Result);
+// Presentation only, emitted after the authoritative operation finishes.
+DECLARE_MULTICAST_DELEGATE_ThreeParams(FCoastalActionFeedback, ECoastalActionResult, FName, FVector);
 
 // Hyper supplies focus/prompt. This bridge owns permission checks and game actions.
 UCLASS(Blueprintable, ClassGroup=(Coastal), meta=(BlueprintSpawnableComponent))
@@ -64,6 +66,7 @@ public:
     FCoastalJournalRequested OnJournalRequested;
     UPROPERTY(BlueprintAssignable, Category="Coastal|Interaction")
     FCoastalActionNotice OnActionNotice;
+    FCoastalActionFeedback OnActionFeedback;
 private:
     UPROPERTY() TObjectPtr<UCoastalSaveCoordinator> Saves;
     UPROPERTY() TSet<FName> UIBlockers;
@@ -74,6 +77,6 @@ private:
     coastal::InteractionDispatchGate DispatchGate;
     ECoastalActionResult CheckTarget(ACoastalWorldObject* Target, bool bCheckUI) const;
     ECoastalActionResult ApplyAction(ACoastalWorldObject* Target);
-    ECoastalActionResult Emit(ECoastalActionResult Result);
+    ECoastalActionResult Emit(ECoastalActionResult Result, FName Cue = TEXT("confirm"), FVector Location = FVector::ZeroVector);
     static ECoastalActionResult FromInventory(ECoastalInventoryCommit Result);
 };

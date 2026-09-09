@@ -78,6 +78,10 @@ void UCoastalUISessionComponent::SelectInventoryItem(FName Command)
     if (!ReadViews()) { bRefreshPending = true; return; }
     const int32 Found = SelectedView().Items.IndexOfByPredicate([&Requested](const auto& Item) { return Item.InstanceId == Requested; });
     if (Found == INDEX_NONE) UIError = TEXT("That item is no longer here. Review the refreshed inventory.");
-    else { SelectedRow = Found; bReadTextPending = true; }
+    else
+    {
+        if (SelectedRow != Found) OnMenuFeedback.Broadcast(TEXT("select"));
+        SelectedRow = Found; bReadTextPending = true;
+    }
     bRefreshPending = true;
 }

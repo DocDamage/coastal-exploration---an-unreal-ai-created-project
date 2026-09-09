@@ -40,7 +40,9 @@ bool UCoastalUISessionComponent::ReadViews()
 void UCoastalUISessionComponent::MoveSelection(int32 Direction)
 {
     if (!bViewsValid || bTransferPending) return;
+    const int32 Previous = SelectedRow;
     SelectedRow = coastal::CycleSelection(SelectedRow, Direction, SelectedView().Items.Num());
+    if (Previous != SelectedRow) OnMenuFeedback.Broadcast(TEXT("select"));
     bReadTextPending = true;
     bRefreshPending = true;
 }

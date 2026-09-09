@@ -100,11 +100,15 @@ void UCoastalUISessionComponent::OptionsCommand(FName Id)
     if (Id == TEXT("options"))
     { OptionsDraft = Options->Get(); SelectedOption = 0; Push(coastal::PanelKind::Settings); return; }
     if (Id == TEXT("option_previous") || Id == TEXT("option_next"))
-    { SelectedOption = coastal::CycleSelection(SelectedOption, Id == TEXT("option_next") ? 1 : -1, coastal::OptionFieldCount); }
+    {
+        SelectedOption = coastal::CycleSelection(SelectedOption, Id == TEXT("option_next") ? 1 : -1, coastal::OptionFieldCount);
+        OnMenuFeedback.Broadcast(TEXT("select"));
+    }
     else if (Id == TEXT("option_increase") || Id == TEXT("option_decrease"))
     {
         const auto Field = static_cast<coastal::OptionField>(SelectedOption);
-        if (OptionAvailable(Field)) coastal::AdjustOption(OptionsDraft, Field, Id == TEXT("option_increase") ? 1 : -1);
+        if (OptionAvailable(Field) && coastal::AdjustOption(OptionsDraft, Field, Id == TEXT("option_increase") ? 1 : -1))
+            OnMenuFeedback.Broadcast(TEXT("select"));
     }
     else if (Id == TEXT("option_defaults"))
     {
@@ -136,6 +140,7 @@ void UCoastalUISessionComponent::OptionsCommand(FName Id)
             if (IsValid(AudioOptions) && !AudioOptions->ApplyAudioOptions())
                 OptionsNotice += TEXT("\nPreferences applied, but audio commands could not be submitted. The audio feature is unavailable; inspect its binding and relaunch.");
         }
+        OnMenuFeedback.Broadcast(Applied ? TEXT("confirm") : TEXT("error"));
     }
     bRefreshPending = true;
 }

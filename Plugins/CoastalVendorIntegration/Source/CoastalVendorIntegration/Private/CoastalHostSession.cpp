@@ -139,8 +139,14 @@ void UCoastalHostSession::InitializeHost()
     Started=Result==ECoastalStartupResult::Started;
     if(Started)
     {
-        auto* Effect=LoadObject<USoundBase>(nullptr,TEXT("/Game/Coastal/Audio/SW_M1Action.SW_M1Action"));
-        const bool EffectsReady=Add<UCoastalActionAudio>(Controller)->Initialize(Bridge,Audio,Effect);
+        TMap<FName,USoundBase*> Effects;
+        for(const TCHAR* Id:{TEXT("select"),TEXT("confirm"),TEXT("cancel"),TEXT("error"),TEXT("pickup"),
+            TEXT("door_open"),TEXT("door_close"),TEXT("storage"),TEXT("paper"),TEXT("journal")})
+        {
+            const FString Path=FString::Printf(TEXT("/Game/Coastal/Audio/M3Interaction/SW_M3_%s.SW_M3_%s"),Id,Id);
+            Effects.Add(FName(Id),LoadObject<USoundBase>(nullptr,*Path));
+        }
+        const bool EffectsReady=Add<UCoastalActionAudio>(Controller)->Initialize(Bridge,Audio,UI,Effects);
         UE_LOG(LogTemp,Display,TEXT("COASTAL_AUDIO_BINDINGS: routing=%d playback=%d effects=%d; %s"),
             Audio->IsAudioReady(),Playback->IsPlaybackReady(),EffectsReady,*Playback->LastDetail);
     }

@@ -1,3 +1,16 @@
+## Current local validation — September 9, 2026
+
+The interaction/UI audio increment compiles in the independent Unreal 5.8.2 host.
+All 54 native tests pass (53 clean, one existing AGIS warning), and its real PIE
+campaign passes 69 gameplay assertions. Four actual mixer captures verify nonzero
+baseline, Effects/Master mute and a 0.4988 RMS ratio at Effects 50%. These are not
+listening or physical-device acceptance. All 72 pre-existing saves, both host maps
+and project descriptors remain unchanged. See [the audio checkpoint](docs/M3_INTERACTION_AUDIO.md).
+
+The source checks pass all 70 Python tests. The historical validation sections
+below refer to prior source deliveries and do not override this current local run.
+Local execution evidence remains outside the public repository.
+
 # M1.10 Validation — Display Settings & Timed Keep/Revert
 
 **Section date:** September 6, 2026, America/New_York  

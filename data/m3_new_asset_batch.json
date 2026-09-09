@@ -15,7 +15,7 @@
         ".wav": 30
       },
       "documentation": [],
-      "integration_status": "planned_not_imported"
+      "integration_status": "reserved_not_imported_tonal_review_pending"
     },
     {
       "archive": "Candle_Light_Bonus_Vol_02_FINAL_30_SFX.zip",
@@ -27,7 +27,8 @@
         ".wav": 30
       },
       "documentation": [],
-      "integration_status": "planned_not_imported"
+      "integration_status": "selected_subset_imported_scripted_pie_verified",
+      "selection_manifest": "data/m3_interaction_audio.json"
     },
     {
       "archive": "CANDLE_LIGHT_Horror_Interaction_SFX_100_Sounds.zip",
@@ -43,7 +44,8 @@
         "Horror_Interaction_SFX_100/LICENSE.txt",
         "Horror_Interaction_SFX_100/README.txt"
       ],
-      "integration_status": "planned_not_imported"
+      "integration_status": "selected_subset_imported_scripted_pie_verified",
+      "selection_manifest": "data/m3_interaction_audio.json"
     },
     {
       "archive": "Complete_Game_Music_Library_100_Seamless_Loops.zip",
@@ -77,7 +79,8 @@
         "LICENSE.txt",
         "README.txt"
       ],
-      "integration_status": "planned_not_imported"
+      "integration_status": "selected_subset_imported_scripted_pie_verified",
+      "selection_manifest": "data/m3_interaction_audio.json"
     },
     {
       "archive": "Fantasy_Workshop_Crafting_Music_100_Part_1.zip",
@@ -246,5 +249,19 @@
   "compatibility_notes": {
     "MerchantVendorAnim-V1.1.zip": "All108 entries encrypted; native project version unreadable. Separate FBX archive is readable.",
     "Pickupable&RotatableItems.zip": "Project declares EngineAssociation5.6 and enables GameplayStateTree. UE5.8.2 staging and Blueprint/dependency review pending."
+  },
+  "current_checkpoint": {
+    "date": "2026-09-09",
+    "interaction_audio_clips": 10,
+    "native_tests_passed": 54,
+    "scripted_gameplay_assertions_passed": 69,
+    "mixer_gain_checks": "passed",
+    "listening_acceptance": "not_run",
+    "remaining_order": [
+      "music_and_thunder",
+      "merchant_animations",
+      "item_inspection_rotation",
+      "fishing_and_combat_audio"
+    ]
   }
 }

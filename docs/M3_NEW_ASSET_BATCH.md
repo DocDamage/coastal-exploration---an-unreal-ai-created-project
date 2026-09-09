@@ -1,5 +1,19 @@
 # M3 additional assets — September 8, 2026
 
+## September 9 interaction/audio checkpoint
+
+The first ordered increment now imports ten selected clips from three archives
+and connects them to the existing UI/interaction/audio owners. All 54 native
+tests, 69 scripted gameplay assertions and the mixer mute/half-gain checks pass.
+See [interaction audio](M3_INTERACTION_AUDIO.md) and `data/m3_interaction_audio.json`.
+Bonus Vol.01 remains reserved for tonal review; no cartoon cue is forced into
+the coast. Listening/tonal and physical-device acceptance remain open.
+
+The remaining twelve archives are still not imported. Continue with music and
+thunder, then merchant animation, isolated pickup/rotation review and fishing/
+combat audio. The encrypted merchant ZIP and readable FBX alternative are unchanged.
+The original inventory paragraphs below describe the September 8 planning state.
+
 User-selected source folder: `G:/coastline/even newer assets and animations`.
 All 16 ZIP directories were inspected without extracting or importing content.
 These are planned additions, not completed integration or gameplay acceptance.

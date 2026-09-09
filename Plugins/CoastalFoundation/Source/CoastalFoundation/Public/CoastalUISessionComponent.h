@@ -25,6 +25,7 @@ class UEnhancedInputComponent;
 class APlayerController;
 class IInputProcessor;
 class UTexture2D;
+DECLARE_MULTICAST_DELEGATE_OneParam(FCoastalMenuFeedback, FName);
 
 struct FCoastalUIChoice
 {
@@ -70,6 +71,8 @@ public:
     void SetSaveSetText(const FText& Text);
     void Present(coastal::PanelKind Kind, FText& Title, FText& Body, TArray<FCoastalUIChoice>& Choices);
     void Command(UCoastalPanelWidget* Sender, FName Id);
+    FCoastalMenuFeedback OnMenuFeedback;
+    void NotifyMenuFocus(UCoastalPanelWidget* Sender);
     // Optional authored icon lookup for read-only inventory presentation.
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Coastal|UI")
     TMap<FName, TObjectPtr<UTexture2D>> ItemIcons;
@@ -143,8 +146,8 @@ private:
     void RemoveMenuInput();
     void ApplyInputOwnership();
     void ReleaseInputOwnership();
-    bool Push(coastal::PanelKind Kind);
-    void CloseTop();
+    bool Push(coastal::PanelKind Kind, bool bFeedback = true);
+    void CloseTop(bool bFeedback = false);
     void ClearPanels();
     void RefreshTop();
     void EnterRecovery();

@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "status": "imported_compiled_scripted_pie_and_mixer_verified_listening_pending",
+  "destination": "/Game/Coastal/Audio/M3Interaction",
+  "routing": "Existing Effects class; master folded once by existing options owner",
+  "audition": "Technical selection by event, duration and waveform; listening/tonal acceptance remains pending",
+  "clips": [
+    {
+      "id": "select",
+      "archive": "Fantasy UI Essentials - 100 SFX.zip",
+      "member": "01_Click_Select/click_select_01.wav",
+      "gain": 0.3
+    },
+    {
+      "id": "confirm",
+      "archive": "Fantasy UI Essentials - 100 SFX.zip",
+      "member": "02_Confirm_Accept/confirm_accept_01.wav",
+      "gain": 0.3
+    },
+    {
+      "id": "cancel",
+      "archive": "Fantasy UI Essentials - 100 SFX.zip",
+      "member": "03_Cancel_Back/cancel_back_01.wav",
+      "gain": 0.3
+    },
+    {
+      "id": "pickup",
+      "archive": "Fantasy UI Essentials - 100 SFX.zip",
+      "member": "04_Inventory_Item_Move/inventory_item_move_01.wav",
+      "gain": 0.45
+    },
+    {
+      "id": "error",
+      "archive": "CANDLE_LIGHT_Horror_Interaction_SFX_100_Sounds.zip",
+      "member": "Horror_Interaction_SFX_100/02_Locks_Keys_Chains/Key_Wrong_Fail_01.wav",
+      "gain": 0.25
+    },
+    {
+      "id": "door_open",
+      "archive": "CANDLE_LIGHT_Horror_Interaction_SFX_100_Sounds.zip",
+      "member": "Horror_Interaction_SFX_100/01_Doors_Handles/Door_Wood_Open_Slow_01.wav",
+      "gain": 0.5
+    },
+    {
+      "id": "door_close",
+      "archive": "CANDLE_LIGHT_Horror_Interaction_SFX_100_Sounds.zip",
+      "member": "Horror_Interaction_SFX_100/01_Doors_Handles/Door_Wood_Close_01.wav",
+      "gain": 0.5
+    },
+    {
+      "id": "storage",
+      "archive": "Candle_Light_Bonus_Vol_02_FINAL_30_SFX.zip",
+      "member": "Vol.02_Cozy_Everyday_Objects/Cozy_Wooden_Box_Open.wav",
+      "gain": 0.45
+    },
+    {
+      "id": "paper",
+      "archive": "Candle_Light_Bonus_Vol_02_FINAL_30_SFX.zip",
+      "member": "Vol.02_Cozy_Everyday_Objects/Cozy_Paper_Unfold.wav",
+      "gain": 0.4
+    },
+    {
+      "id": "journal",
+      "archive": "Candle_Light_Bonus_Vol_02_FINAL_30_SFX.zip",
+      "member": "Vol.02_Cozy_Everyday_Objects/Cozy_Page_Flip.wav",
+      "gain": 0.4
+    }
+  ],
+  "reserved_archives": {
+    "Candle_Light_Bonus_Vol_01_FINAL_30_SFX.zip": "Cartoon motion/comedy; no selected grounded-coast event yet"
+  },
+  "provenance": {
+    "Fantasy UI Essentials - 100 SFX.zip": "Included LICENSE permits use/modification in personal/commercial projects; no standalone redistribution; credit optional",
+    "CANDLE_LIGHT_Horror_Interaction_SFX_100_Sounds.zip": "Included CANDLE LIGHT ASSET LICENSE permits project use/modification; no standalone redistribution; credit optional",
+    "Candle_Light_Bonus_Vol_02_FINAL_30_SFX.zip": "User-supplied CANDLE LIGHT bonus; no license/readme inside archive; retain provenance gap for delivery"
+  },
+  "verification": {
+    "native_tests_passed": 54,
+    "scripted_assertions_passed": 69,
+    "effects_mute_rms": 0,
+    "master_mute_rms": 0,
+    "effects_50_percent_rms_ratio": 0.4987721845153837,
+    "physical_device_and_listening": "not_run"
+  }
+}
