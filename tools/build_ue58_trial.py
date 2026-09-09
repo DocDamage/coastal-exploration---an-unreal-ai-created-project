@@ -1,21 +1,18 @@
-"""Build only the independent migration trial, with process-local scratch on F:."""
+"""Build only the independent migration trial, with workspace-local scratch."""
 import datetime
 import json
-import os
 import subprocess
-from pathlib import Path
 
-out = Path('F:/coastline/local-evidence')
-project = Path('F:/coastline/LocalHost58/CoastalExploration/CoastalExploration.uproject')
-if not (out / 'm3-ue58-trial-copy.json').exists() or not project.exists():
+from ue58_paths import EVIDENCE, PROJECT, build_environment, engine_root, validate_trial
+
+validate_trial()
+out = EVIDENCE
+project = PROJECT
+copy_record = out / 'm3-ue58-trial-copy.json'
+if not copy_record.is_file() or not json.loads(copy_record.read_text()).get('content_copy_complete'):
     raise SystemExit('Independent trial copy must complete first')
-scratch = Path('F:/coastline/Cache/UE58/Temp')
-scratch.mkdir(parents=True, exist_ok=True)
-env = os.environ.copy()
-env.update(TEMP=str(scratch), TMP=str(scratch))
-env['UE-LocalDataCachePath'] = 'F:/coastline/Cache/UE58/DDC'
-env['UBA_ROOT'] = 'F:/coastline/Cache/UE58/UBA'
-cmd = ['C:/Program Files/Epic Games/UE_5.8/Engine/Build/BatchFiles/Build.bat',
+env = build_environment()
+cmd = [str(engine_root() / 'Engine/Build/BatchFiles/Build.bat'),
        'TP_ThirdPersonEditor', 'Win64', 'Development', '-Project=' + str(project),
        '-WaitMutex', '-NoHotReloadFromIDE', '-NoUBA', '-UBANoDetour', '-MaxParallelActions=2']
 record = {'command': cmd, 'started_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),

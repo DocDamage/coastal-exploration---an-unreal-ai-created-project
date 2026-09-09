@@ -8,7 +8,7 @@ import time
 from pathlib import Path
 import unreal as u
 
-REPORT = Path('F:/coastline/local-evidence/m3-omitted-traversal.json')
+REPORT = (Path(__file__).resolve().parents[3] / 'local-evidence/m3-outer-coast-traversal.json')
 REPORT.write_text(json.dumps({'passed': False, 'status': 'starting'}), encoding='utf-8')
 try:
     world = u.get_editor_subsystem(u.UnrealEditorSubsystem).get_game_world()
@@ -25,6 +25,8 @@ try:
     if movement is None or recovery is None or len(coordinators) != 1:
         raise RuntimeError('Expected movement, recovery and one active campaign coordinator')
     saves = coordinators[0]
+    if not str(saves.get_active_save_set()).startswith('coastal_test_'):
+        raise RuntimeError('Traversal requires a disposable campaign')
 except Exception as exc:
     REPORT.write_text(json.dumps({'passed': False, 'status': 'preflight_failed',
                                   'error': str(exc)}), encoding='utf-8')
@@ -68,7 +70,9 @@ def tick(delta):
             finish()
             return
         route = routes[route_index]
-        now = time.monotonic()
+        now = u.GameplayStatics.get_time_seconds(world)
+        if time.monotonic() - start_time > 900:
+            raise RuntimeError('Traversal exceeded its wall-time budget')
         if not started:
             arrival = u.Vector(*route['start'])
             if not u.CoastalPlacementLibrary.is_dry_destination(pawn, u.Transform(location=arrival)):
@@ -92,6 +96,8 @@ def tick(delta):
             raise RuntimeError('Pawn left route elevation: ' + route['name'])
         direction = u.Vector(target.x - actual.x, target.y - actual.y, 0)
         if direction.length() < 80:
+            if not movement.is_moving_on_ground():
+                raise RuntimeError('Route point is not grounded: ' + route['name'])
             rows.append({'route': route['name'], 'point': point_index,
                          'position': list(actual.to_tuple()), 'generation': saves.get_generation(),
                          'recovery_detail': recovery.last_detail})

@@ -5,15 +5,17 @@ import time
 from pathlib import Path
 import unreal as u
 
-REPORT = Path('F:/coastline/local-evidence/m3-all-waters-live-hardened.json')
-CONFIG = json.loads(Path('F:/coastline/local-evidence/m3-all-waters-configuration.json').read_text())
+REPORT = (Path(__file__).resolve().parents[3] / 'local-evidence/m3-all-waters-live-hardened.json')
+CONFIG = json.loads((Path(__file__).resolve().parents[3] / 'local-evidence/m3-all-waters-configuration.json').read_text())
 SAVE_DIR = Path(u.Paths.project_saved_dir()) / 'SaveGames'
-TEST_SAVE = 'coastal_test_m3_swimming_0908a'
+TEST_SAVE = str(globals().get('save_set', 'coastal_test_m3_swimming_0908a'))
+if not TEST_SAVE.startswith('coastal_test_'):
+    raise RuntimeError('Use a disposable swimming campaign')
 
 
 def save_hashes():
     return {str(p.relative_to(SAVE_DIR)).replace('\\', '/'): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(SAVE_DIR.rglob('*')) if p.is_file()}
+            for p in sorted(SAVE_DIR.rglob('*')) if p.is_file() and not p.name.startswith('Coastal_' + TEST_SAVE + '_')}
 
 
 REPORT.write_text(json.dumps({'passed': False, 'status': 'starting'}))
@@ -135,14 +137,14 @@ def finish(error=None):
         after_saves = save_hashes()
         saves_preserved = after_saves == before_saves
         if not saves_preserved:
-            error = error or 'Campaign save files changed during read-only swimming checks'
+            error = error or 'Campaign save files changed outside the disposable swimming campaign'
     except Exception as exc:
         error = error or str(exc)
     finally:
         u.unregister_slate_post_tick_callback(handle)
     result = {'passed': error is None, 'error': error, 'rows': rows,
               'dry_checkpoint_count': len(dry_actors), 'elapsed_seconds': time.monotonic() - began,
-              'campaign_save_hashes_preserved': saves_preserved,
+              'other_campaign_save_hashes_preserved': saves_preserved, 'save_set': TEST_SAVE,
               'overlap_frame_counts': overlap_moving_frames,
               'overlap_frames': overlap_frames,
               'overlap_transitions': overlap_transitions,

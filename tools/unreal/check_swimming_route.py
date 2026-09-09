@@ -4,7 +4,7 @@ import time
 from pathlib import Path
 import unreal as u
 
-REPORT = Path('F:/coastline/local-evidence/m3-swimming-route.json')
+REPORT = (Path(__file__).resolve().parents[3] / 'local-evidence/m3-swimming-route.json')
 REPORT.write_text(json.dumps({'passed': False, 'status': 'starting'}), encoding='utf-8')
 try:
     world = u.get_editor_subsystem(u.UnrealEditorSubsystem).get_game_world()
@@ -18,6 +18,8 @@ try:
     if len(saves) != 1 or not swim or not movement:
         raise RuntimeError('Expected one active campaign and the compiled swimming component')
     saves = saves[0]
+    if not str(saves.get_active_save_set()).startswith('coastal_test_'):
+        raise RuntimeError('Swimming route requires a disposable campaign')
     start = u.Vector(12500, 1800, 348)
     if not u.CoastalPlacementLibrary.is_dry_destination(pawn, u.Transform(location=start)):
         raise RuntimeError('Existing dock dry checkpoint is unavailable')
@@ -35,7 +37,7 @@ points = [(12500, 0, False), (11750, 0, False), (11750, -1000, False),
 index = 0
 rows = []
 began = time.monotonic()
-deadline = began + 40
+deadline = u.GameplayStatics.get_time_seconds(world) + 40
 last = start
 original_mesh = pawn.mesh.get_editor_property('skeletal_mesh_asset')
 original_anim = pawn.mesh.get_anim_instance().get_class()
@@ -87,9 +89,9 @@ def tick(delta):
             if actual_swimming != expected_swimming:
                 raise RuntimeError('Unexpected swimming state at point ' + str(index))
             index += 1
-            deadline = time.monotonic() + 40
+            deadline = u.GameplayStatics.get_time_seconds(world) + 40
             return
-        if time.monotonic() > deadline:
+        if u.GameplayStatics.get_time_seconds(world) > deadline or time.monotonic() - began > 300:
             raise RuntimeError('Route timed out at point ' + str(index) + ': ' + str(pos))
         pawn.add_movement_input(direction.normal(), 1.0, False)
     except Exception as exc:

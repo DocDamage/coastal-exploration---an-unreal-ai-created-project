@@ -4,7 +4,10 @@ import shutil
 from pathlib import Path
 
 repo = Path(__file__).resolve().parents[1]
-trial = Path('F:/coastline/LocalHost58/CoastalExploration')
+from ue58_paths import TRIAL, validate_trial
+
+validate_trial()
+trial = TRIAL
 project = json.loads((trial / 'CoastalExploration.uproject').read_text())
 if project.get('EngineAssociation') != '5.8':
     raise SystemExit('Expected the isolated UE5.8 project')
@@ -13,7 +16,7 @@ pairs = [(repo / 'Plugins' / name / 'Source', trial / 'Plugins' / name / 'Source
 pairs.append((repo / 'tools/unreal/host_editor/CoastalHostEditor', trial / 'Source/CoastalHostEditor'))
 changed = []
 for source, destination in pairs:
-    if not source.is_dir() or not destination.is_dir() or destination.is_junction() or destination.is_symlink():
+    if not source.is_dir() or not destination.is_dir() or destination.resolve() != destination.absolute():
         raise SystemExit('Expected independent source directories: ' + str(destination))
     expected = {p.relative_to(source): p for p in source.rglob('*') if p.suffix in ('.cpp', '.h', '.cs')}
     existing = {p.relative_to(destination) for p in destination.rglob('*') if p.suffix in ('.cpp', '.h', '.cs')}
@@ -22,7 +25,7 @@ for source, destination in pairs:
         raise SystemExit('Review stale trial source before removal: ' + ', '.join(map(str, stale)))
     for relative, original in expected.items():
         target = destination / relative
-        if target.is_symlink() or target.is_junction() or not target.resolve().is_relative_to(trial.resolve()):
+        if target.resolve() != target.absolute() or not target.resolve().is_relative_to(trial.resolve()):
             raise SystemExit('Refusing a source path outside the isolated trial')
         if not target.exists() or original.read_bytes() != target.read_bytes():
             target.parent.mkdir(parents=True, exist_ok=True)

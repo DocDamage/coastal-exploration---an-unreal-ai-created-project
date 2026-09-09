@@ -16,12 +16,12 @@ enum class ECoastalRestoreRecordResolution : uint8
     Reject
 };
 
-// Fixed migration and progression policy for the seven destination discoveries.
+// Fixed migration and progression policy for the nine destination discoveries.
 // Progress remains derived from world records plus journal entries; no parallel quest state is stored.
 class COASTALFOUNDATION_API FCoastalDestinationQuestRules
 {
 public:
-    static constexpr int32 DestinationStepCount = 7;
+    static constexpr int32 DestinationStepCount = 9;
     static bool IsFirstSignalMap(FName MapId);
     static bool IsRequiredWorldId(FName WorldId, ECoastalObjectKind* ExpectedKind = nullptr);
     static bool IsOptionalWorldId(FName WorldId, int32* StepIndex = nullptr);

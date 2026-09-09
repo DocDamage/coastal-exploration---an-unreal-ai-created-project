@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "original_m1_copy",
+  "status": "m3_destination_lead_sync",
   "entries": [
     {
       "id": "journal.first_signal.maintenance",
@@ -16,7 +16,7 @@
     },
     {
       "id": "journal.north_reach.lead",
-      "text": "North Reach: check the inspection log at the harbour office before approaching the outer platform. This is a recorded lead; travel there is not available in this opening."
+      "text": "North Reach: check the inspection log at the Industrial Harbour before approaching the outer platform."
     }
   ]
 }

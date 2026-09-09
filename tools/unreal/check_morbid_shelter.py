@@ -4,7 +4,7 @@ import time
 from pathlib import Path
 import unreal as u
 
-REPORT = Path('F:/coastline/local-evidence/m3-morbid-shelter-live.json')
+REPORT = (Path(__file__).resolve().parents[3] / 'local-evidence/m3-morbid-shelter-live.json')
 world = u.get_editor_subsystem(u.UnrealEditorSubsystem).get_game_world()
 pawn = u.GameplayStatics.get_player_character(world, 0)
 pc = u.GameplayStatics.get_player_controller(world, 0)

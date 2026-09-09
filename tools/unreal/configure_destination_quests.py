@@ -1,4 +1,4 @@
-"""Author the seven journal-backed investigation records beside verified dry arrivals."""
+"""Author the nine journal-backed investigation records beside verified dry arrivals."""
 import json
 import shutil
 import sys
@@ -11,12 +11,12 @@ if str(HERE) not in sys.path:
 from m3_destination_authoring import Destination
 
 PROJECT = Path(u.Paths.get_project_file_path()).resolve().parent
-ALLOWED = {Path('F:/coastline/LocalHost/CoastalExploration').resolve(),
-           Path('F:/coastline/LocalHost58/CoastalExploration').resolve()}
+WORKSPACE = Path(__file__).resolve().parents[3]
+ALLOWED = {(WORKSPACE / 'LocalHost58/CoastalExploration').resolve()}
 if PROJECT not in ALLOWED:
     raise RuntimeError('Destination quest authoring is restricted to an explicit local host')
 HOST_KEY = 'ue58' if PROJECT.name == 'CoastalExploration' and PROJECT.parent.name == 'LocalHost58' else 'ue57'
-EVIDENCE = Path('F:/coastline/local-evidence')
+EVIDENCE = WORKSPACE / 'local-evidence'
 backup = EVIDENCE / f'm3-destination-quests-before-L_FirstSignal-{HOST_KEY}.umap'
 if not backup.exists():
     shutil.copy2(PROJECT / 'Content/Coastal/Maps/L_FirstSignal.umap', backup)
@@ -55,6 +55,12 @@ records = [
     ('Prison duty record', 'world.coastal_records.prison',
      'journal.coastal_records.prison', (21455, 29000, 505), (21600, 29000, 498),
      'READ: PRISON DUTY RECORD'),
+    ('Atlantis tide survey', 'world.outer_coast.atlantis',
+     'journal.outer_coast.atlantis', (-15855, 6000, 305), (-16000, 6000, 298),
+     'INSPECT: TIDE SURVEY'),
+    ('Station monitoring log', 'world.outer_coast.station',
+     'journal.outer_coast.station', (33145, -28500, 705), (33000, -28500, 698),
+     'READ: STATION MONITORING LOG'),
 ]
 required = {'world.test.radio', 'world.test.storage', 'world.test.door',
             'world.test.battery', 'world.test.fuse', 'world.test.note',
@@ -93,7 +99,11 @@ for key, world_id, journal_id, location, arrival, sign_text in records:
     proxy.set_material(0, material)
     proxy.set_collision_profile_name('BlockAll')
     d.written.append(actor)
-    d.sign(key + ' prompt', sign_text, (location[0], location[1], location[2] + 85))
+    outer = world_id.startswith('world.outer_coast.')
+    prompt = d.sign(key + ' prompt', sign_text, (location[0], location[1], location[2] + 85),
+                    yaw=180 if outer else -90)
+    if outer:
+        prompt.get_component_by_class(u.TextRenderComponent).set_world_size(18)
     written.append({'world_id': world_id, 'journal_id': journal_id,
                     'actor': actor.get_path_name(), 'location': list(location),
                     'dry_arrival': list(arrival),
@@ -103,7 +113,7 @@ all_ids = [str(a.world_id) for a in d.actors.get_all_level_actors()
            if isinstance(a, u.CoastalWorldObject)]
 expected = required | {row[1] for row in records}
 if len(all_ids) != len(set(all_ids)) or set(all_ids) != expected:
-    raise RuntimeError('First Signal world-record manifest is not the expected 7 required + 7 destination records')
+    raise RuntimeError('First Signal world-record manifest is not the expected 7 required + 9 destination records')
 d.save()
 report = {'host': str(PROJECT), 'engine_target': HOST_KEY, 'backup': str(backup),
           'required_original_ids': sorted(required), 'optional_destination_records': written,

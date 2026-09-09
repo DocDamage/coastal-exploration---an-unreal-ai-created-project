@@ -2,6 +2,7 @@
 #include "CoastalSaveCoordinator.h"
 #include "CoastalPanelWidget.h"
 #include "CoastalCampingActionComponent.h"
+#include "CoastalCompanionUI.h"
 #include "GameFramework/PlayerController.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "CoreGlobals.h"
@@ -32,6 +33,17 @@ void UCoastalUISessionComponent::Command(UCoastalPanelWidget* Sender, FName Id)
     if (Kind == K::Settings || Id == TEXT("options")) { OptionsCommand(Id); return; }
     if (Kind == K::Recovery)
     { if (Id == TEXT("exit_without_save")) QuitWithoutSave(); return; }
+    if (Kind == K::Pause && Id == TEXT("companion_toggle"))
+    {
+        CloseTop();
+        bool bApplied = false;
+        if (!HasModal())
+            if (auto* Companion = FindCoastalCompanionCommands(GetWorld()))
+                if (Companion->CanCommandCompanion())
+                    bApplied = Companion->SetCompanionFollowing(!Companion->IsCompanionFollowing());
+        if (!bApplied) ActionNotice = TEXT("The dog is not ready for a command. Try again after returning to dry ground.");
+        return;
+    }
     if (Kind == K::Pause && (Id == TEXT("camping_warm_hands") || Id == TEXT("camping_rest") || Id == TEXT("shelter_rest")))
     {
         const ECoastalCampingAction Action = Id == TEXT("shelter_rest") ? ECoastalCampingAction::RestInShelter

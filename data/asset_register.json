@@ -275,9 +275,18 @@
       "planned_stage": "M3",
       "proposed_role": "Connected exploration destination",
       "local_content_root": null,
-      "acquisition_status": "requires_launcher_download",
+      "acquisition_status": "local_host_content_available",
       "import_test": "not_run",
-      "package_test": "not_run"
+      "package_test": "not_run",
+      "host_observation": {
+        "date": "2026-09-08",
+        "engine": "5.8.2",
+        "content_root": "/Game/Atlantis_Ruins",
+        "asset_observation": "Dry upper terraces and partly submerged lower-court scenery assembled. Approach, interior, return and tide-survey journal/save/reload pass.",
+        "evidence": "../local-evidence/m3-outer-coast-quests-live.json",
+        "packaged_acceptance": "not_run",
+        "evidence_scope": "Independent local UE5.8 trial only; purchased content excluded from portable source."
+      }
     },
     {
       "id": "powell_dock",
@@ -310,9 +319,18 @@
       "planned_stage": "M3",
       "proposed_role": "Connected exploration destination",
       "local_content_root": null,
-      "acquisition_status": "requires_launcher_download",
+      "acquisition_status": "local_host_content_available",
       "import_test": "not_run",
-      "package_test": "not_run"
+      "package_test": "not_run",
+      "host_observation": {
+        "date": "2026-09-08",
+        "engine": "5.8.2",
+        "content_root": "/Game/ModularSciFiStation",
+        "asset_observation": "Monitoring room assembled from owned modules. Sea-platform approach, interior, return and monitoring-log journal/save/reload pass.",
+        "evidence": "../local-evidence/m3-outer-coast-quests-live.json",
+        "packaged_acceptance": "not_run",
+        "evidence_scope": "Independent local UE5.8 trial only; purchased content excluded from portable source."
+      }
     },
     {
       "id": "swimming_animations",
@@ -324,7 +342,7 @@
       "proposed_role": "Player swimming animation integration with safe water entry and exit",
       "license_record": null,
       "local_content_root": null,
-      "acquisition_status": "local_archive_available",
+      "acquisition_status": "local_host_content_available",
       "import_test": "not_run",
       "package_test": "not_run",
       "archive_observation": {
@@ -334,15 +352,12 @@
       },
       "host_observation": {
         "date": "2026-09-08",
-        "engine": "5.7.4",
+        "engine": "5.8.2",
         "content_root": "/Game/SwimmingAnimationPack",
-        "asset_observation": "Native surface swimming is playable in the marked dock basin. Scripted entry, forward swimming, idle, ramp exit, pause/resume, wet save/load and boundary recovery passed in UE 5.7.4; physical device and packaged acceptance remain pending.",
-        "evidence": "../local-evidence/m3-swimming-route.json",
+        "asset_observation": "Corrected water seam passes 22 region/checkpoint cases and11 dry dock/ramp/swim/return waypoints.",
+        "evidence": "../local-evidence/m3-all-waters-live-hardened.json",
         "packaged_acceptance": "not_run",
-        "additional_evidence": [
-          "../local-evidence/m3-swimming-interruptions.json",
-          "../local-evidence/m3-swimming-live-presentation.json"
-        ]
+        "evidence_scope": "Independent local UE5.8 trial only; purchased content excluded from portable source."
       }
     },
     {
@@ -355,7 +370,7 @@
       "proposed_role": "Inspect supplied motions and integrate authored animation uses",
       "license_record": null,
       "local_content_root": null,
-      "acquisition_status": "local_archive_available",
+      "acquisition_status": "local_host_content_available",
       "import_test": "not_run",
       "package_test": "not_run",
       "archive_observation": {
@@ -365,11 +380,12 @@
       },
       "host_observation": {
         "date": "2026-09-08",
-        "engine": "5.7.4",
+        "engine": "5.8.2",
         "content_root": "/Game/MorbidMotions_Pack",
-        "asset_observation": "275 animation clips and 28 pose assets registered in UE 5.7.4. Authored gameplay use remains pending.",
-        "evidence": "../local-evidence/m3-omitted-morbid-assets.json",
-        "packaged_acceptance": "not_run"
+        "asset_observation": "Supplied shelter animation passes native menu start, completion restoration, menu cancellation and jump cancellation.",
+        "evidence": "../local-evidence/m3-morbid-shelter-live.json",
+        "packaged_acceptance": "not_run",
+        "evidence_scope": "Independent local UE5.8 trial only; purchased content excluded from portable source."
       }
     },
     {

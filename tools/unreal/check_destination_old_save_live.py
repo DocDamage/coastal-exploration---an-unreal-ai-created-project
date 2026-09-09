@@ -8,7 +8,7 @@ import unreal as u
 save_set = str(globals().get('save_set', ''))
 if not save_set or len(save_set) > 64:
     raise RuntimeError('Pass the exact pre-expansion save_set to inspect')
-report_path = Path('F:/coastline/local-evidence/m3-destination-old-save-live-ue58.json')
+report_path = (Path(__file__).resolve().parents[3] / 'local-evidence/m3-destination-old-save-live-ue58.json')
 save_dir = Path(u.Paths.project_saved_dir()) / 'SaveGames'
 slots = [save_dir / f'Coastal_{save_set}_{suffix}.sav' for suffix in ('A', 'B')]
 existing = [path for path in slots if path.exists()]
@@ -24,7 +24,7 @@ optional_ids = [
     'world.north_reach.harbour_log', 'world.north_reach.platform_signal',
     'world.north_reach.powell_order', 'world.coastal_records.hallsands',
     'world.coastal_records.village', 'world.coastal_records.baelo',
-    'world.coastal_records.prison']
+    'world.coastal_records.prison', 'world.outer_coast.atlantis', 'world.outer_coast.station']
 objects = {str(a.world_id): a for a in u.GameplayStatics.get_all_actors_of_class(world, u.CoastalWorldObject)}
 if any(world_id not in objects for world_id in optional_ids):
     raise RuntimeError('The expanded map is missing an approved optional destination record')
@@ -59,7 +59,7 @@ def tick(delta):
             raise RuntimeError('Load alone unexpectedly advanced the save generation')
         if any(objects[world_id].is_active() for world_id in optional_ids):
             raise RuntimeError('Missing optional record leaked active state across load')
-        if any(entry.startswith('journal.coastal_records.')
+        if any(entry.startswith(('journal.coastal_records.', 'journal.outer_coast.'))
                or entry in {'journal.north_reach.harbour_log',
                             'journal.north_reach.platform_signal',
                             'journal.north_reach.powell_order'} for entry in journal):

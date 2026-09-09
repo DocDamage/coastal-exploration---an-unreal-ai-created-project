@@ -15,4 +15,7 @@ public:
  // Editor-only acceptance entry point; feeds the controller's real input stack.
  UFUNCTION(BlueprintCallable, Category="Coastal|Local")
  static bool SubmitCombatTestKey(FName KeyName, bool bPressed);
+ // Returns the vendor ray and the rendered tracer's measured endpoints in disposable PIE.
+ UFUNCTION(BlueprintCallable, Category="Coastal|Local")
+ static FString ProbeCombatShot();
 };

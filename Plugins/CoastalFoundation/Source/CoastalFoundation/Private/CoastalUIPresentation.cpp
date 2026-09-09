@@ -3,6 +3,7 @@
 #include "CoastalStoryLibrary.h"
 #include "CoastalLocalOptions.h"
 #include "CoastalCampingActionComponent.h"
+#include "CoastalCompanionUI.h"
 
 void UCoastalUISessionComponent::Present(coastal::PanelKind Kind, FText& Title, FText& Body,
     TArray<FCoastalUIChoice>& Choices)
@@ -35,6 +36,12 @@ void UCoastalUISessionComponent::Present(coastal::PanelKind Kind, FText& Title, 
         Title = FText::Format(NSLOCTEXT("CoastalUI", "PausedCampaign", "PAUSED | {0}"), CampaignTitle()); Text = Objective().ToString();
         Add(TEXT("back"), TEXT("Resume")); Add(TEXT("save"), TEXT("Save campaign now"), Ready && Active);
         Add(TEXT("journal"), TEXT("Journal")); Add(TEXT("inventory"), TEXT("Inventory"));
+        if (auto* Companion = FindCoastalCompanionCommands(GetWorld()))
+        {
+            Add(TEXT("companion_toggle"), Companion->IsCompanionFollowing()
+                ? TEXT("Dog: wait here") : TEXT("Dog: follow me"),
+                Active && Ready && Companion->CanCommandCompanion());
+        }
         if (IsValid(CampingActions) && CampingActions->IsNearShelter())
         {
             Text += TEXT("\n\nTake a short rest here. Move, jump, or open a menu to stop.");

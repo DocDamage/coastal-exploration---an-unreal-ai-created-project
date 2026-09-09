@@ -79,6 +79,31 @@
           "objective": "Find the final duty record inside Haunted Prison."
         }
       ]
+    },
+    {
+      "id": "quest.outer_coast",
+      "title": "Outer Coast",
+      "starts_after": "quest.coastal_records.complete",
+      "steps": [
+        {
+          "world_id": "world.outer_coast.atlantis",
+          "journal_id": "journal.outer_coast.atlantis",
+          "destination": "atlantis",
+          "action": "Inspect the tide survey",
+          "title": "Atlantis: the drowned lower court",
+          "text": "Water covers the lower court, but the upper terrace preserves a tide survey. Its markings match the unusual pulses recorded at the outer station. Follow the sea platform route to the station and compare its monitoring log.",
+          "objective": "Follow the marked route from Hallsands and inspect the Atlantis tide survey."
+        },
+        {
+          "world_id": "world.outer_coast.station",
+          "journal_id": "journal.outer_coast.station",
+          "destination": "station",
+          "action": "Read the station monitoring log",
+          "title": "The outer station record",
+          "text": "The monitoring log confirms that the pulses came from the reserve signal network. The station kept recording after the coastal evacuation. The Atlantis tide marks and station record complete the outer-coast survey.",
+          "objective": "Reach the Modular SciFi Station from the sea platform and read the monitoring log."
+        }
+      ]
     }
   ],
   "presentation": "Original authored first-pass investigations. Runtime source derives both chains from these journal-backed discovery records and the authoring recipe places a visible Hyper-bound prop at each verified dry arrival. Native build, map authoring, immediate journal presentation, objective progression and save/reload checks remain required before calling this shipped quest gameplay."

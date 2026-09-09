@@ -1,3 +1,28 @@
+# Current machine startup
+
+The live endpoint is in the isolated `LocalHost58/CoastalExploration` editor,
+currently Unreal 5.8.2. From the source repository run:
+
+```powershell
+./tools/launch_ue58_trial.ps1
+python tools/unreal_mcp_call.py editor.ping
+python tools/unreal_mcp_call.py editor.get_state
+```
+
+The launch script requires Python 3.10 or newer and resolves the workspace from
+its own location. Unreal discovery reads the Epic registry/Launcher manifest;
+set `COASTAL_UE58_ROOT` to override the engine directory. A running project editor
+blocks a duplicate launch. Startup may take several minutes on a cold asset cache.
+
+The dependency-free CLI uses the existing listener protocol and verifies the
+independent trial's identity before each operation. It is a direct endpoint
+client, not a registered Codex MCP stdio server. For editor Python, use
+`python tools/unreal_mcp_call.py editor.execute_python --code-file <script.py>`.
+Do not automatically retry timed-out mutations: they may already have executed.
+Historical external-client paths below describe the prior machine only.
+
+---
+
 # Local Unreal MCP connection
 
 The existing Codex server `unreal-mcp-bridge` runs the local Python stdio wrapper

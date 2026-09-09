@@ -3,13 +3,20 @@ coastal exploration - an unreal ai created project
 
 ## Local native integration
 
-Development is paused at the user's request. This repository is a source snapshot of the coastal game and its integration tools; it does not include the external Unreal host project, purchased Fab assets, campaign saves, or a playable download.
+Development has resumed on the relocated `G:/coastline` workspace with Unreal 5.8.2 and MCP connected. This repository is a source snapshot of the coastal game and its integration tools; it does not include the external Unreal host project, purchased Fab assets, campaign saves, or a playable download.
 
-The isolated Unreal 5.8.1 host compiles the actual AdvancedShooterSystem source and the project combat wrapper. The last native test run passed 46 tests before the combat increment. Destination quests, campaign switching, day/night, and a bounded procedural grass patch have passed their recorded live checks. Combat live acceptance, the corrected swimming seam, and Morbid shelter verification remain pending; the shooter tracer and cooldown review findings remain unresolved. See the [current checkpoint](AGENTS.md) and [M3 implementation](docs/M3_IMPLEMENTATION.md).
+The isolated Unreal 5.8.2 host passes 52 native tests, 16 scripted combat cases,
+22 water/checkpoint cases, 11 swimming route waypoints, 4 Morbid shelter cases and
+7 German Shepherd companion cases. Both owned Atlantis Ruins and Modular SciFi
+Station packs are assembled with tested routes and persistent investigation
+records. Legacy seven-record progress survives the expansion to nine records.
+Physical controls, visual polish, performance and Windows-package acceptance
+remain. See the [current checkpoint](AGENTS.md), [companion](docs/M3_COMPANION.md)
+and [M3 implementation](docs/M3_IMPLEMENTATION.md).
 
-All 66 Python tests passed for this publication snapshot. The historical milestone descriptions below describe earlier deliveries and are not claims that the current integration is complete.
+All 70 Python tests pass on the current machine (66 passed for the earlier publication snapshot). The historical milestone descriptions below describe earlier deliveries and are not claims that the current integration is complete.
 
-The workspace now lives in `F:/coastline`. [M2 implementation](docs/M2_IMPLEMENTATION.md) records the persistent First Signal coast, assembled with the owned Nordic cabin. Editor and Windows targets compile, and the Windows package is built at `F:/coastline/LocalPackageM2/Windows`. Use `F:/coastline/Play M2.cmd` when ready. Gameplay acceptance is deferred at the user's request; see the [scope audit](docs/M2_SCOPE_AUDIT.md).
+The historical M2 paths in the following paragraph predate the relocation to `G:/coastline`. [M2 implementation](docs/M2_IMPLEMENTATION.md) records the persistent First Signal coast, assembled with the owned Nordic cabin. Editor and Windows targets compile, and the Windows package is built at `F:/coastline/LocalPackageM2/Windows`. Use `F:/coastline/Play M2.cmd` when ready. Gameplay acceptance is deferred at the user's request; see the [scope audit](docs/M2_SCOPE_AUDIT.md).
 
 See [integration status](docs/M1_NATIVE_INTEGRATION_STATUS.md) and [ordered plan](docs/M1_NATIVE_INTEGRATION_PLAN.md) for current runs. The following M1.10 delivery description and `evidence/` reports are historical source evidence. `SHA256SUMS.txt` identifies the imported archive baseline, not the modified working tree.
 

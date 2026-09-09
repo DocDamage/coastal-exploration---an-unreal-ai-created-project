@@ -1,0 +1,250 @@
+{
+  "selected_date": "2026-09-08",
+  "source_folder": "../even newer assets and animations",
+  "plan": "docs/M3_NEW_ASSET_BATCH.md",
+  "inspection": "ZIP directory entries; only readable project metadata inspected. No extraction, import, audio audition or gameplay validation.",
+  "archive_count": 16,
+  "archives": [
+    {
+      "archive": "Candle_Light_Bonus_Vol_01_FINAL_30_SFX.zip",
+      "bytes": 4013977,
+      "files": 30,
+      "expanded_bytes": 5907022,
+      "encrypted_files": 0,
+      "extensions": {
+        ".wav": 30
+      },
+      "documentation": [],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "Candle_Light_Bonus_Vol_02_FINAL_30_SFX.zip",
+      "bytes": 4123638,
+      "files": 30,
+      "expanded_bytes": 6649470,
+      "encrypted_files": 0,
+      "extensions": {
+        ".wav": 30
+      },
+      "documentation": [],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "CANDLE_LIGHT_Horror_Interaction_SFX_100_Sounds.zip",
+      "bytes": 21544717,
+      "files": 103,
+      "expanded_bytes": 33606247,
+      "encrypted_files": 0,
+      "extensions": {
+        ".wav": 100,
+        ".txt": 3
+      },
+      "documentation": [
+        "Horror_Interaction_SFX_100/LICENSE.txt",
+        "Horror_Interaction_SFX_100/README.txt"
+      ],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "Complete_Game_Music_Library_100_Seamless_Loops.zip",
+      "bytes": 15575878,
+      "files": 104,
+      "expanded_bytes": 16902920,
+      "encrypted_files": 0,
+      "extensions": {
+        ".md": 1,
+        ".txt": 3,
+        ".ogg": 100
+      },
+      "documentation": [
+        "README.md",
+        "LICENSE.txt",
+        "OGG/10_Menu_Ending_Credits/08_Credits_Roll.ogg"
+      ],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "Fantasy UI Essentials - 100 SFX.zip",
+      "bytes": 4919181,
+      "files": 103,
+      "expanded_bytes": 5561224,
+      "encrypted_files": 0,
+      "extensions": {
+        ".wav": 100,
+        ".txt": 3
+      },
+      "documentation": [
+        "LICENSE.txt",
+        "README.txt"
+      ],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "Fantasy_Workshop_Crafting_Music_100_Part_1.zip",
+      "bytes": 112756356,
+      "files": 26,
+      "expanded_bytes": 116141265,
+      "encrypted_files": 0,
+      "extensions": {
+        ".txt": 1,
+        ".wav": 25
+      },
+      "documentation": [
+        "README.txt"
+      ],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "Fantasy_Workshop_Crafting_Music_100_Part_2.zip",
+      "bytes": 103762955,
+      "files": 26,
+      "expanded_bytes": 105717351,
+      "encrypted_files": 0,
+      "extensions": {
+        ".txt": 1,
+        ".wav": 25
+      },
+      "documentation": [
+        "README.txt"
+      ],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "Fantasy_Workshop_Crafting_Music_100_Part_3.zip",
+      "bytes": 103535812,
+      "files": 26,
+      "expanded_bytes": 105877851,
+      "encrypted_files": 0,
+      "extensions": {
+        ".txt": 1,
+        ".wav": 25
+      },
+      "documentation": [
+        "README.txt"
+      ],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "Fantasy_Workshop_Crafting_Music_100_Part_4.zip",
+      "bytes": 104025332,
+      "files": 26,
+      "expanded_bytes": 107578647,
+      "encrypted_files": 0,
+      "extensions": {
+        ".txt": 1,
+        ".wav": 25
+      },
+      "documentation": [
+        "README.txt"
+      ],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "Fishing_Minigame_SFX_120_Sounds.zip",
+      "bytes": 5171607,
+      "files": 124,
+      "expanded_bytes": 6949641,
+      "encrypted_files": 0,
+      "extensions": {
+        ".md": 1,
+        ".txt": 3,
+        ".wav": 120
+      },
+      "documentation": [
+        "README.md",
+        "LICENSE.txt"
+      ],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "horror music.zip",
+      "bytes": 234043182,
+      "files": 6,
+      "expanded_bytes": 247320048,
+      "encrypted_files": 0,
+      "extensions": {
+        ".wav": 6
+      },
+      "documentation": [],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "MerchantVendorAnim-V1.1.zip",
+      "bytes": 70862767,
+      "files": 108,
+      "expanded_bytes": 120982515,
+      "encrypted_files": 108,
+      "extensions": {
+        ".uasset": 100,
+        ".umap": 1,
+        ".uproject": 1,
+        ".ini": 6
+      },
+      "documentation": [],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "MerchentVendorAnimFBXFiles.zip",
+      "bytes": 19585506,
+      "files": 54,
+      "expanded_bytes": 102500528,
+      "encrypted_files": 0,
+      "extensions": {
+        ".fbx": 54
+      },
+      "documentation": [],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "Pickupable&RotatableItems.zip",
+      "bytes": 63287799,
+      "files": 257,
+      "expanded_bytes": 136017318,
+      "encrypted_files": 0,
+      "extensions": {
+        ".uproject": 1,
+        ".ini": 6,
+        ".uasset": 239,
+        ".umap": 1,
+        ".fbx": 10
+      },
+      "documentation": [],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "Pixel_Combat_SFX_200_Full.zip",
+      "bytes": 35492310,
+      "files": 203,
+      "expanded_bytes": 57684618,
+      "encrypted_files": 0,
+      "extensions": {
+        ".wav": 200,
+        ".txt": 3
+      },
+      "documentation": [
+        "LICENSE.txt",
+        "README.txt"
+      ],
+      "integration_status": "planned_not_imported"
+    },
+    {
+      "archive": "Thunder_Elements_-_CDanSantana_Itch_IO.zip",
+      "bytes": 168902611,
+      "files": 55,
+      "expanded_bytes": 363443734,
+      "encrypted_files": 0,
+      "extensions": {
+        ".wav": 51,
+        ".mp3": 1,
+        ".jpg": 2,
+        ".csv": 1
+      },
+      "documentation": [],
+      "integration_status": "planned_not_imported"
+    }
+  ],
+  "compatibility_notes": {
+    "MerchantVendorAnim-V1.1.zip": "All108 entries encrypted; native project version unreadable. Separate FBX archive is readable.",
+    "Pickupable&RotatableItems.zip": "Project declares EngineAssociation5.6 and enables GameplayStateTree. UE5.8.2 staging and Blueprint/dependency review pending."
+  }
+}

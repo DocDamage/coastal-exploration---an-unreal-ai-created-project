@@ -60,14 +60,48 @@
     {
       "id": "atlantis",
       "name": "Atlantis Ruins",
-      "source": null,
-      "status": "Owned; Unreal download requires Launcher/Fab plugin"
+      "source": "/Game/Atlantis_Ruins",
+      "status": "Owned art assembled in isolated UE5.8.2 trial; scripted approach, interior, return and persistent investigation interaction passed. Physical-device/package acceptance remains unrun.",
+      "ownership_verified": "2026-09-08",
+      "staging_project": "../M3DestinationStaging57/M3DestinationStaging57.uproject",
+      "center": [
+        -18000,
+        6000,
+        200
+      ],
+      "dry_arrival": [
+        -16000,
+        6000,
+        298
+      ],
+      "authoring_recipe": "tools/unreal/build_atlantis_destination.py",
+      "evidence": [
+        "../local-evidence/m3-outer-coast-traversal.json",
+        "../local-evidence/m3-outer-coast-quests-live.json"
+      ]
     },
     {
       "id": "station",
       "name": "Modular SciFi Station",
-      "source": null,
-      "status": "Owned; Unreal download requires Launcher/Fab plugin"
+      "source": "/Game/ModularSciFiStation",
+      "status": "Owned art assembled in isolated UE5.8.2 trial; scripted approach, interior, return and persistent investigation interaction passed. Physical-device/package acceptance remains unrun.",
+      "ownership_verified": "2026-09-08",
+      "staging_project": "../M3DestinationStaging57/M3DestinationStaging57.uproject",
+      "center": [
+        33000,
+        -29400,
+        600
+      ],
+      "dry_arrival": [
+        33000,
+        -28500,
+        698
+      ],
+      "authoring_recipe": "tools/unreal/build_scifi_station_destination.py",
+      "evidence": [
+        "../local-evidence/m3-outer-coast-traversal.json",
+        "../local-evidence/m3-outer-coast-quests-live.json"
+      ]
     },
     {
       "id": "haunted_prison",
@@ -252,10 +286,79 @@
         ]
       ],
       "kind": "boardwalk"
+    },
+    {
+      "id": "atlantis_access",
+      "points": [
+        [
+          -6500,
+          22000,
+          94
+        ],
+        [
+          -8500,
+          20000,
+          94
+        ],
+        [
+          -11500,
+          17000,
+          160
+        ],
+        [
+          -14500,
+          13000,
+          200
+        ],
+        [
+          -16000,
+          8500,
+          200
+        ],
+        [
+          -16000,
+          6200,
+          200
+        ]
+      ],
+      "kind": "boardwalk",
+      "scripted_bidirectional_traversal": "passed"
+    },
+    {
+      "id": "station_access",
+      "points": [
+        [
+          38600,
+          -14000,
+          800
+        ],
+        [
+          36600,
+          -17800,
+          800
+        ],
+        [
+          34600,
+          -22600,
+          700
+        ],
+        [
+          33000,
+          -26200,
+          600
+        ],
+        [
+          33000,
+          -28400,
+          600
+        ]
+      ],
+      "kind": "boardwalk",
+      "scripted_bidirectional_traversal": "passed"
     }
   ],
   "camp_marker_tag": "Coastal.Campsite",
-  "persistence": "Scenery, routes and transient campsite presentation do not add WorldObjects or change the existing seven-record save manifest. Destination quests and stateful interactions require a later explicit migration implementation.",
+  "persistence": "Scenery remains stateless. Native destination quest integration adds nine optional records alongside the original seven required First Signal records; legacy saves retain progress and leave newly added records unread.",
   "surface_swimming": {
     "zone_class": "/Script/CoastalFoundation.CoastalSwimmingZone",
     "water_surface_z": -90,
@@ -276,5 +379,11 @@
     "physical_device_acceptance": "not_run",
     "packaged_acceptance": "not_run",
     "save_schema_changed": false
+  },
+  "additional_asset_batch": {
+    "manifest": "data/m3_new_asset_batch.json",
+    "plan": "docs/M3_NEW_ASSET_BATCH.md",
+    "status": "planned_not_imported",
+    "selected_date": "2026-09-08"
   }
 }

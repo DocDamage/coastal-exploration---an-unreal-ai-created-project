@@ -99,6 +99,57 @@ bool FCoastalDestinationManifestTest::RunTest(const FString& Parameters)
         FCoastalDestinationQuestRules::CanRead(
             FCoastalDestinationQuestRules::Step(0).WorldId, true, Acknowledged));
 
+    TArray<FCoastalWorldRecord> LegacyCompletedSeven = RequiredWorld();
+    TArray<FName> LegacyCompletedJournal = Acknowledged;
+    for (int32 Index = 0; Index < 7; ++Index)
+    {
+        const FCoastalDestinationStep Step = FCoastalDestinationQuestRules::Step(Index);
+        LegacyCompletedSeven.Add(Record(Step.WorldId, ECoastalObjectKind::Discovery, true));
+        LegacyCompletedJournal.Add(Step.JournalId);
+    }
+    Error.Empty();
+    TestTrue(TEXT("Completed seven-discovery save migrates without new records"),
+        FCoastalDestinationQuestRules::ValidateSavedManifest(
+            LegacyCompletedSeven, LegacyCompletedJournal, true, Error));
+    TestEqual(TEXT("Completed seven-discovery save advances to Atlantis"),
+        FCoastalDestinationQuestRules::NextStep(true, LegacyCompletedJournal), 7);
+    TestTrue(TEXT("Completed seven-discovery save unlocks Atlantis"),
+        FCoastalDestinationQuestRules::CanRead(
+            FCoastalDestinationQuestRules::Step(7).WorldId, true, LegacyCompletedJournal));
+    TestFalse(TEXT("Completed seven-discovery save keeps Station locked"),
+        FCoastalDestinationQuestRules::CanRead(
+            FCoastalDestinationQuestRules::Step(8).WorldId, true, LegacyCompletedJournal));
+    TArray<FCoastalWorldRecord> OuterCoastSkip = LegacyCompletedSeven;
+    OuterCoastSkip.Add(Record(FCoastalDestinationQuestRules::Step(8).WorldId,
+        ECoastalObjectKind::Discovery, true));
+    TArray<FName> OuterCoastSkipJournal = LegacyCompletedJournal;
+    OuterCoastSkipJournal.Add(FCoastalDestinationQuestRules::Step(8).JournalId);
+    Error.Empty();
+    TestFalse(TEXT("Station cannot bypass the Atlantis prerequisite"),
+        FCoastalDestinationQuestRules::ValidateSavedManifest(
+            OuterCoastSkip, OuterCoastSkipJournal, true, Error));
+    TMap<FName, const FCoastalWorldRecord*> LegacyCompletedLookup;
+    for (const FCoastalWorldRecord& Record : LegacyCompletedSeven)
+        LegacyCompletedLookup.Add(Record.WorldId, &Record);
+    bool bPrisonActive = false;
+    TestTrue(TEXT("Completed original prison record is restored from the legacy save"),
+        FCoastalDestinationQuestRules::ResolveRestoreState(
+            FCoastalDestinationQuestRules::Step(6).WorldId, LegacyCompletedLookup, bPrisonActive)
+            == ECoastalRestoreRecordResolution::Saved);
+    TestTrue(TEXT("Completed original prison record remains read"), bPrisonActive);
+    bool bAtlantisActive = true;
+    TestTrue(TEXT("Missing Atlantis record is initialized unread during legacy restore"),
+        FCoastalDestinationQuestRules::ResolveRestoreState(
+            FCoastalDestinationQuestRules::Step(7).WorldId, LegacyCompletedLookup, bAtlantisActive)
+            == ECoastalRestoreRecordResolution::ResetOptional);
+    TestFalse(TEXT("Atlantis is unread after legacy restore"), bAtlantisActive);
+    bool bStationActive = true;
+    TestTrue(TEXT("Missing Station record is initialized unread during legacy restore"),
+        FCoastalDestinationQuestRules::ResolveRestoreState(
+            FCoastalDestinationQuestRules::Step(8).WorldId, LegacyCompletedLookup, bStationActive)
+            == ECoastalRestoreRecordResolution::ResetOptional);
+    TestFalse(TEXT("Station is unread after legacy restore"), bStationActive);
+
     TArray<FCoastalWorldRecord> Expanded = RequiredWorld();
     AppendDestination(Expanded);
     Error.Empty();
@@ -220,6 +271,18 @@ bool FCoastalDestinationPresentationTest::RunTest(const FString& Parameters)
     TestEqual(TEXT("Hallsands objective derives from journal progress"),
         UCoastalStoryLibrary::CampaignObjective(EFirstSignalPhase::Complete, Journal).ToString(),
         FString(TEXT("Inspect the evacuation marker at Hallsands.")));
+    for (int32 Index = 3; Index < 7; ++Index)
+        Journal.Add(FCoastalDestinationQuestRules::Step(Index).JournalId);
+    TestEqual(TEXT("Completed original seven discoveries begins Outer Coast"),
+        UCoastalStoryLibrary::CampaignTitle(EFirstSignalPhase::Complete, Journal).ToString(),
+        FString(TEXT("OUTER COAST")));
+    TestEqual(TEXT("Atlantis follows the prison record"),
+        UCoastalStoryLibrary::CampaignObjective(EFirstSignalPhase::Complete, Journal).ToString(),
+        FString(TEXT("Follow the marked route from Hallsands and inspect the Atlantis tide survey.")));
+    Journal.Add(FCoastalDestinationQuestRules::Step(7).JournalId);
+    TestEqual(TEXT("Station follows Atlantis"),
+        UCoastalStoryLibrary::CampaignObjective(EFirstSignalPhase::Complete, Journal).ToString(),
+        FString(TEXT("Reach the Modular SciFi Station from the sea platform and read the monitoring log.")));
     return true;
 }
 #endif

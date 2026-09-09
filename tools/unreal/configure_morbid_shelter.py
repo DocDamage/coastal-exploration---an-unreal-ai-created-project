@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from m3_destination_authoring import Destination
 
 d = Destination('morbid_shelter')
-evidence = Path('F:/coastline/local-evidence')
+evidence = (Path(__file__).resolve().parents[3] / 'local-evidence')
 host = Path(u.Paths.convert_relative_path_to_full(u.Paths.get_project_file_path())).parent
 backup_prefix = 'm3-morbid-ue58-before-' if 'LocalHost58' in str(host) else 'm3-morbid-before-'
 bp_path = '/Game/ThirdPerson/Blueprints/BP_ThirdPersonCharacter'

@@ -45,7 +45,9 @@ coastal::CombatGateSample UCoastalCombatComponent::Sample() const
     S.clip = GetCurrentAmmo(); S.reserve = GetReserveAmmo();
     if (IsValid(Weapon)) S.clipCapacity = Weapon->GetWeaponConfig().MaxClipAmmo;
     const float Interval = IsValid(Weapon) ? Weapon->GetWeaponConfig().TimeBetweenShots : 0.f;
-    S.cooldownReady = Now - LastAcceptedShotTime >= FMath::Max(0.01f, Interval);
+    // The vendor's fire-rate admission uses real time, independent of time dilation.
+    S.cooldownReady = UGameplayStatics::GetRealTimeSeconds(this) - LastAcceptedShotTime
+        >= FMath::Max(0.01f, Interval);
     return S;
 }
 
@@ -130,17 +132,36 @@ int32 UCoastalCombatComponent::GetReserveAmmo() const
 
 ECoastalCombatResult UCoastalCombatComponent::TryFire()
 {
+    // Vendor damage/ammo delegates may call gameplay synchronously during a shot.
+    if (bSubmittingShot) return ECoastalCombatResult::Busy;
     const auto Decision = coastal::FireDecision(Sample());
     if (Decision != coastal::CombatDecision::Allowed)
         return Emit(Decision, TEXT("Fire rejected by the current combat lifecycle gate."));
+    TGuardValue<bool> SubmittingShot(bSubmittingShot, true);
+    AWeaponBase* const FiredWeapon = Weapon;
+    UAdvancedShooterComponent* const FiredShooter = Shooter;
+    const uint64 FiredEpoch = EpochState.epoch;
     const int32 Before = GetCurrentAmmo();
-    const FVector End = TraceEndpoint();
-    Shooter->LocalFirePressed();
-    const int32 After = GetCurrentAmmo();
-    if (!coastal::AcceptedAuthoritativeShot(Before, After))
-        return Emit(ECoastalCombatResult::Rejected, TEXT("Vendor authority did not accept the shot; HUD was not predicted."));
-    LastAcceptedShotTime = UGameplayStatics::GetTimeSeconds(this);
-    SpawnTracer(End);
+    int32 Receipts = 0;
+    FVector ShotStart = FVector::ZeroVector, ShotEnd = FVector::ZeroVector;
+    double ShotTime = -1000.0;
+    // Standalone RPC execution is synchronous. Scope this receipt to exactly this call;
+    // rejected shots, later callbacks and another weapon cannot reuse an old trace.
+    const FDelegateHandle Receipt = FiredShooter->OnAuthoritativeShot.AddLambda(
+        [&](AWeaponBase* Source, const FVector& Start, const FVector& End, double Time)
+        {
+            if (Source != FiredWeapon) return;
+            ++Receipts; ShotStart = Start; ShotEnd = End; ShotTime = Time;
+        });
+    FiredShooter->LocalFirePressed();
+    FiredShooter->OnAuthoritativeShot.Remove(Receipt);
+    if (!BindingValid() || Weapon != FiredWeapon || !IsValid(FiredWeapon)
+        || Saves->GetSessionEpoch() != FiredEpoch || Receipts != 1
+        || !coastal::AcceptedAuthoritativeShot(Before, GetCurrentAmmo())
+        || ShotStart.ContainsNaN() || ShotEnd.ContainsNaN() || !FMath::IsFinite(ShotTime))
+        return Emit(ECoastalCombatResult::Rejected, TEXT("No intact authoritative shot receipt; tracer was not predicted."));
+    LastAcceptedShotTime = ShotTime;
+    SpawnTracer(ShotStart, ShotEnd);
     PublishState(true);
     return Emit(ECoastalCombatResult::Applied, TEXT("Authoritative shot applied."));
 }
@@ -157,32 +178,12 @@ ECoastalCombatResult UCoastalCombatComponent::TryReload()
     return Emit(ECoastalCombatResult::Applied, TEXT("Authoritative reload started; HUD awaits actual ammo values."));
 }
 
-FVector UCoastalCombatComponent::TraceEndpoint() const
-{
-    FVector CameraLocation; FRotator CameraRotation;
-    Controller->GetPlayerViewPoint(CameraLocation, CameraRotation);
-    const FVector CameraEnd = CameraLocation + CameraRotation.Vector() * 50000.f;
-    FCollisionQueryParams CameraParams(TEXT("CoastalCombatCamera"), true, Character);
-    CameraParams.AddIgnoredActor(Weapon);
-    FHitResult CameraHit;
-    GetWorld()->LineTraceSingleByChannel(CameraHit, CameraLocation, CameraEnd, ECC_Visibility, CameraParams);
-    const FVector AimPoint = CameraHit.bBlockingHit ? CameraHit.ImpactPoint : CameraEnd;
-    const FVector Start = Weapon->GetMuzzleSocketLocation();
-    const FVector MuzzleEnd = Start + (AimPoint - Start).GetSafeNormal() * 50000.f;
-    FCollisionQueryParams MuzzleParams(TEXT("CoastalCombatTracer"), true, Character);
-    MuzzleParams.AddIgnoredActor(Weapon);
-    FHitResult MuzzleHit;
-    GetWorld()->LineTraceSingleByChannel(MuzzleHit, Start, MuzzleEnd, ECC_Visibility, MuzzleParams);
-    return MuzzleHit.bBlockingHit ? MuzzleHit.ImpactPoint : MuzzleEnd;
-}
-
-void UCoastalCombatComponent::SpawnTracer(const FVector& End)
+void UCoastalCombatComponent::SpawnTracer(const FVector& Start, const FVector& End)
 {
     if (!IsValid(Weapon)) return;
-    auto* Tracer = GetWorld()->SpawnActor<ACoastalCombatTracer>(
-        Weapon->GetMuzzleSocketLocation(), FRotator::ZeroRotator);
+    auto* Tracer = GetWorld()->SpawnActor<ACoastalCombatTracer>(Start, FRotator::ZeroRotator);
     if (!IsValid(Tracer) || !Tracer->Configure(LoadedTracerMesh, LoadedTracerMaterial,
-        Weapon->GetMuzzleSocketLocation(), End, TracerRadiusCm, 0.08f))
+        Start, End, TracerRadiusCm, 0.08f))
         if (IsValid(Tracer)) Tracer->Destroy();
 }
 

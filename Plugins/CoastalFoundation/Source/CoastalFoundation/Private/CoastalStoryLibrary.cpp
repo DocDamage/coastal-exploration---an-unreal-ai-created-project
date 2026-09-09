@@ -30,7 +30,9 @@ FText UCoastalStoryLibrary::CampaignObjective(EFirstSignalPhase Phase, const TAr
     case 4: return LOCTEXT("Objective_Village", "Read the register in the Medieval Italian Village courtyard.");
     case 5: return LOCTEXT("Objective_Baelo", "Inspect the survey tablet at Baelo Claudia.");
     case 6: return LOCTEXT("Objective_Prison", "Find the final duty record inside Haunted Prison.");
-    default: return LOCTEXT("Objective_DestinationComplete", "Coastal Records complete. The evacuation route and shoreline survey are recorded in your journal.");
+    case 7: return LOCTEXT("Objective_Atlantis", "Follow the marked route from Hallsands and inspect the Atlantis tide survey.");
+    case 8: return LOCTEXT("Objective_Station", "Reach the Modular SciFi Station from the sea platform and read the monitoring log.");
+    default: return LOCTEXT("Objective_DestinationComplete", "Outer Coast complete. The tide survey and station monitoring record are in your journal.");
     }
 }
 FText UCoastalStoryLibrary::CampaignTitle(EFirstSignalPhase Phase, const TArray<FName>& Journal)
@@ -39,7 +41,8 @@ FText UCoastalStoryLibrary::CampaignTitle(EFirstSignalPhase Phase, const TArray<
     const int32 Step = FCoastalDestinationQuestRules::NextStep(true, Journal);
     if (Step == INDEX_NONE) return LOCTEXT("Campaign_FirstSignal", "FIRST SIGNAL");
     if (Step < 3) return LOCTEXT("Campaign_NorthReach", "NORTH REACH");
-    return LOCTEXT("Campaign_CoastalRecords", "COASTAL RECORDS");
+    if (Step < 7) return LOCTEXT("Campaign_CoastalRecords", "COASTAL RECORDS");
+    return LOCTEXT("Campaign_OuterCoast", "OUTER COAST");
 }
 FText UCoastalStoryLibrary::DiscoveryAction(FName WorldId, bool bAlreadyRead)
 {
@@ -56,7 +59,9 @@ FText UCoastalStoryLibrary::DiscoveryAction(FName WorldId, bool bAlreadyRead)
         case 3: return LOCTEXT("Action_ReviewHallsands", "Review evacuation marker");
         case 4: return LOCTEXT("Action_ReviewVillage", "Review village register");
         case 5: return LOCTEXT("Action_ReviewBaelo", "Review survey tablet");
-        default: return LOCTEXT("Action_ReviewPrison", "Review prison duty record");
+        case 6: return LOCTEXT("Action_ReviewPrison", "Review prison duty record");
+        case 7: return LOCTEXT("Action_ReviewAtlantis", "Review the tide survey");
+        default: return LOCTEXT("Action_ReviewStation", "Review station monitoring log");
         }
     }
     switch (Step)
@@ -67,7 +72,9 @@ FText UCoastalStoryLibrary::DiscoveryAction(FName WorldId, bool bAlreadyRead)
     case 3: return LOCTEXT("Action_InspectHallsands", "Inspect the evacuation marker");
     case 4: return LOCTEXT("Action_ReadVillage", "Read the village register");
     case 5: return LOCTEXT("Action_InspectBaelo", "Inspect the survey tablet");
-    default: return LOCTEXT("Action_ReadPrison", "Read the prison duty record");
+    case 6: return LOCTEXT("Action_ReadPrison", "Read the prison duty record");
+    case 7: return LOCTEXT("Action_ReadAtlantis", "Inspect the tide survey");
+    default: return LOCTEXT("Action_ReadStation", "Read the station monitoring log");
     }
 }
 FText UCoastalStoryLibrary::JournalText(FName EntryId)
@@ -83,6 +90,8 @@ FText UCoastalStoryLibrary::JournalText(FName EntryId)
     if (EntryId == TEXT("journal.coastal_records.village")) return LOCTEXT("Entry_Village", "The register lists families received from the coast. A pencilled note says the surveyor moved the oldest maps to the ruins at Baelo Claudia, where the stone terrace offered a clear view of changes along the shore.");
     if (EntryId == TEXT("journal.coastal_records.baelo")) return LOCTEXT("Entry_Baelo", "The survey tablet compares the ancient shoreline with the present coast. A final annotation records a warning sent to the harbour and copied to the prison office. The prison's duty record should be the last surviving copy.");
     if (EntryId == TEXT("journal.coastal_records.prison")) return LOCTEXT("Entry_Prison", "The final entry confirms that the harbour warning arrived and the remaining occupants were moved inland. Supplies were left in the cells for anyone caught on the return journey. Together, the scattered records explain the evacuation route and close the coastal survey.");
+    if (EntryId == TEXT("journal.outer_coast.atlantis")) return LOCTEXT("Entry_Atlantis", "Water covers the lower court, but the upper terrace preserves a tide survey. Its markings match the unusual pulses recorded at the outer station. Follow the sea platform route to the station and compare its monitoring log.");
+    if (EntryId == TEXT("journal.outer_coast.station")) return LOCTEXT("Entry_Station", "The monitoring log confirms that the pulses came from the reserve signal network. The station kept recording after the coastal evacuation. The Atlantis tide marks and station record complete the outer-coast survey.");
     return LOCTEXT("UnknownEntry", "Development error: unknown journal entry.");
 }
 FText UCoastalStoryLibrary::JournalTitle(FName EntryId)
@@ -98,6 +107,8 @@ FText UCoastalStoryLibrary::JournalTitle(FName EntryId)
     if (EntryId == TEXT("journal.coastal_records.village")) return LOCTEXT("Title_Village", "The courtyard register");
     if (EntryId == TEXT("journal.coastal_records.baelo")) return LOCTEXT("Title_Baelo", "Baelo: a changing shoreline");
     if (EntryId == TEXT("journal.coastal_records.prison")) return LOCTEXT("Title_Prison", "The last duty record");
+    if (EntryId == TEXT("journal.outer_coast.atlantis")) return LOCTEXT("Title_Atlantis", "Atlantis: the drowned lower court");
+    if (EntryId == TEXT("journal.outer_coast.station")) return LOCTEXT("Title_Station", "The outer station record");
     return LOCTEXT("Title_Unknown", "Unrecognized journal entry");
 }
 #undef LOCTEXT_NAMESPACE

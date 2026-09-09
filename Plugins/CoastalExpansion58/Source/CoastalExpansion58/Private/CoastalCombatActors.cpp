@@ -133,11 +133,17 @@ void ACoastalCombatSentry::AttemptAttack()
     const FVector Start = GetActorLocation() + FVector(0, 0, 60.f);
     if (FVector::DistSquared(Home, Target) > FMath::Square(EncounterRadiusCm)
         || FVector::DistSquared(Start, Target) > FMath::Square(EngagementRangeCm)) return;
+    // Standard character capsules need not block Visibility. Test cover separately,
+    // then require a real pawn-object hit instead of changing the player's collision.
+    FHitResult CoverHit;
+    FCollisionQueryParams CoverParams(TEXT("CoastalSentryCover"), true, this);
+    CoverParams.AddIgnoredActor(Player);
+    CoverParams.AddIgnoredActor(Combat->GetTransientWeapon());
+    if (GetWorld()->LineTraceSingleByChannel(CoverHit, Start, Target, ECC_Visibility, CoverParams)) return;
     FHitResult Hit;
-    FCollisionQueryParams Params(TEXT("CoastalSentryLOS"), true, this);
-    Params.AddIgnoredActor(this);
-    if (!GetWorld()->LineTraceSingleByChannel(Hit, Start, Target, ECC_Visibility, Params)
-        || Hit.GetActor() != Player) return;
+    FCollisionQueryParams PawnParams(TEXT("CoastalSentryPawn"), true, this);
+    if (!GetWorld()->LineTraceSingleByObjectType(Hit, Start, Target,
+        FCollisionObjectQueryParams(ECC_Pawn), PawnParams) || Hit.GetActor() != Player) return;
     const FVector Direction = (Target - Start).GetSafeNormal();
     UGameplayStatics::ApplyPointDamage(Player, AttackDamage, Direction, Hit,
         nullptr, this, UDamageType::StaticClass());

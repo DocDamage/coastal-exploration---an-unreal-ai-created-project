@@ -8,7 +8,7 @@ import unreal as u
 sys.path.insert(0, str(Path(__file__).parent))
 from m3_destination_authoring import Destination
 
-OUT = Path('F:/coastline/local-evidence/m3-coastal-combat-authoring.json')
+OUT = (Path(__file__).resolve().parents[3] / 'local-evidence/m3-coastal-combat-authoring.json')
 SAVE_DIR = Path(u.Paths.project_saved_dir()) / 'SaveGames'
 
 

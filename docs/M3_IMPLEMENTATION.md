@@ -1,4 +1,161 @@
+## Additional M3 asset batch — September 8, 2026
+
+The user added all 16 archives in `G:/coastline/even newer assets and animations`
+to M3 planning. See [the integration plan](M3_NEW_ASSET_BATCH.md) and
+`data/m3_new_asset_batch.json` for the inventory, intended uses and acceptance.
+Work covers interaction/UI/fishing/combat audio, music/thunder ambience, merchant
+animations, and pickup/rotation inspection. Status is planned, not imported.
+The native merchant archive is encrypted; its separate FBX archive is readable.
+Pickupable & Rotatable Items declares UE5.6 and needs isolated UE5.8 review.
+Existing gameplay acceptance below remains valid for the previous scope.
+
+## Selected M3 gameplay acceptance â€” September 8, 2026
+
+The isolated UE5.8.2 trial now passes all three selected workstreams in scripted
+PIE. Swimming passes 22 water/checkpoint cases plus 11 actual route waypoints;
+Morbid shelter passes 4 animation/menu/cancellation cases. The German Shepherd
+passes 7 follow/wait, movement/animation, nonblocking collision, water/recovery and
+campaign-reload cases. The final epoch cooldown fix is compiled and verified.
+
+Both owned destination packs were staged through a separate UE5.7 project and
+copied into the independent UE5.8 trial: 598 files, each SHA256 verified. Atlantis
+upper terraces and the monitoring station have dry arrivals, access paths,
+interiors and investigation records. Both directions and interior walks pass.
+The legacy seven-record campaign retains its progress, completes the two new
+records through real interaction/journal UI, and retains all nine after reload.
+
+Editor is outside PIE with 2,934 saved actors, no dirty packages, background
+throttling restored and MCP connected. Final native build and all 52 native tests pass. Python 70 tests and 3434 structural
+checks pass after the documentation update. All 58 pre-existing save files
+remain byte-identical. Original UE5.7 rollback content was not edited. No commit
+or push was made. Physical controls, visual/art polish, performance and packaged
+acceptance remain; this is not a claim that the whole M3 release gate is complete.
+
+Evidence under `../local-evidence`: `m3-outer-coast-build.execution.json`,
+`m3-outer-coast-native-tests.json`, `m3-all-waters-live-hardened.json`,
+`m3-swimming-route.json`, `m3-morbid-shelter-live.json`,
+`m3-coastal-companion-live.json`, `m3-staged-destination-content-copy.json`,
+`m3-outer-coast-traversal.json`, `m3-outer-coast-quests-live.json`, and
+`m3-selected-three-preservation-after.json`. Earlier checkpoints below are
+historical where they conflict with this acceptance.
+
+## Companion checkpoint — September 8, 2026
+
+One German Shepherd director is saved in the independent UE5.8 trial (2,494 map
+actors). Follow/wait uses the existing pause-menu owner via an optional Foundation
+interface. Collision-aware movement, supplied animation, nonblocking player
+collision, current-water regroup and player recovery pass six scripted PIE cases.
+All52 native tests passed after the per-frame movement and wet-displacement fixes.
+
+The final campaign-reload probe found the previous regroup cooldown surviving the
+epoch change. Source now resets that timer and stuck tracking, but the final DLL
+link is blocked by a separately opened trial editor (PID14860 at this checkpoint).
+Close that instance, rerun `tools/build_ue58_trial.py`, then relaunch and rerun
+`tools/unreal/check_coastal_companion.py` in a fresh disposable campaign. The latest
+full live report is NOT passed; six earlier rows pass. Evidence:
+`m3-coastal-companion-live-epoch-delay.json`, `m3-companion-final-native-tests.json`,
+`m3-companion-epoch-build-locked.execution.json`. A prior rerun crashed in
+D3D11RHI/SlateRHIRenderer; its log is retained as `m3-companion-renderer-crash.log`.
+
+Swimming also passes the full11-point dry dock/ramp/swim/return traversal, in
+addition to the22 all-water cases and4 Morbid shelter cases below. All58
+pre-existing save files remain unchanged. Physical controls/package acceptance
+remain separate. `docs/M3_COMPANION.md` describes behavior and limitations.
+
+Both missing destinations are owned in Fab. A separate UE5.7 staging project is
+at `G:/coastline/M3DestinationStaging57/M3DestinationStaging57.uproject`; the user
+is handling Launcher downloads. At this checkpoint its only asset directory is
+CarpentersWorkshop; Atlantis and SciFi Station are not yet verified or assembled.
+The original UE5.7 rollback host remains untouched. No commit/push was made.
+
+## Swimming and shelter acceptance — September 8, 2026
+
+The corrected swimming seam now passes scripted PIE in the independent UE5.8.2
+host: 11 dry checkpoints, the low shore, seven water samples, basin overlap in
+both directions, and boundary/deep-water safe return. Both overlap legs retain
+swimming without the previous default-volume bounce. Evidence:
+`../local-evidence/m3-all-waters-live-hardened.json` (`passed: true`).
+
+Morbid shelter passes all four native-menu/gameplay checks: actual supplied clip
+starts, completion restores the original mesh and animation, menu cancellation,
+and jump cancellation. Evidence: `m3-morbid-shelter-live.json`. These are scripted
+PIE checks; physical controls and packaged acceptance remain separate. The fresh
+disposable campaign is `coastal_test_m3_water_shelter_0908a`; pre-existing saves
+are verified unchanged in `m3-water-shelter-preservation-after.json`.
+
+Companion implementation is in progress. Both missing destinations were confirmed
+owned in the signed-in Fab library. Unreal downloads require the Launcher or
+Fab plugin; staging payloads are still unavailable, so assembly remains pending.
+
 # M3 — Presentation, input and stability
+
+## Combat continuation — September 8, 2026 (local time)
+
+The isolated UE5.8.2 host now compiles the authoritative tracer/cooldown fixes and
+passes **50 native tests plus 16 scripted combat PIE cases**. The final disposable
+campaign is `coastal_test_m3_combat_resume_0908c`. The exact spread-adjusted vendor
+ray drives the rendered tracer; slow/fast time-dilation probes pass. Mouse/gamepad
+fire, keyboard/gamepad reload, paused input/reload, world cover, offscreen/visible
+sentry behavior, defeat safe return and campaign-epoch cleanup pass.
+
+Live checks found and fixed sentry damage missing the standard player's capsule:
+cover is checked on Visibility, followed by a real Pawn-object hit, without changing
+player collision globally. A separate cover fixture initially failed because its
+wall was static; the corrected disposable movable fixture passes and restores its
+original transform/mobility. Earlier failed reports remain in local evidence.
+
+First Signal has **2,493 saved actors**, including six bounded harbour combat
+actors using clearly provisional engine meshes. No final weapon/enemy art or
+physical-device/package acceptance is claimed. Existing save files and the original
+UE5.7 host map are hash-verified unchanged (53 preserved files). The trial map has
+an explicit pre-combat backup. Editor is outside PIE, with zero dirty packages,
+background throttling restored and MCP connected.
+
+Evidence in `../local-evidence`: `m3-combat-resume-build.execution.json`,
+`m3-sentry-fixed-build.execution.json`, `m3-sentry-fixed-native-tests.json/.log`,
+`m3-coastal-combat-authoring.json`, `m3-coastal-combat-live.json`, and
+`m3-combat-resume-final.json`. The second native build briefly hit the closing
+editor's DLL lock; retry after shutdown passed. The purchased vendor's original
+Staged payload remains intact; only its private Working/trial copies were patched.
+See `docs/M3_COMBAT_SHOT_CONTRACT.md` (or that filename from this docs directory).
+
+The existing journal data's stale unavailable-travel sentence was synchronized to
+the already-implemented Industrial Harbour lead. Python checks pass (70 tests).
+Remaining gameplay gates include the corrected swimming seam and Morbid shelter;
+companion behavior, art polish, physical controls, performance and packaging remain.
+
+
+## Resumed on relocated machine — September 8, 2026
+
+The user explicitly resumed development and requested MCP startup. Work now lives
+at `G:/coastline/CoastalExploration`; the independent host is
+`G:/coastline/LocalHost58/CoastalExploration`. Installed Unreal is **5.8.2** at
+`D:/Unreal/UE_5.8`. Historical F: and C:/Users/Doc paths below belong to the prior
+machine and must not be used as current execution paths.
+
+MCP is running at `127.0.0.1:30020`, with verified project/engine identity.
+First Signal contains 2,487 actors, with no PIE session or dirty packages.
+All **50 native Coastal tests pass** using the existing compiled binaries,
+including the four previously unrun combat rule tests. The AGIS Capacity case
+retains its vendor GameplayTag warnings. This is not combat PIE acceptance or a
+new native build. All **70 Python tests pass** on Python 3.10.
+Evidence: `../local-evidence/m3-relocated-mcp-startup.json`,
+`m3-relocated-native-tests.json/.log`, and `m3-relocated-python-tests.log`.
+
+Launch/build/source-sync tools now resolve the workspace relative to the repository
+and the engine from the installed Launcher manifest/registry, with
+`COASTAL_UE58_ROOT` as an explicit override. The asset importer no longer depends
+on Python 3.12's `Path.is_junction`; junction/symlink rejection remains intact.
+`tools/unreal_mcp_call.py` checks host identity before editor operations.
+The updated launcher was syntax checked and its path resolver exercised; the
+current editor was launched directly with the resolved paths. No native rebuild
+or source sync was executed in this continuation. Background throttling is restored.
+
+Next gameplay work remains the authoritative shooter tracer and cooldown-clock
+fixes, followed by combat PIE, corrected swimming seam and Morbid shelter checks.
+Do not treat this tooling/native-test increment as completion of those gates.
+
+## Historical publication checkpoint
 
 Development is paused by explicit user instruction. The GitHub publication is a
 source checkpoint, not a completed M3 release. The shooter/editor-input-probe

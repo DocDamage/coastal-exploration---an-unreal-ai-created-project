@@ -19,7 +19,9 @@ const TArray<FCoastalDestinationStep>& DestinationSteps()
         {TEXT("world.coastal_records.hallsands"), TEXT("journal.coastal_records.hallsands")},
         {TEXT("world.coastal_records.village"), TEXT("journal.coastal_records.village")},
         {TEXT("world.coastal_records.baelo"), TEXT("journal.coastal_records.baelo")},
-        {TEXT("world.coastal_records.prison"), TEXT("journal.coastal_records.prison")}
+        {TEXT("world.coastal_records.prison"), TEXT("journal.coastal_records.prison")},
+        {TEXT("world.outer_coast.atlantis"), TEXT("journal.outer_coast.atlantis")},
+        {TEXT("world.outer_coast.station"), TEXT("journal.outer_coast.station")}
     };
     return Steps;
 }
@@ -115,7 +117,7 @@ bool FCoastalDestinationQuestRules::ValidateSavedManifest(const TArray<FCoastalW
         const FString Id = Entry.ToString();
         if ((Id.StartsWith(TEXT("journal.north_reach.")) && Entry != TEXT("journal.north_reach.lead")
                 && !IsDestinationJournalId(Entry))
-            || (Id.StartsWith(TEXT("journal.coastal_records.")) && !IsDestinationJournalId(Entry)))
+            || ((Id.StartsWith(TEXT("journal.coastal_records.")) || Id.StartsWith(TEXT("journal.outer_coast."))) && !IsDestinationJournalId(Entry)))
         { Error = TEXT("Unknown destination journal entry."); return false; }
         Entries.Add(Entry);
     }

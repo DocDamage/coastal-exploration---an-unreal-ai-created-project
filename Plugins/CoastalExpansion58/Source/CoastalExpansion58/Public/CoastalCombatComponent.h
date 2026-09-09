@@ -128,6 +128,7 @@ private:
     bool bStopped = false;
     bool bDefeated = false;
     bool bInputInstalled = false;
+    bool bSubmittingShot = false;
     bool BindingValid() const;
     bool HasForeignMontage() const;
     bool SpawnWeapon();
@@ -138,8 +139,7 @@ private:
     ECoastalCombatResult Emit(coastal::CombatDecision Decision, const FString& Detail);
     ECoastalCombatResult Emit(ECoastalCombatResult Result, const FString& Detail);
     void PublishState(bool Force = false);
-    FVector TraceEndpoint() const;
-    void SpawnTracer(const FVector& End);
+    void SpawnTracer(const FVector& Start, const FVector& End);
     UFUNCTION() void InputFire();
     UFUNCTION() void InputReload();
     UFUNCTION() void HandleDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType,

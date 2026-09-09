@@ -4,7 +4,8 @@ import time
 from pathlib import Path
 import unreal as u
 
-REPORT = Path('F:/coastline/local-evidence/m3-destination-quests-live-ue58.json')
+REPORT = (Path(__file__).resolve().parents[3] / ('local-evidence/m3-outer-coast-quests-live.json'
+          if int(globals().get('start_at', 0)) == 7 else 'local-evidence/m3-destination-quests-live-ue58.json'))
 REPORT.write_text(json.dumps({'passed': False, 'status': 'starting'}), encoding='utf-8')
 save_set = str(globals().get('save_set', ''))
 if not save_set.startswith('coastal_test_'):
@@ -24,8 +25,16 @@ steps = [
     ('world.coastal_records.baelo', 'journal.coastal_records.baelo',
      (8000, 20000, 526), 'Inspect the survey tablet', 'COASTAL RECORDS'),
     ('world.coastal_records.prison', 'journal.coastal_records.prison',
-     (21600, 29000, 498), 'Read the prison duty record', 'COASTAL RECORDS'),
+     (21600, 29000, 498), 'Read the prison duty record', 'OUTER COAST'),
+    ('world.outer_coast.atlantis', 'journal.outer_coast.atlantis',
+     (-16000, 6000, 298), 'Inspect the tide survey', 'OUTER COAST'),
+    ('world.outer_coast.station', 'journal.outer_coast.station',
+     (33000, -28500, 698), 'Read the station monitoring log', 'OUTER COAST'),
 ]
+start_at = int(globals().get('start_at', 0))
+if start_at not in (0, 7):
+    raise RuntimeError('Use full-chain or legacy-seven migration acceptance')
+steps = steps[start_at:]
 try:
     world = u.get_editor_subsystem(u.UnrealEditorSubsystem).get_game_world()
     pawn = u.GameplayStatics.get_player_character(world, 0)
@@ -49,6 +58,12 @@ try:
         raise RuntimeError('Use a completed disposable campaign before either destination chain has started')
     if set(world_id for world_id, *_ in steps) - set(objects):
         raise RuntimeError('One or more authored destination records are missing in PIE')
+    legacy_journal = {str(v) for v in saves.get_journal()
+                      if str(v).startswith(('journal.north_reach.', 'journal.coastal_records.'))
+                      and str(v).replace('journal.', 'world.', 1) in objects}
+    if start_at == 7 and (len(legacy_journal) != 7 or any(
+            not objects[j.replace('journal.', 'world.', 1)].is_active() for j in legacy_journal)):
+        raise RuntimeError('Legacy campaign did not retain all seven completed destination records')
 except Exception as exc:
     REPORT.write_text(json.dumps({'passed': False, 'status': 'preflight_failed', 'error': str(exc)}))
     raise
@@ -77,6 +92,7 @@ def finish(error=None):
     REPORT.write_text(json.dumps({'passed': error is None, 'error': error, 'save_set': save_set,
                                   'generation_before': generation_before,
                                   'generation_after': saves.get_generation(), 'rows': rows,
+                                  'legacy_records_retained': len(legacy_journal),
                                   'scope': 'Scripted PIE interaction/save/reload; physical-device traversal remains separate'},
                                  indent=2), encoding='utf-8')
 
@@ -133,10 +149,13 @@ def tick(delta):
                 raise RuntimeError('Saved destination chain did not reload: ' + str(result))
             phase = 'verify'; next_time = now + .5; return
         journal = [str(value) for value in saves.get_journal()]
+        if not legacy_journal.issubset(journal) or any(
+                not objects[j.replace('journal.', 'world.', 1)].is_active() for j in legacy_journal):
+            raise RuntimeError('Reload lost an existing destination record')
         if any(journal_id not in journal or not objects[world_id].is_active()
                for world_id, journal_id, *_ in steps):
             raise RuntimeError('Reload lost destination world/journal progress')
-        if str(ui.campaign_title()) != 'COASTAL RECORDS' or 'complete' not in str(ui.objective()).lower():
+        if str(ui.campaign_title()) != 'OUTER COAST' or 'complete' not in str(ui.objective()).lower():
             raise RuntimeError('Completed campaign presentation did not survive reload')
         finish()
     except Exception as exc:

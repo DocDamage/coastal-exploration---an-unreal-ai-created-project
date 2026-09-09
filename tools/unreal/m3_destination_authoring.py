@@ -1,5 +1,6 @@
 """Small idempotent authoring helpers for the two September 8 destinations."""
 import math
+from pathlib import Path
 import unreal as u
 
 
@@ -8,11 +9,10 @@ class Destination:
         self.level = u.get_editor_subsystem(u.LevelEditorSubsystem)
         self.editor = u.get_editor_subsystem(u.UnrealEditorSubsystem)
         self.actors = u.get_editor_subsystem(u.EditorActorSubsystem)
-        expected_hosts = (
-            'F:/coastline/LocalHost/CoastalExploration/CoastalExploration.uproject',
-            'F:/coastline/LocalHost58/CoastalExploration/CoastalExploration.uproject',
-        )
-        if (u.Paths.convert_relative_path_to_full(u.Paths.get_project_file_path()).replace('\\', '/') not in expected_hosts
+        workspace = Path(__file__).resolve().parents[3]
+        expected_hosts = tuple((workspace / host / 'CoastalExploration/CoastalExploration.uproject').resolve()
+                               for host in ('LocalHost', 'LocalHost58'))
+        if (Path(u.Paths.convert_relative_path_to_full(u.Paths.get_project_file_path())).resolve() not in expected_hosts
                 or self.editor.get_editor_world().get_name() != 'L_FirstSignal'
                 or self.level.is_in_play_in_editor()):
             raise RuntimeError('Expected the local First Signal editor outside PIE')

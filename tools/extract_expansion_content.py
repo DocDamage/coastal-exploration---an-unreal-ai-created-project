@@ -65,7 +65,13 @@ def _matches_prefix(relative: PurePosixPath, prefix: tuple[str, ...]) -> bool:
 
 
 def _is_link(path: Path) -> bool:
-    return path.is_symlink() or path.is_junction()
+    # lstat exposes Windows reparse tags on Python 3.10, before Path.is_junction.
+    try:
+        info = path.lstat()
+    except FileNotFoundError:
+        return False
+    return stat.S_ISLNK(info.st_mode) or getattr(info, 'st_reparse_tag', 0) == getattr(
+        stat, 'IO_REPARSE_TAG_MOUNT_POINT', 0xA0000003)
 
 
 def _reject_link_ancestors(path: Path) -> None:
