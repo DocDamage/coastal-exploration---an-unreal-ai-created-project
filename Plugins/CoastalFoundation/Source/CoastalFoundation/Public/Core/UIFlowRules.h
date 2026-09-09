@@ -7,7 +7,7 @@
 
 namespace coastal
 {
-    enum class PanelKind { Session, Pause, Inventory, Storage, Journal, Transcript, ItemDetails, ConfirmSession, ConfirmExit, Recovery, Settings, Display, ConfirmDisplay };
+    enum class PanelKind { Session, Pause, Inventory, Storage, Journal, Transcript, ItemDetails, ConfirmSession, ConfirmExit, Recovery, Settings, Display, ConfirmDisplay, CharacterCreator };
     struct PanelTicket
     {
         std::uint64_t id = 0, epoch = 0;

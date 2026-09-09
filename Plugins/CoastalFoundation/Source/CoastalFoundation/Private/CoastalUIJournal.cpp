@@ -2,6 +2,13 @@
 #include "CoastalSaveCoordinator.h"
 #include "CoastalStoryLibrary.h"
 
+bool UCoastalUISessionComponent::IsPresentingJournalEntry(FName Entry) const
+{
+    const auto* Top = Flow.Top();
+    return IsInitialized() && Top && Top->ticket.kind == coastal::PanelKind::Journal
+        && JournalSelection == Entry;
+}
+
 void UCoastalUISessionComponent::PresentJournal(FText& Title, FText& Body, TArray<FCoastalUIChoice>& Choices)
 {
     Title = FText::FromString(TEXT("JOURNAL"));

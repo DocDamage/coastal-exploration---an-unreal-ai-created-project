@@ -1,0 +1,32 @@
+{
+  "status": "combat_selection_staging_ready_import_source_and_live_not_run_fishing_deferred_no_events",
+  "combat": {
+    "archive": "Pixel_Combat_SFX_200_Full.zip",
+    "observed_wav_count": 200,
+    "format": "48 kHz PCM16 stereo",
+    "destination": "/Game/Coastal/Audio/M3Combat",
+    "selected": [
+      {"id": "encounter_start", "member": "09_Combat_Misc/battle_start_v03.wav", "gain": 0.2, "event": "first successful transient weapon equip in an encounter"},
+      {"id": "player_hit", "member": "06_Impact/hit_very_light_v01.wav", "gain": 0.22, "event": "accepted nonlethal hostile damage to the player"}
+    ],
+    "explicitly_unmapped": {
+      "sidearm_fire": "No firearm report in this fantasy sword/bow/magic pack; retain vendor weapon audio.",
+      "sidearm_reload": "No firearm reload Foley in this pack.",
+      "world_impact": "Sword, arrow and magic material hits are not evidence for a sidearm impact.",
+      "enemy_defeat": "The current player combat owner has no authoritative target-defeat callback.",
+      "player_defeat": "Immediate recovery teardown would retire a one-shot before audible acceptance; deferred rather than counted as integrated."
+    },
+    "routing": "existing Effects channel",
+    "license": "Included LICENSE permits use and modification in personal/commercial games, prohibits standalone redistribution, and does not require attribution.",
+    "listening_acceptance": "not_run"
+  },
+  "fishing": {
+    "archive": "Fishing_Minigame_SFX_120_Sounds.zip",
+    "observed_wav_count": 120,
+    "status": "deferred_no_implemented_fishing_events",
+    "selected": [],
+    "reason": "No fishing gameplay source or authoritative cast, bite, reel, catch or failure event exists in the repository."
+  },
+  "preservation": "No save, inventory, preference, mission or fishing schema change. Purchased payload remains outside Git.",
+  "verification": {"private_staging": "not_run", "import": "not_run", "native_build": "not_run", "scripted_pie": "not_run", "mixer": "not_run", "windows_package": "not_run"}
+}

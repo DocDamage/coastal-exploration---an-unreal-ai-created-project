@@ -1,10 +1,13 @@
 #include "CoastalCombatDirector.h"
 #include "CoastalCombatActors.h"
 #include "CoastalCombatComponent.h"
+#include "CoastalCombatAudioComponent.h"
 #include "CoastalCombatOverlay.h"
 #include "AdvancedShooterComponent.h"
 #include "CoastalCampingActionComponent.h"
 #include "CoastalInteractionBridge.h"
+#include "CoastalAudioOptionsComponent.h"
+#include "CoastalUISessionComponent.h"
 #include "CoastalPlayerRecoveryComponent.h"
 #include "CoastalSaveCoordinator.h"
 #include "CoastalSwimmingComponent.h"
@@ -87,6 +90,19 @@ bool ACoastalCombatDirector::TryInitialize()
     if (!Combat->InitializeCombat(Bridge, Saves, Recovery, Camping, Swimming))
     { LastDetail = Combat->LastDetail; return false; }
 
+    TArray<UCoastalCombatAudioComponent*> AudioOwners; PC->GetComponents(AudioOwners);
+    if (AudioOwners.Num() <= 1)
+    {
+        if (AudioOwners.IsEmpty())
+        {
+            CombatAudio = NewObject<UCoastalCombatAudioComponent>(PC, TEXT("CoastalCombatAudio"));
+            if (CombatAudio) { PC->AddInstanceComponent(CombatAudio); CombatAudio->RegisterComponent(); bCreatedCombatAudio = true; }
+        }
+        else CombatAudio = AudioOwners[0];
+        auto* UI = PC->FindComponentByClass<UCoastalUISessionComponent>();
+        auto* Routing = PC->FindComponentByClass<UCoastalAudioOptionsComponent>();
+        if (IsValid(CombatAudio)) CombatAudio->InitializeAudio(Combat, UI, Routing);
+    }
     for (TActorIterator<ACoastalCombatEncounterVolume> It(GetWorld()); It; ++It)
         if (It->IsAuthoredCorrectly() && It->Bounds->IsOverlappingActor(Player)) Combat->EnterEncounter(*It);
     if (bShowCombatHUD)
@@ -103,11 +119,13 @@ bool ACoastalCombatDirector::TryInitialize()
 void ACoastalCombatDirector::EndPlay(const EEndPlayReason::Type Reason)
 {
     if (IsValid(Overlay)) Overlay->RemoveFromParent();
+    if (IsValid(CombatAudio)) CombatAudio->ReleaseAudio();
     if (IsValid(Combat)) Combat->ReleaseCombat();
     if (bCreatedCombat && IsValid(Combat)) Combat->DestroyComponent();
+    if (bCreatedCombatAudio && IsValid(CombatAudio)) CombatAudio->DestroyComponent();
     if (bCreatedShooter)
         if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(this, 0))
             if (auto* Shooter = Player->FindComponentByClass<UAdvancedShooterComponent>()) Shooter->DestroyComponent();
-    Combat = nullptr; Overlay = nullptr;
+    Combat = nullptr; CombatAudio = nullptr; Overlay = nullptr;
     Super::EndPlay(Reason);
 }

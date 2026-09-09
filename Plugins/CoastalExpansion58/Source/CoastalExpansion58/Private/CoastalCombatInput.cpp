@@ -18,8 +18,9 @@ bool UCoastalCombatComponent::InstallInput()
     CombatInput = NewObject<UEnhancedInputComponent>(Controller);
     UInputAction* Fire = NewObject<UInputAction>(this);
     UInputAction* Reload = NewObject<UInputAction>(this);
-    if (!CombatContext || !CombatInput || !Fire || !Reload) return false;
-    CombatActions = {Fire, Reload};
+    UInputAction* Aim = NewObject<UInputAction>(this);
+    if (!CombatContext || !CombatInput || !Fire || !Reload || !Aim) return false;
+    CombatActions = {Fire, Reload, Aim};
     for (UInputAction* Action : CombatActions)
     {
         Action->ValueType = EInputActionValueType::Boolean;
@@ -30,11 +31,16 @@ bool UCoastalCombatComponent::InstallInput()
     CombatContext->MapKey(Fire, FireGamepadKey);
     CombatContext->MapKey(Reload, ReloadKeyboardKey);
     CombatContext->MapKey(Reload, ReloadGamepadKey);
+    CombatContext->MapKey(Aim, EKeys::RightMouseButton);
+    CombatContext->MapKey(Aim, EKeys::Gamepad_LeftTrigger);
     CombatInput->Priority = 5;
     CombatInput->bBlockInput = false;
     CombatInput->RegisterComponent();
     CombatInput->BindAction(Fire, ETriggerEvent::Started, this, &UCoastalCombatComponent::InputFire);
     CombatInput->BindAction(Reload, ETriggerEvent::Started, this, &UCoastalCombatComponent::InputReload);
+    CombatInput->BindAction(Aim, ETriggerEvent::Triggered, this, &UCoastalCombatComponent::InputAim);
+    CombatInput->BindAction(Aim, ETriggerEvent::Completed, this, &UCoastalCombatComponent::InputAimReleased);
+    CombatInput->BindAction(Aim, ETriggerEvent::Canceled, this, &UCoastalCombatComponent::InputAimReleased);
     Controller->PushInputComponent(CombatInput);
     FModifyContextOptions Options;
     Options.bIgnoreAllPressedKeysUntilRelease = true;
@@ -55,7 +61,21 @@ void UCoastalCombatComponent::RemoveInput()
     if (CombatInput) CombatInput->DestroyComponent();
     CombatInput = nullptr; CombatContext = nullptr; CombatActions.Reset();
     bInputInstalled = false;
+    bAimHeld = false; bAimNeedsRelease = false;
 }
 
 void UCoastalCombatComponent::InputFire() { TryFire(); }
 void UCoastalCombatComponent::InputReload() { TryReload(); }
+void UCoastalCombatComponent::InputAim()
+{
+    if (!bAimNeedsRelease && CanReceiveHostileAttack()) bAimHeld = true;
+}
+void UCoastalCombatComponent::InputAimReleased() { bAimHeld = false; bAimNeedsRelease = false; }
+bool UCoastalCombatComponent::IsAiming() const
+{ return bAimHeld && !bAimNeedsRelease && CanReceiveHostileAttack(); }
+void UCoastalCombatComponent::InterruptAim()
+{
+    if (bAimHeld || (Controller && (Controller->IsInputKeyDown(EKeys::RightMouseButton)
+        || Controller->IsInputKeyDown(EKeys::Gamepad_LeftTrigger)))) bAimNeedsRelease = true;
+    bAimHeld = false;
+}

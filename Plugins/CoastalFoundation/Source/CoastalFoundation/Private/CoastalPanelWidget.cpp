@@ -17,6 +17,7 @@
 #include "Styling/CoreStyle.h"
 #include "Styling/SlateTypes.h"
 #include "CoreGlobals.h"
+#include "Engine/TextureRenderTarget2D.h"
 
 void UCoastalCommandButton::BindCommand(FName Id)
 { Command = Id; OnClicked.AddUniqueDynamic(this, &UCoastalCommandButton::Clicked); }
@@ -44,11 +45,29 @@ TSharedRef<SWidget> UCoastalPanelWidget::RebuildWidget()
     Body = WidgetTree->ConstructWidget<UTextBlock>(); Body->SetAutoWrapText(true);
     Body->SetColorAndOpacity(CoastalUITheme::Paper());
     Body->SetFont(FCoreStyle::GetDefaultFontStyle("Regular", 20)); Column->AddChildToVerticalBox(Body);
+    PreviewImage = WidgetTree->ConstructWidget<UImage>();
+    auto PreviewBrush = PreviewImage->GetBrush(); PreviewBrush.SetImageSize(FVector2D(320, 240));
+    PreviewImage->SetBrush(PreviewBrush); PreviewImage->SetVisibility(ESlateVisibility::Collapsed);
+    const bool CharacterCreator = Ticket.kind == coastal::PanelKind::CharacterCreator;
+    if (!CharacterCreator)
+    {
+        auto* PreviewSlot = Column->AddChildToVerticalBox(PreviewImage);
+        PreviewSlot->SetHorizontalAlignment(HAlign_Center); PreviewSlot->SetPadding(FMargin(0, 12));
+    }
     Notice = WidgetTree->ConstructWidget<UTextBlock>(); Notice->SetAutoWrapText(true);
     Notice->SetColorAndOpacity(CoastalUITheme::Accent());
     Notice->SetFont(FCoreStyle::GetDefaultFontStyle("Regular", 16));
     Column->AddChildToVerticalBox(Notice)->SetPadding(FMargin(0, 8));
-    Actions = WidgetTree->ConstructWidget<UVerticalBox>(); Column->AddChildToVerticalBox(Actions);
+    Actions = WidgetTree->ConstructWidget<UVerticalBox>();
+    if (CharacterCreator)
+    {
+        auto* Row = WidgetTree->ConstructWidget<UHorizontalBox>();
+        Column->AddChildToVerticalBox(Row)->SetPadding(FMargin(0, 12));
+        auto* PortraitSlot = Row->AddChildToHorizontalBox(PreviewImage);
+        PortraitSlot->SetVerticalAlignment(VAlign_Top); PortraitSlot->SetPadding(FMargin(0, 0, 20, 0));
+        Row->AddChildToHorizontalBox(Actions)->SetSize(FSlateChildSize(ESlateSizeRule::Fill));
+    }
+    else Column->AddChildToVerticalBox(Actions);
     Help = WidgetTree->ConstructWidget<UTextBlock>(); Help->SetAutoWrapText(true);
     Help->SetColorAndOpacity(CoastalUITheme::Muted());
     Help->SetText(FText::FromString(TEXT("D-pad / Up-Down / Tab: focus | A / Enter: choose | B / Esc: back | shoulders / Page Up-Down: scroll")));

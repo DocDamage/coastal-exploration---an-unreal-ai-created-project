@@ -1,4 +1,5 @@
 #include "CoastalSaveCoordinator.h"
+#include "CoastalPlacementLibrary.h"
 #include "CoastalInventoryAdapter.h"
 #include "CoastalWorldObject.h"
 #include "CoastalContractLibrary.h"
@@ -14,7 +15,7 @@ bool UCoastalSaveCoordinator::Capture(FCoastalCampaignSnapshot& Out, FString& Er
     Out.CampaignId = CampaignId;
     Out.Generation = Generation;
     Out.MapId = MapId;
-    Out.PlayerTransform = Player->GetActorTransform();
+    Out.PlayerTransform = UCoastalPlacementLibrary::StanceSaveTransform(Player.Get(),DryCheckpoint);
     Out.DryCheckpoint = DryCheckpoint;
     Out.FirstSignal = Mission->ExportSnapshot();
     Out.Journal = Journal;

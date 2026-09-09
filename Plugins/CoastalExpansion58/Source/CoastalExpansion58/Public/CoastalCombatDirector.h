@@ -5,6 +5,7 @@
 
 class AWeaponBase;
 class UCoastalCombatComponent;
+class UCoastalCombatAudioComponent;
 class UCoastalCombatOverlay;
 class UMaterialInterface;
 class UStaticMesh;
@@ -34,8 +35,10 @@ protected:
     virtual void BeginPlay() override;
 private:
     UPROPERTY() TObjectPtr<UCoastalCombatComponent> Combat;
+    UPROPERTY() TObjectPtr<UCoastalCombatAudioComponent> CombatAudio;
     UPROPERTY() TObjectPtr<UCoastalCombatOverlay> Overlay;
     bool bCreatedCombat = false;
+    bool bCreatedCombatAudio = false;
     bool bCreatedShooter = false;
     bool TryInitialize();
 };

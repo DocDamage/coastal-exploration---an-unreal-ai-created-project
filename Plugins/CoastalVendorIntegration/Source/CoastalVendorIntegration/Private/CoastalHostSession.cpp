@@ -5,6 +5,7 @@
 #include "CoastalAudioOptionsComponent.h"
 #include "CoastalAudioPlaybackComponent.h"
 #include "CoastalActionAudio.h"
+#include "CoastalSoundscape.h"
 #include "Sound/SoundClass.h"
 #include "Sound/SoundBase.h"
 #include "CoastalAGISAdapter.h"
@@ -26,6 +27,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Engine/Texture2D.h"
+#include "Engine/StaticMesh.h"
 #include "EngineUtils.h"
 #include "TimerManager.h"
 using namespace CoastalVendor;
@@ -109,6 +111,12 @@ void UCoastalHostSession::InitializeHost()
     if(auto* Icon=LoadObject<UTexture2D>(nullptr,TEXT("/Game/Coastal/UI/Icons/T_MarineFuse.T_MarineFuse")))
         UI->ItemIcons.Add(TEXT("item.marine_fuse"),Icon);
     if(GetWorld()->GetMapName().EndsWith(TEXT("L_FirstSignal"))) UI->SelectedSaveSet=TEXT("first_signal_01");
+    for(const auto& Item: TMap<FName,FString>{{TEXT("item.radio_battery"),TEXT("SM_RadioBatteryPreview")},
+        {TEXT("item.marine_fuse"),TEXT("SM_MarineFusePreview")}})
+    {
+        const FString Path=TEXT("/Game/Coastal/M3/ItemPreview/")+Item.Value+TEXT(".")+Item.Value;
+        if(auto* Mesh=LoadObject<UStaticMesh>(nullptr,*Path)) UI->ItemPreviewMeshes.Add(Item.Key,Mesh);
+    }
     auto* Audio=Add<UCoastalAudioOptionsComponent>(Controller);
     Audio->AmbienceClass=LoadObject<USoundClass>(nullptr,TEXT("/Game/Coastal/Audio/SC_M1Ambience.SC_M1Ambience"));
     Audio->EffectsClass=LoadObject<USoundClass>(nullptr,TEXT("/Game/Coastal/Audio/SC_M1Effects.SC_M1Effects"));
@@ -147,6 +155,11 @@ void UCoastalHostSession::InitializeHost()
             Effects.Add(FName(Id),LoadObject<USoundBase>(nullptr,*Path));
         }
         const bool EffectsReady=Add<UCoastalActionAudio>(Controller)->Initialize(Bridge,Audio,UI,Effects);
+        if(GetWorld()->GetMapName().EndsWith(TEXT("L_FirstSignal")))
+        {
+            const bool SoundscapeReady=Add<UCoastalSoundscape>(Controller)->Initialize(UI,Audio);
+            UE_LOG(LogTemp,Display,TEXT("COASTAL_SOUNDSCAPE_BINDING: ready=%d"),SoundscapeReady);
+        }
         UE_LOG(LogTemp,Display,TEXT("COASTAL_AUDIO_BINDINGS: routing=%d playback=%d effects=%d; %s"),
             Audio->IsAudioReady(),Playback->IsPlaybackReady(),EffectsReady,*Playback->LastDetail);
     }

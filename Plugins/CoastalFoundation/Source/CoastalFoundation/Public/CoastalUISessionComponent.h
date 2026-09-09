@@ -25,6 +25,9 @@ class UEnhancedInputComponent;
 class APlayerController;
 class IInputProcessor;
 class UTexture2D;
+class UStaticMesh;
+class UTextureRenderTarget2D;
+class UCoastalItemPreviewComponent;
 DECLARE_MULTICAST_DELEGATE_OneParam(FCoastalMenuFeedback, FName);
 
 struct FCoastalUIChoice
@@ -54,6 +57,7 @@ public:
     UFUNCTION(BlueprintCallable, Category="Coastal|UI") void OpenJournal();
     UFUNCTION(BlueprintPure, Category="Coastal|UI") bool HasModal() const { return Flow.Depth() > 0; }
     UFUNCTION(BlueprintPure, Category="Coastal|UI") bool IsInitialized() const { return bInitialized && !bClosing; }
+    bool IsPresentingJournalEntry(FName Entry) const;
     virtual void TickComponent(float Delta, ELevelTick TickType, FActorComponentTickFunction* TickFunction) override;
     virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
     UFUNCTION(BlueprintPure, Category="Coastal|UI") FText Objective() const;
@@ -73,10 +77,22 @@ public:
     void Command(UCoastalPanelWidget* Sender, FName Id);
     FCoastalMenuFeedback OnMenuFeedback;
     void NotifyMenuFocus(UCoastalPanelWidget* Sender);
+    void RefreshCharacterCreator() { if (Flow.Contains(coastal::PanelKind::CharacterCreator) || Flow.Contains(coastal::PanelKind::Pause)) bRefreshPending = true; }
     // Optional authored icon lookup for read-only inventory presentation.
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Coastal|UI")
     TMap<FName, TObjectPtr<UTexture2D>> ItemIcons;
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Coastal|UI")
+    TMap<FName, TObjectPtr<UStaticMesh>> ItemPreviewMeshes;
+    UTextureRenderTarget2D* ItemPreviewTexture() const;
+    bool RotateItemPreview(UCoastalPanelWidget* Sender, float YawDegrees, float PitchDegrees);
 private:
+    UPROPERTY() TObjectPtr<UCoastalItemPreviewComponent> ItemPreview;
+    FGuid PreviewInstance;
+    FName PreviewContainer, PreviewItem;
+    int64 PreviewRevision = -1;
+    void InspectSelectedItem();
+    bool ValidateItemPreview();
+    void CloseItemPreview();
     bool bUsingGamepad = false;
     TSharedPtr<IInputProcessor> InputHints;
     void InstallInputHints();

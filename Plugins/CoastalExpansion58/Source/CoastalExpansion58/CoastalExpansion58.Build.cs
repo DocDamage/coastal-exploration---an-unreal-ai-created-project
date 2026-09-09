@@ -7,11 +7,11 @@ public class CoastalExpansion58 : ModuleRules
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         PublicDependencyModuleNames.AddRange(new[]
         {
-            "Core", "CoreUObject", "Engine", "InputCore", "CoastalFoundation", "AdvancedShooterSystem"
+            "Core", "CoreUObject", "Engine", "InputCore", "CoastalFoundation", "AdvancedShooterSystem", "CustomizableObject", "IKRig", "DynamicRope"
         });
         PrivateDependencyModuleNames.AddRange(new[]
         {
-            "EnhancedInput", "UMG", "Slate", "SlateCore"
+            "EnhancedInput", "UMG", "Slate", "SlateCore", "AnimGraphRuntime"
         });
     }
 }

@@ -53,6 +53,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_FiveParams(FCoastalCombatStateChanged,
     float, Health, float, Shield, int32, Clip, int32, Reserve, bool, Armed);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FCoastalCombatNotice,
     ECoastalCombatResult, Result, FString, Detail);
+// Presentation only, emitted after an authoritative combat state change.
+DECLARE_MULTICAST_DELEGATE_TwoParams(FCoastalCombatPresentationFeedback, FName, FVector);
 
 // Standalone encounter coordinator. Weapon and ammunition are transient encounter state.
 UCLASS(Blueprintable, ClassGroup=(Coastal), meta=(BlueprintSpawnableComponent))
@@ -78,13 +80,18 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Coastal|Combat") FString LastDetail;
     UPROPERTY(BlueprintAssignable, Category="Coastal|Combat") FCoastalCombatStateChanged OnCombatStateChanged;
     UPROPERTY(BlueprintAssignable, Category="Coastal|Combat") FCoastalCombatNotice OnCombatNotice;
+    FCoastalCombatPresentationFeedback OnCombatPresentation;
 
     bool InitializeCombat(UCoastalInteractionBridge* Interaction, UCoastalSaveCoordinator* Coordinator,
         UCoastalPlayerRecoveryComponent* RecoveryOwner, UCoastalCampingActionComponent* CampingOwner,
         UCoastalSwimmingComponent* SwimmingOwner);
     void ReleaseCombat();
+    // Presentation follows a ready generated hand; weapon/ammo authority stays here.
+    void RefreshWeaponAttachment();
+    void InterruptAim();
     UFUNCTION(BlueprintCallable, Category="Coastal|Combat") ECoastalCombatResult TryFire();
     UFUNCTION(BlueprintCallable, Category="Coastal|Combat") ECoastalCombatResult TryReload();
+    UFUNCTION(BlueprintPure, Category="Coastal|Combat") bool IsAiming() const;
     UFUNCTION(BlueprintPure, Category="Coastal|Combat") bool IsInitialized() const { return BindingValid(); }
     UFUNCTION(BlueprintPure, Category="Coastal|Combat") bool CanAttack() const;
     UFUNCTION(BlueprintPure, Category="Coastal|Combat") bool CanReceiveHostileAttack() const;
@@ -129,6 +136,8 @@ private:
     bool bDefeated = false;
     bool bInputInstalled = false;
     bool bSubmittingShot = false;
+    bool bAimHeld = false;
+    bool bAimNeedsRelease = false;
     bool BindingValid() const;
     bool HasForeignMontage() const;
     bool SpawnWeapon();
@@ -142,6 +151,8 @@ private:
     void SpawnTracer(const FVector& Start, const FVector& End);
     UFUNCTION() void InputFire();
     UFUNCTION() void InputReload();
+    UFUNCTION() void InputAim();
+    UFUNCTION() void InputAimReleased();
     UFUNCTION() void HandleDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType,
         AController* InstigatedBy, AActor* DamageCauser);
     UFUNCTION() void HandleReturn(ECoastalReturnNotice Result, FString Detail);

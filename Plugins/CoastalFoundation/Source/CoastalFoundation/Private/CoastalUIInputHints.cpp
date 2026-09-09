@@ -2,6 +2,8 @@
 #include "Framework/Application/IInputProcessor.h"
 #include "Framework/Application/SlateApplication.h"
 #include "Input/Events.h"
+#include "CoastalCharacterUI.h"
+#include "CoastalInteractionBridge.h"
 
 namespace
 {
@@ -56,7 +58,13 @@ FText UCoastalUISessionComponent::MenuHelp() const
 }
 FText UCoastalUISessionComponent::HUDControls() const
 {
-    return FText::FromString(bUsingGamepad
+    FString Controls = bUsingGamepad
         ? TEXT("Menu: pause | North button: backpack | View: journal")
-        : TEXT("Esc: pause | Tab: backpack | J: journal"));
+        : TEXT("Esc: pause | Tab: backpack | J: journal");
+    if (auto* Creator = FindCoastalCharacterCreator(IsValid(Bridge) ? Bridge->GetOwner() : nullptr))
+    {
+        const FText Hint = Creator->CharacterActionHint(bUsingGamepad);
+        if (!Hint.IsEmpty()) Controls += TEXT(" | ") + Hint.ToString();
+    }
+    return FText::FromString(Controls);
 }

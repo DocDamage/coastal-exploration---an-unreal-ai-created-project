@@ -18,7 +18,8 @@ def verify(root: Path, source: Path, descriptor: dict, automation_count: int,
     # (including CapacityManifest) must not invalidate that historical count.
     check(deps['unreal_editor_automation_tests_total']==38 and automation_count>=38,
           'Historical M1.10 native inventory retained, not execution evidence')
-    check(len(list((root/'tests').glob('*_tests.cpp')))==deps['standalone_cpp_suites']==18,'18 standalone suites')
+    check(deps['standalone_cpp_suites']==18 and len(list((root/'tests').glob('*_tests.cpp')))>=18,
+          'Historical M1.10 standalone inventory retained, not execution evidence')
     for key,val in deps.items():
         if isinstance(val,bool): check(not val,'No invented native result: '+key)
     for key in ['host_project','engine_version','agis_version','hyper_version','actual_monitor_configuration',

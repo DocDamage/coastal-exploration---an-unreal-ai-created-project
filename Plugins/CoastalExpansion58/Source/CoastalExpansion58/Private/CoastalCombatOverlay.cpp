@@ -51,7 +51,7 @@ void UCoastalCombatOverlay::Refresh(float Health, float Shield, int32 Clip, int3
     if (!StatusText || !CrosshairText) return;
     const ESlateVisibility DisplayVisibility = Armed ? ESlateVisibility::HitTestInvisible : ESlateVisibility::Collapsed;
     StatusText->SetVisibility(DisplayVisibility); CrosshairText->SetVisibility(DisplayVisibility);
-    StatusText->SetText(FText::FromString(FString::Printf(TEXT("HEALTH %.0f   SHIELD %.0f   AMMO %d / %d"),
+    StatusText->SetText(FText::FromString(FString::Printf(TEXT("HEALTH %.0f   SHIELD %.0f   AMMO %d / %d\nAim: RMB / LT    Fire: LMB / RT    Reload: R / LB"),
         Health, Shield, FMath::Max(0, Clip), FMath::Max(0, Reserve))));
 }
 

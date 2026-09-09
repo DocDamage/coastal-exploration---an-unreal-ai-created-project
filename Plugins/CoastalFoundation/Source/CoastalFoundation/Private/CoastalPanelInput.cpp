@@ -6,6 +6,9 @@
 #include "Components/TextBlock.h"
 #include "InputCoreTypes.h"
 #include "Input/Events.h"
+#include "Components/Image.h"
+#include "Engine/TextureRenderTarget2D.h"
+#include "Misc/App.h"
 
 int32 UCoastalPanelWidget::FocusIndex() const
 {
@@ -46,6 +49,13 @@ void UCoastalPanelWidget::RestoreCommandFocus(FName Command, int32 Fallback, boo
 FReply UCoastalPanelWidget::NativeOnPreviewKeyDown(const FGeometry& Geometry, const FKeyEvent& Event)
 {
     const auto Key = Event.GetKey();
+    if (Session && Ticket.kind == coastal::PanelKind::ItemDetails && Session->ItemPreviewTexture())
+    {
+        const float Yaw = Key == EKeys::A ? -15.f : Key == EKeys::D ? 15.f : 0.f;
+        const float Pitch = Key == EKeys::W ? 15.f : Key == EKeys::S ? -15.f : 0.f;
+        if (Yaw != 0.f || Pitch != 0.f)
+        { Session->RotateItemPreview(this, Yaw, Pitch); return FReply::Handled(); }
+    }
     if (Key == EKeys::Escape || Key == EKeys::Gamepad_FaceButton_Right || Key == EKeys::Gamepad_Special_Right)
     { if (!Event.IsRepeat()) Execute(TEXT("back")); return FReply::Handled(); }
     if (Key == EKeys::PageDown || Key == EKeys::Gamepad_RightShoulder)
@@ -79,9 +89,35 @@ FReply UCoastalPanelWidget::NativeOnPreviewKeyDown(const FGeometry& Geometry, co
     }
     return Super::NativeOnPreviewKeyDown(Geometry, Event);
 }
+FReply UCoastalPanelWidget::NativeOnAnalogValueChanged(const FGeometry& Geometry, const FAnalogInputEvent& Event)
+{
+    const auto Key = Event.GetKey();
+    if (Session && Ticket.kind == coastal::PanelKind::ItemDetails && Session->ItemPreviewTexture()
+        && (Key == EKeys::Gamepad_RightX || Key == EKeys::Gamepad_RightY))
+    {
+        const float Value = Event.GetAnalogValue();
+        if (FMath::IsFinite(Value) && FMath::Abs(Value) > .2f)
+        {
+            const float Degrees = Value * 90.f * FMath::Clamp(float(FApp::GetDeltaTime()), 0.f, .05f);
+            Session->RotateItemPreview(this, Key == EKeys::Gamepad_RightX ? Degrees : 0.f,
+                Key == EKeys::Gamepad_RightY ? Degrees : 0.f);
+        }
+        return FReply::Handled();
+    }
+    return Super::NativeOnAnalogValueChanged(Geometry, Event);
+}
 void UCoastalPanelWidget::NativeTick(const FGeometry& Geometry, float Delta)
 {
     Super::NativeTick(Geometry, Delta);
+    if (Session && PreviewImage)
+    {
+        auto* Texture = (Ticket.kind == coastal::PanelKind::ItemDetails || Ticket.kind == coastal::PanelKind::CharacterCreator)
+            ? Session->ItemPreviewTexture() : nullptr;
+        auto Brush = PreviewImage->GetBrush();
+        if (Ticket.kind == coastal::PanelKind::CharacterCreator) Brush.SetImageSize(FVector2D(320, 320));
+        if (Brush.GetResourceObject() != Texture) { Brush.SetResourceObject(Texture); PreviewImage->SetBrush(Brush); }
+        PreviewImage->SetVisibility(Texture ? ESlateVisibility::HitTestInvisible : ESlateVisibility::Collapsed);
+    }
     if (Session && Notice) Notice->SetText(Session->PanelStatus(Ticket.kind));
     if (Session && Help) Help->SetText(Session->MenuHelp());
     if (Session && Heading && Ticket.kind == coastal::PanelKind::ConfirmDisplay)

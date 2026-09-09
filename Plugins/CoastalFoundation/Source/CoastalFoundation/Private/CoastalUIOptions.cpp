@@ -59,7 +59,7 @@ void UCoastalUISessionComponent::PresentOptions(FText& Title, FText& Body, TArra
         FString::Printf(TEXT("Invert look Y: %s"), OptionsDraft.invertY ? TEXT("On") : TEXT("Off")),
         FString::Printf(TEXT("Sprint input: %s"), OptionsDraft.sprintToggle ? TEXT("Toggle") : TEXT("Hold")),
         FString::Printf(TEXT("Master volume (routed game sounds): %d%%"), OptionsDraft.masterPercent),
-        FString::Printf(TEXT("Ambience volume: %d%%"), OptionsDraft.ambiencePercent),
+        FString::Printf(TEXT("Music & ambience volume: %d%%"), OptionsDraft.ambiencePercent),
         FString::Printf(TEXT("Effects volume: %d%%"), OptionsDraft.effectsPercent),
         FString::Printf(TEXT("Radio volume: %d%%"), OptionsDraft.radioPercent)};
     for (int32 I = 0; I < Rows.Num(); ++I)

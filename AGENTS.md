@@ -1,3 +1,360 @@
+## User stop checkpoint — September 9, 2026
+
+USER SAID "stop after this" during the first native crawl test. That test finished;
+work stopped afterward. Do not automatically continue the goal without a fresh
+user instruction. Full objective remains unfinished; do not mark it complete.
+The subsequent user request authorizes committing and pushing this source
+checkpoint only. Development remains stopped. Pre-commit checks: Python70 and
+3841 structural checks pass; all168 pending files are text source/scripts/docs,
+with no binary payloads or credential-pattern matches. Paid assets and execution
+evidence remain in the private external host/evidence folders.
+
+Native UCoastalProneComponent now exists, C/controller B toggles, native crouch
+capsule/floor handling, start/loop/stop/entry/exit timing, long-body box sweep,
+standing clearance and restore tuning. Activity animation takes explicit phase
+time. Character tag gates conflicting actions/interaction, emotes, grapple,
+zipline and weapon spawn. New Foundation ICoastalCharacterStance interface lets
+save capture normalize to a validated standing location or existing dry fallback;
+restore/recovery reset stance only after a full standing destination passes.
+No pawn/controller swap or competing MaxWalkSpeed writer. Native input revision
+requires button release after menus. Helper whitelist now permits C/controller B.
+
+Build PASS222143 (no deprecated crouch API); native61 PASS report222225. Final
+input-revision guard build PASS222432 (not separately native-suite rerun).
+Fresh coastal_test_m3_prone_0909a creator18 PASS. check_m3_prone.py FAIL after10
+checks at prone hands meet ground: generated head is -8.54cm relative to floor,
+despite native capsule-floor preservation passing. Thus generated body sits too
+low after native crouch. No rendered crawl capture produced before failure;
+body movement, cover, blocked stand, save/reload and controller-exit cases later
+in the script were NOT executed. Report m3-prone-first-a-failed-contact.json.
+Next task when authorized: fix generated mesh/crouch parent offset, then rerun
+contact and remaining live cases, actual menu/held-input/recovery cases, and
+combat/rope/camp regressions because shared placement and animation changed.
+Editor PID34400 is outside PIE; no pending Python test callback. No source edits
+after final222432 build except docs/test script. Full pending table remains below.
+
+## Crawl preparation — September 9, 2026
+
+Full goal ACTIVE; previous turn made concrete asset/evidence progress.
+Nine Free_Crawl_Animation clips retargeted and bound as prone_enter/exit/idle,
+prone_start_l/r, prone_loop_l/r, prone_stop_l/r. Outputs private CC_anim_* under
+/Game/Coastal/Character/Animations. tools/unreal/retarget_m3_prone.py preserves
+all other definition bindings (FName dictionary keys must remain FNames; action
+clip uses get_editor_property). Repeated run passes. m3-prone-retarget.json.
+tools/unreal/audit_m3_prone_poses.py samples45 poses, verifies finite bone data,
+root-motion disabled and root-lock enabled. m3-prone-pose-audit.json. Entry/exit
+2.5s, start2.633s, loop/idle1s, stop1.633s. Prone head38cm/pelvis12cm/hand4cm
+from floor; long-body reach80–90cm requires supplemental body sweep in addition
+to low native capsule. Entry/exit include raised kneeling poses. No crawl native
+component/input/movement implemented yet; no rendered crawl acceptance claimed.
+Next implement real prone state, body collision/stand clearance, transitions and
+native recovery. Left-stick click is sprint; C and world B appear available.
+Existing native crouch hooks may preserve floor/capsule geometry, but must audit
+host crouch flags and recoveries. Sprint owns MaxWalkSpeed; do not compete with it.
+Editor PID7476 remains outside PIE; source unchanged this batch. Zipline retarget
+report was temporarily overwritten by the copied script; moved the new rows to
+the correct prone report and reran original zipline script to restore its report.
+See docs/M3_ACTIVITY_EXPANSION.md for full pending scope.
+
+## Zipline expansion in progress — September 9, 2026
+
+This supersedes the historical “zipline absent” notes below. Full goal ACTIVE.
+Native ACoastalZipline uses real Dynamic Rope GuaranteedWrap, 32 particles,
+32 iterations and inextensible segments. UCoastalZiplineRiderComponent sweeps
+native CharacterMovement in custom mode42; V/right-stick click boards/releases.
+Y remains inventory. Original SM_ZiplineTrolley and retargeted
+CA_Two_Handed_Zipline_Anim are private under /Game/Coastal. The existing activity
+blend presents the ride. No pawn/controller swaps. Scoped boarding rolls back
+blocked moves. Native capsule collision, landing and menu release are retained.
+
+The FirstSignal map has four zipline actors at start(12500,1700,600),
+finish(14500,1700,490), plus supports. author_m3_zipline.py backs up the previous
+gantry map and records the exact hash chain; check_m3_activity_preservation.py
+accepts that chain only. The y1800 trial overlapped the dock recovery point;
+y1700 passes startup. Earlier routes failed rock/pier capsule collision.
+CoastalRopeWorldCollision excludes only the exact authored ComplexAsSimple terrain
+asset's obsolete aggregate hull from the plugin analytic provider. Native triangle
+collision remains. Grappling retains GDF; the fixed zipline uses analytic world
+collision because camera-dependent GDF distorted it after riding. Diagnostic
+all-collider exclusion, CPU forcing and reduced gravity are not production settings.
+
+Current final source build and native61 PASS (report 20260909T220740Z, 60 clean,
+one known AGIS warning); Python70 passes. Fresh i passes 29 zipline checks:
+full ride, keyboard/controller release, native landing, menu cleanup and
+hand-to-bar error0.26/0.71cm (g was0.17/0.47cm). m3-zipline-live-final-i.json; viewed g capture shows
+cable, trolley and two-handed contact. First f pass predates the tighter contact
+and fixed-line GDF changes; post-ride distortion failure is archived separately.
+Fresh i also passes creator18, grapple48, combat103, actions40 and zipline
+safety20. Reports m3-zipline-{grapple,combat,actions}-regression-final-i.json,
+m3-zipline-safety-final-i.json. Mutable RefreshPresentation now skips children
+under a URopeComponent so appearance updates cannot unhide the stowed hook.
+The prior h failure is retained; new idle-hook assertion passes in i.
+Fresh j passes creator18, ride29, safety20 and lifecycle26. Lifecycle covers
+missing/restored endpoint, creator regeneration, campaign reload during a ride,
+new session epoch boarding and native defeat recovery during a ride. Reports
+m3-zipline-{creator,live,safety,lifecycle}-final-j.json. The initial i screenshot
+had an invisible cable despite valid simulation. Rebuilding its render state
+restored the same steel material. ACoastalZipline now MarkRenderStateDirty once
+when Wrapped tension commits. Fresh j (no diagnostic swaps) visibly renders the
+cable; screenshot viewed, grip errors0.16/0.48cm. Source build220724 and native61
+220740 pass. Editor PID7476 is outside PIE after j; no pending test callbacks.
+Packaged acceptance and the remaining full activity table still apply.
+Safety uses the new editor-only SpawnZiplineTestObstacle helper, restricted to
+standalone LocalHost58 coastal_test_ campaigns and a bounded dock region.
+The creator smoke now waits for saves.is_configured() before starting the campaign.
+Do not claim full zipline or overall activity completion yet. See the full
+requirement table in docs/M3_ACTIVITY_EXPANSION.md; every pending row still applies.
+
+## Full animation/activity goal — September 9, 2026
+
+Latest contact-fix batch supersedes the gap warning below: 47 live grapple
+checks PASS in fresh `coastal_test_m3_grapple_0909h`, report
+`m3-grapple-contact-live-final-h.json`. Rope-eye error is ~1.8e-12cm at commit
+and under tension. Actual D-key steering moves the suspended pawn laterally;
+the embedded hook stays fixed. Player-side contact screenshot was viewed.
+Root cause was the plugin adding RopeRadius (2cm) as SurfaceOffset after
+computing the socket-tail position. Uniform anchor scale did NOT solve it.
+The private host now has Plugins/DynamicRope, copied from the paid installed
+plugin excluding Binaries/Intermediate. Only its socket-pierce commit resets
+SurfaceOffset to zero. Engine installation is unchanged (all 757 file hashes).
+Use tools/stage_m3_dynamic_rope_contact_fix.py and
+tools/check_m3_dynamic_rope_contact_fix.py; do not copy paid payloads into Git.
+The grapnel component now uses absolute transforms to prevent late hand updates
+dragging an embedded hook. Editor-only input helper permits WASD/Space only in
+the guarded disposable campaign. Final build passes; native61 report ends
+201413Z, plugin Pierce9 report ends 201443Z, Python70 passes. Full goal ACTIVE;
+zipline and the other activity rows remain required.
+Follow-up in the same batch: pickup movement cancellation exposed a tick-order
+defect during a long capture frame (velocity 330cm/s but the action still active).
+Mutable presentation now has a native CharacterMovement tick prerequisite.
+Final build/native61 report ends 203231Z. Fresh k campaign passes 40 interaction
+checks, including real held movement input and all three existing camp actions;
+report m3-grapple-contact-action-regression-k.json. The helper preserves guards
+and measures game time. Earlier h/i/j failures remain archived for diagnosis.
+Final k also passes 103 combat checks and reruns all 47 grapple checks after the
+movement-order fix: m3-grapple-contact-combat-regression-k.json and
+m3-grapple-contact-live-final-k.json. End state is outside PIE with no dirty
+map/content, native source sync0, original 150 saves and 757 engine-plugin files
+unchanged. Next work must retain the complete objective; zipline gameplay is
+still absent, and grapple range/cover/recovery/throw-pose acceptance remains.
+
+Latest hang/hook batch: the full goal remains ACTIVE. The generated animation
+proxy now blends a retargeted Hold_Rope_Idle loop during a real plugin hang.
+Pose audit proves right hand lower/left upper; Dynamic Rope pins the curled
+middle_03_r / middle_03_l grips. The original SM_Grapnel now uses authored
+HookPoint/RopeEye sockets, appears while deployed and stows on release/menu.
+Armed combat suppresses grappling. Final compiled fresh campaign
+`coastal_test_m3_grapple_0909e` passes 41 grapple checks including keyboard
+reel-out, controller throw/release/reel in/out and hang retirement; report
+`m3-grapple-hang-live-final-e.json`. It also passes 103 combat-animation checks
+(`m3-grapple-hang-combat-regression-e.json`); prior d campaign passes 39 action
+regressions. Build/native61 report ends 195552Z; Python70 and preservation pass.
+IMPORTANT follow-up: a stricter added rope-eye contact assertion FAILS.
+GetNodePosition(last) is 2.03cm from RopeEye at commit and 2.27cm after 0.3s.
+Reports: m3-grapple-eye-first-frame-e.json and m3-grapple-eye-settled-e.json.
+Current check_m3_grapple.py retains the failing <0.5cm assertion; the 41-pass
+report predates it. The player-side hook capture was viewed and shows the gap.
+Resolve this before accepting hook contact. Possible lead, unproven: gantry
+has nonuniform (.8,.8,4.2) scale; the plugin freezes LocalMeshTransform and
+composes it with the binding transform, while the pinned tail uses an inverse
+transformed point. Inspect RopeComponentTip.cpp and RopeComponentThrow.cpp:1107.
+Read docs/M3_ACTIVITY_EXPANSION.md for remaining swing/recovery/throw-pose,
+zipline and full activity scope. Do not claim overall goal completion.
+
+Latest Dynamic Rope batch: installed Dynamic Rope 1.0.1 is now enabled as an
+explicit UE5.8 expansion dependency. UCoastalGrappleComponent subclasses the real
+plugin wielder; UCoastalGrappleRope uses its GuaranteedWrap targeting, solver and
+native movement constraint. Q / D-pad up toggles throw/release, Z/right reels in,
+X/left reels out. A native wrap-provider gantry is authored at (13200,1800,950).
+Initial live checks reached actual wrapping/reel movement. They exposed and fixed
+generated-mesh cleanup destroying the rope and Releasing being misreported as an
+active grapple. Final disposable `coastal_test_m3_grapple_0909c` passes 21 live
+checks, saved as `m3-grapple-live-final-c.json`. The braided-rope/airborne-character
+capture was viewed. Final source build and native61 pass (report ending 193859Z).
+Read docs/M3_ACTIVITY_EXPANSION.md for the exact remaining verification scope.
+
+The UE5.8 descriptor and FirstSignal gantry edit have verified backups and hash
+records; preservation now has 160 unchanged protected files, one reviewed map
+and one reviewed plugin enable. All 150 baseline saves remain untouched. An
+original three-prong grapnel was imported as /Game/Coastal/Activities/Rope/SM_Grapnel;
+runtime tip binding, hand/socket alignment, hang/throw animation, broad swing and
+reel-out/gamepad/recovery checks and zipline gameplay are pending. Do not claim
+complete grappling from the component or first successful reel alone.
+
+Latest gesture/aim batch: sustained pistol aim now plays the raise transition once
+and holds its final frame; hold-idle still loops. G / D-pad down cycles four
+retargeted RamsterZ gestures; 18 seconds of safe unarmed idle permits a relaxed
+standing variation. Existing HUD input hints expose the control through the
+optional character interface. Movement/jump, menus, encounters and native action
+ownership interrupt or gate gestures. Actual input tests pass 43 gesture checks
+and 101 combat-animation checks in `coastal_test_m3_gestures_0909b`; reports are
+`m3-gesture-live-final-b.json` and `m3-aim-hold-live-b.json`. Four generated gesture
+captures were viewed. Build/native61 and Python70 pass. The source/retarget work
+remains uncommitted; see the full checklist for still-pending activities.
+
+Latest pistol follow-up: owned body/slide/barrel/magazine are merged privately
+into `/Game/Coastal/Activities/Combat/SM_CoastalPistol`. Source pose sampling proved
+these clips aim with `hand_l`, so the FirstSignal director now attaches there;
+the visible barrel tip supplies the muzzle offset. Forward side-view inspection
+passes; fresh `coastal_test_m3_pistol_0909e` passes 93 combat-animation checks.
+See `m3-pistol-alignment-live-e.json` and `m3-pistol-binding.json`. The FirstSignal
+map is intentionally updated and backed up; 161 other protected files, including
+all 150 original saves, remain unchanged. Broader directional contact review
+remains open; sustained aim is covered by the newer batch above.
+This supersedes the provisional-mesh statements in the first-batch history below.
+
+The user explicitly requested implementation of the complete animation/activity
+table, including Dynamic Rope ziplines/grappling, a drivable M3 speedboat,
+motorcycle, fishing, ladders, crawling, melee, camp actions, gestures and gliding.
+This full goal is ACTIVE and incomplete. Read `docs/M3_ACTIVITY_EXPANSION.md`
+for its requirement-by-requirement checklist; do not reduce it to combat alone.
+
+The first batch builds and passes 61 native tests (60 clean, one known AGIS
+warning). Disposable `coastal_test_m3_activities_0909c` passes 90 combat-animation,
+18 creator, 39 existing-action and 16 existing-combat assertions. Directional
+hits and pistol layering/input are integrated; final pistol art/muzzle alignment
+is still pending. Standing hits retain full-body motion; moving hits and pistol
+actions blend above the spine. Keep the native movement/ammo/save authorities.
+
+The M3 ShipAndSea folder is copied privately (39 SHA256-verified files). The
+supplied motorcycle's five skeletal parts, rod, wooden ladder and Java barb are
+imported and textured under `/Game/Coastal/Activities`. They have no new gameplay
+yet. Dynamic Rope 1.0.1 is installed at the engine Marketplace path
+`D:/Unreal/UE_5.8/Engine/Plugins/Marketplace/DynamicRa1b70179ea1eV4`; its actual
+headers and README were inspected. Rope gameplay is not implemented/enabled by
+this batch. Do not substitute a generic cable component for the requested plugin.
+
+The preservation baseline covers 150 pre-existing saves and 12 maps/descriptors;
+all 162 are unchanged. New source remains uncommitted and purchased payloads,
+backups and reports remain private. The detailed document records the report
+names and remaining work, including the provisional weapon-art limitation.
+
+## Mutable creator and player animations — September 9, 2026
+
+The private UE5.8.2 host now has generated Mutable Body/Head art, 16 controls
+under Pause → Customize character, groom integration, and per-campaign GUID
+appearance sidecars. Native pawn, movement, input, inventory, interaction,
+recovery and action owners remain authoritative. The generated meshes retarget
+the existing locomotion/swim/camp/shelter poses. Two owned retargeted clips add
+successful pickup and nonfatal player-hit reactions with interruption gates.
+See [M3 character creator](docs/M3_CHARACTER_CREATOR.md) for exact paths,
+versioned persistence, authoring scripts and current acceptance evidence.
+
+The sample's 774-file expanded closure plus its default instance are staged
+privately. Mutable/HairStrands/MutableClothing/IKRig are enabled in the host;
+character cook directories are configured. This is not a completed packaged
+build. Native build and 60 tests pass (59 clean, one existing AGIS warning).
+Scripted creator save/discard/reload, all 16 control variants and generated
+hair, and movement/pickup/hit/camp/shelter playback pass. Source changes remain
+uncommitted; purchased payloads/evidence remain private. Earlier unintegrated
+creator/animation statements below are historical and superseded for this
+bounded selection. Do not bind vehicles, ladders or magic without gameplay.
+
+Final combined `g` PIE passes all six suites: 18 creator assertions, 39 action
+assertions, 16 combat assertions, 56 variant assertions, swimming (824 generated
+samples) and invalid-sidecar guards. The custom animation proxy must retain its
+registered graph root; earlier weaker action checks admitted idle motion and
+are superseded by this run. All 111 pre-existing saves, both maps and the
+rollback descriptor are unchanged. The editor is outside PIE with 2,935 actors,
+no dirty packages and restored background throttling. Final evidence:
+`../local-evidence/m3-character-final-suite.json` and preservation/editor reports.
+
+## Private staging import and animation audit — September 9, 2026
+
+The authorized private migration from `G:/coastline/M3DestinationStaging57`
+to `G:/coastline/LocalHost58/CoastalExploration` is complete. It added **2,408
+files** totaling **10,971,245,578 bytes**, retained **746 identical existing
+files**, and found **0 conflicts**; every new-file SHA256 passed. Source map,
+controller, Config and descriptor content were not replaced. Evidence:
+`../local-evidence/m3-staging-additions-copy.json`.
+
+The registry audit loaded **296 animations** with valid skeleton and duration,
+including **97 motorcycle animations**. This is source loadability only; no
+retargeting, playback, contact, or gameplay acceptance passed. Three hard
+missing references are the motorcycle demo's old `CarInteractAnimVol1`
+ControlRig paths, and 12 other missing references are soft paths. One
+732-byte Retropunk Saloon material package is unregistered but matches the
+source. Evidence: `../local-evidence/m3-staging-animation-audit.json` and
+`../local-evidence/m3-staging-import-registry.json`; registry validation remains
+open because of those missing references.
+
+The preview refresh build passed. Final `j` PIE passed **53 assertions** in
+`coastal_test_m3_preview_0909j` in 16.375 seconds: colored battery/fuse 3D
+captures, all rotation inputs, stale GUID/revision refusal, AGIS/inventory and
+camera preservation, cleanup, recovery, save/reload, and pre-existing save
+preservation. Default fuse orientation art polish remains open; physical,
+performance, and package acceptance remain separate. Native editor is outside
+PIE with zero dirty packages. Purchased payloads and evidence remain private
+and source changes remain uncommitted.
+
+Combat source now compiles after the root `TObjectPtr` fix, but it is not bound
+to imported assets and has no runtime or gameplay acceptance.
+
+Final source sync matched 198 native source files across three plugins to the
+active host by SHA256. The editor was closed outside PIE with 2,935 actors, no
+dirty maps or content packages, and restored background throttling.
+
+## Authoritative scope change — player-facing Mutable character creator — September 9, 2026
+
+The next M3 scope is a player-facing Unreal Mutable character creator. This
+replaces the earlier fixed-character plan; do not author or describe a fixed
+character creator as the target. The installed UE5.8.2 Mutable plugin is at
+`D:/Unreal/UE_5.8/Engine/Plugins/Mutable/Mutable.uplugin`. Mutable supports
+runtime skeletal-mesh, material, and texture generation, but the installed
+plugin does not provide customizable human art by itself. See the official
+[Mutable skeletal mesh generation documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/mutable-skeletal-mesh-generation-in-unreal-engine).
+
+The user delegates animation selection to the agent: inspect the signed-in Fab
+library and use as many useful clips as make sense without overlap. The full
+31-product animation inventory and candidate allocation are recorded in
+`docs/M3_ANIMATION_SELECTION.md`; do not ask the user to list these again.
+Mutable Sample is installed at `G:/coastline/MutableSample` (association 5.8),
+including a character graph, base body/head, clothing and groom sources. Inspect
+its dependency closure and skeleton before private integration. Preserve the
+existing native character/movement owners and backward compatibility of saves.
+The Motifect Locomotion download was blocked by Chrome ERR_BLOCKED_BY_CLIENT;
+no successful download is claimed. Do not bypass browser protections.
+
+The merchant and item-preview increment currently has a combined native build
+and **59 native tests** passing (**58 clean, one known AGIS warning**). The
+merchant actor is saved in the host (+1, **2,935 actors**). Final preview PIE
+`coastal_test_m3_preview_0909j` passes **53 assertions** with colored battery
+and fuse imagery; default fuse orientation art polish remains open. Work
+remains uncommitted and purchased assets/evidence remain private. Read [M3
+character creator](docs/M3_CHARACTER_CREATOR.md) for the bounded plan; this
+scope change does not overwrite earlier checkpoint claims.
+
+## Destination music/thunder checkpoint - September 9, 2026
+
+The independent UE5.8.2 host now integrates nine selected clips from seven music/
+thunder archives: seven destination scores and two distant thunder clips. One
+controller soundscape owner uses existing destination records and the campsite
+marker, two-second sequential score fades, boundary hysteresis, and actual overhead
+collision cover for thunder gain/low-pass. Music uses the existing Ambience channel
+(now labelled Music & ambience); thunder uses Effects. No campaign/preferences
+schema, inventory, quest or weather-simulation change is introduced.
+
+Native build and **56 native tests** pass. The fresh disposable
+`coastal_test_m3_soundscape_0909e` campaign passes **49 gameplay assertions**;
+all **seven mixer checks** pass. Music at 50% measures **0.4995 of baseline RMS**.
+Music, Effects and Master mute produce zero output in the relevant captures.
+The thunder sources retain 5.56/7.19 seconds of silent pre-roll; signal probes seek
+to eight seconds. Earlier harness/API and silent-intro capture reports are retained.
+These results are scripted gameplay/mixer evidence, not listening acceptance.
+
+All **82 pre-existing save files**, both host maps and project descriptors are
+SHA256-verified unchanged (86 files). The UE5.7 rollback host remains intact.
+Editor is outside PIE with 2,934 actors, no dirty packages, and normal background
+settings restored. Source changes remain uncommitted on `codex/m1-native-integration`;
+HEAD remains `f1f7ca8`. Purchased payloads and execution evidence remain private.
+
+Read [soundscape](docs/M3_SOUNDSCAPE.md). Evidence is under `../local-evidence/m3-soundscape-*`:
+build, native tests, live gameplay, mixer output and preservation reports. Next work
+is merchant animation, isolated pickup/rotation integration, then fishing/combat
+audio. Five work archives remain unimported; Bonus Vol.01 is separately reserved
+for tonal review. Listening, art polish, physical controls, performance and Windows
+package acceptance remain open. Earlier checkpoints below are historical.
+
 ## Interaction/UI audio checkpoint — September 9, 2026
 
 The first ordered increment of the new asset batch is integrated in the independent

@@ -105,6 +105,7 @@ void UCoastalUISessionComponent::TickComponent(float Delta, ELevelTick TickType,
 {
     Super::TickComponent(Delta, TickType, TickFunction);
     if (!bInitialized || bClosing) return;
+    ValidateItemPreview();
     TickDisplay(); // Real-time watchdog runs even while paused or the campaign coordinator is busy.
     if (!IsValid(Saves) || !IsValid(Bridge) || !IsValid(Controller)
         || Bridge->GetOwner() != Controller->GetPawn())

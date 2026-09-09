@@ -128,6 +128,10 @@ void UCoastalCombatComponent::TickComponent(float DeltaTime, ELevelTick TickType
 {
     Super::TickComponent(DeltaTime, TickType, Tick);
     if (!BindingValid()) return;
+    if (bAimHeld && !CanReceiveHostileAttack())
+    { bAimHeld = false; bAimNeedsRelease = true; }
+    if (bAimNeedsRelease && !Controller->IsInputKeyDown(EKeys::RightMouseButton)
+        && !Controller->IsInputKeyDown(EKeys::Gamepad_LeftTrigger)) bAimNeedsRelease = false;
     for (auto It = EncounterSources.CreateIterator(); It; ++It)
         if (!It->IsValid()) It.RemoveCurrent();
     const uint64 CurrentEpoch = Saves->GetSessionEpoch();
@@ -147,6 +151,7 @@ void UCoastalCombatComponent::TickComponent(float DeltaTime, ELevelTick TickType
     if (!Saves->HasActiveCampaign() || Saves->IsRecoveryRequired()
         || Saves->IsPlayerReturnActive() || Recovery->IsReturning()) DestroyWeapon();
     else if (IsEncounterActive() && !bDefeated && !IsValid(Weapon)) SpawnWeapon();
+    RefreshWeaponAttachment();
     PublishState();
 }
 
@@ -167,7 +172,7 @@ void UCoastalCombatComponent::HandleReturn(ECoastalReturnNotice Result, FString)
 }
 
 void UCoastalCombatComponent::HandleDamage(AActor* DamagedActor, float Damage,
-    const UDamageType*, AController*, AActor*)
+    const UDamageType*, AController* InstigatedBy, AActor* DamageCauser)
 {
     if (DamagedActor != Character || !CanReceiveHostileAttack()
         || !FMath::IsFinite(Damage) || Damage <= 0.f) return;
@@ -175,6 +180,14 @@ void UCoastalCombatComponent::HandleDamage(AActor* DamagedActor, float Damage,
     State = coastal::ApplyDamage(State, Damage);
     Health = State.health; Shield = State.shield; bDefeated = State.defeated;
     PublishState(true);
+    if (!bDefeated)
+    {
+        // Preserve the accepted-hit audio cue; its location now carries the source
+        // bearing for presentation. Missing or self damage falls back to front.
+        const AActor* Source = IsValid(DamageCauser) && DamageCauser != Character ? DamageCauser
+            : IsValid(InstigatedBy) && InstigatedBy->GetPawn() != Character ? InstigatedBy->GetPawn() : nullptr;
+        OnCombatPresentation.Broadcast(TEXT("player_hit"), Source ? Source->GetActorLocation() : Character->GetActorLocation());
+    }
     if (!bDefeated) return;
     DestroyWeapon();
     if (!Recovery->RequestDefeatReturn())

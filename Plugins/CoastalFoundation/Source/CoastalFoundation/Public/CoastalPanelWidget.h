@@ -9,6 +9,7 @@ class UVerticalBox;
 class UTextBlock;
 class UEditableTextBox;
 class UScrollBox;
+class UImage;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FCoastalUICommand, FName, Command);
 
 UCLASS()
@@ -42,12 +43,14 @@ public:
 protected:
     virtual TSharedRef<SWidget> RebuildWidget() override;
     virtual FReply NativeOnPreviewKeyDown(const FGeometry& Geometry, const FKeyEvent& Event) override;
+    virtual FReply NativeOnAnalogValueChanged(const FGeometry& Geometry, const FAnalogInputEvent& Event) override;
     virtual void NativeTick(const FGeometry& Geometry, float Delta) override;
     virtual int32 NativePaint(const FPaintArgs& Args, const FGeometry& Geometry, const FSlateRect& Culling,
         FSlateWindowElementList& Elements, int32 Layer, const FWidgetStyle& Style, bool bEnabled) const override;
 private:
     UPROPERTY() TObjectPtr<UCoastalUISessionComponent> Session;
     UPROPERTY() TObjectPtr<UVerticalBox> Actions;
+    UPROPERTY() TObjectPtr<UImage> PreviewImage;
     UPROPERTY() TObjectPtr<UTextBlock> Heading;
     UPROPERTY() TObjectPtr<UTextBlock> Body;
     UPROPERTY() TObjectPtr<UTextBlock> Notice;

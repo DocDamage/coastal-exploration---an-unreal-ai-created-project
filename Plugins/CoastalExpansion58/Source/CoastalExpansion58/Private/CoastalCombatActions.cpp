@@ -13,6 +13,20 @@
 #include "Kismet/GameplayStatics.h"
 #include "Animation/AnimInstance.h"
 #include "Animation/AnimMontage.h"
+#include "CoastalMutableCharacterComponent.h"
+
+void UCoastalCombatComponent::RefreshWeaponAttachment()
+{
+    if (!IsValid(Weapon) || !IsValid(Character) || !Weapon->GetRootComponent()) return;
+    auto* Target = Character->GetMesh();
+    if (auto* Appearance = Character->FindComponentByClass<UCoastalMutableCharacterComponent>())
+        if (Appearance->IsAppearanceReady())
+            if (auto* Body = Appearance->GetGeneratedBody(); IsValid(Body) && !Body->bHiddenInGame
+                && Body->DoesSocketExist(WeaponAttachSocket)) Target = Body;
+    if (IsValid(Target) && Target->DoesSocketExist(WeaponAttachSocket)
+        && Weapon->GetRootComponent()->GetAttachParent() != Target)
+        Weapon->AttachToComponent(Target, FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponAttachSocket);
+}
 
 bool UCoastalCombatComponent::HasForeignMontage() const
 {
@@ -65,6 +79,7 @@ bool UCoastalCombatComponent::SpawnWeapon()
 {
     if (IsValid(Weapon)) return true;
     if (!BindingValid() || !Character->HasAuthority() || !Saves->HasActiveCampaign()
+        || Character->ActorHasTag(TEXT("Coastal.Prone"))
         || !IsEncounterActive() || bDefeated || Saves->IsBusy() || Saves->IsRecoveryRequired()
         || Saves->IsPlayerReturnActive() || Recovery->IsReturning() || !Character->GetMesh()
         || !Character->GetMesh()->DoesSocketExist(WeaponAttachSocket))
@@ -105,9 +120,12 @@ bool UCoastalCombatComponent::SpawnWeapon()
     Weapon = Spawned;
     Shooter->WeaponAttachSocket = WeaponAttachSocket;
     Shooter->EquipWeapon(Weapon);
+    RefreshWeaponAttachment();
     ReloadUntil = -1.0; LastAcceptedShotTime = -1000.0;
     LastDetail = TEXT("Transient encounter weapon equipped.");
     PublishState(true);
+    OnCombatPresentation.Broadcast(TEXT("encounter_start"), Character->GetActorLocation());
+    OnCombatPresentation.Broadcast(TEXT("pistol_equip"), Character->GetActorLocation());
     return true;
 }
 
@@ -117,6 +135,8 @@ void UCoastalCombatComponent::DestroyWeapon()
     if (IsValid(Shooter) && Character && Character->HasAuthority()) Shooter->UnequipWeapon();
     Weapon->Destroy();
     Weapon = nullptr; ReloadUntil = -1.0; LastAcceptedShotTime = -1000.0;
+    bAimHeld = false;
+    OnCombatPresentation.Broadcast(TEXT("pistol_unequip"), Character->GetActorLocation());
     PublishState(true);
 }
 
@@ -162,6 +182,7 @@ ECoastalCombatResult UCoastalCombatComponent::TryFire()
         return Emit(ECoastalCombatResult::Rejected, TEXT("No intact authoritative shot receipt; tracer was not predicted."));
     LastAcceptedShotTime = ShotTime;
     SpawnTracer(ShotStart, ShotEnd);
+    OnCombatPresentation.Broadcast(TEXT("pistol_shoot"), ShotEnd);
     PublishState(true);
     return Emit(ECoastalCombatResult::Applied, TEXT("Authoritative shot applied."));
 }

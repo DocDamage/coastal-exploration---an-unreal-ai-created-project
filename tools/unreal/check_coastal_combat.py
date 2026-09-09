@@ -287,7 +287,10 @@ def tick(delta):
             result = saves.load_campaign(u.Name(save_set))
             if result not in (u.CoastalSaveResult.LOADED, u.CoastalSaveResult.RECOVERED_PREVIOUS):
                 raise RuntimeError('Disposable campaign reload failed')
-            phase = 'epoch'; next_time = now + .5; return
+            # Loading can also schedule Mutable regeneration and asset work.
+            # Give this phase its own bounded window instead of inheriting the
+            # earlier sentry/defeat deadline.
+            phase = 'epoch'; next_time = time.monotonic() + .5; deadline = time.monotonic() + 30; return
         if phase == 'epoch':
             if u.SystemLibrary.is_valid(state['old_weapon']):
                 raise RuntimeError('Campaign reload retained the prior epoch weapon')

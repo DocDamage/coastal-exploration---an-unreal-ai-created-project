@@ -1,5 +1,17 @@
 # M3 additional assets — September 8, 2026
 
+## September 9 music/thunder checkpoint
+
+Nine selected clips from seven additional archives are imported and connected to
+actual destination music and sparse distant thunder. Native build and all 56 tests,
+49 scripted gameplay assertions, and seven actual mixer checks pass. See
+[soundscape](M3_SOUNDSCAPE.md) and `data/m3_soundscape.json`. The original 10
+interaction/UI clips remain integrated. Next: merchant animations, pickup/rotation,
+then fishing/combat audio. Five work archives remain unimported; Bonus Vol.01 remains
+reserved. Listening/tonal, physical-device, performance and package gates stay open.
+
+The interaction-only checkpoint below describes the earlier September 9 state.
+
 ## September 9 interaction/audio checkpoint
 
 The first ordered increment now imports ten selected clips from three archives

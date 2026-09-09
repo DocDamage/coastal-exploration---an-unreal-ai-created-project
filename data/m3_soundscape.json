@@ -1,0 +1,99 @@
+{
+  "status": "imported_compiled_scripted_pie_and_mixer_verified_listening_pending",
+  "destination": "/Game/Coastal/Audio/M3Soundscape",
+  "clips": [
+    {
+      "id": "coast",
+      "archive": "Complete_Game_Music_Library_100_Seamless_Loops.zip",
+      "member": "OGG/02_Exploration_Travel/02_Beyond_the_Hill.ogg",
+      "gain": 0.16,
+      "loop": true
+    },
+    {
+      "id": "cabin",
+      "archive": "Fantasy_Workshop_Crafting_Music_100_Part_2.zip",
+      "member": "Tavern_Inn/042_Quiet_Corner.wav",
+      "gain": 0.13,
+      "loop": true
+    },
+    {
+      "id": "village",
+      "archive": "Fantasy_Workshop_Crafting_Music_100_Part_3.zip",
+      "member": "Market_Village/052_Village_Square.wav",
+      "gain": 0.16,
+      "loop": true
+    },
+    {
+      "id": "camp",
+      "archive": "Fantasy_Workshop_Crafting_Music_100_Part_4.zip",
+      "member": "Traveler_Camp/082_Quiet_Road.wav",
+      "gain": 0.13,
+      "loop": true
+    },
+    {
+      "id": "workshop",
+      "archive": "Fantasy_Workshop_Crafting_Music_100_Part_1.zip",
+      "member": "Blacksmith_Forge/006_Quiet_Smithy.wav",
+      "gain": 0.13,
+      "loop": true
+    },
+    {
+      "id": "prison",
+      "archive": "horror music.zip",
+      "member": "Dark Ambient.wav",
+      "gain": 0.09,
+      "loop": true
+    },
+    {
+      "id": "ruins",
+      "archive": "Complete_Game_Music_Library_100_Seamless_Loops.zip",
+      "member": "OGG/07_Dungeon_Underground/04_Buried_Shrine.ogg",
+      "gain": 0.12,
+      "loop": true
+    },
+    {
+      "id": "thunder_far",
+      "archive": "Thunder_Elements_-_CDanSantana_Itch_IO.zip",
+      "member": "Thunder_Elements_-_CDanSantana_Itch_IO/WEAThndr_Random_Int0.16_Dist84_09_CDanSantana.wav",
+      "gain": 0.4,
+      "loop": false
+    },
+    {
+      "id": "thunder_soft",
+      "archive": "Thunder_Elements_-_CDanSantana_Itch_IO.zip",
+      "member": "Thunder_Elements_-_CDanSantana_Itch_IO/WEAThndr_Random_Int0.36_Dist78_11_CDanSantana.wav",
+      "gain": 0.3,
+      "loop": false
+    }
+  ],
+  "routing": {
+    "music": "existing Ambience channel",
+    "thunder": "existing Effects channel"
+  },
+  "playback": {
+    "music_fade_seconds": 2,
+    "zone_hysteresis_cm": 400,
+    "first_thunder_seconds": 20,
+    "thunder_interval_seconds": [
+      55,
+      85
+    ],
+    "indoor_thunder_gain": 0.25,
+    "thunder_source_preroll_seconds": {
+      "thunder_far": 5.5614,
+      "thunder_soft": 7.1902
+    }
+  },
+  "scope": "Location score and sparse distant thunder; no weather simulation or new music setting schema",
+  "listening_acceptance": "not_run",
+  "verification": {
+    "native_tests_passed": 56,
+    "python_tests_passed": 70,
+    "scripted_gameplay_assertions_passed": 49,
+    "mixer_checks_passed": 7,
+    "music_half_rms_ratio": 0.4995055125694716,
+    "preexisting_save_files_preserved": 82,
+    "physical_device_and_listening": "not_run",
+    "windows_package": "not_run"
+  }
+}

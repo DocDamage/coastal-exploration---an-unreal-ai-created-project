@@ -1,0 +1,40 @@
+{
+  "status": "selected_private_ue5_import_verified_native_build_and_live_acceptance_not_run",
+  "archive": "MerchentVendorAnimFBXFiles.zip",
+  "archive_entries": {
+    "total_fbx": 54,
+    "ue4": {"animations": 26, "skeletal_meshes": ["UE4/SK_Mannequin.FBX"]},
+    "ue5": {"animations": 26, "skeletal_meshes": ["UE5/SKM_Manny.FBX"]},
+    "license_or_readme_entries": []
+  },
+  "selected": [
+    {"id": "mesh", "member": "MerchentVendorAnimFBXFiles/UE5/SKM_Manny.FBX", "asset": "/Game/Coastal/M3/Merchant/UE5/SKM_Manny"},
+    {"id": "idle", "member": "MerchentVendorAnimFBXFiles/UE5/Animation/AS_IdleBartering.fbx", "asset": "/Game/Coastal/M3/Merchant/UE5/Animation/AS_IdleBartering"},
+    {"id": "pitch", "member": "MerchentVendorAnimFBXFiles/UE5/Animation/AS_PitchBarter_Rt.fbx", "asset": "/Game/Coastal/M3/Merchant/UE5/Animation/AS_PitchBarter_Rt"}
+  ],
+  "interaction": {
+    "authoritative_world_id": "world.coastal_records.village",
+    "authoritative_journal_id": "journal.coastal_records.village",
+    "sequence": ["idle", "await automatic village journal close", "one non-looping offer pitch", "idle"],
+    "cancellation": ["unrelated pause", "recovery", "campaign epoch change", "player replacement", "queue timeout"]
+  },
+  "placement": {
+    "proposed_xy": [-1455, 15630],
+    "ground_source": "actual downward Visibility trace at authoring time",
+    "village_register": [-1455, 15300, 2305],
+    "arrival": [-1600, 15300, 2200]
+  },
+  "scope": "Presentation only. No shop, trade, crafting, inventory, save or preference schema is added.",
+  "provenance": "The readable FBX archive contains no license or readme entry; retain purchase provenance outside Git and resolve credits before release.",
+  "verification": {
+    "private_host_import": "passed",
+    "imported_skeleton": "/Game/Coastal/M3/Merchant/UE5/SKM_Manny_Skeleton",
+    "same_skeleton": true,
+    "idle_seconds": 7.199999809265137,
+    "pitch_seconds": 6.300000190734863,
+    "native_build": "not_run",
+    "native_tests": "not_run",
+    "scripted_pie": "not_run",
+    "windows_package": "not_run"
+  }
+}

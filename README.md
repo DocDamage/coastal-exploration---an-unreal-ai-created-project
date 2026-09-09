@@ -3,15 +3,42 @@ coastal exploration - an unreal ai created project
 
 ## Local native integration
 
+The full animation/activity expansion is in progress. Directional hit reactions
+and layered pistol animations now pass native and scripted gameplay checks.
+The supplied vehicle/fishing/ladder art is staged privately; its gameplay remains
+on the active [activity checklist](docs/M3_ACTIVITY_EXPANSION.md).
+
+The UE5.8.2 host now integrates a Mutable character creator with 16 settings,
+per-campaign appearance saves, generated hair/clothing, and runtime retargeting
+through the existing player systems. Two imported pickup/hit clips supplement
+native locomotion, swimming and camp/shelter actions. Open Pause → Customize
+character. Native build and 60 tests pass; exact appearance save/reload,
+variant generation and scripted action playback are verified. See
+[creator integration and validation](docs/M3_CHARACTER_CREATOR.md). Earlier
+checkpoints below retain their original scope.
+
+September 9 continuation adds seven destination music tracks and two distant
+thunder clips, with score fades, indoor attenuation and pause/recovery handling.
+The native build, 56 native tests, 49 gameplay assertions and seven mixer checks
+pass. All 82 pre-existing saves and both host maps remain unchanged. Listening and
+packaged acceptance remain open. See [soundscape](docs/M3_SOUNDSCAPE.md).
+
 September 9: the first new-asset increment adds ten interaction/UI audio clips. The
 new native build passes all 54 tests; 69 scripted gameplay assertions and actual
 mixer mute/half-gain checks pass. All 72 pre-existing save files remain unchanged.
 Listening/tonal review and the remaining asset batches are still open. See
 [interaction audio](docs/M3_INTERACTION_AUDIO.md).
 
+The merchant/item-preview source increment has a passing native build and 59
+native tests (58 clean plus one known AGIS warning). Final preview PIE `j`
+passes 53 assertions with colored battery/fuse imagery, controls, stale-view
+refusal, cleanup, recovery, save/reload, and save preservation. Default fuse
+orientation art polish remains open. Combat source compiles after a root
+`TObjectPtr` fix, but is not bound to imported assets or runtime-tested.
+
 Development has resumed on the relocated `G:/coastline` workspace with Unreal 5.8.2 and MCP connected. This repository is a source snapshot of the coastal game and its integration tools; it does not include the external Unreal host project, purchased Fab assets, campaign saves, or a playable download.
 
-The isolated Unreal 5.8.2 host passes 54 native tests, 16 scripted combat cases,
+The isolated Unreal 5.8.2 host passes 56 native tests, 16 scripted combat cases,
 22 water/checkpoint cases, 11 swimming route waypoints, 4 Morbid shelter cases and
 7 German Shepherd companion cases. Both owned Atlantis Ruins and Modular SciFi
 Station packs are assembled with tested routes and persistent investigation

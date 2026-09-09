@@ -67,6 +67,7 @@ ECoastalActionResult UCoastalInteractionBridge::CheckTarget(ACoastalWorldObject*
     if (Saves->IsBusy()) return ECoastalActionResult::Busy;
     if (bCheckUI && (!UIBlockers.IsEmpty() || UGameplayStatics::IsGamePaused(this))) return ECoastalActionResult::BlockedByUI;
     const auto* OwnerCharacter = Cast<ACharacter>(GetOwner());
+    if (OwnerCharacter && OwnerCharacter->ActorHasTag(TEXT("Coastal.Prone"))) return ECoastalActionResult::SuppressedInput;
     const auto* PC = OwnerCharacter ? Cast<APlayerController>(OwnerCharacter->GetController()) : nullptr;
     if (!IsValid(PC) || !PC->IsLocalController() || PC->GetPawn() != OwnerCharacter)
         return ECoastalActionResult::InvalidTarget;

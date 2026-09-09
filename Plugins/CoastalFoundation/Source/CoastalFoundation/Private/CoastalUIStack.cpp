@@ -2,6 +2,7 @@
 #include "CoastalPanelWidget.h"
 #include "CoastalSaveCoordinator.h"
 #include "CoastalCampingActionComponent.h"
+#include "CoastalCharacterUI.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/Engine.h"
 #include "CoreGlobals.h"
@@ -31,6 +32,9 @@ void UCoastalUISessionComponent::CloseTop(bool bFeedback)
 {
     if (Panels.IsEmpty() || !Flow.Pop(Panels.Last()->Ticket, IsValid(Saves) && Saves->HasActiveCampaign())) return;
     auto* Old = Panels.Pop().Get();
+    if (Old->Ticket.kind == coastal::PanelKind::CharacterCreator)
+        if (auto* Creator = FindCoastalCharacterCreator(IsValid(Bridge) ? Bridge->GetOwner() : nullptr)) Creator->EndCharacterEdit();
+    if (Old->Ticket.kind == coastal::PanelKind::ItemDetails) CloseItemPreview();
     if (Old->Ticket.kind == coastal::PanelKind::ConfirmDisplay) CancelDisplay();
     if (IsValid(Bridge))
     {
@@ -57,7 +61,8 @@ void UCoastalUISessionComponent::NotifyMenuFocus(UCoastalPanelWidget* Sender)
 }
 void UCoastalUISessionComponent::ClearPanels()
 {
-    SuspendAudioPlayback(); CancelDisplay();
+    if (auto* Creator = FindCoastalCharacterCreator(IsValid(Bridge) ? Bridge->GetOwner() : nullptr)) Creator->EndCharacterEdit();
+    SuspendAudioPlayback(); CancelDisplay(); CloseItemPreview();
     for (const auto& Widget : Panels)
     {
         if (IsValid(Bridge)) Bridge->ReleaseUIBlocker(Blocker(Widget->Ticket));

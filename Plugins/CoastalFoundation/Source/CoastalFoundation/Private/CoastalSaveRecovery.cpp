@@ -1,4 +1,5 @@
 #include "CoastalSaveCoordinator.h"
+#include "CoastalPlacementLibrary.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
@@ -12,6 +13,7 @@ bool UCoastalSaveCoordinator::RelocatePlayerDuringReturn(ACharacter* Character, 
 {
     if (!IsInGameThread() || !Gate.IsRecovery() || Gate.Poisoned() || !IsValid(Player)
         || Player != Character || ExpectedEpoch != SessionEpoch || !SafeDestination(Destination)) return false;
+    UCoastalPlacementLibrary::PrepareStandingPlacement(Player.Get());
     if (!Player->TeleportTo(Destination.GetLocation(), Destination.Rotator(), false, false)) return false;
     Player->GetCharacterMovement()->StopMovementImmediately();
     // TeleportTo may adjust position to fit: validate the ACTUAL result, not only the request.

@@ -16,6 +16,9 @@
   "Plugins": [
     { "Name": "AdvancedShooterSystem", "Enabled": true },
     { "Name": "CoastalFoundation", "Enabled": true },
-    { "Name": "EnhancedInput", "Enabled": true }
+    { "Name": "EnhancedInput", "Enabled": true },
+    { "Name": "Mutable", "Enabled": true },
+    { "Name": "IKRig", "Enabled": true },
+    { "Name": "DynamicRope", "Enabled": true }
   ]
 }

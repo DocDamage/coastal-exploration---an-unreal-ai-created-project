@@ -1,4 +1,5 @@
 #include "CoastalPlacementLibrary.h"
+#include "CoastalCharacterStance.h"
 #include "CoastalSafetyVolume.h"
 #include "CoastalPlayerRecoveryComponent.h"
 #include "EngineUtils.h"
@@ -17,8 +18,12 @@ bool UCoastalPlacementLibrary::IsDryDestination(ACharacter* Player, FTransform T
         || Transform.GetLocation().GetAbsMax() > 10000000.0) return false;
     const auto* Capsule = Player->GetCapsuleComponent();
     if (!Capsule || !Player->GetCharacterMovement()) return false;
-    const float Radius = Capsule->GetScaledCapsuleRadius();
-    const float HalfHeight = Capsule->GetScaledCapsuleHalfHeight();
+    bool StanceActive = false;
+    for (auto* Component : Player->GetComponents())
+        if (auto* Stance = Cast<ICoastalCharacterStance>(Component)) StanceActive |= Stance->IsStanceActive();
+    const auto* Standing = StanceActive ? Player->GetClass()->GetDefaultObject<ACharacter>()->GetCapsuleComponent() : Capsule;
+    const float Radius = Standing->GetUnscaledCapsuleRadius() * Capsule->GetShapeScale();
+    const float HalfHeight = Standing->GetUnscaledCapsuleHalfHeight() * Capsule->GetShapeScale();
     if (!FMath::IsFinite(Radius) || !FMath::IsFinite(HalfHeight) || Radius <= 0 || HalfHeight < Radius) return false;
     if (const auto* Recovery = Player->FindComponentByClass<UCoastalPlayerRecoveryComponent>())
         if (!Recovery->SettingsValid() || Recovery->BelowBoundary(Transform.GetLocation())) return false;
@@ -35,4 +40,22 @@ bool UCoastalPlacementLibrary::IsDryDestination(ACharacter* Player, FTransform T
         Bottom - FVector(0, 0, 100), ECC_Visibility, Params)) return false;
     return Floor.bBlockingHit && Floor.ImpactNormal.Z >= Player->GetCharacterMovement()->GetWalkableFloorZ()
         && (!Floor.GetActor() || !Floor.GetActor()->ActorHasTag(TEXT("Coastal.UnsafeCheckpoint")));
+}
+
+FTransform UCoastalPlacementLibrary::StanceSaveTransform(ACharacter* Character, const FTransform& DryFallback)
+{
+    for (auto* Component : Character->GetComponents())
+        if (auto* Stance = Cast<ICoastalCharacterStance>(Component); Stance && Stance->IsStanceActive())
+        {
+            const auto Standing = Stance->StandingSaveTransform();
+            return IsDryDestination(Character,Standing) ? Standing : DryFallback;
+        }
+    return Character->GetActorTransform();
+}
+
+void UCoastalPlacementLibrary::PrepareStandingPlacement(ACharacter* Character)
+{
+    for (auto* Component : Character->GetComponents())
+        if (auto* Stance = Cast<ICoastalCharacterStance>(Component); Stance && Stance->IsStanceActive())
+            Stance->PrepareStandingPlacement();
 }

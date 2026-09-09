@@ -73,6 +73,7 @@ bool UCoastalSaveCoordinator::ApplyNative(const FCoastalCampaignSnapshot& Saved,
     FTransform FinalDestination = Destination;
     if (!SafeDestination(FinalDestination)) FinalDestination = Saved.DryCheckpoint;
     if (!SafeDestination(FinalDestination)) { UE_LOG(LogTemp, Warning, TEXT("Coastal restore: restored world blocked both destinations")); return false; }
+    UCoastalPlacementLibrary::PrepareStandingPlacement(Player.Get());
     // UE's MoveComponent can return false when the requested change is below its
     // transform tolerance. A restore to the current, already validated placement
     // is successful without moving; real moves still require checked teleport.

@@ -1,0 +1,89 @@
+{
+  "status": "original_adaptation_reviewed_native59_passed_pie_accepted_art_polish_open",
+  "source_archive": "Pickupable&RotatableItems.zip",
+  "private_staging": {
+    "files": 257,
+    "expanded_bytes": 136017318,
+    "declared_engine": "UE5.6",
+    "enhanced_input_first_person_demo": "reviewed_and_rejected_for_transplant",
+    "payload_copied_into_host": false,
+    "source_recipe": "tools/unreal/import_m3_item_previews.py"
+  },
+  "adaptation": {
+    "authority": "existing AGIS inventory and Item Details UI",
+    "preview_owner": "UCoastalItemPreviewComponent on the local PlayerController",
+    "render_owner": "transient collision-free actor owned for preview rendering lifetime",
+    "validation": [
+      "fresh AGIS instance GUID",
+      "fresh container view revision",
+      "same GUID and revision before every rotation"
+    ],
+    "world_pickup_path": "existing Hyper interaction remains authoritative",
+    "persistent_schema_changes": false,
+    "free_floating_world_rotation": false
+  },
+  "assets": [
+    {
+      "item_id": "item.radio_battery",
+      "asset": "/Game/Coastal/M3/ItemPreview/SM_RadioBatteryPreview"
+    },
+    {
+      "item_id": "item.marine_fuse",
+      "asset": "/Game/Coastal/M3/ItemPreview/SM_MarineFusePreview"
+    }
+  ],
+  "materials": {
+    "count": 12,
+    "shading": "unlit",
+    "original_adaptation": true,
+    "vendor_meshes_used": false,
+    "cook_directory": "/Game/Coastal/M3/ItemPreview"
+  },
+  "controls": {
+    "keyboard": "W/A/S/D",
+    "gamepad": "right stick",
+    "buttons": ["rotate_left", "rotate_right", "rotate_up", "rotate_down"],
+    "yaw_step_degrees": 15,
+    "pitch_step_degrees": 15,
+    "pitch_range_degrees": [-70, 70]
+  },
+  "verification": {
+    "private_review": "passed",
+    "combined_native_build": "passed",
+    "build_evidence": "../local-evidence/m3-merchant-preview-build.execution.json",
+    "initial_nan_helper_failure": "../local-evidence/m3-merchant-preview-build-nan-failed.*",
+    "native_tests": "59 passed (58 clean, one known AGIS warning)",
+    "native_test_evidence": "../local-evidence/m3-ue58-native-report-20260909T081913Z",
+    "scripted_pie": "passed_53_assertions",
+    "pie_reports": [
+      "../local-evidence/m3-item-preview-flat-capture-failed.json",
+      "../local-evidence/m3-item-preview-register-reset-failed.json"
+    ],
+    "pie_pickup_authority_assertions": 8,
+    "pie_total_assertions": 53,
+    "pie_campaign": "coastal_test_m3_preview_0909j",
+    "pie_elapsed_seconds": 16.375,
+    "preexisting_saves_preserved": true,
+    "render_probe": "real battery captured while PlayerController remained hidden; probe only",
+    "render_probe_evidence": "../local-evidence/m3-item-preview-registered-flags.png",
+    "current_fix": "transient actor plus continuous capture while detail is open, fixed bias and bloom; final j passed",
+    "fix_build_evidence": "../local-evidence/m3-preview-persisted-flags-build.*",
+    "latest_pie_campaign": "coastal_test_m3_preview_0909j",
+    "attempt_history": {
+      "d": "failed_grid_too_sparse_despite_colored_art",
+      "e": "real_battery_and_controls_passed_guid_string_wrapper_issue_fixed_with_Guid.to_string",
+      "f": "battery_checks_passed_fuse_gray_center_rejected_by_old_palette_rule",
+      "g_h": "fuse_metal_end_on_view_dominated_sampled_pixels",
+      "i": "failed_harness_after_battery45deg_fuse90deg_palette_sampling",
+      "j": "passed_53_assertions_colored_battery_and_fuse_all_controls_and_cleanup"
+    },
+    "latest_pie_result": "passed_53_assertions",
+    "latest_capture": "colored_3d_battery_and_fuse_default_fuse_orientation_art_polish_open",
+    "capture_policy": "refresh_while_detail_open_even_paused; reject_white; rotate_battery45_fuse90; final_25_sample_palette_check",
+    "physical_device": "not_run",
+    "visual_art_review": "colored_3d_viewed; default fuse orientation art polish open",
+    "performance": "not_run",
+    "windows_package": "not_run"
+  },
+  "scope": "Transient inventory detail presentation only; no new pickup, inventory, save, preference, or campaign authority"
+}

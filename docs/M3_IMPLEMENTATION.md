@@ -1,3 +1,34 @@
+## Destination music/thunder checkpoint - September 9, 2026
+
+The independent UE5.8.2 host now integrates nine selected clips from seven music/
+thunder archives: seven destination scores and two distant thunder clips. One
+controller soundscape owner uses existing destination records and the campsite
+marker, two-second sequential score fades, boundary hysteresis, and actual overhead
+collision cover for thunder gain/low-pass. Music uses the existing Ambience channel
+(now labelled Music & ambience); thunder uses Effects. No campaign/preferences
+schema, inventory, quest or weather-simulation change is introduced.
+
+Native build and **56 native tests** pass. The fresh disposable
+`coastal_test_m3_soundscape_0909e` campaign passes **49 gameplay assertions**;
+all **seven mixer checks** pass. Music at 50% measures **0.4995 of baseline RMS**.
+Music, Effects and Master mute produce zero output in the relevant captures.
+The thunder sources retain 5.56/7.19 seconds of silent pre-roll; signal probes seek
+to eight seconds. Earlier harness/API and silent-intro capture reports are retained.
+These results are scripted gameplay/mixer evidence, not listening acceptance.
+
+All **82 pre-existing save files**, both host maps and project descriptors are
+SHA256-verified unchanged (86 files). The UE5.7 rollback host remains intact.
+Editor is outside PIE with 2,934 actors, no dirty packages, and normal background
+settings restored. Source changes remain uncommitted on `codex/m1-native-integration`;
+HEAD remains `f1f7ca8`. Purchased payloads and execution evidence remain private.
+
+Read [soundscape](M3_SOUNDSCAPE.md). Evidence is under `../local-evidence/m3-soundscape-*`:
+build, native tests, live gameplay, mixer output and preservation reports. Next work
+is merchant animation, isolated pickup/rotation integration, then fishing/combat
+audio. Five work archives remain unimported; Bonus Vol.01 is separately reserved
+for tonal review. Listening, art polish, physical controls, performance and Windows
+package acceptance remain open. Earlier checkpoints below are historical.
+
 ## Interaction/UI audio checkpoint — September 9, 2026
 
 The first ordered increment of the new asset batch is integrated in the independent

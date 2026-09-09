@@ -3,6 +3,7 @@
 #include "CoastalPanelWidget.h"
 #include "CoastalCampingActionComponent.h"
 #include "CoastalCompanionUI.h"
+#include "CoastalCharacterUI.h"
 #include "GameFramework/PlayerController.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "CoreGlobals.h"
@@ -24,6 +25,19 @@ void UCoastalUISessionComponent::Command(UCoastalPanelWidget* Sender, FName Id)
     FText Title, Body; TArray<FCoastalUIChoice> Choices; Present(Kind, Title, Body, Choices);
     if (Id != TEXT("back") && !Choices.ContainsByPredicate([Id](const auto& C) { return C.Command == Id && C.bEnabled; })) return;
     if (Id == TEXT("back")) { CloseTop(true); return; }
+    if (Kind == K::CharacterCreator || (Kind == K::Pause && Id == TEXT("character_creator")))
+    {
+        if (auto* Creator = FindCoastalCharacterCreator(IsValid(Bridge) ? Bridge->GetOwner() : nullptr))
+        {
+            if (Id == TEXT("character_creator"))
+            {
+                if (Creator->BeginCharacterEdit() && !Push(K::CharacterCreator)) Creator->EndCharacterEdit();
+            }
+            else Creator->CharacterCommand(Id);
+            bRefreshPending = true;
+        }
+        return;
+    }
     if ((Kind == K::Inventory || Kind == K::Storage) && Id.ToString().StartsWith(TEXT("select_item.")))
     { SelectInventoryItem(Id); return; }
     if (Kind == K::Journal && Id.ToString().StartsWith(TEXT("read_entry.")))
@@ -95,13 +109,12 @@ void UCoastalUISessionComponent::Command(UCoastalPanelWidget* Sender, FName Id)
     if (Id == TEXT("switch_side"))
     { bStorageSide = !bStorageSide; SelectedRow = -1; ReadViews(); bRefreshPending = true; return; }
     if (Id == TEXT("refresh_inventory")) { ReadViews(); bRefreshPending = true; return; }
-    if (Id == TEXT("inspect"))
+    if (Id == TEXT("inspect")) { InspectSelectedItem(); return; }
+    if (Kind == K::ItemDetails && Id.ToString().StartsWith(TEXT("rotate_")))
     {
-        if (!bViewsValid || !SelectedView().Items.IsValidIndex(SelectedRow)) return;
-        const auto& Item = SelectedView().Items[SelectedRow];
-        ItemDetail = FText::FromString(Item.DisplayName.ToString() + TEXT("\n\n") + Item.Description.ToString()
-            + FString::Printf(TEXT("\n\nQuantity: %d\nSize: %d x %d spaces"), Item.Quantity, Item.Size.X, Item.Size.Y));
-        Push(K::ItemDetails); return;
+        const float Yaw = Id == TEXT("rotate_left") ? -15.f : Id == TEXT("rotate_right") ? 15.f : 0.f;
+        const float Pitch = Id == TEXT("rotate_up") ? 15.f : Id == TEXT("rotate_down") ? -15.f : 0.f;
+        RotateItemPreview(Sender, Yaw, Pitch); return;
     }
     if (Id == TEXT("transfer")) { TransferSelected(false); return; }
     if (Id == TEXT("retry_transfer")) { TransferSelected(true); return; }

@@ -63,7 +63,8 @@
         "LICENSE.txt",
         "OGG/10_Menu_Ending_Credits/08_Credits_Roll.ogg"
       ],
-      "integration_status": "planned_not_imported"
+      "integration_status": "selected_subset_imported_scripted_pie_and_mixer_verified",
+      "selection_manifest": "data/m3_soundscape.json"
     },
     {
       "archive": "Fantasy UI Essentials - 100 SFX.zip",
@@ -95,7 +96,8 @@
       "documentation": [
         "README.txt"
       ],
-      "integration_status": "planned_not_imported"
+      "integration_status": "selected_subset_imported_scripted_pie_and_mixer_verified",
+      "selection_manifest": "data/m3_soundscape.json"
     },
     {
       "archive": "Fantasy_Workshop_Crafting_Music_100_Part_2.zip",
@@ -110,7 +112,8 @@
       "documentation": [
         "README.txt"
       ],
-      "integration_status": "planned_not_imported"
+      "integration_status": "selected_subset_imported_scripted_pie_and_mixer_verified",
+      "selection_manifest": "data/m3_soundscape.json"
     },
     {
       "archive": "Fantasy_Workshop_Crafting_Music_100_Part_3.zip",
@@ -125,7 +128,8 @@
       "documentation": [
         "README.txt"
       ],
-      "integration_status": "planned_not_imported"
+      "integration_status": "selected_subset_imported_scripted_pie_and_mixer_verified",
+      "selection_manifest": "data/m3_soundscape.json"
     },
     {
       "archive": "Fantasy_Workshop_Crafting_Music_100_Part_4.zip",
@@ -140,7 +144,8 @@
       "documentation": [
         "README.txt"
       ],
-      "integration_status": "planned_not_imported"
+      "integration_status": "selected_subset_imported_scripted_pie_and_mixer_verified",
+      "selection_manifest": "data/m3_soundscape.json"
     },
     {
       "archive": "Fishing_Minigame_SFX_120_Sounds.zip",
@@ -169,7 +174,8 @@
         ".wav": 6
       },
       "documentation": [],
-      "integration_status": "planned_not_imported"
+      "integration_status": "selected_subset_imported_scripted_pie_and_mixer_verified",
+      "selection_manifest": "data/m3_soundscape.json"
     },
     {
       "archive": "MerchantVendorAnim-V1.1.zip",
@@ -243,7 +249,8 @@
         ".csv": 1
       },
       "documentation": [],
-      "integration_status": "planned_not_imported"
+      "integration_status": "selected_subset_imported_scripted_pie_and_mixer_verified",
+      "selection_manifest": "data/m3_soundscape.json"
     }
   ],
   "compatibility_notes": {
@@ -253,15 +260,18 @@
   "current_checkpoint": {
     "date": "2026-09-09",
     "interaction_audio_clips": 10,
-    "native_tests_passed": 54,
-    "scripted_gameplay_assertions_passed": 69,
-    "mixer_gain_checks": "passed",
+    "interaction_audio_scripted_assertions_passed": 69,
+    "soundscape_clips": 9,
+    "soundscape_scripted_assertions_passed": 49,
+    "native_tests_passed": 56,
+    "python_tests_passed": 70,
+    "soundscape_mixer_checks_passed": 7,
     "listening_acceptance": "not_run",
     "remaining_order": [
-      "music_and_thunder",
       "merchant_animations",
       "item_inspection_rotation",
       "fishing_and_combat_audio"
-    ]
+    ],
+    "reserved": "Candle Light Bonus Vol.01 tonal review"
   }
 }

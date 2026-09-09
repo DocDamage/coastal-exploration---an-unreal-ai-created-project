@@ -4,6 +4,7 @@
 #include "CoastalLocalOptions.h"
 #include "CoastalCampingActionComponent.h"
 #include "CoastalCompanionUI.h"
+#include "CoastalCharacterUI.h"
 
 void UCoastalUISessionComponent::Present(coastal::PanelKind Kind, FText& Title, FText& Body,
     TArray<FCoastalUIChoice>& Choices)
@@ -16,6 +17,13 @@ void UCoastalUISessionComponent::Present(coastal::PanelKind Kind, FText& Title, 
     FString Text;
     switch (Kind)
     {
+    case K::CharacterCreator:
+        Title = FText::FromString(TEXT("YOUR CHARACTER"));
+        if (auto* Creator = FindCoastalCharacterCreator(IsValid(Bridge) ? Bridge->GetOwner() : nullptr))
+            Creator->PresentCharacter(Body, Choices);
+        else Body = FText::FromString(TEXT("Character customization is unavailable."));
+        Add(TEXT("back"), TEXT("Back / discard unapplied changes"));
+        return;
     case K::Display: case K::ConfirmDisplay:
         PresentDisplay(Kind, Title, Body, Choices); return;
     case K::Settings:
@@ -36,6 +44,11 @@ void UCoastalUISessionComponent::Present(coastal::PanelKind Kind, FText& Title, 
         Title = FText::Format(NSLOCTEXT("CoastalUI", "PausedCampaign", "PAUSED | {0}"), CampaignTitle()); Text = Objective().ToString();
         Add(TEXT("back"), TEXT("Resume")); Add(TEXT("save"), TEXT("Save campaign now"), Ready && Active);
         Add(TEXT("journal"), TEXT("Journal")); Add(TEXT("inventory"), TEXT("Inventory"));
+        if (auto* Creator = FindCoastalCharacterCreator(IsValid(Bridge) ? Bridge->GetOwner() : nullptr))
+        {
+            Add(TEXT("character_creator"), TEXT("Customize character"), Active && Ready && Creator->CanEditCharacter());
+            if (!Creator->CanEditCharacter()) Text += TEXT("\n\n") + Creator->CharacterStatus().ToString();
+        }
         if (auto* Companion = FindCoastalCompanionCommands(GetWorld()))
         {
             Add(TEXT("companion_toggle"), Companion->IsCompanionFollowing()
@@ -70,7 +83,14 @@ void UCoastalUISessionComponent::Present(coastal::PanelKind Kind, FText& Title, 
     case K::Inventory: case K::Storage:
         PresentInventory(Kind == K::Storage, Title, Body, Choices); return;
     case K::ItemDetails:
-        Title = FText::FromString(TEXT("ITEM DETAILS")); Text = ItemDetail.ToString(); Add(TEXT("back"), TEXT("Back to selection")); break;
+        Title = FText::FromString(TEXT("ITEM DETAILS")); Text = ItemDetail.ToString();
+        if (ItemPreviewTexture())
+        {
+            Text += TEXT("\n\nRotate: W/A/S/D or right stick. These are provisional item models.");
+            Add(TEXT("rotate_left"), TEXT("Rotate left")); Add(TEXT("rotate_right"), TEXT("Rotate right"));
+            Add(TEXT("rotate_up"), TEXT("Tilt up")); Add(TEXT("rotate_down"), TEXT("Tilt down"));
+        }
+        Add(TEXT("back"), TEXT("Back to selection")); break;
     case K::ConfirmSession:
         Title = FText::FromString(TEXT("REPLACE THE LIVE SESSION?"));
         Text = TEXT("This will replace the current in-memory campaign. Unverified changes may be lost. Existing disk saves are not deleted.\nSelected set: ") + PendingSaveSet.ToString();

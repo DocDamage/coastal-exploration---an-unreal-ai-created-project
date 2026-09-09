@@ -1,3 +1,52 @@
+## Activity source checkpoint — September 9, 2026
+
+Development stopped at the user's request after the first crawl test. This is
+an incomplete implementation checkpoint, not full activity acceptance.
+
+- Latest editor build passes. Native61 passed before the final prone menu-input
+  guard; that final guard also builds but has not had a separate native rerun.
+- Grapple48, combat103 and camp-action40 passed before the prone changes.
+- Zipline ride29, obstruction20 and lifecycle26 passed before the prone changes;
+  fresh-session cable rendering was reviewed.
+- Fresh prone campaign creator18 passes. Crawl passes10 checks before failing
+  hand/ground contact; the generated mesh sits too low after native crouch.
+  Later crawl movement, obstruction, standing and save/reload cases did not run.
+- Shared save/placement and animation changes need the affected regressions
+  after fixing crawl alignment. Packaged acceptance and remaining activities
+  are still pending; see [the full checklist](docs/M3_ACTIVITY_EXPANSION.md).
+- Pre-commit Python70 and3841 structural checks pass. These do not establish
+  Unreal gameplay correctness. Private assets and execution evidence are not
+  included in Git.
+
+## Mutable creator and animation validation — September 9, 2026
+
+The native Mutable integration builds, and all 60 native tests pass (59 clean,
+one existing AGIS warning). Scripted PIE verifies exact body-type save/reload
+and discard, all 16 exposed parameter changes and hair regeneration/reload,
+and retargeted movement, jump, pickup, hit reaction and all camp/shelter actions.
+Evidence and the source/build/gameplay/package distinctions are recorded in
+[M3 character creator](docs/M3_CHARACTER_CREATOR.md). Later validation notes
+there supersede initial portrait exposure failures. Windows packaging,
+physical-device acceptance and exhaustive appearance art review are separate.
+
+The final combined `g` run passes all six gameplay suites: creator (18),
+actions (39), combat (16), variants (56), swimming (824 generated-character
+samples), and invalid-sidecar guards. All 111 pre-existing saves and both maps
+are unchanged. No dirty editor packages remain; background throttling is
+restored. Earlier weak action-motion checks are superseded by the registered
+root-node implementation and stronger live checks.
+
+## Current soundscape validation - September 9, 2026
+
+The independent UE5.8.2 soundscape build and all 56 native tests pass. The real PIE
+campaign passes 49 gameplay assertions; seven actual mixer checks pass, including
+Music/Effects/Master mute and 0.4995 RMS ratio at Music 50%. All 82 pre-existing
+saves, both host maps and project descriptors remain byte-identical. Source tests
+pass all 70 Python cases. See [soundscape](docs/M3_SOUNDSCAPE.md).
+
+Listening/tonal review, physical devices, performance and the Windows package are
+not passed by these scripted checks. Following sections retain earlier evidence.
+
 ## Current local validation — September 9, 2026
 
 The interaction/UI audio increment compiles in the independent Unreal 5.8.2 host.
@@ -116,3 +165,14 @@ The native display path is opt-in, Windows/non-editor, single-player, standard-s
 No trial explicitly saves engine preference fields. Session-only Keep leaves them untouched. Only explicit validated Keep-plus-save invokes the engine writer; that void API is reported as a request, not verified IO. It serializes other existing engine user settings too. Host-specific auto-save behavior remains an integration responsibility. No campaign file is removed or reset to recover a display configuration.
 
 Follow [M1.10 wiring](docs/M1_10_DISPLAY_WIRING.md), execute the [38 display cases](data/m1_10_display_acceptance.json) and all retained ledgers, then package the real Windows test room. Record exact versions, actual window/file behavior, screenshots and outcomes separately. Only the coherent launched campaign loop passes M1. See [What remains](docs/WHAT_REMAINS.md) for M2–M4.
+## Current M3 preview and combat source status - September 9, 2026
+
+The merchant/item-preview source build and 59 native tests pass (58 clean plus
+one known AGIS warning). Final preview PIE `j` passes 53 assertions in
+`coastal_test_m3_preview_0909j` in 16.375 seconds, with colored battery/fuse
+imagery, controls, stale-view refusal, cleanup, recovery, save/reload, and save
+preservation. Default fuse orientation art polish remains open.
+
+Combat source now compiles after the root `TObjectPtr` fix. It is not bound to
+imported assets and has no runtime, gameplay, physical-device, or package
+acceptance. Local execution evidence remains outside the repository.

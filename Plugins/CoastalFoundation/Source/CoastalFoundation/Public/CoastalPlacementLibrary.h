@@ -11,4 +11,6 @@ public:
     // Same M1 dry-room check used for startup and restore; not swimming/water recovery.
     UFUNCTION(BlueprintCallable, Category="Coastal|Integration")
     static bool IsDryDestination(ACharacter* Character, FTransform Transform);
+    static FTransform StanceSaveTransform(ACharacter* Character, const FTransform& DryFallback);
+    static void PrepareStandingPlacement(ACharacter* Character);
 };
